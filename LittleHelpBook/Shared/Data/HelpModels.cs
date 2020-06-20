@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using AirtableApiClient;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
-namespace EugeneFoodScene.Data
+namespace LittleHelpBook.Shared.Data
 {
 
     // Places, Categories, Cuisines, Delivery Services, Order Delivery Links

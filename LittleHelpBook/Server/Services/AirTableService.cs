@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using EugeneFoodScene.Data;
 using EugeneFoodScene.Services;
 using GoogleMapsComponents.Maps;
+using LittleHelpBook.Shared.Data;
 using Microsoft.Extensions.Configuration;
 
 namespace LittleHelpBook.Server.Services
