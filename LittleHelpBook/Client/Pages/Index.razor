@@ -1,7 +1,22 @@
 ﻿@page "/"
+@using LittleHelpBook.Shared.Data
+@inject HttpClient Http;
 
-<h1>Hello, world!</h1>
+<RadzenGrid AllowFiltering="true" 
+            FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
+            AllowPaging="true" PageSize="12"
+            AllowSorting="true" Data="@helpServices" TItem="Help" >
+    <Columns>
+        <RadzenGridColumn TItem="Help" Property="Name" Title="Service Name" />
+        <RadzenGridColumn TItem="Help" Property="Category" Title="Category" />
+    </Columns>
+</RadzenGrid>
+@code {
+    IEnumerable<Help> helpServices;
 
-Welcome to your new app.
+    protected override async Task OnInitializedAsync()
+    {
+        helpServices = await Http.GetFromJsonAsync<IEnumerable<Help>>("Help");
+    }
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+}

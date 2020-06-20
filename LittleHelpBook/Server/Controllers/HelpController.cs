@@ -16,13 +16,13 @@ namespace EugeneFoodScene.Server.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class HelpServicesController : ControllerBase
+    public class HelpController : ControllerBase
     {
      
-        private readonly ILogger<HelpServicesController> logger;
+        private readonly ILogger<HelpController> logger;
         private readonly AirTableService _airTableService;
 
-        public HelpServicesController(ILogger<HelpServicesController> logger, AirTableService airTableService)
+        public HelpController(ILogger<HelpController> logger, AirTableService airTableService)
         {
             this.logger = logger;
             _airTableService = airTableService;
