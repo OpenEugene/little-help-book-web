@@ -16,23 +16,23 @@ namespace EugeneFoodScene.Server.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class HelpController : ControllerBase
+    public class CategoryController : ControllerBase
     {
      
         private readonly ILogger<HelpController> logger;
         private readonly AirTableService _airTableService;
 
-        public HelpController(ILogger<HelpController> logger, AirTableService airTableService)
+        public CategoryController(ILogger<HelpController> logger, AirTableService airTableService)
         {
             this.logger = logger;
             _airTableService = airTableService;
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Help>> Get()
+        public async Task<IEnumerable<Category>> Get()
         {
 
-            var data = await _airTableService.GetHelpServicesPopulatedAsync();
+            var data = await _airTableService.GetCategoriesAsync();
 
             return data.ToArray();
 

@@ -1,4 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using Newtonsoft.Json;
 
 namespace LittleHelpBook.Shared.Data
 {
@@ -20,13 +23,17 @@ namespace LittleHelpBook.Shared.Data
     public class Help : IAirtable
     {
         public string Id { get; set; }
-        [JsonProperty("Service Name")]
         public string Name { get; set; }
-        [JsonProperty("Category")]
-        public string Category { get; set; }
+        [JsonProperty("Category")] public IEnumerable<string> Categories { get; set; }
+        public string CategoryName => CategoryList?.FirstOrDefault()?.Name;
+        public List<Category> CategoryList { get; set; } = new List<Category>();
+    }
+
+    public class Category : IAirtable
+    {
+        public string Id { get; set; }
+        public string Name { get; set; }
        
     }
 
-  
-    
 }
