@@ -1,0 +1,20 @@
+﻿
+@inject ClientCache cache
+
+<RadzenPanel class="flex-column">
+    <RadzenImage Path="images/bluebook.png" Style="height:3rem" />
+    <RadzenIcon Icon="room" />
+    <RadzenTextBox Placeholder="Search..." @bind-Value="@words" />
+    <RadzenButton Text="Search" Click="Search" />
+</RadzenPanel>
+
+
+@code {
+
+    string words;
+
+    public async void Search(EventArgs e)
+    {
+        await cache.Search(words);
+    }
+}

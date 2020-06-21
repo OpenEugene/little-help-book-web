@@ -1,0 +1,25 @@
+﻿
+@inherits ResizableCachedComponent
+
+@if (Cache?.FoundHelpServices == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <RadzenDataList WrapItems="true" AllowPaging="true" Data="@Cache.FoundHelpServices" TItem="Help" PageSize="12">
+        <Template Context="helpService">
+            <PlaceCard Help="helpService" />
+        </Template>
+    </RadzenDataList>
+
+}
+
+@code {
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Cache.GetFoundHelpServices();
+    }
+
+}

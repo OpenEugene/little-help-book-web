@@ -1,22 +1,19 @@
-﻿@page "/"
-@using LittleHelpBook.Shared.Data
-@inject HttpClient Http;
+﻿@page "/resources"
+@page "/"
 
-<RadzenGrid AllowFiltering="true" 
-            FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
-            AllowPaging="true" PageSize="12"
-            AllowSorting="true" Data="@helpServices" TItem="Help" >
-    <Columns>
-        <RadzenGridColumn TItem="Help" Property="Name" Title="Service Name" />
-        <RadzenGridColumn TItem="Help" Property="CategoryName" Title="Category" />
-    </Columns>
-</RadzenGrid>
+<div class="d-flex home-flex">
+    <RadzenFieldset Text="Filter" class="col-3 filter-section">
+        <CategoryFilter/>
+    </RadzenFieldset>
+    <RadzenFieldset Text="Help Services">
+        <HelpList/>
+    </RadzenFieldset>
+</div>
+
+
 @code {
-    IEnumerable<Help> helpServices;
 
-    protected override async Task OnInitializedAsync()
-    {
-        helpServices = await Http.GetFromJsonAsync<IEnumerable<Help>>("Help");
-    }
+
+   
 
 }

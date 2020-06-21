@@ -24,6 +24,11 @@ namespace LittleHelpBook.Shared.Data
     {
         public string Id { get; set; }
         public string Name { get; set; }
+        [JsonProperty("Phone Number")]
+        public string Phone { get; set; }
+        [JsonProperty("Physical Address")]
+        public string Address { get; set; }
+
         [JsonProperty("Category")] public IEnumerable<string> Categories { get; set; }
         public string CategoryName => CategoryList?.FirstOrDefault()?.Name;
         public List<Category> CategoryList { get; set; } = new List<Category>();

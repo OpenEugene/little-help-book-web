@@ -1,0 +1,49 @@
+﻿@using System;
+@using System.Collections.Generic;
+@using System.IO;
+@using System.Linq;
+@using System.Reflection;
+@using System.Text;
+@using System.Threading.Tasks;
+@using Ganss.XSS;
+@using Markdig;
+@using Microsoft.AspNetCore.Components;
+@inherits ComponentBase
+@inject IHtmlSanitizer HtmlSanitizer
+@inject HttpClient http
+
+@HtmlContent
+
+@code{
+
+    [Parameter]
+    public string Content {get; set; }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        HtmlContent = await ConvertStringToMarkupString(Content);
+    }
+
+    public MarkupString HtmlContent { get; private set; }
+
+    private async Task<MarkupString> ConvertStringToMarkupString(string value)
+    {
+        if (!string.IsNullOrWhiteSpace(value))
+        {
+            string fileName = $"/markdown/{value}";
+            string readValue = await http.GetStringAsync(fileName);
+
+            // Convert markdown string to HTML
+            var html = Markdig.Markdown.ToHtml(readValue,
+                new MarkdownPipelineBuilder().UseAdvancedExtensions().Build());
+
+            // Sanitize HTML before rendering
+            var sanitizedHtml = HtmlSanitizer.Sanitize(html);
+
+            // Return sanitized HTML as a MarkupString that Blazor can render
+            return new MarkupString(sanitizedHtml);
+        }
+
+        return new MarkupString();
+    }
+}
