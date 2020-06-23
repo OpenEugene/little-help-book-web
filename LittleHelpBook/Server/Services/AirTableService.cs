@@ -69,7 +69,15 @@ namespace LittleHelpBook.Server.Services
 
                     help.Categories = null; // remove from payload after hydration.
                 }
+                if (help.Subcategories != null)
+                {
+                    foreach (var id in help.Subcategories)
+                    {
+                        help.SubcategoryList.Add(await GetSubcategoryAsync(id));
+                    }
 
+                    help.Subcategories = null;
+                }
             }
             _helpServicesPop = helps.ToArray();
             return _helpServicesPop;

@@ -90,6 +90,7 @@ namespace LittleHelpBook.Client.Services
         {
             await Clear();
             await GetCategories();
+            await GetSubcategories();
         }
 
         public async Task<Help> GetHelp(string Id)
@@ -113,7 +114,7 @@ namespace LittleHelpBook.Client.Services
 
         public async Task FilterSubcategory(string[] selectedSubcategories)
         {
-            _selectedCategories = selectedSubcategories;
+            _selectedSubcategories = selectedSubcategories;
             await ApplyFilters();
         }
 
