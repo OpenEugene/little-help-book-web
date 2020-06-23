@@ -12,7 +12,7 @@ using GoogleMapsComponents.Maps;
 using LittleHelpBook.Server.Services;
 using LittleHelpBook.Shared.Data;
 
-namespace EugeneFoodScene.Server.Controllers
+namespace LittleHelpBook.Server.Controllers
 {
     [ApiController]
     [Route("[controller]")]

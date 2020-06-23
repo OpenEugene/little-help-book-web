@@ -16,6 +16,7 @@ namespace LittleHelpBook.Server.Services
         private IEnumerable<Help> _helpServicesPop;  // the higest level populated places list.
         private IEnumerable<Help> _helpServices;  // the higest level populated places list.
         private IEnumerable<Category> _categories;
+        private IEnumerable<Subcategory> _subcategories;
 
         public AirTableService(IConfiguration configuration) : base(configuration) {}
 
@@ -34,6 +35,18 @@ namespace LittleHelpBook.Server.Services
             _categories ??= await GetCategoriesAsync();
 
             return _categories.FirstOrDefault(c => c.Id == id);
+        }
+
+        public async Task<IEnumerable<Subcategory>> GetSubcategoriesAsync()
+        {
+            return _subcategories ??= await GetTableAsync<Subcategory>("Subcategories");
+        }
+
+        public async Task<Subcategory> GetSubcategoryAsync(string id)
+        {
+            _subcategories ??= await GetSubcategoriesAsync();
+
+            return _subcategories.FirstOrDefault(c => c.Id == id);
         }
 
         public async Task<IEnumerable<Help>> GetHelpServicesPopulatedAsync()
