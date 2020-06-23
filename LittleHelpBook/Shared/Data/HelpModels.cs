@@ -34,8 +34,8 @@ namespace LittleHelpBook.Shared.Data
         public string CategoryName => CategoryList?.FirstOrDefault()?.Name;
         public List<Category> CategoryList { get; set; } = new List<Category>();
         [JsonProperty("Subcategory")] public IEnumerable<string> Subcategory { get; set; }
-        public string SubcategoryName => SubCategoryList?.FirstOrDefault()?.Name;
-        public List<Subcategory> SubCategoryList { get; set; } = new List<Subcategory>();
+        public string SubcategoryName => SubcategoryList?.FirstOrDefault()?.Name;
+        public List<Subcategory> SubcategoryList { get; set; } = new List<Subcategory>();
 
     }
 

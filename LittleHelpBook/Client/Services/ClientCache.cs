@@ -21,10 +21,11 @@ namespace LittleHelpBook.Client.Services
 
         //lookups
         private IEnumerable<Category> _categories;
-      
+        private IEnumerable<Subcategory> _subcategories;
 
         // filters
         private string[] _selectedCategories;
+        private string[] _selectedSubcategories;
         private string _searchWords;
 
         private NotificationService _notificationService;
@@ -53,12 +54,16 @@ namespace LittleHelpBook.Client.Services
             set => SetField(ref _categories, value);
         }
 
+        public IEnumerable<Subcategory> Subcategories
+        {
+            get => _subcategories;
+            set => SetField(ref _subcategories, value);
+        }
 
         public async Task<IEnumerable<Help>> GetAllHelpServices()
         {
             return _allHelpServices ??= await Http.GetFromJsonAsync<IEnumerable<Help>>("Help");
         }
-
 
         public async Task<IEnumerable<Help>> GetFoundHelpServices()
         {
@@ -70,21 +75,21 @@ namespace LittleHelpBook.Client.Services
             return _categories ??= await Http.GetFromJsonAsync<IEnumerable<Category>>("Category");
         }
 
-      
+        public async Task<IEnumerable<Subcategory>> GetSubcategories()
+        {
+            return _subcategories ??= await Http.GetFromJsonAsync<IEnumerable<Subcategory>>("Subcategory");
+        }
+
         public async Task Clear()
         {
-           
             _categories = null;
-           
+            _subcategories = null;
             _searchWords = null;
-            
         }
         public async Task Reset()
         {
             await Clear();
-           
             await GetCategories();
-           
         }
 
         public async Task<Help> GetHelp(string Id)
@@ -100,15 +105,17 @@ namespace LittleHelpBook.Client.Services
             await ApplyFilters();
         }
 
-      
-
         public async Task FilterCategory(string[] selectedCategories)
         {
             _selectedCategories = selectedCategories;
             await ApplyFilters();
         }
 
-        
+        public async Task FilterSubcategory(string[] selectedSubcategories)
+        {
+            _selectedCategories = selectedSubcategories;
+            await ApplyFilters();
+        }
 
         private async Task ApplyFilters()
         {
@@ -124,6 +131,12 @@ namespace LittleHelpBook.Client.Services
                     select p;
             }
 
+            if (_selectedSubcategories?.Length > 0)
+            {
+                query = from p in query
+                        where p.SubcategoryList.Any(c => _selectedSubcategories.Contains(c.Id))
+                        select p;
+            }
 
             if (_searchWords != null)
             {
