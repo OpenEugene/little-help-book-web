@@ -3,8 +3,6 @@ kind: Deployment
 metadata:
   name: little-help-book-deployment
   namespace: little-help-book-prod
-  labels:
-    app: little-help-book
 spec:
   replicas: 1
   selector:
@@ -17,14 +15,14 @@ spec:
     spec:
       containers:
         - name: web-server
-          image: codegold79/little-help-book:0.1.1
+          image: mvpstudio/little-help-book:june23
           resources:
             limits:
-              cpu: 0.25
-              memory: 250Mi
+              cpu: 0.5
+              memory: 500Mi
             requests:
-              cpu: 0.25
-              memory: 250Mi
+              cpu: 0.5
+              memory: 500Mi
           ports:
             - containerPort: 8080
   strategy:
