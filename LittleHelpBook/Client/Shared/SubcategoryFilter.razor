@@ -1,6 +1,6 @@
 ﻿@inherits ResizableCachedComponent
 
-@if (Cache?.Categories == null)
+@if (Cache?.Subcategories == null)
 {
     <p><em>Loading...</em></p>
 }
@@ -10,7 +10,7 @@ else
         @if (IsMedium)
         {
             <RadzenDropDown AllowClear="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
-                            @bind-Value="_selectedSubcategories" class="filter-dropdown-mode" Multiple="true" Data="@Cache.Categories"
+                            @bind-Value="_selectedSubcategories" class="filter-dropdown-mode" Multiple="true" Data="@Cache.Subcategories"
                             TextProperty="Name" ValueProperty="Id" Change="Change" />
         }
         else
