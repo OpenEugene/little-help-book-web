@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using Newtonsoft.Json;
 
 namespace LittleHelpBook.Shared.Data
@@ -32,6 +33,10 @@ namespace LittleHelpBook.Shared.Data
         [JsonProperty("Category")] public IEnumerable<string> Categories { get; set; }
         public string CategoryName => CategoryList?.FirstOrDefault()?.Name;
         public List<Category> CategoryList { get; set; } = new List<Category>();
+        [JsonProperty("Subcategory")] public IEnumerable<string> Subcategories { get; set; }
+        public string SubcategoryName => SubcategoryList?.FirstOrDefault()?.Name;
+        public List<Subcategory> SubcategoryList { get; set; } = new List<Subcategory>();
+
     }
 
     public class Category : IAirtable
@@ -41,4 +46,10 @@ namespace LittleHelpBook.Shared.Data
        
     }
 
+    public class Subcategory : IAirtable
+    {
+        public string Id { get; set; }
+        public string Name { get; set; }
+
+    }
 }

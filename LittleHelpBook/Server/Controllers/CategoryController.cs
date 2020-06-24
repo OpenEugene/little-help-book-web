@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
-using EugeneFoodScene.Services;
 using GoogleMapsComponents.Maps;
 using LittleHelpBook.Server.Services;
 using LittleHelpBook.Shared.Data;
 
-namespace EugeneFoodScene.Server.Controllers
+namespace LittleHelpBook.Server.Controllers
 {
     [ApiController]
     [Route("[controller]")]
