@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using AirtableApiClient;
@@ -10,32 +9,31 @@ using Microsoft.Extensions.Configuration;
 using GoogleMapsComponents.Maps;
 using LittleHelpBook.Server.Services;
 using LittleHelpBook.Shared.Data;
+using LittleHelpBook.Server.Controllers;
 
 namespace LittleHelpBook.Server.Controllers
 {
-    [ApiController]
     [Route("[controller]")]
-    public class HelpController : ControllerBase
+    [ApiController]
+    public class SubcategoryController : ControllerBase
     {
-     
         private readonly ILogger<HelpController> logger;
         private readonly AirTableService _airTableService;
 
-        public HelpController(ILogger<HelpController> logger, AirTableService airTableService)
+        public SubcategoryController(ILogger<HelpController> logger, AirTableService airTableService)
         {
             this.logger = logger;
             _airTableService = airTableService;
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Help>> Get()
+        public async Task<IEnumerable<Subcategory>> Get()
         {
 
-            var data = await _airTableService.GetHelpServicesPopulatedAsync();
+            var data = await _airTableService.GetSubcategoriesAsync();
 
             return data.ToArray();
 
         }
-
     }
 }
