@@ -1,0 +1,36 @@
+#main-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+
+  .navigation-item {
+    background-color: $color-secondary;
+    border-radius: 10px; 
+    margin: 0 1rem;
+    transition: all .2s ease;
+
+    &-wrapper {
+      padding: 0;
+    }
+
+    &:hover {
+      background-color: $color-secondary--dark;
+      transform: scale(1.1);
+      box-shadow: $shadow-sm;
+    }
+    
+    &-link {
+      font-size: 1.2rem;
+      height: 100%;
+      width: 100%;
+      color: $color-black;
+      padding: .5rem 2rem;
+      cursor: pointer;
+
+      &:hover {
+        color: $color-white;
+      }
+    }
+  } 
+}

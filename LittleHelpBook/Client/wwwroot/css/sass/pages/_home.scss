@@ -1,0 +1,43 @@
+//    FILTER SECTION
+
+.filter-section {
+  min-width: auto;
+}
+
+
+//    HELP SERVICES SECTION
+
+#ui-fieldset-0-content {
+
+  .card {
+    min-height: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    background-color: $color-secondary--light;
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    transition: all .2s ease;
+
+    .link {
+      color: $color-black;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    label {
+      color: $color-secondary--dark;
+    }
+
+    &:hover {
+      cursor: pointer;
+      transform: translateY(-1rem);
+      box-shadow: $shadow;
+      border: 2px solid $color-white;
+    }
+  }
+}
