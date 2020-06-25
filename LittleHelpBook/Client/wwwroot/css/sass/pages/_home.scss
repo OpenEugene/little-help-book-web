@@ -2,6 +2,7 @@
 
 .filter-section {
   min-width: auto;
+  order: 2;
 }
 
 
@@ -11,6 +12,7 @@
 
   .card {
     min-height: 10rem;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
