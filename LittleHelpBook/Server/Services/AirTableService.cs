@@ -5,6 +5,7 @@ using GoogleMapsComponents.Maps;
 using LittleHelpBook.Services;
 using LittleHelpBook.Shared.Data;
 using Microsoft.Extensions.Configuration;
+using Place = LittleHelpBook.Shared.Data.Place;
 
 namespace LittleHelpBook.Server.Services
 {
@@ -13,16 +14,16 @@ namespace LittleHelpBook.Server.Services
     /// </summary>
     public class AirTableService : AirTableBase
     {
-        private IEnumerable<Help> _helpServicesPop;  // the higest level populated places list.
-        private IEnumerable<Help> _helpServices;  // the higest level populated places list.
+        private IEnumerable<Place> _placesPop;  // the highest level populated places list.
+        private IEnumerable<Place> _places;  
         private IEnumerable<Category> _categories;
         private IEnumerable<Subcategory> _subcategories;
 
         public AirTableService(IConfiguration configuration) : base(configuration) {}
 
-        public async Task<IEnumerable<Help>> GetHelpServicesAsync()
+        public async Task<IEnumerable<Place>> GetPlacesAsync()
         {
-            return _helpServices ??= await GetTableAsync<Help>("Help Services");
+            return _places ??= await GetTableAsync<Place>("Help Services");
         }
 
         public async Task<IEnumerable<Category>> GetCategoriesAsync()
@@ -49,38 +50,38 @@ namespace LittleHelpBook.Server.Services
             return _subcategories.FirstOrDefault(c => c.Id == id);
         }
 
-        public async Task<IEnumerable<Help>> GetHelpServicesPopulatedAsync()
+        public async Task<IEnumerable<Place>> GetPlacesPopulatedAsync()
         {
-            if (_helpServicesPop != null)
+            if (_placesPop != null)
             {
-                return _helpServicesPop;
+                return _placesPop;
             }
-            var helps = await GetHelpServicesAsync();
+            var places = await GetPlacesAsync();
 
             // populate lookups
-            foreach (var help in helps)
+            foreach (var place in places)
             {
-                if (help.Categories != null)
+                if (place.Categories != null)
                 {
-                    foreach (var id in help.Categories)
+                    foreach (var id in place.Categories)
                     {
-                        help.CategoryList.Add(await GetCategoryAsync(id));
+                        place.CategoryList.Add(await GetCategoryAsync(id));
                     }
 
-                    help.Categories = null; // remove from payload after hydration.
+                    place.Categories = null; // remove from payload after hydration.
                 }
-                if (help.Subcategories != null)
+                if (place.Subcategories != null)
                 {
-                    foreach (var id in help.Subcategories)
+                    foreach (var id in place.Subcategories)
                     {
-                        help.SubcategoryList.Add(await GetSubcategoryAsync(id));
+                        place.SubcategoryList.Add(await GetSubcategoryAsync(id));
                     }
 
-                    help.Subcategories = null;
+                    place.Subcategories = null;
                 }
             }
-            _helpServicesPop = helps.ToArray();
-            return _helpServicesPop;
+            _placesPop = places.ToArray();
+            return _placesPop;
 
         }
 

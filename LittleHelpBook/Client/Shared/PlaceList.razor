@@ -1,0 +1,29 @@
+﻿
+@inherits ResizableCachedComponent
+
+@if (Cache?.FoundPlaces == null)
+{
+    <RadzenCard style="width: 100%" >
+        <i>Loading...</i>
+    </RadzenCard>
+   
+}
+else
+{
+    <RadzenDataList WrapItems="true" AllowPaging="true" Data="@Cache.FoundPlaces" TItem="Place" PageSize="12">
+        <Template Context="place">
+            <PlaceCard Place="place" />
+        </Template>
+    </RadzenDataList>
+
+}
+
+@code {
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Cache.GetFoundPlaces();
+    }
+
+}

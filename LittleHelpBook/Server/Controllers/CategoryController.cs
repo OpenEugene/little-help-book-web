@@ -18,10 +18,10 @@ namespace LittleHelpBook.Server.Controllers
     public class CategoryController : ControllerBase
     {
      
-        private readonly ILogger<HelpController> logger;
+        private readonly ILogger<PlaceController> logger;
         private readonly AirTableService _airTableService;
 
-        public CategoryController(ILogger<HelpController> logger, AirTableService airTableService)
+        public CategoryController(ILogger<PlaceController> logger, AirTableService airTableService)
         {
             this.logger = logger;
             _airTableService = airTableService;

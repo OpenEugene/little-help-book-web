@@ -1,0 +1,56 @@
+﻿@page "/place/{Id}"
+@inject ClientCache cache
+@inject NavigationManager navManager
+@inject IJSRuntime JSRuntime;
+
+@if (place == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <RadzenFieldset>
+        <HeaderTemplate>
+            <span>
+                <b style="font-size:x-large">@place.CategoryList.FirstOrDefault()?.Name &nbsp; @place.SubcategoryList.FirstOrDefault()?.Name</b>
+            </span>
+        </HeaderTemplate>
+        <ChildContent>
+            <div class="contain">
+                <h1>@place.Name</h1>
+                <h3>@place.Address</h3>
+                <h2>@place.Hours</h2>
+            </div>
+            <RadzenFieldset Text="Description">
+                <b>@place.Description</b>
+            </RadzenFieldset>
+        </ChildContent>
+    </RadzenFieldset>
+}
+
+@code {
+
+    [Parameter]
+    public string Id { get; set; }
+
+    private Place place;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        place = await cache.GetPlace(Id);
+    }
+
+    public void WebClick(EventArgs e)
+    {
+        JSRuntime.InvokeAsync<object>("open", place.URL, "_blank");
+    }
+
+    public void PhoneClick(EventArgs e)
+    {
+        JSRuntime.InvokeAsync<object>("open", $"tel:{place.Phone}", "_blank");
+    }
+
+  
+
+}

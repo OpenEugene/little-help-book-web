@@ -21,7 +21,7 @@ namespace LittleHelpBook.Shared.Data
     /// <summary>
     /// Name, Category, Phone, URL, Address, Notes, Order Delivery Links, Menu,
     /// </summary>
-    public class Help : IAirtable
+    public class Place : IAirtable
     {
         public string Id { get; set; }
         public string Name { get; set; }
@@ -37,6 +37,16 @@ namespace LittleHelpBook.Shared.Data
         public string SubcategoryName => SubcategoryList?.FirstOrDefault()?.Name;
         public List<Subcategory> SubcategoryList { get; set; } = new List<Subcategory>();
 
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
+        [JsonProperty("Web Address")]
+        public string URL { get; set; }
+        [JsonProperty("Email Address")]
+        public string Email { get; set; }
+        [JsonProperty("Hours of Operation")]
+        public string Hours { get; set; }
+
+        public string Description { get; set; }
     }
 
     public class Category : IAirtable

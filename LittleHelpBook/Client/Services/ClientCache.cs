@@ -10,14 +10,15 @@ using System.Threading.Tasks;
 using GoogleMapsComponents.Maps;
 using LittleHelpBook.Shared.Data;
 using Radzen;
+using Place = LittleHelpBook.Shared.Data.Place;
 
 namespace LittleHelpBook.Client.Services
 {
     public class ClientCache : BaseCache
     {
         //places data
-        private IEnumerable<Help> _allHelpServices;
-        private IEnumerable<Help> _foundHelpServices;
+        private IEnumerable<Place> _allPlaces;
+        private IEnumerable<Place> _foundPlaces;
 
         //lookups
         private IEnumerable<Category> _categories;
@@ -36,16 +37,16 @@ namespace LittleHelpBook.Client.Services
             _notificationService = notificationService;
         }
 
-        public IEnumerable<Help> AllHelpServices
+        public IEnumerable<Place> AllPlaces
         {
-            get => _allHelpServices;
-            set => SetField(ref _allHelpServices, value);
+            get => _allPlaces;
+            set => SetField(ref _allPlaces, value);
         }
 
-        public IEnumerable<Help> FoundHelpServices
+        public IEnumerable<Place> FoundPlaces
         {
-            get => _foundHelpServices;
-            set => SetField(ref _foundHelpServices, value);
+            get => _foundPlaces;
+            set => SetField(ref _foundPlaces, value);
         }
 
         public IEnumerable<Category> Categories
@@ -60,14 +61,15 @@ namespace LittleHelpBook.Client.Services
             set => SetField(ref _subcategories, value);
         }
 
-        public async Task<IEnumerable<Help>> GetAllHelpServices()
+        public async Task<IEnumerable<Place>> GetAllPlaces()
         {
-            return _allHelpServices ??= await Http.GetFromJsonAsync<IEnumerable<Help>>("Help");
+            return _allPlaces ??= await Http.GetFromJsonAsync<IEnumerable<Place>>("Place");
         }
 
-        public async Task<IEnumerable<Help>> GetFoundHelpServices()
+
+        public async Task<IEnumerable<Place>> GetFoundPlaces()
         {
-            return _foundHelpServices ??= await GetAllHelpServices();
+            return _foundPlaces ??= await GetAllPlaces();
         }
 
         public async Task<IEnumerable<Category>> GetCategories()
@@ -93,10 +95,10 @@ namespace LittleHelpBook.Client.Services
             await GetSubcategories();
         }
 
-        public async Task<Help> GetHelp(string Id)
+        public async Task<Place> GetPlace(string Id)
         {
-            await GetAllHelpServices();
-            var place = AllHelpServices.SingleOrDefault(p => p.Id == Id); ;
+            await GetAllPlaces();
+            var place = AllPlaces.SingleOrDefault(p => p.Id == Id); ;
             return place;
         }
 
@@ -120,9 +122,9 @@ namespace LittleHelpBook.Client.Services
 
         private async Task ApplyFilters()
         {
-            await GetAllHelpServices();
+            await GetAllPlaces();
 
-            var query = from p in AllHelpServices select p;
+            var query = from p in AllPlaces select p;
 
 
             if (_selectedCategories?.Length > 0)
@@ -155,7 +157,7 @@ namespace LittleHelpBook.Client.Services
                     Duration = 4000
                 };
                 _notificationService.Notify(msg);
-                FoundHelpServices = AllHelpServices;
+                FoundPlaces = AllPlaces;
             }
             else
             {
@@ -167,7 +169,7 @@ namespace LittleHelpBook.Client.Services
                     Duration = 4000
                 };
                 _notificationService.Notify(msg);
-                FoundHelpServices = list;
+                FoundPlaces = list;
             }
 
             OnCacheUpdated();

@@ -10,28 +10,29 @@ using Microsoft.Extensions.Configuration;
 using GoogleMapsComponents.Maps;
 using LittleHelpBook.Server.Services;
 using LittleHelpBook.Shared.Data;
+using Place = LittleHelpBook.Shared.Data.Place;
 
 namespace LittleHelpBook.Server.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class HelpController : ControllerBase
+    public class PlaceController : ControllerBase
     {
      
-        private readonly ILogger<HelpController> logger;
+        private readonly ILogger<PlaceController> logger;
         private readonly AirTableService _airTableService;
 
-        public HelpController(ILogger<HelpController> logger, AirTableService airTableService)
+        public PlaceController(ILogger<PlaceController> logger, AirTableService airTableService)
         {
             this.logger = logger;
             _airTableService = airTableService;
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Help>> Get()
+        public async Task<IEnumerable<Place>> Get()
         {
 
-            var data = await _airTableService.GetHelpServicesPopulatedAsync();
+            var data = await _airTableService.GetPlacesPopulatedAsync();
 
             return data.ToArray();
 

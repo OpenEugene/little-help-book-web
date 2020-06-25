@@ -17,10 +17,10 @@ namespace LittleHelpBook.Server.Controllers
     [ApiController]
     public class SubcategoryController : ControllerBase
     {
-        private readonly ILogger<HelpController> logger;
+        private readonly ILogger<SubcategoryController> logger;
         private readonly AirTableService _airTableService;
 
-        public SubcategoryController(ILogger<HelpController> logger, AirTableService airTableService)
+        public SubcategoryController(ILogger<SubcategoryController> logger, AirTableService airTableService)
         {
             this.logger = logger;
             _airTableService = airTableService;

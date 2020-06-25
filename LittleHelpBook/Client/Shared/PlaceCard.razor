@@ -2,19 +2,19 @@
 @inject NavigationManager navigationManager
 
     <RadzenCard @onclick="CardClicked">
-        <b><RadzenLink Text="@Help.Name" Path="@(Url)"></RadzenLink></b>
+        <b><RadzenLink Text="@Place.Name" Path="@(Url)"></RadzenLink></b>
         <RadzenLabel Text="Phone:"></RadzenLabel>
-        <b>@Help.Phone</b>
+        <b>@Place.Phone</b>
         <RadzenLabel Text="Address:"></RadzenLabel>
-        <b>@Help.Address</b>
+        <b>@Place.Address</b>
     </RadzenCard>
 
 @code {
 
     [Parameter]
-    public Help Help { get; set; }
+    public Place Place { get; set; }
 
-    private string Url => $"service/{Help.Id}";
+    private string Url => $"place/{Place.Id}";
 
     public void CardClicked(EventArgs e)
     {
