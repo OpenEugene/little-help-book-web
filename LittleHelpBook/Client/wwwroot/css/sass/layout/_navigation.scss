@@ -18,6 +18,7 @@
       background-color: $color-secondary--dark;
       transform: scale(1.1);
       box-shadow: $shadow-sm;
+      z-index: 2;
     }
     
     &-link {
@@ -33,4 +34,25 @@
       }
     }
   } 
+}
+
+//    NAVIGATION RESPONSIVE MEDIA QUERY
+
+@media(max-width: 992px) {
+  #main-nav {
+    max-width: 100%;
+
+    .navigation-item {
+      margin: .1rem;
+    }
+  }
+}
+
+@media(max-width: 768px) {
+  #main-nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 2rem;
+    text-align: center;
+  }
 }

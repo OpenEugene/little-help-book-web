@@ -23,8 +23,19 @@
     margin-bottom: 1.5rem;
     transition: all .2s ease;
 
+    b {
+      display: block;
+      text-align: center;
+    }
+
+
     .link {
       color: $color-black;
+
+      &-text{
+        display: block;
+        text-align: center;
+      }
 
       &:hover {
         text-decoration: none;
@@ -33,6 +44,10 @@
 
     label {
       color: $color-secondary--dark;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
 
     &:hover {
@@ -41,5 +56,17 @@
       box-shadow: $shadow;
       border: 2px solid $color-white;
     }
+  }
+}
+
+//    HOME RESPONSIVE MEDIA QUERY
+
+@media(max-width: 992px) {
+  .home-flex {
+    flex-direction: column-reverse;
+  }
+
+  .filter-dropdown-mode {
+    display: block;
   }
 }
