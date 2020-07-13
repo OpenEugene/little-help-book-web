@@ -8,7 +8,7 @@ With an online version we can make it easier for providers to update and customi
 
 White Bird created a short video to introduce their work and how we can help: https://whitebirdclinic.org/white-birds-help-book-has-been-hacked/ 
 
-When this guide is accessible online, social service providers in other cities can more easily access and add to it. We can create the features that Alan talks about in the video, making it possible for people to update it, expanding the informtation about human and social service agencies locally and even beyond. With your help we can bring this resource to people who've never had access to this information. White Bird provided us with a list of their primary project goals:
+When this guide is accessible online, social service providers in other cities can more easily access and add to it. We can create the features that Alan talks about in the video, making it possible for people to update it, expanding the information about human and social service agencies locally and even beyond. With your help we can bring this resource to people who've never had access to this information. White Bird provided us with a list of their primary project goals:
 
 - **Accessibility:** Having a mobile-phone friendly app/website based on the local, in-depth information of the HELP book will facilitate access to critical human services information.
 - **Update-ability:** Information changes frequently and we want to make it easy for staff to make edits, also see the date that an entry was last updated. Would also like to have the ability to display or hide agency information. For example, some places are closed now but we will want them listed again after they re-open.
