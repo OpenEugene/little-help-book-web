@@ -1,4 +1,4 @@
-h1, h2, h3 {
+.h123-reset {
   margin: 0;
   padding: 0;
 }
@@ -9,49 +9,49 @@ h1, h2, h3 {
   padding: 1.5em 0 2.5em 0;
 }
 .little-help-book-title {
-font-family: Muli, sans-serif;
-font-style: normal;
-font-weight: normal;
-font-size: 1.75em;
-line-height: 1em;
-text-align: center;
-padding: 0 0 .3em 0;
+  font-family: Muli, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.75em;
+  line-height: 1em;
+  text-align: center;
+  padding: 0 0 .3em 0;
 }
 .clinic-name {
-font-family: Concert One, sans-serif;
-font-style: normal;
-font-weight: bold;
-font-size: 2em;
-line-height: 1em;
-text-align: center;
+  font-family: Concert One, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2em;
+  line-height: 1em;
+  text-align: center;
 }
 .lane-county {
-font-family: Muli, sans-serif;
-font-style: normal;
-font-weight: normal;
-font-size: 1.5em;
-line-height: 1em;
-text-align: center;
-padding: 0 0 .65em 0;
+  font-family: Muli, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.5em;
+  line-height: 1em;
+  text-align: center;
+  padding: 0 0 .65em 0;
 }
 .about {
-font-family: Muli, sans-serif;
-font-style: normal;
-font-weight: normal;
-font-size: 1em;
+  font-family: Muli, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1em;
 }
 .find-my-city {
-font-family: Muli, sans-serif;
-font-style: normal;
-font-weight: normal;
-font-size: 1em;
-line-height: .25em;
+  font-family: Muli, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1em;
+  line-height: .25em;
 }
 .location-container {
-padding: .5em 6em 0 0;
+  padding: .5em 6em 0 0;
 }
 .about-container {
-padding: .2em 0 0 6em;
+  padding: .2em 0 0 6em;
 }
 .emergency-container {
   display: flex;
@@ -96,6 +96,7 @@ padding: .2em 0 0 6em;
   font-family: sans-serif;
   font-weight: bold;
   padding: 0 0 .5em 0;
+  font-size: 1em;
 }
 .subcategory {
   font-size: .85em;
