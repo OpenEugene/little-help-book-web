@@ -2,6 +2,12 @@
   margin: 0;
   padding: 0;
 }
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
 
 .title-container {
   display: flex;
@@ -189,35 +195,62 @@ ul li {
     /* Probably needs size in <input> taken out to be changed dynamically across different screen widths */
   }
 
-  .title-container {
+  body {
     display: grid;
-    flex-grow: 1;
+    grid-template-columns: 1 fr;
+    grid-template-areas:
+    "header"
+    "contents"
+    "footer"
+    ;
+  }
+
+  .header {
+    grid-area: header;
+    display: grid;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .table-of-contents {
+    grid-area: contents;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px;
+  }
+
+  .footer {
+    grid-area: footer;
+  }
+
+  .title-container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    text-align: center;
   }
 
   .title-container div {
     padding: 0;
-    justify-content: center;
+    text-align: center;
   }
 
   .clinic-name {
     order: -1;
   }
 
-  .table-of-contents {
-    flex-wrap: nowrap;
-    padding: 0px;
-  }
-
-  ul {
-    margin: 0;
-  }
-
-  ul li {
-    border: none;
-    padding: 0px;
-  }
-
   .category {
-    width: 100vw;
+    flex-grow: 1;
+    width: 50%;
+  }
+
+  .category-name {
+    font-size: 1.7em;
+  }
+
+  li {
+    font-size: 1.5em;
+    display: none;
+    /* Need to add JavaScript event handling to unhide when parent category is clicked on */
   }
 }
