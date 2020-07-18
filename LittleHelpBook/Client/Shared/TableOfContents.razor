@@ -6,23 +6,16 @@
 }
 else
 {
-    foreach (var item in Cache.Categories)
+    foreach (var cat in Cache.Categories)
     {
-        if (IsMedium)
-        {
-           
-                <h2>@item.Name</h2>
-           
-        }
-        else
-        {
-                <h2>@item.Name</h2>
-           
-        }
+        <h2>@cat.Name</h2>
+        <ul>
+            @foreach (var sub in cat.SubcategoryList)
+            {
+            <li>@sub.Name</li>
+            }
+        </ul>
     }
-
-    <MediaQuery Media="@Breakpoints.MediumDown" @bind-Matches="IsMedium" />
-
 }
 
 @code {
