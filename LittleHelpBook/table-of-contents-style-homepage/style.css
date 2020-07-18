@@ -152,7 +152,7 @@
 }
 
 @media only screen and (max-width: 1195px) {
-  /* Want to make search bar the top*/
+  /* Want to make search bar the top*/  
   header {
     display: grid;
     grid-template-columns: 1fr 1fr;
