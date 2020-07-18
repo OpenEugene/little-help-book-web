@@ -241,5 +241,6 @@ ul li {
 
   li {
     font-size: 1.5em;
+    display: none;
   }
 }
