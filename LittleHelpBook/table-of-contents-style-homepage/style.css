@@ -155,7 +155,8 @@
 }
 
 ul {
-  padding: 0px;
+  padding: 0;
+  margin: 0;
 }
 
 ul li {
@@ -205,6 +206,10 @@ ul li {
   .table-of-contents {
     flex-wrap: nowrap;
     padding: 0px;
+  }
+
+  ul {
+    margin: 0;
   }
 
   ul li {
