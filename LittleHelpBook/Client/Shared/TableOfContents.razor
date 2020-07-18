@@ -1,0 +1,29 @@
+﻿@inherits ResizableCachedComponent
+
+@if (Cache?.Categories == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    foreach (var cat in Cache.Categories)
+    {
+        <h2>@cat.Name</h2>
+        <ul>
+            @foreach (var sub in cat.SubcategoryList)
+            {
+            <li>@sub.Name</li>
+            }
+        </ul>
+    }
+}
+
+@code {
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Cache.GetCategories();
+    }
+
+
+}

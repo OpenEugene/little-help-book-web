@@ -53,7 +53,11 @@ namespace LittleHelpBook.Shared.Data
     {
         public string Id { get; set; }
         public string Name { get; set; }
-       
+
+        [JsonProperty("Subcategories")]
+        public List<string> Subcategories { get; set; } = new List<string>();
+        public List<Subcategory> SubcategoryList { get; set; } = new List<Subcategory>();
+
     }
 
     public class Subcategory : IAirtable

@@ -41,7 +41,7 @@ namespace LittleHelpBook.Services
             }
         }
 
-        protected async Task<IEnumerable<T>> GetTableAsync<T>(string tableName) where T : IAirtable
+        protected async Task<List<T>> GetTableAsync<T>(string tableName) where T : IAirtable
         {
             var table = new List<AirtableRecord<T>>();
             string offset = null;
@@ -108,7 +108,7 @@ namespace LittleHelpBook.Services
                 }
             }
 
-            return list.AsEnumerable();
+            return list;
         }
     }
 }

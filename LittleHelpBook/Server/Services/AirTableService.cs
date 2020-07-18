@@ -31,6 +31,28 @@ namespace LittleHelpBook.Server.Services
             return _categories ??= await GetTableAsync<Category>("Categories");
         }
 
+        public async Task<IEnumerable<Category>> GetCategoriesPopulatedAsync()
+        {
+            if (_categories != null)
+            {
+                return _categories;
+            }
+
+            _categories = await GetCategoriesAsync();
+            foreach (var cat in _categories)
+            {
+                if (cat.Subcategories != null)
+                {
+                    foreach (var id in cat.Subcategories)
+                    {
+                        cat.SubcategoryList.Add(await GetSubcategoryAsync(id));
+                    }
+                }
+            }
+
+            return _categories;
+        }
+
         public async Task<Category> GetCategoryAsync(string id)
         {
             _categories ??= await GetCategoriesAsync();
