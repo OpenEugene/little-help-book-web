@@ -154,9 +154,34 @@
 @media only screen and (max-width: 1195px) {
   /* Want to make search bar the top*/
   header {
-    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+      "search-bar search-bar"
+      "clinic book"
+      "location emergency-lines"
+    ;
   }
 
+  .search {
+    grid-area: search-bar;
+  }
+
+  .clinic-name {
+    grid-area: clinic;
+  }
+
+  .about-container {
+    grid-area: book;
+  }
+
+  .location-container {
+    grid-area: location;
+  }
+
+  .emergency-container {
+    grid-area: emergency-lines;
+  }
 
   .table-of-contents {
     height: 1600px;
