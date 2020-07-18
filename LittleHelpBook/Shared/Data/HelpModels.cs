@@ -25,6 +25,8 @@ namespace LittleHelpBook.Shared.Data
     {
         public string Id { get; set; }
         public string Name { get; set; }
+        [JsonProperty("Name-ES")]
+        public string NameSpanish { get; set; }
         [JsonProperty("Phone Number")]
         public string Phone { get; set; }
         [JsonProperty("Physical Address")]
@@ -53,13 +55,22 @@ namespace LittleHelpBook.Shared.Data
     {
         public string Id { get; set; }
         public string Name { get; set; }
-       
+        [JsonProperty("Name-ES")]
+        public string NameSpanish { get; set; }
+
+        [JsonProperty("Subcategories")]
+        public List<string> Subcategories { get; set; } = new List<string>();
+        public List<Subcategory> SubcategoryList { get; set; } = new List<Subcategory>();
+        public int Order { get; set; }
     }
 
     public class Subcategory : IAirtable
     {
         public string Id { get; set; }
         public string Name { get; set; }
+        [JsonProperty("Name-ES")]
+        public string NameSpanish { get; set; }
+        public int Order { get; set; }
 
     }
 }

@@ -31,9 +31,9 @@ namespace LittleHelpBook.Server.Controllers
         public async Task<IEnumerable<Category>> Get()
         {
 
-            var data = await _airTableService.GetCategoriesAsync();
+            var data = await _airTableService.GetCategoriesPopulatedAsync();
 
-            return data.ToArray();
+            return data.OrderBy(o=>o.Order).ToArray();
 
         }
 
