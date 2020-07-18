@@ -245,5 +245,6 @@ ul li {
   li {
     font-size: 1.5em;
     display: none;
+    /* Need to add JavaScript event handling to unhide when parent category is clicked on */
   }
 }
