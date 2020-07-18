@@ -192,8 +192,9 @@ ul li {
     /* Probably needs size in <input> taken out to be changed dynamically across different screen widths */
   }
 
-  html {
+  body {
     display: grid;
+    grid-template-columns: 1 fr;
     grid-template-areas:
     "header"
     "contents"
@@ -201,27 +202,33 @@ ul li {
     ;
   }
 
-  header {
+  .header {
     grid-area: header;
+    display: grid;
+    padding: 0;
+    justify-content: center;
   }
 
   .table-of-contents {
     grid-area: contents;
-    flex-wrap: nowrap;
+    display: grid;
+    /* flex-wrap: nowrap; */
+    padding: 0;
   }
 
-  footer {
+  .footer {
     grid-area: footer;
   }
 
   .title-container {
     display: grid;
-    flex-grow: 1;
+    padding: 10px;
+    text-align: center;
   }
 
   .title-container div {
     padding: 0;
-    justify-content: center;
+    text-align: center;
   }
 
   .clinic-name {
@@ -230,5 +237,9 @@ ul li {
 
   .category {
     width: 100vw;
+  }
+
+  li {
+    font-size: 1.5em;
   }
 }
