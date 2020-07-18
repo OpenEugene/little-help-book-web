@@ -2,12 +2,14 @@
   margin: 0;
   padding: 0;
 }
+
 .title-container {
   display: flex;
   justify-content: space-between;
   align-items: top;
   padding: 1.5em 0 2.5em 0;
 }
+
 .little-help-book-title {
   font-family: Muli, sans-serif;
   font-style: normal;
@@ -71,6 +73,7 @@
   padding: .5em 1em;
   border-radius: 10px;
   border: none;
+  order: 2;
 }
 .search {
   display: flex;
@@ -149,4 +152,24 @@
 }
 .footer-url {
   color: blue;
+}
+
+/* tablet */
+@media only screen and (max-width: 1195px) {
+  .header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .search {
+    order: 1;
+  }
+
+  .title-container {
+    order: 2;
+  }
+
+  .emergency-container {
+    order: 3;
+  }
 }
