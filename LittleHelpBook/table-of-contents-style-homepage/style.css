@@ -215,8 +215,8 @@ ul li {
   .table-of-contents {
     grid-area: contents;
     display: grid;
-    /* flex-wrap: nowrap; */
-    padding: 0;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px;
   }
 
   .footer {
@@ -224,7 +224,8 @@ ul li {
   }
 
   .title-container {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     padding: 10px;
     text-align: center;
   }
@@ -239,7 +240,12 @@ ul li {
   }
 
   .category {
-    width: 100vw;
+    flex-grow: 1;
+    width: 50%;
+  }
+
+  .category-name {
+    font-size: 1.7em;
   }
 
   li {
