@@ -189,6 +189,28 @@ ul li {
     /* Probably needs size in <input> taken out to be changed dynamically across different screen widths */
   }
 
+  html {
+    display: grid;
+    grid-template-areas:
+    "header"
+    "contents"
+    "footer"
+    ;
+  }
+
+  header {
+    grid-area: header;
+  }
+
+  .table-of-contents {
+    grid-area: contents;
+    flex-wrap: nowrap;
+  }
+
+  footer {
+    grid-area: footer;
+  }
+
   .title-container {
     display: grid;
     flex-grow: 1;
@@ -201,20 +223,6 @@ ul li {
 
   .clinic-name {
     order: -1;
-  }
-
-  .table-of-contents {
-    flex-wrap: nowrap;
-    padding: 0px;
-  }
-
-  ul {
-    margin: 0;
-  }
-
-  ul li {
-    border: none;
-    padding: 0px;
   }
 
   .category {
