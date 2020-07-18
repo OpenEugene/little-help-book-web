@@ -154,6 +154,14 @@
   color: blue;
 }
 
+ul {
+  padding: 0px;
+}
+
+ul li {
+  list-style: none;
+}
+
 /* tablet */
 @media only screen and (max-width: 1195px) {
   .header {
@@ -171,5 +179,40 @@
 
   .emergency-container {
     order: 3;
+  }
+}
+
+/* Mobile */
+@media only screen and (max-width: 800px) {
+  .search {
+    /* Probably needs size in <input> taken out to be changed dynamically across different screen widths */
+  }
+
+  .title-container {
+    display: grid;
+    flex-grow: 1;
+  }
+
+  .title-container div {
+    padding: 0;
+    justify-content: center;
+  }
+
+  .clinic-name {
+    order: -1;
+  }
+
+  .table-of-contents {
+    flex-wrap: nowrap;
+    padding: 0px;
+  }
+
+  ul li {
+    border: none;
+    padding: 0px;
+  }
+
+  .category {
+    width: 100vw;
   }
 }
