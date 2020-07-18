@@ -183,7 +183,7 @@ ul li {
 }
 
 /* Mobile */
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 500px) {
   .search {
     /* Probably needs size in <input> taken out to be changed dynamically across different screen widths */
   }
