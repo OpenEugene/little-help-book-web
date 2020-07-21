@@ -7,9 +7,17 @@ a {
   color: blue;
 }
 a:hover {
-  text-decoration: underline;
+  padding: 1em 0;
+  color: #bf3fbf;
 }
-
+/* Arthur here, I tried to make the gray background on the category name go transparent when a cursor hovers over, and haven't yet figured this out. Please advise. Begin hover experiment styles: */
+.category-name a:hover{
+  background-color: transparent;
+}
+a.category:hover{
+  background-color: transparent;
+/* End hover experiment styles. */
+}
 .title-container {
   display: flex;
   justify-content: space-between;
