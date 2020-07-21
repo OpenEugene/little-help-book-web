@@ -175,5 +175,17 @@ namespace LittleHelpBook.Client.Services
             OnCacheUpdated();
         }
 
+        public async Task<List<Place>> GetPlacesBySub(string id)
+        {
+            await GetAllPlaces();
+            var list = AllPlaces.Where(p => p.SubcategoryList.Any(sc=>sc.Id==id)).ToList();
+            return list;
+        }
+        public async Task<List<Place>> GetPlacesByCat(string id)
+        {
+            await GetAllPlaces();
+            var list = AllPlaces.Where(p => p.CategoryList.Any(sc => sc.Id == id)).ToList();
+            return list;
+        }
     }
 }
