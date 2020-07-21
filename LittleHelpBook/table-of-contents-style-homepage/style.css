@@ -77,8 +77,9 @@ a:hover {
   background-color: black;
   color: white;
   font-weight: bold;
+  font-size: 1.5em;
   padding: .5em 1em;
-  border-radius: 10px;
+  border-radius: 22px;
   border: none;
   order: 2;
 }
