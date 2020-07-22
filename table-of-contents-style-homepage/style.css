@@ -180,6 +180,17 @@ ul li {
   list-style: none;
 }
 
+/* Desktop */
+/* Hide Are you in Crisis? and text "If you are in crisis ..." */
+@media only screen and (min-width: 1195px) {
+ .are-you-in-crisis {
+   display: none;
+ }
+ .if-crisis {
+   display: none;
+ }
+}
+
 /* tablet */
 @media only screen and (max-width: 1195px) {
   .header {
