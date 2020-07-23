@@ -179,6 +179,7 @@ a:hover {
   font-weight: normal;
   font-size: 1.5em;
   margin: 1em 0 0 0;
+  white-space: nowrap;
 }
 
 .if-crisis {
@@ -267,7 +268,6 @@ a:hover {
   }
 
   .are-you-in-crisis {
-    display: grid;
     grid-row: 4;
     grid-column-start: 1;
     grid-column-end: 4;
@@ -275,14 +275,16 @@ a:hover {
 
   .emergency-container {
     grid-row: 4;
-    grid-column-start: 2;
-    grid-column-end: 4;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    text-align: left;
   }
 
   .clinic-name {
     grid-row: 2;
-    grid-column-start: 3;
-    grid-column-end: 4;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    text-align: left;
   }
 
   .little-help-book-title {
@@ -296,9 +298,10 @@ a:hover {
   }
 
   .lane-county {
-    grid-row: 5;
+    grid-row: 4;
     grid-column-start: 1;
     grid-column-end: 2;
+    padding: 2.5rem 0 0 6rem;
   }
 
   .find-my-city {
@@ -315,13 +318,14 @@ a:hover {
   }
 
   .table-of-contents {
+    display: grid;
     grid-row: 6;
     grid-column-start: 1;
     grid-column-end: 6;
   }
 
   .table-of-contents {
-    height: 1660px;
+    height: 100vh;
     display: flex;
     flex-flow: column wrap;
     padding: 3.5rem 6rem 0 6rem;
