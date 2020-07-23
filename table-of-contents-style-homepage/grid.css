@@ -63,6 +63,7 @@ a:hover {
   line-height: 1rem;
   vertical-align: baseline;
   text-align: center;
+  white-space: nowrap;
   padding: 2.5rem 0;
 }
 
@@ -256,7 +257,7 @@ a:hover {
   .grid-container {
     display: grid;
     grid-template-columns: 6em 1fr 1fr 1fr 6em;
-    grid-template-rows: 40px 40px 40px 30px 30px 550px 30px;
+    grid-template-rows: 70px 20px 40px 50px 30px 550px 30px;
   }
 
   .search {
@@ -280,6 +281,8 @@ a:hover {
 
   .clinic-name {
     grid-row: 2;
+    grid-column-start: 3;
+    grid-column-end: 4;
   }
 
   .little-help-book-title {
