@@ -38,6 +38,7 @@ a:hover {
   line-height: 1rem;
   vertical-align: baseline;
   padding: 2.5rem 0 0 6rem;
+  white-space: nowrap;
 }
 
 .about {
@@ -99,6 +100,7 @@ a:hover {
   line-height: 1rem;
   vertical-align: baseline;
   padding: 2.5rem 0;
+  white-space: nowrap;
 }
 
 .find-my-city {
