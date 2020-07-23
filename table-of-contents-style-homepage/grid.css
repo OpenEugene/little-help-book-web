@@ -250,6 +250,8 @@ a:hover {
 
   .table-of-contents {
     height: 830px;
+    display: flex;
+    flex-flow: column wrap;
   }
 }
 
@@ -302,12 +304,15 @@ a:hover {
     grid-column-start: 1;
     grid-column-end: 2;
     padding: 2.5rem 0 0 6rem;
+    margin: -.6rem 0;
+    font-size: 1.25rem;
   }
 
   .find-my-city {
     grid-row: 5;
     grid-column-start: 2;
     grid-column-end: 3;
+    color: blue;
   }
 
   /* .body {
@@ -325,7 +330,7 @@ a:hover {
   }
 
   .table-of-contents {
-    height: 100vh;
+    height: 62vh;
     display: flex;
     flex-flow: column wrap;
     padding: 3.5rem 6rem 0 6rem;
@@ -341,6 +346,19 @@ a:hover {
         width: 30%;
     } */
 }
+/* NOTE: This is a transition for the browser window between Tablet size and Mobile. */
+@media screen and (max-width: 684px) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: 6em 1fr 1fr 1fr 6em;
+    grid-template-rows: 70px 20px 40px 50px 30px 550px 30px;
+  }
+  .table-of-contents {
+    height: 12vh;
+    display: flex;
+    flex-flow: column wrap;
+    padding: 3.5rem 6rem 0 6rem;
+  }
 
 /* Mobile: if device width is less than or equal to 640px, then apply this style. */
 @media screen and (max-width: 640px) {
@@ -356,11 +374,24 @@ a:hover {
     grid-column-end: 3;
   }
 
-  .are-you-in-crisis {
+  /* .are-you-in-crisis {
+    display: grid;
     grid-row: 2;
     grid-column-start: 1;
     grid-column-end: 3;
-  }
+  } */
+.are-you-in-crisis {
+  display: grid;
+  grid-row: 2;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  font-family: Muli, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.5em;
+  margin: 1em 0 0 0;
+  white-space: nowrap;
+}
 
   .emergency-container {
     grid-row: 3;
