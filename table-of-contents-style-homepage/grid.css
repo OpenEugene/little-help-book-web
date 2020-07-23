@@ -346,8 +346,8 @@ a:hover {
         width: 30%;
     } */
 }
-/* NOTE: This is a transition for the browser window between Tablet size and Mobile. */
-@media screen and (max-width: 684px) {
+/* NOTE: The following style is an attempt at a smoother transition for the browser window between Tablet size and Mobile. But it's just the idea stage and not totally necessary. */
+/* @media screen and (max-width: 684px) {
   .grid-container {
     display: grid;
     grid-template-columns: 6em 1fr 1fr 1fr 6em;
@@ -358,14 +358,14 @@ a:hover {
     display: flex;
     flex-flow: column wrap;
     padding: 3.5rem 6rem 0 6rem;
-  }
+  } */
 
 /* Mobile: if device width is less than or equal to 640px, then apply this style. */
 @media screen and (max-width: 640px) {
   .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 40px 30px 30px 30px 30px 550px 30px;
+    grid-template-rows: 40px 40px 30px 65px 30px 550px 30px;
   }
 
   .search {
@@ -374,13 +374,13 @@ a:hover {
     grid-column-end: 3;
   }
 
-  /* .are-you-in-crisis {
-    display: grid;
+  .are-you-in-crisis {
+    /* display: grid; */
     grid-row: 2;
     grid-column-start: 1;
     grid-column-end: 3;
-  } */
-.are-you-in-crisis {
+  }
+/* .are-you-in-crisis {
   display: grid;
   grid-row: 2;
   grid-column-start: 1;
@@ -391,7 +391,7 @@ a:hover {
   font-size: 1.5em;
   margin: 1em 0 0 0;
   white-space: nowrap;
-}
+} */
 
   .emergency-container {
     grid-row: 3;
@@ -407,6 +407,8 @@ a:hover {
     grid-row: 4;
     grid-column-start: 1;
     grid-column-end: 3;
+    padding: 3.5rem 0 0 6rem;
+    text-transform: uppercase;
   }
 
   .about {
@@ -417,20 +419,44 @@ a:hover {
     grid-row: 5;
     grid-column-start: 1;
     grid-column-end: 2;
+    font-size: 1rem;
   }
 
   .find-my-city {
     grid-row: 5;
     grid-column-start: 2;
     grid-column-end: 3;
+    padding: 2.3rem 0 0 .9rem;
   }
 
   .table-of-contents {
     grid-row: 6;
-    height: auto;
+    /* grid-column-start: 2;
+    grid-column-end: 3; */
+    height: 400vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3.5rem 6rem 0 6rem;
+  }
+
+  .category {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1em 1em 0;
+    width: 60vw;
+  }
+
+  .category-name {
+    display: flex;
+    align-items: center;
+  }
+
+  .community-sponsors {
+    display: none;
   }
 
   .footer {
-    grid-row: 7;
+    display: none;
   }
 }
