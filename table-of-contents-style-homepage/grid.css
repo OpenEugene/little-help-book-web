@@ -374,11 +374,24 @@ a:hover {
     grid-column-end: 3;
   }
 
-  .are-you-in-crisis {
+  /* .are-you-in-crisis {
+    display: grid;
     grid-row: 2;
     grid-column-start: 1;
     grid-column-end: 3;
-  }
+  } */
+.are-you-in-crisis {
+  display: grid;
+  grid-row: 2;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  font-family: Muli, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.5em;
+  margin: 1em 0 0 0;
+  white-space: nowrap;
+}
 
   .emergency-container {
     grid-row: 3;
