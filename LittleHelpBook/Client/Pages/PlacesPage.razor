@@ -1,4 +1,4 @@
-﻿@*@page "/places/cat/{CatId}"*@
+﻿@page "/places/cat/{CatId}"
 @page "/places/sub/{SubId}"
 @inject ClientCache cache
 @inject IJSRuntime JSRuntime;
@@ -26,19 +26,19 @@ else
     [Parameter]
     public string SubId { get; set; }
 
-    //[Parameter]
-    //public string CatId { get; set; }
+    [Parameter]
+    public string CatId { get; set; }
 
     private List<Place> places;
 
 
     protected override async Task OnInitializedAsync()
     {
-        //if (CatId?.Length>0)
-        //{
-        //    places = await cache.GetPlacesByCat(CatId);
-        //    return;
-        //}
+        if (CatId?.Length > 0)
+        {
+            places = await cache.GetPlacesByCat(CatId);
+            return;
+        }
         if (SubId?.Length>0)
         {
             places = await cache.GetPlacesBySub(SubId);
