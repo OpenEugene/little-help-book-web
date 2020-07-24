@@ -138,6 +138,7 @@ a:hover {
 }
 
 .table-of-contents {
+  display: grid;
   grid-row: 4;
   grid-column-start: 1;
   grid-column-end: 5;
@@ -179,7 +180,9 @@ a:hover {
   font-weight: normal;
   font-size: 1.5em;
   margin: 1em 0 0 0;
-  white-space: nowrap;
+  display: grid;
+  grid-template-columns: 300px;
+  grid-template-rows: 20px;
 }
 
 .if-crisis {
@@ -315,9 +318,6 @@ a:hover {
     color: blue;
   }
 
-  /* .body {
-        height: 1660px;
-      } */
   .subcategory {
     display: none;
   }
@@ -333,18 +333,17 @@ a:hover {
     height: 62vh;
     display: flex;
     flex-flow: column wrap;
-    padding: 3.5rem 6rem 0 6rem;
+    padding: 2rem 6rem 0 6rem;
+  }
+
+  .community-sponsors {
+    display: none;
   }
 
   .footer {
     grid-row: 7;
   }
 
-  /* .category {
-        display: flex;
-        flex-flow: column wrap;
-        width: 30%;
-    } */
 }
 /* NOTE: The following style is an attempt at a smoother transition for the browser window between Tablet size and Mobile. But it's just the idea stage and not totally necessary. */
 /* @media screen and (max-width: 684px) {
@@ -380,18 +379,6 @@ a:hover {
     grid-column-start: 1;
     grid-column-end: 3;
   }
-/* .are-you-in-crisis {
-  display: grid;
-  grid-row: 2;
-  grid-column-start: 1;
-  grid-column-end: 3;
-  font-family: Muli, sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.5em;
-  margin: 1em 0 0 0;
-  white-space: nowrap;
-} */
 
   .emergency-container {
     grid-row: 3;
@@ -437,7 +424,7 @@ a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 3.5rem 6rem 0 6rem;
+    padding: 2.7rem 6rem 0 6rem;
   }
 
   .category {
