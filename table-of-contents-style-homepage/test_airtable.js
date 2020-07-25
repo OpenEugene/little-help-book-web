@@ -45,7 +45,7 @@ function mergeTables(category_records, subcategory_records, provider_records) {
     let category_name = record.get('Name');
     let category_id = record.id;
     // Initialize a no-subcategory subcategory bucket for providers with no subcategories at index 0.
-    let none_subcategory_record = {'ID' : '<none>', 'CategoryID' : category_id, 'Name' : 'No subcategories', 'NameES' : 'No hay subcategorias', 'Order' : 0, 'Providers' : []}
+    let none_subcategory_record = {'ID' : '<none>', 'CategoryID' : category_id, 'Name' : 'No subcategories', 'NameES' : 'No hay subcategorias', 'Order' : 0, 'Providers' : []};
     return {
       'ID' : category_id, 'Name' : category_name, 'NameES' : record.get('Name-ES'), 'Order' : record.get('Order'), 'Subcategories' : [none_subcategory_record]
     };
@@ -62,7 +62,7 @@ function mergeTables(category_records, subcategory_records, provider_records) {
     let subcategory = record.get('Name');
     let category = record.get('Catagory');
     if (!category) {
-        console.log('Subcategory', subcategory, 'has no category.');
+        console.log('Subcategory', subcategory, 'has no category.', "THIS SHOULDN'T OCCUR");
     }
     return {
       'ID' : record.id, 'CategoryID' : (category ? category[0] : ''), 'Name' : subcategory, 'NameES' : record.get('Name-ES'), 'Order' : record.get('Order'), 'Providers' : []
@@ -72,10 +72,10 @@ function mergeTables(category_records, subcategory_records, provider_records) {
   subcategory_data.forEach(function(record) {
       let category_id = record.CategoryID;
       if (category_id) {
-        let category_index = category_data.findIndex(category => category.ID == category_id)
-        category_data[category_index].Subcategories.push(record)
+        let category_index = category_data.findIndex(category => category.ID == category_id);
+        category_data[category_index].Subcategories.push(record);
       } else {
-        console.log('no category id', record.Name);
+        console.log('no category id', record.Name, "THIS SHOULDN'T OCCUR");
       }
   });
 
@@ -93,20 +93,20 @@ function mergeTables(category_records, subcategory_records, provider_records) {
   provider_records.forEach(function(record) {
     let category_id = record.get('Category');
     if (category_id) {
-      let category_index = category_data.findIndex(category => category.ID == category_id)
+      let category_index = category_data.findIndex(category => category.ID == category_id);
       if (category_index >= 0) {
         let subcategory_id = record.get('Subcategory');
         if (subcategory_id) {
-          let subcategory_index = category_data[category_index].Subcategories.findIndex(subcategory => subcategory.ID == subcategory_id)
+          let subcategory_index = category_data[category_index].Subcategories.findIndex(subcategory => subcategory.ID == subcategory_id);
           if (subcategory_index >= 0) {
-            category_data[category_index].Subcategories[subcategory_index].Providers.push(record)
+            category_data[category_index].Subcategories[subcategory_index].Providers.push(record);
           } else {
             console.log('no subcategory index', record.get('Name'), subcategory_id, "THIS SHOULDN'T OCCUR");
           }
         } else {
           console.log('no subcategory id', record.get('Name'));
           let subcategory_index = 0;
-          category_data[category_index].Subcategories[subcategory_index].Providers.push(record)
+          category_data[category_index].Subcategories[subcategory_index].Providers.push(record);
         }
       } else {
         // If no subcategory, throw in the no-subcategory subcategory bucket at index 0
