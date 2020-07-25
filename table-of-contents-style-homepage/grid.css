@@ -370,11 +370,15 @@ a:hover {
     padding: 3.5rem 6rem 0 6rem;
   } */
 
-/* This is iPad size syling for the touchscreen category buttons. */
-
+/* This is iPad size syling for the touchscreen category buttons and needed to place the footer below the table of contents. */
 @media screen and (max-width: 770px) {
+
   .category {
     min-width: 300px;
+  }
+
+  .footer {
+    padding: 8rem 0 0 7rem;
   }
 }
 
