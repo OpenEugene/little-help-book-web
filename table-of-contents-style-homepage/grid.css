@@ -256,6 +256,7 @@ a:hover {
     display: flex;
     flex-flow: column wrap;
   }
+
 }
 
 /* Tablet view at 1195px */
@@ -368,6 +369,14 @@ a:hover {
     flex-flow: column wrap;
     padding: 3.5rem 6rem 0 6rem;
   } */
+
+/* This is iPad size syling for the touchscreen category buttons. */
+
+@media screen and (max-width: 770px) {
+  .category {
+    min-width: 300px;
+  }
+}
 
 /* Mobile: if device width is less than or equal to 640px, then apply this style. */
 @media screen and (max-width: 640px) {
