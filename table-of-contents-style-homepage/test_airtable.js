@@ -15,8 +15,6 @@ jQuery(document).ready(function() {
 	})()
 });
 
-"categories_subcategories"
-"all"
 function init_dom(category_data) {
   category_data.forEach(function (record) {
     console.log(record.Name, record.Order, record.Subcategories.length);
