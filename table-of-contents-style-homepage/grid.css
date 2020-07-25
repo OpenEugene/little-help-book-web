@@ -330,10 +330,20 @@ a:hover {
   }
 
   .table-of-contents {
-    height: 62vh;
+    height: 70vh;
     display: flex;
     flex-flow: column wrap;
     padding: 2rem 6rem 0 6rem;
+  }
+
+  .category {
+    min-width: 200px;
+
+  }
+  .category-name {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
   }
 
   .community-sponsors {
