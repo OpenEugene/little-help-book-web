@@ -5,7 +5,7 @@
   
   ul {
     padding: 0;
-    margin: 0;
+    margin: 0 0 1.75rem 0;
   }
   
   ul li {
@@ -23,14 +23,15 @@
   
  .page-container {
     display: grid;
-    grid-template-columns: .2fr 2fr 4.4fr;
-    grid-template-rows: 60px 60px 42px 100vh;
+    grid-template-columns: .2fr 1.45fr 4.4fr;
+    grid-template-rows: 60px 60px 42px 379px 66px 100vh;
     margin: 0 6rem 0 6rem;
  }
 
 .resource-list {
     grid-column: 3 / 4;
     grid-row:  4 / 5;
+    margin: 1.4rem 0 0 0;
 }
 
 .subcategory-name {
@@ -91,6 +92,8 @@
     grid-row: 3 / 4;
     font-family: Muli, sans-serif;
     font-size: .85rem;
+    margin: .75rem 0 0 .6rem;
+    color: blue;
   }
 
   .subcategory-checkboxes {
@@ -98,12 +101,34 @@
     grid-row: 4 / 5;
   }
 
+  input {
+    margin: 0 .2rem 0 0;
+  }
+
   .subcategory-list {
     grid-column: 1 / 3;
     grid-row: 4 / 5;
     font-family: Muli, sans-serif;
     font-size: 1rem;
+    line-height: 1.5rem;
+  }
 
+  .subcategory-buttons {
+    background-color: white;
+    width: 6rem;
+    height: 4rem;
+  }
+
+  .whats-available {
+    grid-column: 1 / 3;
+    grid-row: 5 / 6;
+    display: flex;
+  }
+
+  .new-subcategory-search {
+    grid-column: 1 / 3;
+    grid-row: 6 / 7;
+    display: flex;
   }
 
   .search {
@@ -131,12 +156,19 @@
     grid-column: 3 / 4;
     grid-row: 3 / 4;
   }
+
+  .button-style {
+    background-color: white;
+    height: 2rem;
+    margin: 0.3rem 0 0 0;
+  }
  
   .list-grid  {
+    width: 4rem;
 
   }
  
-  .page-indicator {
+  .page-advance {
 
   }
 
