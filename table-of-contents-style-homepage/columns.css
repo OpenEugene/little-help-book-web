@@ -40,6 +40,7 @@
     flex-direction: column;
     margin-bottom: 1rem;
     padding-bottom: 1rem;
+    padding-top: .4rem;
   }
   
   header .top,
@@ -82,11 +83,10 @@
   }
   
   .emergency-container {
-    justify-content: center;
-    font-family: Muli, sans-serif;
+    font-family: sans-serif;
     font-style: normal;
     font-size: .75em;
-    padding: 1.25rem 0 0 0;
+    padding: 1.25rem 0 .3rem 0;
   }
   
   .emergency-button {
@@ -189,7 +189,7 @@
     color: blue;
   }
   
-  /* Popup container */
+  /* popup container */
   .popup {
     position: relative;
     display: inline-block;
@@ -199,7 +199,7 @@
     user-select: none;
   }
   
-  /* The actual popup */
+  /* the actual popup */
   .popup .popuptext {
     visibility: hidden;
     width: 25rem;
@@ -217,14 +217,14 @@
     line-height: 1.5rem;
   }
   
-  /* Toggle this class - hide and show the popup */
+  /* toggle this class - hide and show the popup */
   .popup .show {
     visibility: visible;
     -webkit-animation: fadeIn 1s;
     animation: fadeIn 1s;
   }
   
-  /* Add animation (fade in the popup) */
+  /* add animation (fade in the popup) */
   @-webkit-keyframes fadeIn {
     from {opacity: 0;} 
     to {opacity: 1;}
@@ -241,7 +241,7 @@
     font-size: 1em;
     color: gray;
     line-height: 1.5em;
-    margin: 1.25em 0;
+    margin: 1.95em 0 2.25rem 0;
   }
   
   .community-sponsors {
@@ -270,10 +270,16 @@
   .footer-url {
     color: blue;
   }
+
+  /* end Desktop styles and begin responsive resizing to Tablet and Mobile */
   
   @media screen and (max-width: 1056px) {
     main {
       columns: 3;
+    }
+
+    header {
+        flex-direction: column-reverse;
     }
 
     .hamburger {
@@ -304,6 +310,10 @@
     main {
       columns: 2;
     }  
+
+    header {
+        flex-direction: column-reverse;
+    }
   }
   
   @media screen and (max-width: 640px) {
