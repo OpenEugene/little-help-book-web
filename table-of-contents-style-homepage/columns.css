@@ -260,7 +260,7 @@
     font-weight: light;
     font-size: .85rem;
     color: gray;
-    margin: 3rem 0 4rem 0;
+    margin: 3rem 0 1rem;
   }
   
   .footer-item {
@@ -296,19 +296,50 @@
     
     header .top {
         flex-direction: row-reverse;
+        margin-top: -.8rem;
+    }
+
+    .little-help-book-title {
+        position: absolute;
+        top: 5.5rem;
+        left: 6.5rem;    
     }
 
     .about {
         display: none;
     }
 
+    header .box-2 {
+        margin-top: 1rem;
+    }
+
+    header .box-3 {
+        margin: 2.8rem 0 0 2.5rem;
+    }
+
+    .lane-county {
+        font-size: 1rem;
+        margin-bottom: -.6rem;
+        margin-top: .3rem;
+    }
+
     .find-my-city {
         color: blue;
     }
     
+    .table-of-contents {
+        margin: -2.2rem 0 0 0;
+    }
+
     .category-name>a {
         padding: 1rem 0;
       }
+
+    .category-name {
+    text-align: center; 
+    margin: auto;
+    max-width: 20rem;   
+    }
 
     .subcategory {
         display: none;
@@ -338,10 +369,6 @@
       flex-direction: column-reverse;
     }
 
-    .clinic-name {
-        display: none;
-    }
-
     header .top {
         flex-direction: column;
         margin: auto;
@@ -349,18 +376,55 @@
 
     }
 
+    header .search {
+        width: 90%
+    }
+
     .little-help-book-title {
         text-transform: uppercase;
+        position: static;
+    }
+
+    header .box-2 {
+        margin-top: 0;
+    }
+
+    .clinic-name {
+        display: none;
     }
 
     header .box-3 {
         flex-direction: row;
+        margin: .9rem 0 0 .6rem;
     }
 
     .lane-county {
         font-size: 1rem;
+        margin-top: 0;
     }
 
+    .find-my-city {
+        padding: .4rem;
+        margin-left: .5rem;
+    }
 
+    .table-of-contents {
+        margin: -1.7rem 0 0 0;
+        padding: 0 3rem;
+    }
+
+    .are-you-in-crisis {
+        text-align: center;
+    }
+
+    .a-z-list {
+        text-align: center;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+        line-height: 1.7rem;
+    }
   }
   
