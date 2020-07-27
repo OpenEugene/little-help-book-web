@@ -1,0 +1,231 @@
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+  }
+  
+ main {
+    font-family: sans-serif;
+  }
+
+  .h123-reset {
+    margin: 0;
+    padding: 0;
+  }
+
+  ul,
+  li {
+    list-style: none;
+  }
+  
+  ul,
+  li {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  header {
+    /* background-color: #ccc; */
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  header .top,
+  footer {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1rem;
+  }
+
+  header .box-1 {
+      display: flex;
+      flex-direction: column;
+  }
+
+  .little-help-book-title {
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.75rem;
+    line-height: 1rem;
+    padding: 0 0 0 6rem;
+    white-space: nowrap;
+  }
+  
+  .about {
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1rem;
+    padding: 1rem 0 0 6rem;
+  }
+  
+  .clinic-name {
+    font-family: Concert One, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2rem;
+    line-height: 1rem;
+    text-align: center;
+    white-space: nowrap;
+  }
+  
+  .emergency-container {
+    justify-content: center;
+    font-family: Muli, sans-serif;
+    font-style: normal;
+    font-size: .75em;
+    padding: 1.25rem 0 0 0;
+  }
+  
+  .emergency-button {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+    padding: .5em 1em;
+    border-radius: 22px;
+    border: none;
+    order: 2;
+  }
+  
+  header .box-3 {
+      display: flex;
+      flex-direction: column;
+  }
+
+.lane-county {
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.5rem;
+    line-height: 1rem;
+    white-space: nowrap;
+  }
+  
+  .find-my-city {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: .25em;
+    padding: 1.5rem 0;
+  }
+  
+  header .search {
+    margin: 0 auto;
+    display: flex;
+    width: 60%;
+  }
+  
+  header .search input {
+    width: 100%;
+    height: 2.4rem;
+  }
+  
+  .search-input {
+    background-image: url(WHITEBIRDLOGO.svg);
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    background-position: 5px 50%;
+    background-color: #e2e2e2;
+    border-radius: 8px;
+    padding-left: 40px;
+    border: none;
+  }
+
+  .hamburger {
+    width: 35px;
+    height: 6px;
+    background-color: rgb(126, 126, 126);
+    border-radius: 2.5px;
+    margin: 5.5px 0 0 10.5px;
+  }
+  
+  main {
+    columns: 4;
+  }
+  
+  .table-of-contents {
+    padding: 0 6rem 0 6rem;
+  }
+
+  .category-name>a {
+    display: block;
+    text-decoration: none;
+    color: blue;
+    background-color: #f5f5f5;
+    font-weight: bold;
+    padding: .5rem 0;
+    font-size: 1rem;
+    transition: 0.3s color ease-in-out;
+  }
+  
+  .category-name>a:hover {
+    color: #bf3fbf;
+  }
+  
+  .subcategory {
+    font-size: .85em;
+    line-height: 2em;
+    color: blue;
+  }
+
+  .are-you-in-crisis {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.5em;
+    margin: 1em 0 0 0;
+  }
+
+.a-z-list {
+    font-style: normal;
+    font-weight: light;
+    font-size: 1em;
+    color: gray;
+    line-height: 1.5em;
+    margin: 1.25em 0;
+  }
+  
+  .community-sponsors {
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1em;
+  }
+  
+  footer {
+    background-color: #eee;
+    font-size: .8rem;
+    color: gray;
+  }
+  
+  @media screen and (max-width: 1056px) {
+    main {
+      columns: 3;
+    }
+  }
+  
+  @media screen and (max-width: 770px) {
+    main {
+      columns: 2;
+    }
+  }
+  
+  @media screen and (max-width: 640px) {
+    main {
+      columns: 1;
+      margin: 0 auto;
+    }
+  
+    header {
+      flex-direction: column-reverse;
+    }
+  }
+  
