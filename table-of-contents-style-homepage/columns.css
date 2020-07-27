@@ -59,7 +59,7 @@
     font-family: sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     line-height: 1rem;
     white-space: nowrap;
   }
@@ -76,7 +76,7 @@
     font-family: Concert One, sans-serif;
     font-style: normal;
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 1.9rem;
     line-height: 1rem;
     text-align: center;
     white-space: nowrap;
@@ -94,10 +94,10 @@
     color: white;
     font-weight: bold;
     font-size: 1.5em;
+    white-space: nowrap;
     padding: .5em 1em;
     border-radius: 22px;
     border: none;
-    order: 2;
   }
   
   header .box-3 {
@@ -282,6 +282,10 @@
         flex-direction: column-reverse;
     }
 
+    header .search {
+        margin: 1rem auto 0;
+    }
+
     .hamburger {
         width: 35px;
         height: 6px;
@@ -290,8 +294,16 @@
         margin: 5.5px 0 0 10.5px;
       }
     
+    header .top {
+        flex-direction: row-reverse;
+    }
+
     .about {
         display: none;
+    }
+
+    .find-my-city {
+        color: blue;
     }
     
     .category-name>a {
@@ -325,5 +337,30 @@
     header {
       flex-direction: column-reverse;
     }
+
+    .clinic-name {
+        display: none;
+    }
+
+    header .top {
+        flex-direction: column;
+        margin: auto;
+        align-items: center;
+
+    }
+
+    .little-help-book-title {
+        text-transform: uppercase;
+    }
+
+    header .box-3 {
+        flex-direction: row;
+    }
+
+    .lane-county {
+        font-size: 1rem;
+    }
+
+
   }
   
