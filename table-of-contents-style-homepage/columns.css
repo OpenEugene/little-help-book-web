@@ -40,7 +40,7 @@
   header .top,
   footer {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     padding: 1rem;
   }
 
@@ -55,7 +55,6 @@
     font-weight: normal;
     font-size: 1.75rem;
     line-height: 1rem;
-    padding: 0 0 0 6rem;
     white-space: nowrap;
   }
   
@@ -64,7 +63,7 @@
     font-style: normal;
     font-weight: normal;
     font-size: 1rem;
-    padding: 1rem 0 0 6rem;
+    padding: 1rem 0 0 0;
   }
   
   .clinic-name {
@@ -111,6 +110,7 @@
   }
   
   .find-my-city {
+    font-family: sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 1em;
@@ -140,14 +140,6 @@
     border: none;
   }
 
-  .hamburger {
-    width: 35px;
-    height: 6px;
-    background-color: rgb(126, 126, 126);
-    border-radius: 2.5px;
-    margin: 5.5px 0 0 10.5px;
-  }
-  
   main {
     columns: 4;
   }
@@ -171,10 +163,14 @@
     color: #bf3fbf;
   }
   
+  .category-name {
+    padding: 0 0 .75rem 0;
+  }
   .subcategory {
     font-size: .85em;
     line-height: 2em;
     color: blue;
+    margin: -0.5rem 0 1.1rem 0;
   }
 
   .are-you-in-crisis {
@@ -199,23 +195,59 @@
     font-weight: bold;
     font-size: 1em;
   }
-  
-  footer {
-    background-color: #eee;
-    font-size: .8rem;
+
+  .footer {
+    display: flex;
+    justify-content: center;
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: light;
+    font-size: .85rem;
     color: gray;
+    margin: 3rem 0 4rem 0;
+  }
+  
+  .footer-item {
+    padding: 0 1rem;
+  }
+  
+  .footer-url {
+    color: blue;
   }
   
   @media screen and (max-width: 1056px) {
     main {
       columns: 3;
     }
-  }
+
+    .hamburger {
+        width: 35px;
+        height: 6px;
+        background-color: rgb(126, 126, 126);
+        border-radius: 2.5px;
+        margin: 5.5px 0 0 10.5px;
+      }
+    
+    .about {
+        display: none;
+    }
+    
+    .category-name>a {
+        padding: 1rem 0;
+      }
+
+    .subcategory {
+        display: none;
+    }
   
+    .community-sponsors {
+        display: none;
+    }
+
   @media screen and (max-width: 770px) {
     main {
       columns: 2;
-    }
+    }  
   }
   
   @media screen and (max-width: 640px) {
