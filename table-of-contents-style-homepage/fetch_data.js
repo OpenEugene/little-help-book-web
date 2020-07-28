@@ -26,23 +26,27 @@ function init_dom_toc(category_data) {
     accum += '<div class="category">';
       // <h2 class="category-name h123-reset"><a href="#">Basic Needs</a></h2>
     accum += `<h2 class="category-name h123-reset"><a href="#">${record.Name}</a></h2>`;
-    accum += '<div class="subcategory">';
-    accum += '<ul>';
-    accum += record.Subcategories.reduce(function(accum, record) {
-      // Create subcategory
-      if (record.Providers.length > 0) {
-        accum += `<li>${record.Name}</li>`;
-      }
-      return accum;
-      // END - Create subcategory
-    }, '');
-    accum += '</ul>';
-    accum += '</div>'; //subcategory
+    // length 1 means only has "No subcategories" placeholder
+    if (record.Subcategories.length != 1) {
+      accum += '<div class="subcategory">';
+      accum += '<ul>';
+      accum += record.Subcategories.reduce(function(accum, record) {
+        // Create subcategory
+        if (record.Providers.length > 0) {
+          accum += `<li>${record.Name}</li>`;
+        }
+        return accum;
+        // END - Create subcategory
+      }, '');
+      accum += '</ul>';
+      accum += '</div>'; //subcategory
+    }
     accum += '</div>'; //category
     return accum;
     // END - Create category
   }, '');
-  jQuery("#table-of-contents").append(html);
+  // jQuery("#table-of-contents").append(html);
+  jQuery("#table-of-contents").prepend(html);
 }
 
 // function init_dom_toc(category_data) {
