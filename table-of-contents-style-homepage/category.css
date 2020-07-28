@@ -29,3 +29,6 @@ main {
     color: blue;
   }
   
+  .inner-container {
+    display: flex;
+  }
