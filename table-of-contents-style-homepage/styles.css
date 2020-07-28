@@ -421,7 +421,7 @@
         text-align: center;
     }
 
-    footer {
+    .footer {
         flex-direction: column;
         text-align: center;
         line-height: 1.7rem;
