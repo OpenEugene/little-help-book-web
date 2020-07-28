@@ -8,35 +8,75 @@ jQuery(document).ready(function() {
 
   // await has to be inside async function, anonymous in this case
 	(async () => {
-    const category_records = await getTable('Categories', base);
-    const subcategory_records = await getTable('Subcategories', base);
-    const provider_records = await getTable('Help Services', base);
-    const category_data = mergeTables(category_records, subcategory_records, provider_records);
-    init_dom(category_data);
+    const {category_records, subcategory_records, provider_records} = await get_tables(base)
+    const category_data = merge_tables(category_records, subcategory_records, provider_records);
+    init_dom_toc(category_data);
+
+    const element = document.getElementById("all");
+    //If it isn't "undefined" and it isn't "null", then it exists.
+    if(typeof(element) != 'undefined' && element != null){
+      init_dom_all(category_data);
+    }
 	})()
 });
 
-function init_dom(category_data) {
-  category_data.forEach(function (record) {
-    let tmp_html = `<h3>${record.Name} ${record.NameES}, ${record.Order}, ${record.Subcategories.length}</h3>`;
-    jQuery("#categories_subcategories").append(tmp_html);
-    jQuery("#all").append(tmp_html);
-    record.Subcategories.forEach(function(record) {
+function init_dom_toc(category_data) {
+  let html = category_data.reduce(function (accum, record) {
+    // Create category
+    accum += '<div class="category">';
+      // <h2 class="category-name h123-reset"><a href="#">Basic Needs</a></h2>
+    accum += `<h2 class="category-name h123-reset"><a href="#">${record.Name}</a></h2>`;
+    accum += '<div class="subcategory">';
+    accum += '<ul>';
+    accum += record.Subcategories.reduce(function(accum, record) {
+      // Create subcategory
       if (record.Providers.length > 0) {
-        tmp_html = `${record.Name} - ${record.NameES}, ${record.Order}, ${record.Providers.length}<br>`;
-        jQuery("#categories_subcategories").append(tmp_html);
-        tmp_html = `<p><b>${record.Name} - ${record.NameES}, ${record.Order}, ${record.Providers.length}</b></p>`;
-        jQuery("#all").append(tmp_html);
-        record.Providers.forEach(function(record) {
-          tmp_html = `${record.get('Name')}<br>`;
-          jQuery("#all").append(tmp_html);
-        });
+        accum += `<li>${record.Name}</li>`;
       }
-    });
-  });
+      return accum;
+      // END - Create subcategory
+    }, '');
+    accum += '</ul>';
+    accum += '</div>'; //subcategory
+    accum += '</div>'; //category
+    return accum;
+    // END - Create category
+  }, '');
+  jQuery("#table-of-contents").append(html);
 }
 
-function mergeTables(category_records, subcategory_records, provider_records) {
+// function init_dom_toc(category_data) {
+//   let html = category_data.reduce(function (accum, record) {
+//     accum += ` <h2>${record.Name}</h2>`;
+//     accum += record.Subcategories.reduce(function(accum, record) {
+//       if (record.Providers.length > 0) {
+//         accum += `${record.Name}<br>`;
+//       }
+//       return accum;
+//     }, '');
+//     return accum;
+//   }, '');
+//   jQuery("#table-of-contents").append(html);
+// }
+
+function init_dom_all(category_data) {
+  let html = category_data.reduce(function (accum, record) {
+    accum += `<h3>${record.Name} ${record.NameES}, ${record.Order}, ${record.Subcategories.length}</h3>`;
+    accum += record.Subcategories.reduce(function(accum, record) {
+      if (record.Providers.length > 0) {
+        accum += `<p><b>${record.Name} - ${record.NameES}, ${record.Order}, ${record.Providers.length}</b></p>`;
+        accum += record.Providers.reduce(function(accum, record) {
+          return accum + `${record.get('Name')}<br>`;
+        }, '');
+      }
+      return accum;
+    }, '');
+    return accum;
+  }, '');
+  jQuery("#all").append(html);
+}
+
+function merge_tables(category_records, subcategory_records, provider_records) {
   //
   // CATEGORIES
   //
@@ -56,7 +96,6 @@ function mergeTables(category_records, subcategory_records, provider_records) {
   //
   console.log('*** Processing subcategories');
   subcategory_records.sort((a, b) => (a.get('Order') - b.get('Order')));
-  // logRecords('Subcategories', subcategory_records);
   let subcategory_data = subcategory_records.map(function(record) {
     // !!!NOTE misspelling. Correct in table?
     let subcategory = record.get('Name');
@@ -88,7 +127,6 @@ function mergeTables(category_records, subcategory_records, provider_records) {
     if(a.Name > b.Name) { return 1; }
     return 0;
   });
-  // logRecords('Providers', provider_records);
   // Fold into the Category table
   provider_records.forEach(function(record) {
     let category_id = record.get('Category');
@@ -122,13 +160,14 @@ function mergeTables(category_records, subcategory_records, provider_records) {
   return category_data;
 }
 
-function logRecords(table_name, records) {
-  console.log('***', table_name, records.length);
-  records.forEach(record => console.log('  ', record.id, record.get('Order'), record.get('Name')));
+async function get_tables(base) {
+  const category_records = await get_table('Categories', base);
+  const subcategory_records = await get_table('Subcategories', base);
+  const provider_records = await get_table('Help Services', base);
+  return {category_records, subcategory_records, provider_records};
 }
 
-// async function getTable(tablename, base) {
-function getTable(tablename, base) {
+function get_table(tablename, base) {
   return new Promise(function (resolve) {
     let records_buffer = [];
 		base(tablename).select({
