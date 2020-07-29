@@ -10,26 +10,16 @@
             <div class="category">
                 @foreach (var cat in Cache.Categories)
                 {
-                    <div class="category-group">
-                        <h2 class="category-name h123-reset">
-                            @if (cat.SubcategoryList.Count ==0)
+                    <h2 class="category-name h123-reset">
+                           <a href="/places/cat/@cat.Id"> @cat.Name</a>
+                    </h2>
+                    <div class="subcategory">
+                        <ul>
+                            @foreach (var sub in cat.SubcategoryList)
                             {
-                            <a href="/places/cat/@cat.Id"> @cat.Name</a>
+                                <li><a href="/places/sub/@sub.Id">@sub.Name</a></li>
                             }
-                            else
-                            {
-                                @cat.Name
-                            }
-                        
-                        </h2>
-                        <div class="subcategory">
-                            <ul>
-                                @foreach (var sub in cat.SubcategoryList)
-                                {
-                                    <li><a href="/places/sub/@sub.Id">@sub.Name</a></li>
-                                }
-                            </ul>
-                        </div>
+                        </ul>
                     </div>
                 }
             </div>
