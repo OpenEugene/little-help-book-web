@@ -1,5 +1,7 @@
 ﻿@page "/places/cat/{CatId}"
 @page "/places/sub/{SubId}"
+@page "/places/search/{Words}"
+
 @inject ClientCache cache
 @inject IJSRuntime JSRuntime;
 
@@ -29,7 +31,10 @@ else
     [Parameter]
     public string CatId { get; set; }
 
-    private List<Place> places;
+    [Parameter]
+    public string Words { get; set; }
+
+    private IEnumerable<Place> places;
 
 
     protected override async Task OnInitializedAsync()
@@ -39,9 +44,21 @@ else
             places = await cache.GetPlacesByCat(CatId);
             return;
         }
-        if (SubId?.Length>0)
+        if (SubId?.Length > 0)
         {
             places = await cache.GetPlacesBySub(SubId);
+            return;
+        }
+
+      
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (Words?.Length > 0)
+        {
+            await cache.Search(Words);
+            places = await cache.GetFoundPlaces();
             return;
         }
     }

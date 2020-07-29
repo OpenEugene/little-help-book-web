@@ -1,8 +1,9 @@
 ﻿
-@inject ClientCache cache
+@inject ClientCache Cache
+@inject NavigationManager NavigationManager
 
 <RadzenPanel class="flex-column">
-    <RadzenImage Path="images/white-bird-logo-fb.png" Style="height:3rem" />
+    <RadzenImage Path="images/white-bird-logo-fb.png" Style="height:5rem" />
     <RadzenTextBox Placeholder="Search..." @bind-Value="@words" />
     <RadzenButton id="header-search-button" Text="Search" Click="Search" />
 </RadzenPanel>
@@ -14,6 +15,7 @@
 
     public async void Search(EventArgs e)
     {
-        await cache.Search(words);
+        NavigationManager.NavigateTo($"/places/search/{words}");
+        
     }
 }
