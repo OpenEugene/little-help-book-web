@@ -18,6 +18,13 @@ else
         <ChildContent>
             <div class="contain contain-place">
                 <h1>@place.Name</h1>
+                <div class="stat-buttons">
+                    <RadzenButton Icon="phone" Text="@place.Phone" Click="@PhoneClick"></RadzenButton>
+                    @if (place.URL!=null)
+                    {
+                        <RadzenButton Icon="web" Text="Website" Click="@WebClick"></RadzenButton>
+                    }
+                </div>
                 <h3>@place.Address</h3>
                 <h2>@place.Hours</h2>
             </div>
