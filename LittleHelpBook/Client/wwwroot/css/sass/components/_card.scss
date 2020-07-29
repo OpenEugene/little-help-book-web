@@ -1,13 +1,4 @@
-// .card {
-//   display: flex;
-//   flex-direction: column;
-//   width: 100%;
-//   align-items: center;
 
-//   &:hover {
-
-//   }
-// }
 .ui-datalist-data > li, .ui-g > div {
   background-color: $color-secondary--light;
 }
@@ -55,5 +46,10 @@
     transform: translateY(-1rem);
     box-shadow: $shadow;
     border: 2px solid $color-white;
+  }
+
+  @media screen and (max-width: 992px) {
+    width: 100%;
+
   }
 }
