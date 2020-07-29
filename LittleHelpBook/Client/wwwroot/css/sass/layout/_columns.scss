@@ -23,6 +23,21 @@
   @media screen and (max-width: 1195px) {
     column-count: 3;
   }
+
+  @media screen and (max-width: 767.98px) {
+    column-count: 2;
+    
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    column-count: 1;
+    text-align: center;
+
+  }
 }
 
 .subcategory {

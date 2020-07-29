@@ -355,10 +355,10 @@ app {
 
     /* tablet */
     @media only screen and (max-width: 1195px) {
-        .header {
+        /* .header {
             display: flex;
             flex-direction: column;
-        }
+        } */
 
         .search {
             order: 1;
