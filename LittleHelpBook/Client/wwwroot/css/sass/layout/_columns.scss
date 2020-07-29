@@ -18,6 +18,10 @@
     margin-bottom: 1rem;
     background-color: $color-gray--light;
     padding: .5rem 0;
+
+    a {
+      color: blue;
+    }
   }
 
   @media screen and (max-width: 1195px) {
