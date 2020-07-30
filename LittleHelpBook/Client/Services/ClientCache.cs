@@ -123,8 +123,18 @@ namespace LittleHelpBook.Client.Services
         private async Task ApplyFilters()
         {
             await GetAllPlaces();
+            await GetSubcategories();
+            await GetCategories();
 
             var query = from p in AllPlaces select p;
+
+            // add cat and sub-cat to search
+            if (_searchWords != null)
+            {
+                _selectedCategories = Categories.Where(c => c.Name != null &&  c.Name.Contains(_searchWords)).Select(c => c.Id).ToArray();
+
+                _selectedSubcategories = Subcategories.Where(c => c.Name!=null && c.Name.Contains(_searchWords)).Select(c => c.Id).ToArray();
+            }
 
 
             if (_selectedCategories?.Length > 0)
