@@ -84,5 +84,23 @@ option {
   }
 
   .provider-page {
-      
+    padding: 0 6rem 0 6rem;
+    margin-top: 1.3rem;
+  }
+
+  .provider-name {
+    font-weight: bold;
+    padding: .5rem 0;
+    font-size: 1.3rem;
+    transition: 0.3s color ease-in-out;
+  }
+  
+  .website>a:hover {
+    color: #bf3fbf;
+  }
+
+  .provider-info {
+    font-size: .95rem;
+    line-height: 1.5rem;
+    margin: .5rem 0;
   }
