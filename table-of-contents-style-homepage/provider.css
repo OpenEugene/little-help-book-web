@@ -104,3 +104,40 @@ option {
     line-height: 1.5rem;
     margin: .5rem 0;
   }
+
+  .map {
+    display: flex;
+    float: right;
+    padding-left: .75rem;
+    padding-bottom: .85rem;
+    width: 50%
+  }
+
+  .bottom-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+  }
+
+  .button-style {
+    background-color: white;
+    height: 2rem;
+    border-radius: 8px;
+    border-style: solid;
+    margin: 0.3rem 0 0 0;
+  }
+
+  .print-page {
+    padding: 0 .5rem;
+    margin: .3rem 0 0 5.9rem;
+  }
+
+  .update-button {
+
+  }
+
+  .last-update {
+    font-size: .8rem;
+  }
+  
+  
