@@ -68,12 +68,6 @@ option {
   font-size: 1.8rem;
 }
 
-.subcategory-show-hide {
-  font-size: .85rem;
-  margin: .75rem 0 0 .6rem;
-  color: blue;
-}
-
 .subcategory-checkboxes {
   margin: 1rem 0;
 }

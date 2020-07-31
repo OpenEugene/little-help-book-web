@@ -68,12 +68,6 @@ body {
     font-size: 1.8rem;
   }
 
-  .subcategory-show-hide {
-    font-size: .85rem;
-    margin: .75rem 0 0 .6rem;
-    color: blue;
-  }
-
   .subcategory-checkboxes {
     margin: 1rem 0;
   }
@@ -111,6 +105,13 @@ body {
 
   .right-column {
     margin-left: 3rem;
+  }
+
+  .show-hide-arrow {
+    font-size: 2rem;
+    font-family: serif;
+    margin: 0 .5rem 0 -1.7rem;
+    
   }
 
   .search {
