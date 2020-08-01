@@ -139,7 +139,6 @@
  z-index: 1;
 }
 
-/* Dropdown button on hover */
 .dropdown-button:hover {
    color: #bf3fbf;
    transition: 0.3s color ease-in-out;
@@ -411,7 +410,6 @@
         flex-direction: column;
         margin: auto;
         align-items: center;
-
     }
 
     header .search {
@@ -444,6 +442,15 @@
     .find-my-city {
         padding: .4rem;
         margin-left: .5rem;
+    }
+
+    .dropdown-button {
+      display: flex;
+      padding: 0;
+    }
+
+    .list-of-cities {
+      margin-top: 1rem;
     }
 
     .table-of-contents {
