@@ -139,9 +139,10 @@
  z-index: 1;
 }
 
-/* Dropdown button on hover & focus */
-.dropdown-button:hover, .dropdown-button:focus {
+/* Dropdown button on hover */
+.dropdown-button:hover {
    color: #bf3fbf;
+   transition: 0.3s color ease-in-out;
 }
 
 /* Links inside the dropdown */
