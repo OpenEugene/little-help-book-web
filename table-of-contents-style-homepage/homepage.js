@@ -1,14 +1,14 @@
 
 //  The popup description appears when someone clicks the blue crisis text 
 
-function myFunction() {
+function crisisPopup() {
     var popup = document.getElementById("myPopup");
     popup.classList.toggle("show");
   }
 
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
-function myFunction() {
+function cityMenu() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
