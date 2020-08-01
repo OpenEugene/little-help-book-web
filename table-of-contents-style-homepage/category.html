@@ -6,10 +6,10 @@
     <title>Little Help Book - White Bird Clinic</title>
     <link rel="stylesheet" type="text/css" href="category.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="category.js"></script>
 </head>
 <body>
     <div class="page-container">
-
         <header class="navigation-menus">
             <img src="WHITEBIRDLOGO.svg" alt="White Bird Clinic" width="54" height="54">
             <select class="breadcrumb city">
@@ -28,9 +28,7 @@
                 <option></option>
             </select>
         </header>
-
             <div class="inner-container">
-
                 <section class="left-column">
                     <div class="category-page-name">
                         Basic Needs
@@ -78,21 +76,22 @@
                         <div class="checkbox-search-notes">Clear selected boxes<br>and reset the search</div>
                     </section>
                 </section>
-
+                
                 <section class="right-column">
                     <div class="search">
-                        <div class="show-hide-arrow"> < </div>
+                    <div class="show-arrow"> > </div>
+                    <div class="hide-arrow"> < </div>
                         <input type="text" placeholder="Search Basic Needs">
-                      </div>
+                    </div>
 
-                      <section class="nav-buttons">
-                        <button class="list-grid button-style">list</button>
-                        <button class="page-advance button-style">previous</button>
-                        <div class="page-number">page number # of #</div> 
-                        <button class="page-advance button-style">next</button>
-                        <button class="print-page button-style">print this page</button>
-                        <button class="print-all button-style">all #</button>
-                    </section>
+                <section class="nav-buttons">
+                    <button class="list-grid button-style">list</button>
+                    <button class="page-advance button-style">previous</button>
+                    <div class="page-number">page number # of #</div> 
+                    <button class="page-advance button-style">next</button>
+                    <button class="print-page button-style">print this page</button>
+                    <button class="print-all button-style">all #</button>
+                </section>
 
                     <main class="resource-list">
                         <h2 class="subcategory-name"><a href="#">Bathrooms</a></h2>
@@ -132,17 +131,5 @@
             </div>
         <div class="footer"></div>
     </div>
-
-    <script>
-        $(document).ready(function(){
-
-            $(".show-hide-arrow").click(function(){
-                $(".left-column").toggle();
-            });
-
-        });
-
-    </script>
-
 </body>
 </html>
