@@ -107,7 +107,7 @@ body {
     margin-left: 3rem;
   }
 
-  .show-hide-arrow {
+  .show-arrow, .hide-arrow {
     font-size: 2rem;
     font-family: serif;
     margin: 0 .5rem 0 -1.7rem;
