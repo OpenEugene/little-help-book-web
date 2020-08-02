@@ -118,15 +118,65 @@
     font-family: sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 1em;
-    line-height: .25em;
-    padding: 1.5rem 0;
+
   }
+
+.dropdown-button {
+  border: none;
+  background-color: transparent;
+  font-size: 1rem;
+  line-height: .25rem;
+  padding: 1.5rem 0;
+ 
+}
+
+.list-of-cities {
+ display: none;
+ position: absolute;
+ background-color: #f9f9f9;
+ min-width: 160px;
+ box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+ z-index: 1;
+}
+
+.dropdown-button:hover {
+   color: #bf3fbf;
+   transition: 0.3s color ease-in-out;
+}
+
+/* Links inside the dropdown */
+.list-of-cities a {
+ color: black;
+ padding: 12px 16px;
+ text-decoration: none;
+ display: block;
+}
+
+/* Change color of dropdown links on hover */
+.list-of-cities a:hover {background-color: #ddd}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+  /* end dropdown styles */
   
+  .spanish {
+    font-family: sans-serif;
+  }
+
+  .button-style {
+    background-color: white;
+    height: 2.3rem;
+    border-radius: 8px;
+    border-style: solid;
+    margin: 0 1.1rem 0 0;
+  }
+
   header .search {
     margin: 0 auto;
     display: flex;
-    width: 60%;
+    width: 62%;
+    margin-left: 13.5rem;
   }
   
   header .search input {
@@ -282,8 +332,13 @@
         flex-direction: column-reverse;
     }
 
+    .button-style {
+      margin: 0 .6rem 0 0;
+    }
+
     header .search {
         margin: 1rem auto 0;
+        width: 74%;
     }
 
     .hamburger {
@@ -357,6 +412,10 @@
     header {
         flex-direction: column-reverse;
     }
+
+    header .search {
+
+    }
   }
   
   @media screen and (max-width: 640px) {
@@ -373,7 +432,6 @@
         flex-direction: column;
         margin: auto;
         align-items: center;
-
     }
 
     header .search {
@@ -406,6 +464,15 @@
     .find-my-city {
         padding: .4rem;
         margin-left: .5rem;
+    }
+
+    .dropdown-button {
+      display: flex;
+      padding: 0;
+    }
+
+    .list-of-cities {
+      margin-top: 1rem;
     }
 
     .table-of-contents {
