@@ -160,10 +160,23 @@
 
   /* end dropdown styles */
   
+  .spanish {
+    font-family: sans-serif;
+  }
+
+  .button-style {
+    background-color: white;
+    height: 2.3rem;
+    border-radius: 8px;
+    border-style: solid;
+    margin: 0 1.1rem 0 0;
+  }
+
   header .search {
     margin: 0 auto;
     display: flex;
-    width: 60%;
+    width: 62%;
+    margin-left: 11rem;
   }
   
   header .search input {
@@ -319,8 +332,13 @@
         flex-direction: column-reverse;
     }
 
+    .button-style {
+      margin: 0 .6rem 0 0;
+    }
+
     header .search {
         margin: 1rem auto 0;
+        width: 74%;
     }
 
     .hamburger {
@@ -393,6 +411,10 @@
 
     header {
         flex-direction: column-reverse;
+    }
+
+    header .search {
+
     }
   }
   
