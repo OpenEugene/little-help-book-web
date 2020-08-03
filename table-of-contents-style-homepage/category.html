@@ -6,31 +6,68 @@
     <title>Little Help Book - White Bird Clinic</title>
     <link rel="stylesheet" type="text/css" href="category.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="category.js"></script>
 </head>
 <body>
     <div class="page-container">
-
         <header class="navigation-menus">
             <img src="WHITEBIRDLOGO.svg" alt="White Bird Clinic" width="54" height="54">
             <select class="breadcrumb city">
-                <option>Eugene / Springfield</option>
-                <option></option>
-                <option></option>
+                <option value="">Eugene / Springfield</option>
+                <option value="">Blachly</option>
+                <option value="">Coburg</option>
+                <option value="">Cottage Grove</option>
+                <option value="">Creswell</option>
+                <option value="">Dexter</option>
+                <option value="">Dorena</option>
+                <option value="">Florence</option>
+                <option value="">Junction City / Cheshire</option>
+                <option value="">Lowell</option>
+                <option value="">Mapleton</option>
+                <option value="">Oakridge</option>
+                <option value="">Veneta</option>
+                <option value="">Walterville</option>
             </select>
             <select class="breadcrumb category">
-                <option>Basic Needs</option>
-                <option></option>
-                <option>All</option>
+                <option value="">Basic Needs</option>
+                <option value="">Care</option>
+                <option value="">Education</option>
+                <option value="">Food</option>
+                <option value="">Health</option>
+                <option value="">Housing</option>
+                <option value="">Information</option>
+                <option value="">Jewish Interests</option>
+                <option value="">Lation / Latinx</option>
+                <option value="">Legal</option>
+                <option value="">LGBTQIA</option>
+                <option value="">Money</option>
+                <option value="">Post-Incarceration</option>
+                <option value="">Seniors</option>
+                <option value="">Transportation</option>
+                <option value="">Veterans</option>
+                <option value="">Work</option>
+                <option value="">Youth</option>
             </select>
             <select class="breadcrumb subcategory">
-                <option>All</option>
-                <option></option>
-                <option></option>
+                <option value="">All</option>
+                <option value="">Bathrooms</option>
+                <option value="">Bedding</option>
+                <option value="">Clothing</option>
+                <option value="">Day Shelters</option>
+                <option value="">Day Storage</option>
+                <option value="">Haircuts</option>
+                <option value="">Household Goods</option>
+                <option value="">Hygiene Items</option>
+                <option value="">iD / Birth Certificate Replacement</option>
+                <option value="">Internet Access & Library Services</option>
+                <option value="">Laundry</option>
+                <option value="">Mail and Messages</option>
+                <option value="">Phone</option>
+                <option value="">Propane</option>
+                <option value="">Showers</option>             
             </select>
         </header>
-
             <div class="inner-container">
-
                 <section class="left-column">
                     <div class="category-page-name">
                         Basic Needs
@@ -78,21 +115,22 @@
                         <div class="checkbox-search-notes">Clear selected boxes<br>and reset the search</div>
                     </section>
                 </section>
-
+                
                 <section class="right-column">
                     <div class="search">
-                        <div class="show-hide-arrow"> < </div>
+                    <div class="show-arrow"> > </div>
+                    <div class="hide-arrow"> < </div>
                         <input type="text" placeholder="Search Basic Needs">
-                      </div>
+                    </div>
 
-                      <section class="nav-buttons">
+                    <section class="nav-buttons">
                         <button class="list-grid button-style">list</button>
                         <button class="page-advance button-style">previous</button>
                         <div class="page-number">page number # of #</div> 
                         <button class="page-advance button-style">next</button>
                         <button class="print-page button-style">print this page</button>
                         <button class="print-all button-style">all #</button>
-                    </section>
+                    </section>    
 
                     <main class="resource-list">
                         <h2 class="subcategory-name"><a href="#">Bathrooms</a></h2>
@@ -132,17 +170,5 @@
             </div>
         <div class="footer"></div>
     </div>
-
-    <script>
-        $(document).ready(function(){
-
-            $(".show-hide-arrow").click(function(){
-                $(".left-column").toggle();
-            });
-
-        });
-
-    </script>
-
 </body>
 </html>
