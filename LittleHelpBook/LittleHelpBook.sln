@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LittleHelpBook.Shared", "Sh
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5C068BA0-49B2-4B6C-B49F-2685653A1775}"
 	ProjectSection(SolutionItems) = preProject
+		dev-deploy.yml = dev-deploy.yml
+		dev-service.yml = dev-service.yml
 		Dockerfile = Dockerfile
 		prod-deploy.yml = prod-deploy.yml
 		prod-service.yml = prod-service.yml
