@@ -33,6 +33,14 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-left: 6.2rem;
+}
+
+.top-of-menu {
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: -4.5rem;
 }
 
 img {
@@ -42,9 +50,8 @@ img {
 
 .navigation-menus {
   display: flex;
-  align-items: center;
-  position: relative;
-  left: -4.5rem;
+  flex-direction: column;
+
 }
 
 .breadcrumb {
@@ -59,61 +66,24 @@ option {
   background-color: #ccc7c7;
 }
 
-.inner-container {
+.bottom-of-menu {
   display: flex;
-  margin-top: 1rem;
+  align-items: baseline;
+  margin-left: -4.2rem;
+  margin-top: .3rem;
 }
 
 .category-page-name {
   font-size: 1.8rem;
-}
-
-.subcategory-checkboxes {
-  margin: 1rem 0;
-}
-
-input {
-  margin: 0 .2rem 0 0;
-}
-
-.subcategory-list {
-  font-size: .8rem;
-  line-height: 1.3rem;
-}
-
-.subcategory-buttons {
-  background-color: white;
-  width: 4.7rem;
-  height: 3.5rem;
-  border-radius: 10px;
-  border-style: solid;
-}
-
-.whats-available {
-  display: flex;
-  margin-bottom: .3rem;
-}
-
-.new-subcategory-search {
-  display: flex;
-}
-
-.checkbox-search-notes {
-  font-size: .8rem;
-  margin: 1rem;
-}
-
-.right-column {
-  margin-left: 3rem;
+  margin-right: 1rem;
 }
 
 .search {
   display: flex;
-  align-items: end;
 }
 
 .search input[type=text] {
-  width: 85%;
+  width: 32.4rem;
   height: 36px;
   border-radius: 8px;
   border: none;
@@ -133,31 +103,22 @@ input {
 .button-style {
   background-color: white;
   height: 2rem;
+  width: 4rem;
   border-radius: 8px;
   border-style: solid;
   margin: 0.3rem 0 0 0;
+  padding: .1rem 0 .15rem 0;
 }
 
-.list-grid  {
-  width: 4rem;
-  margin: .3rem 6.8rem 0 0;
+.list-map-toggle  {
+  margin: .3rem .3rem 0 0;
 }
 
-.page-advance {
-  padding: 0 .5rem;
+.print {
+  margin: .3rem 0 0 .3rem;
 }
 
-.page-number {
-  font-size: .8rem;
-  margin: .9rem .4rem;
-}
-
-.print-page {
-  padding: 0 .5rem;
-  margin: .3rem 0 0 5.9rem;
-}
-
-.print-all {
-  padding: 0 .5rem;
-  margin: .3rem 0 0 .6rem;
+.provider-tiles {
+  display: flex;
+  margin-top: 1rem;
 }
