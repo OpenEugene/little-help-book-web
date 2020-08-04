@@ -111,7 +111,6 @@ body {
     font-size: 2rem;
     font-family: serif;
     margin: 0 .5rem 0 -1.7rem;
-    
   }
 
   .search {
@@ -133,40 +132,26 @@ body {
   }
 
   .nav-buttons {
-    display: flex;
+    /* display: flex; */
     margin: .7rem .7rem .7rem 0;
   }
 
   .button-style {
     background-color: white;
     height: 2rem;
+    width: 4rem;
     border-radius: 8px;
     border-style: solid;
     margin: 0.3rem 0 0 0;
+    padding: .1rem 0 .15rem 0;
   }
 
-  .list-grid  {
-    width: 4rem;
+  .list-map-toggle  {
     margin: .3rem 6.8rem 0 0;
   }
 
-  .page-advance {
-    padding: 0 .5rem;
-  }
-
-  .page-number {
-    font-size: .8rem;
-    margin: .9rem .4rem;
-  }
-
-  .print-page {
-    padding: 0 .5rem;
-    margin: .3rem 0 0 5.9rem;
-  }
-
-  .print-all {
-    padding: 0 .5rem;
-    margin: .3rem 0 0 .6rem;
+  .print {
+    margin: .3rem 0 0 26.4rem;
   }
 
   .provider {
@@ -182,4 +167,5 @@ body {
     font-size: 1em;
     background-color: #f5f5f5;
     margin-bottom: 0;
+    width: 41.5rem;
 }
