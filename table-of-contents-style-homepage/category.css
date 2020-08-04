@@ -105,6 +105,7 @@ body {
 
   .right-column {
     margin-left: 3rem;
+    margin-right: 2rem;
   }
 
   .show-arrow, .hide-arrow {
@@ -151,7 +152,7 @@ body {
   }
 
   .print {
-    margin: .3rem 0 0 26.7rem;
+    margin: .3rem 0 0 23.6rem;
   }
 
   .provider {
@@ -167,5 +168,5 @@ body {
     font-size: 1em;
     background-color: #f5f5f5;
     margin-bottom: 0;
-    width: 41.5rem;
+    width: 38.4rem;
 }
