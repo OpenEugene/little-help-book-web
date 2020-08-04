@@ -132,7 +132,7 @@ body {
   }
 
   .nav-buttons {
-    /* display: flex; */
+    display: flex;
     margin: .7rem .7rem .7rem 0;
   }
 
@@ -151,7 +151,7 @@ body {
   }
 
   .print {
-    margin: .3rem 0 0 26.4rem;
+    margin: .3rem 0 0 26.7rem;
   }
 
   .provider {
