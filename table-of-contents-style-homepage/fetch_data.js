@@ -2,9 +2,13 @@
 jQuery(document).ready(function() {
   console.log('test_airtable');
   const Airtable = require('airtable');
-  // Read-only key
+
+  // const api_key = "key1agtUnabRLb2LS";
+  // Read-only keyk
   const api_key = "keyMmAL4mVBSORkGc";
-  const base = new Airtable({apiKey: api_key}).base('appj3UWymNh6FgtGR');
+  // const base = new Airtable({apiKey: api_key}).base('appj3UWymNh6FgtGR');
+  // Experimental table
+  const base = new Airtable({apiKey: api_key}).base('appLwxkByQzFlBeVo');
 
   // await has to be inside async function, anonymous in this case
 	(async () => {
@@ -27,6 +31,10 @@ function init_dom_toc(category_data) {
       // <h2 class="category-name h123-reset"><a href="#">Basic Needs</a></h2>
     accum += `<h2 class="category-name h123-reset"><a href="#">${record.Name}</a></h2>`;
     // length 1 means only has "No subcategories" placeholder
+    console.log(record.Name, record.Subcategories.length)
+    if (record.Subcategories.length == 2) {
+      console.log(record);
+    }
     if (record.Subcategories.length != 1) {
       accum += '<div class="subcategory">';
       accum += '<ul>';
@@ -89,9 +97,10 @@ function merge_tables(category_records, subcategory_records, provider_records) {
     let category_name = record.get('Name');
     let category_id = record.id;
     // Initialize a no-subcategory subcategory bucket for providers with no subcategories at index 0.
-    let none_subcategory_record = {'ID' : '<none>', 'CategoryID' : category_id, 'Name' : 'No subcategories', 'NameES' : 'No hay subcategorias', 'Order' : 0, 'Providers' : []};
+    // let none_subcategory_record = {'ID' : '<none>', 'CategoryID' : category_id, 'Name' : 'No subcategories', 'NameES' : 'No hay subcategorias', 'Order' : 0, 'Providers' : []};
     return {
-      'ID' : category_id, 'Name' : category_name, 'NameES' : record.get('Name-ES'), 'Order' : record.get('Order'), 'Subcategories' : [none_subcategory_record]
+      // 'ID' : category_id, 'Name' : category_name, 'NameES' : record.get('Name-ES'), 'Order' : record.get('Order'), 'Subcategories' : [none_subcategory_record]
+      'ID' : category_id, 'Name' : category_name, 'NameES' : record.get('Name-ES'), 'Order' : record.get('Order'), 'Subcategories' : []
     };
   });
 
@@ -102,24 +111,31 @@ function merge_tables(category_records, subcategory_records, provider_records) {
   subcategory_records.sort((a, b) => (a.get('Order') - b.get('Order')));
   let subcategory_data = subcategory_records.map(function(record) {
     // !!!NOTE misspelling. Correct in table?
-    let subcategory = record.get('Name');
-    let category = record.get('Catagory');
+    // let subcategory = record.get('Name');
+    // let category = record.get('Catagory');
+    let subcategory = record.get('Subcategory');
+    let category = record.get('Category');
+    console.log('**', record.get('Name'), category, subcategory);
     if (!category) {
-        console.log('Subcategory', subcategory, 'has no category.', "THIS SHOULDN'T OCCUR");
+      console.log('Subcategory', subcategory, 'has no category.', "THIS SHOULDN'T OCCUR");
     }
     return {
-      'ID' : record.id, 'CategoryID' : (category ? category[0] : ''), 'Name' : subcategory, 'NameES' : record.get('Name-ES'), 'Order' : record.get('Order'), 'Providers' : []
+      // 'ID' : record.id, 'CategoryID' : (category ? category[0] : ''), 'Name' : subcategory, 'NameES' : record.get('Name-ES'), 'Order' : record.get('Order'), 'Providers' : []
+      // 'ID' : record.id, 'CategoryID' : (category ? category[0] : ''), 'Name' : subcategory, 'NameES' : record.get('Subcategory-ES'), 'Order' : record.get('Order'), 'Providers' : []
+      // 'ID' : record.id, 'CategoryID' : (category ? category : ''), 'Name' : subcategory, 'NameES' : record.get('Subcategory-ES'), 'Order' : record.get('Order'), 'Providers' : []
+      'ID' : record.id, 'CategoryID' : (category ? category : ''), 'Name' : (subcategory ? subcategory : 'No subcategories'), 'NameES' : (subcategory ? record.get('Subcategory-ES') : 'No hay subcategorias'), 'Order' : record.get('Order'), 'Providers' : []
     };
   });
   // Fold into the Category table
   subcategory_data.forEach(function(record) {
-      let category_id = record.CategoryID;
-      if (category_id) {
-        let category_index = category_data.findIndex(category => category.ID == category_id);
-        category_data[category_index].Subcategories.push(record);
-      } else {
-        console.log('no category id', record.Name, "THIS SHOULDN'T OCCUR");
-      }
+    let category_id = record.CategoryID;
+    if (category_id) {
+      let category_index = category_data.findIndex(category => category.ID == category_id);
+      console.log(category_index, record.Name);
+      category_data[category_index].Subcategories.push(record);
+    } else {
+      console.log('no category id', record.Name, "THIS SHOULDN'T OCCUR");
+    }
   });
 
   //
@@ -134,12 +150,16 @@ function merge_tables(category_records, subcategory_records, provider_records) {
   // Fold into the Category table
   provider_records.forEach(function(record) {
     let category_id = record.get('Category');
+    // console.log(category_id);
     if (category_id) {
       let category_index = category_data.findIndex(category => category.ID == category_id);
       if (category_index >= 0) {
-        let subcategory_id = record.get('Subcategory');
+        let subcategory_id;
+        subcategory_id = record.get('Subcategory');
+        // let subcategory_id = record.get('SubcategoryOrig');
         if (subcategory_id) {
-          let subcategory_index = category_data[category_index].Subcategories.findIndex(subcategory => subcategory.ID == subcategory_id);
+          // let subcategory_index = category_data[category_index].Subcategories.findIndex(subcategory => subcategory.ID == subcategory_id);
+          let subcategory_index = category_data[category_index].Subcategories.findIndex(subcategory => subcategory.Name == subcategory_id);
           if (subcategory_index >= 0) {
             category_data[category_index].Subcategories[subcategory_index].Providers.push(record);
           } else {
@@ -166,7 +186,8 @@ function merge_tables(category_records, subcategory_records, provider_records) {
 
 async function get_tables(base) {
   const category_records = await get_table('Categories', base);
-  const subcategory_records = await get_table('Subcategories', base);
+  // const subcategory_records = await get_table('Subcategories', base);
+  const subcategory_records = await get_table('CatSubcats', base);
   const provider_records = await get_table('Help Services', base);
   return {category_records, subcategory_records, provider_records};
 }
