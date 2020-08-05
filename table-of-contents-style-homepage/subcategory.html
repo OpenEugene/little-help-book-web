@@ -81,8 +81,8 @@
                     <div class="dropdown">
                         <button class="list-map-toggle button-style dropdown-button">list</button>
                         <div class="dropdown-content">
-                        <span id="list">List</span>
-                        <span id="map">Map</span>
+                        <span class="linkd" data-target="#provider-tiles">Tiles</span>
+                        <span class="linkd" data-target="#map">Map</span>
                         </div>
                     </div>
 
@@ -94,11 +94,74 @@
             </div>
         </header>
         
-        <main>
+        <main id="main">
 
-            <section class="map"><img src="full-screen-map.jpg" alt="This is a placeholder for the OpenStreetMap"></section>
+            <section id="map"><img src="full-screen-map.jpg" alt="This is a placeholder for the OpenStreetMap"></section>
 
-            <section class="provider-tiles"></section>
+            <section id="provider-tiles">
+
+                <div class="tile">
+                    <div class="provider-name">Department of Human Services</div>
+                    <div class="provider-address">2101 W. 11 th Ave., Eugene, OR 97402</div>
+                    <div class="provider-phone">541-686-7722</div>
+                    <div class="provider-website">dcfoffices.org/office/west-eugene-dhs-office</div>
+                    <div class="provider-description">State- and federally-funded services. Food benefits (SNAP), employment services, cash assistance (TANF), domestic violence services, child welfare services, health benefits (OHP), senior citizens services. Also, apply for free phones, search for jobs, bathrooms. Apply for services by paper or by computers provided.</div>
+                    <div class="provider-hours">Hours:  M-F 7AM - 6PM</div>
+                    <div class="legend-icons"></div>
+                </div>
+
+                <div class="tile">
+                    <div class="provider-name">First Place Family Center</div>
+                    <div class="provider-address">1995 Amazon Parkway, Eugene</div>
+                    <div class="provider-phone">541-342-7728</div>
+                    <div class="provider-website">svdp.us/what-we-do/homeless-services/first-place-family-centert</div>
+                    <div class="provider-description">Offers a day time facility for families with children, meals, mail service, laundry, computers, preschool, limited overnight accommodations, and referrals for jobs, housing and recovery.</div>
+                    <div class="provider-hours">Hours:  7 days 8AM - 5PM</div>
+                    <div class="legend-icons"></div>
+                </div>
+
+                <div class="tile">
+                    <div class="provider-name">G-Street Oasis</div>
+                    <div class="provider-address">1175 G St. Springfield</div>
+                    <div class="provider-phone">541-214-0260</div>
+                    <div class="provider-website"><a href="ccslc.org/g-street-oasis">ccslc.org/g-street-oasis</a></div>
+                    <div class="provider-description">Provides day shelter and other services for homeless families with children. Laundry, hygiene supplies, bathrooms, kitchen facilities and showers available. Also provides limited transitional housing and referrals for families. To obtain services one must be registered in the program, please call Gail at the phone above to register, or email gstreet@ccslc.org</div>
+                    <div class="provider-hours">Hours:  M-F 7AM - 6PM</div>
+                    <div class="legend-icons"></div>
+                </div>
+
+                <div class="tile">
+                    <div class="provider-name">St. Vincent de Paul — Eugene Service Station</div>
+                    <div class="provider-address"></div>
+                    <div class="provider-phone"></div>
+                    <div class="provider-website"></div>
+                    <div class="provider-description"></div>
+                    <div class="provider-hours"></div>
+                    <div class="legend-icons"></div>
+                </div>
+
+                <div class="tile">
+                    <div class="provider-name">White Bird — Front Rooms Resource Center</div>
+                    <div class="provider-address"></div>
+                    <div class="provider-phone"></div>
+                    <div class="provider-website"></div>
+                    <div class="provider-description"></div>
+                    <div class="provider-hours"></div>
+                    <div class="legend-icons"></div>
+                </div>
+
+                <!-- This is a provider-tile template:
+                <div class="tile">
+                    <div class="provider-name"></div>
+                    <div class="provider-address"></div>
+                    <div class="provider-phone"></div>
+                    <div class="provider-website"></div>
+                    <div class="provider-description"></div>
+                    <div class="provider-hours"></div>
+                    <div class="legend-icons"></div>
+                </div> -->
+            
+            </section>
 
         </main>
 
@@ -106,22 +169,40 @@
 
     </div>
 <script>
-    $("#list").click(function(){
-    $(".map").hide();
-    });
 
-    $("#list").click(function(){
-    $(".provider-tiles").show();
-    }); 
+// $(document).ready(function(){
 
-    $("#map").click(function(){
-    $(".provider-tiles").hide();
-    });
 
-    $("#map").click(function(){
-    $(".map").show();
-    }); 
+//     $("#list").click(function(){
+//     $(".map").hide();
+//     });
 
+//     $("#list").click(function(){
+//     $(".provider-tiles").show();
+//     }); 
+
+//     $("#map").click(function(){
+//     $(".provider-tiles").hide();
+//     });
+
+//     $("#map").click(function(){
+//     $(".map").show();
+//     }); 
+
+// });
+
+// $(document).ready(function(){
+//   $("#map").click(function(){
+//     $(".map").toggle();
+//   });
+// });
+
+$(function(){
+  $('[data-target]').on('click', function(){
+    var target = $(this).data('target');
+    $(target).siblings().hide().end().show();
+  });
+});
 
 </script>
 </body>

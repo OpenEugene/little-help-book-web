@@ -155,7 +155,36 @@ option {
 
 .provider-tiles {
   display: flex;
-  margin-top: 1rem;
+  flex-wrap: wrap;
+  width: 75.5rem;
+  margin-top: 1.5rem;
+  margin-left: 3.8rem;
+}
+
+.tile {
+  width: 30%;
+  margin: 0 1.5rem 1rem 0;
+}
+
+.provider-name {
+  font-weight: bold;
+  padding-bottom: .5rem;
+}
+
+.provider-address {
+  padding-bottom: .5rem;
+}
+
+.provider-phone {
+  padding-bottom: .5rem;
+}
+
+.provider-website {
+  padding-bottom: 1rem;
+}
+
+.provider-description {
+  padding-bottom: .5rem;
 }
 
 .map {
@@ -163,3 +192,5 @@ option {
   width: 85%;
   height: 100%;
 }
+
+#main > div:not(:first-child) {display: none;}
