@@ -141,6 +141,7 @@ option {
   }
   
   #mapid {
-    height: 200px;
-    width: 300px;
+    height: 50vh;
+    width: 100%;
+    min-width: 440px;
   }
