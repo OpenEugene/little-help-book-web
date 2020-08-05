@@ -33,7 +33,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 6.2rem;
+    margin-left: 7.2rem;
 }
 
 .top-of-menu {
@@ -187,10 +187,12 @@ option {
   padding-bottom: .5rem;
 }
 
-.map {
+#map {
   display: flex;
   width: 85%;
   height: 100%;
 }
 
-#main > div:not(:first-child) {display: none;}
+#main > section:not(:first-child) {
+  display: none;
+}
