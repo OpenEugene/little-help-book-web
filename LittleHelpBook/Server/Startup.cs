@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Linq;
 using LittleHelpBook.Server.Services;
+using Microsoft.OpenApi.Models;
 
 namespace LittleHelpBook.Server
 {
@@ -25,8 +26,19 @@ namespace LittleHelpBook.Server
         {
 
             services.AddControllersWithViews();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1",
+                    new OpenApiInfo
+                    {
+                        Title = "Little Help Book API",
+                        Version = "v1"
+                    });
+            });
             services.AddRazorPages();
             services.AddSingleton(new AirTableService(Configuration));
+            services.AddMvc();
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,6 +56,12 @@ namespace LittleHelpBook.Server
                 app.UseHsts();
             }
 
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Little Help Book API V1");
+            });
+
             app.UseHttpsRedirection();
             app.UseBlazorFrameworkFiles();
             app.UseStaticFiles();
@@ -56,6 +74,10 @@ namespace LittleHelpBook.Server
                 endpoints.MapControllers();
                 endpoints.MapFallbackToFile("index.html");
             });
+
+           
+
+          
         }
     }
 }
