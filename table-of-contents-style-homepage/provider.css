@@ -140,4 +140,7 @@ option {
     font-size: .8rem;
   }
   
-  
+  #mapid {
+    height: 200px;
+    width: 300px;
+  }
