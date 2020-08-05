@@ -188,6 +188,11 @@ option {
   padding-bottom: .5rem;
 }
 
+.last-line {
+  display: flex;
+  justify-content: space-between;
+}
+
 #map {
   display: flex;
   width: 85%;
