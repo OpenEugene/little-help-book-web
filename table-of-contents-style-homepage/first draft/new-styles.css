@@ -391,7 +391,7 @@ a {
         background-color: black;
         height: 6.6rem;
         overflow-x: hidden; 
-        margin: 0 -1rem;
+        margin: 0 -0.5rem;
         overflow-y: hidden;
         margin-top: -1rem;
     }
