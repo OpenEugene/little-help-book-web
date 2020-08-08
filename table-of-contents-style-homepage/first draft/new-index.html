@@ -11,57 +11,32 @@
 </head>
 <body>
     <div class="container">
-        <header>
-          <div class="top">
-            <div class="box-1">
-                <div class="little-help-book-title">Little Help Book</div>
-                <div class="about">About</div>
-            </div>
-            <div class="box-2">
-                <div class="clinic-name">White Bird Clinic</div>
-                <div class="emergency-container">
-                  <button onclick="emergencyCrisis()" class="emergency-button">Emergency Crisis Lines</button>
-                  <div id="emerNumbers" class="emergency-list">
-                    <a style="display:block;" href="tel:911">911<br><div class="emergency-provider-info">Emergency only. Hours: 24/7</div></a>
-                  </div>
-                </div>
-            </div> 
-            <div class="box-3">
-                <div class="lane-county">Lane County, Oregon</div>
-    
-                <div class="find-my-city"> 
-                  <button onclick="cityMenu()" class="dropdown-button">Find my City</button>
-                    <div id="myDropdown" class="list-of-cities">
-                      <a href="">Blachly</a>
-                      <a href="">Coburg</a>
-                      <a href="">Cottage Grove</a>
-                      <a href="">Creswell</a>
-                      <a href="">Dexter</a>
-                      <a href="">Dorena</a>
-                      <a href="">Florence</a>
-                      <a href="">Junction City / Cheshire</a>
-                      <a href="">Lowell</a>
-                      <a href="">Mapleton</a>
-                      <a href="">Oakridge</a>
-                      <a href="">Veneta</a>
-                      <a href="">Walterville</a>
-                    </div>
-                </div>
-    
-            </div>
-          </div>
-          <div class="search">
-    
+        <header class="desktop-header">
+            <img class="desktop-logo" src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
+          
+            <h1 class="little-help-book">Little Help Book</h1>
+         
+            <button onclick="emergencyCrisis()" class="emergency-button">Emergency Crisis Lines</button>         
+
+            <div class="lane-county">Lane County, Oregon</div>
+  
+            <button class="find-my-city">Find my City</button>
+
             <button class="spanish button-style">Español</button>
-    
-            <input class="search-input" type="search" placeholder="Search">
-            <div class="lines">
-              <div class="hamburger"></div>
-              <div class="hamburger"></div>
-              <div class="hamburger"></div>        
+
+            <button class="about">About</button>
+
+            <div class="search">
+              <input class="search-input" type="search" placeholder="Search">
+              <div class="lines">
+                <div class="hamburger"></div>
+                <div class="hamburger"></div>
+                <div class="hamburger"></div>        
+              </div>
             </div>
-          </div>
+
         </header>
+
         <main class="table-of-contents">
             <h2 class="category-name h123-reset"><a href="#">Basic Needs</a></h2>
             <div class="subcategory">

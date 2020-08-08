@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-main {
+header, main {
   font-family: sans-serif;
 }
 
@@ -29,205 +29,65 @@ a {
   color: blue;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  header {
-    /* background-color: #ccc; */
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
-    padding-bottom: 1rem;
-    padding-top: .4rem;
-  }
-  
-  header .top,
-  .footer {
-    display: flex;
-    justify-content: space-around;
-    padding: 1rem;
-  }
+/* begin new header */
 
-  header .box-1 {
-      display: flex;
-      flex-direction: column;
-      margin-left: -1rem;
-  }
-
-  .little-help-book-title {
-    font-family: sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 1.5rem;
-    line-height: 1rem;
-    white-space: nowrap;
-  }
-  
-  .about {
-    font-family: sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 1rem;
-    padding: 1rem 0 0 0;
-  }
-  
-  .clinic-name {
-    font-family: Concert One, sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 1.9rem;
-    line-height: 1rem;
-    text-align: center;
-    white-space: nowrap;
-  }
-  
-  .emergency-container {
-    font-family: sans-serif;
-    font-style: normal;
-    font-size: .75em;
-    padding: 1.25rem 0 .3rem 0;
-  }
-  
-  .emergency-button {
-    background-color: black;
-    color: white;
-    font-weight: bold;
-    font-size: 1.5em;
-    white-space: nowrap;
-    padding: .5em 1em;
-    border-radius: 22px;
-    border: none;
-  }
-
-  .emergency-button:hover {
-    background-color: #bf3fbf;
-    transition: 1s background-color ease-in-out;
- }
-
- /* begin emergency number list styles */
-
- .emergency-list {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 250px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
- }
- 
- /* Links inside the dropdown */
- .emergency-list a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
+/* .container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+} */
+
+.desktop-header {
+  display: flex;
+  justify-content: space-around;
+  color: white;
   font-size: 1rem;
- }
- 
- /* Change color of dropdown links on hover */
- .emergency-list a:hover {background-color: #ddd}
- 
- /* end emergency number list styles */
-  
-  header .box-3 {
-      display: flex;
-      flex-direction: column;
-      margin-right: -1rem;
-  }
+  background-color: black;
+  height: 6.6rem;
+  overflow-x: hidden; 
+  margin: 0 -0.5rem;
+  overflow-y: hidden;
+  margin-top: -1rem;
+  margin-bottom: 2.25rem;
+}
 
-  .lane-county {
-    font-family: sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 1.5rem;
-    line-height: 1rem;
-    white-space: nowrap;
-  }
-  
-  .find-my-city {
-    font-family: sans-serif;
-    font-style: normal;
-    font-weight: normal;
+.desktop-logo {
+  width: 66px;
+  height: 66px;
+  margin: 1.6rem 0 .4rem .75rem;
+}
 
-  }
+.little-help-book {
+  font-size: 2.2rem;
+  white-space: nowrap;
+  margin: 2.4rem 0 0 .7rem;
+}
 
-.dropdown-button {
+button {
+  font-family: sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  color: white;
+  background-color: black;
+  border-radius: 8px;
+  border-style: solid;
   border: none;
-  background-color: transparent;
-  font-size: 1rem;
-  line-height: .25rem;
-  padding: 1.5rem 0;
- 
+  margin: 3rem 0 1.5rem 0;
 }
 
-.list-of-cities {
- display: none;
- position: absolute;
- background-color: #f9f9f9;
- min-width: 160px;
- box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
- z-index: 1;
+.lane-county {
+  margin: 3.4rem 0 0 0;
 }
 
-.dropdown-button:hover {
-   color: #bf3fbf;
-   transition: 0.3s color ease-in-out;
+.search {
+  margin: 3.4rem 0 0 0;
 }
 
-/* Links inside the dropdown */
-.list-of-cities a {
- color: black;
- padding: 12px 16px;
- text-decoration: none;
- display: block;
+
+body {
+
+  background-color: #f5f5f5;
+
 }
-
-/* Change color of dropdown links on hover */
-.list-of-cities a:hover {background-color: #ddd}
-
-/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-.show {display:block;}
-
-  /* end dropdown styles */
-  
-  .spanish {
-    font-family: sans-serif;
-  }
-
-  .button-style {
-    background-color: white;
-    height: 2.3rem;
-    border-radius: 8px;
-    border-style: solid;
-    margin: 0 6.3rem 0 0;
-  }
-
-  header .search {
-    margin: 0 auto;
-    display: flex;
-    width: 66.6%;
-    margin-left: 5.9rem;
-  }
-  
-  header .search input {
-    width: 100%;
-    height: 2.4rem;
-  }
-  
-  .search-input {
-    background-image: url(WHITEBIRDLOGO.svg);
-    background-size: 30px 30px;
-    background-repeat: no-repeat;
-    background-position: 5px 50%;
-    background-color: #e2e2e2;
-    border-radius: 8px;
-    padding-left: 40px;
-    border: none;
-  }
 
   main {
     columns: 4;
@@ -240,11 +100,11 @@ a {
   .category-name>a {
     display: block;
     text-decoration: none;
-    color: blue;
+    color: black;
     background-color: #f5f5f5;
     font-weight: bold;
     padding: .5rem 0;
-    font-size: 1rem;
+    font-size: 1.5rem;
     transition: 0.3s color ease-in-out;
   }
   
@@ -256,9 +116,9 @@ a {
     padding: 0 0 .75rem 0;
   }
   .subcategory {
-    font-size: .85em;
+    font-size: 1rem;
     line-height: 2em;
-    color: blue;
+    color: rgb(88, 88, 88); 
     margin: -0.5rem 0 1.1rem 0;
   }
 
@@ -338,6 +198,11 @@ a {
 
   .footer {
     display: flex;
+    justify-content: space-around;
+  }
+
+  .footer {
+    display: flex;
     justify-content: center;
     font-family: sans-serif;
     font-style: normal;
@@ -345,6 +210,7 @@ a {
     font-size: .85rem;
     color: gray;
     margin: 3rem 0 1rem;
+    padding: 1rem;
   }
   
   .footer-item {
@@ -357,115 +223,13 @@ a {
 
 /* end desktop styles */
 
-  .mobile-container {
-    display: none;
+.mobile-container {
+  display: none;
 }
 
 /* responsive transition to tablet */
 
 @media screen and (max-width: 1056px) {
-
-    .mobile-container {
-        display: inline;
-    }
-  
-    .container {
-        display: none;
-    }
-  
-    .content-container {
-        display: flex;
-        flex-direction: column;
-        margin-top: -2rem;
-    }
-  
-    header {
-      padding-top: 0;
-    }
-  
-    header .logo-title {
-      display: flex;
-    }
-  
-    .black-top {
-        background-color: black;
-        height: 6.6rem;
-        overflow-x: hidden; 
-        margin: 0 -0.5rem;
-        overflow-y: hidden;
-        margin-top: -1rem;
-    }
-  
-    img {
-        position: absolute;
-        width: 66px;
-        height: 66px;
-        margin: .59rem 0 .4rem .75rem;
-    }
-  
-    .little-help-book {
-        position: absolute;
-        color: white;
-        font-size: 2.2rem;
-        font-weight: bold;
-        font-family: sans-serif;
-        margin: 1.4rem 0 0 5.6rem;
-    }
-  
-    .people-care {
-        font-size: 5.2rem;
-        font-weight: bold;
-        margin: 5.5rem 0 0 3.5rem;
-    }
-  
-    .find-help-in-lane {
-        font-size: 2.3rem;
-        font-weight: bold;
-        line-height: 3.3rem;
-        margin: 1.5rem 5rem 0 3.5rem;
-    }
-  
-    .buttons {
-        display: flex;
-        flex-direction: column;
-        margin: 8.8rem 0 2rem 3.5rem;
-    }
-  
-    .help-button, .spanish-button {
-        background-color: black;
-        color: white;
-        border: none;
-        border-radius: 10px;
-        width: 13rem;
-        height: 7rem;
-        font-size: 2rem;
-        font-weight: bold;
-        margin-right: 2.5rem;
-    }
-
-    .spanish-button {
-      margin-top: 3rem;
-  }
-  
-    footer {
-        font-family: sans-serif;
-        font-size: 1.45rem;
-        font-weight: lighter;
-        line-height: 1.7rem;
-        margin: 3rem 0 2rem 3.5rem;
-        padding-bottom: 2rem;
-    }
-  
-    footer .bold-inline {
-        display: inline;
-        font-size: 1.45rem;
-        font-weight: bold;
-    }
-  }
-  
-/* begin tablet styles */
-
-@media screen and (max-width: 770px) {
 
   .mobile-container {
       display: inline;
@@ -475,13 +239,114 @@ a {
       display: none;
   }
 
+  .content-container {
+      display: flex;
+      flex-direction: column;
+  }
+
   header {
-      padding-top: 0;
+    padding-top: 0;
   }
 
   header .logo-title {
-      display: flex;
+    display: flex;
   }
+
+  .black-top {
+      background-color: black;
+      height: 6.6rem;
+      overflow-x: hidden; 
+      margin: 0 -0.5rem;
+      overflow-y: hidden;
+      margin-top: -1rem;
+  }
+
+  img {
+      position: absolute;
+      width: 66px;
+      height: 66px;
+      margin: 1.6rem 0 .4rem .75rem;
+  }
+
+  .little-help-book {
+      position: absolute;
+      color: white;
+      font-size: 2.2rem;
+      font-weight: bold;
+      font-family: sans-serif;
+      margin: 2.4rem 0 0 5.6rem;
+  }
+
+  .people-care {
+      font-size: 5.2rem;
+      font-weight: bold;
+      margin: 5.5rem 0 0 3.5rem;
+  }
+
+  .find-help-in-lane {
+      font-size: 2.3rem;
+      font-weight: bold;
+      line-height: 3.3rem;
+      margin: 1.5rem 5rem 0 3.5rem;
+  }
+
+  .buttons {
+      display: flex;
+      flex-direction: column;
+      margin: 8.8rem 0 2rem 3.5rem;
+  }
+
+  .help-button, .spanish-button {
+      background-color: black;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      width: 13rem;
+      height: 7rem;
+      font-size: 2rem;
+      font-weight: bold;
+      margin-right: 2.5rem;
+  }
+
+  .spanish-button {
+    margin-top: 3rem;
+}
+
+  footer {
+      font-family: sans-serif;
+      font-size: 1.45rem;
+      font-weight: lighter;
+      line-height: 1.7rem;
+      margin: 3rem 0 2rem 3.5rem;
+      padding-bottom: 2rem;
+  }
+
+  footer .bold-inline {
+      display: inline;
+      font-size: 1.45rem;
+      font-weight: bold;
+  }
+}
+
+/* begin tablet styles */
+
+@media screen and (max-width: 770px) {
+
+.mobile-container {
+    display: inline;
+}
+
+.container {
+    display: none;
+}
+
+header {
+    padding-top: 0;
+}
+
+header .logo-title {
+    display: flex;
+}
 
 }
 
@@ -489,62 +354,58 @@ a {
 
 @media screen and (max-width: 640px) {
 
- .black-top {
-      height: 5rem;
-  }
-
-  img {
-      width: 42px;
-      height: 42px;
-      margin: .49rem 0 .4rem .55rem;
-  }
-
-  .little-help-book {
-      font-size: 1.2rem;
-      margin: 1.1rem 0 0 3.7rem;
-  }
-
-  .people-care {
-      font-size: 2.4rem;
-      margin: 3.5rem 0 0 2rem;
-  }
-
-  .find-help-in-lane {
-      font-size: 1.125rem;
-      line-height: 1.7rem;
-      margin: 1rem 0.5rem 0 2rem;
-  }
-
-  .buttons {
-      position: absolute;
-      bottom: 18.6%;
-      margin: 7.2rem 0 0 2rem;
-  }
-
-  .help-button, .spanish-button {
-      width: 10rem;
-      height: 5rem;
-      font-size: 1.5rem;
-  }
-
-  .spanish-button {
-      margin-top: 1.8rem;
-  }
-
-  footer {
-      position: absolute;
-      bottom: 1%;
-      font-size: 1.2rem;
-      width: 20rem;
-      margin: 3rem 0 0 2rem;
-  }
-
-  footer .bold-inline {
-      font-size: 1.2rem;
-  }
-
+.black-top {
+    height: 5rem;
 }
 
+img {
+    width: 42px;
+    height: 42px;
+    margin: 1.49rem 0 .4rem .55rem;
+}
 
+.little-help-book {
+    font-size: 1.2rem;
+    margin: 2.1rem 0 0 3.7rem;
+}
 
+.people-care {
+    font-size: 2.4rem;
+    margin: 3.5rem 0 0 2rem;
+}
 
+.find-help-in-lane {
+    font-size: 1.125rem;
+    line-height: 1.7rem;
+    margin: 1rem 0.5rem 0 2rem;
+}
+
+.buttons {
+    position: absolute;
+    bottom: 18.6%;
+    margin: 7.2rem 0 0 2rem;
+}
+
+.help-button, .spanish-button {
+    width: 10rem;
+    height: 5rem;
+    font-size: 1.5rem;
+}
+
+.spanish-button {
+    margin-top: 1.8rem;
+}
+
+footer {
+    position: absolute;
+    bottom: 1%;
+    font-size: 1.2rem;
+    width: 20rem;
+    margin: 3rem 0 0 2rem;
+}
+
+footer .bold-inline {
+    font-size: 1.2rem;
+}
+
+}
