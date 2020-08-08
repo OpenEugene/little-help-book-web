@@ -426,7 +426,9 @@ a {
     }
   
     .buttons {
-        margin: 7.2rem 0 2rem 3.5rem;
+        display: flex;
+        flex-direction: column;
+        margin: 8.8rem 0 2rem 3.5rem;
     }
   
     .help-button, .spanish-button {
@@ -440,15 +442,18 @@ a {
         font-weight: bold;
         margin-right: 2.5rem;
     }
+
+    .spanish-button {
+      margin-top: 3rem;
+  }
   
     footer {
-        display: inline;
         font-family: sans-serif;
         font-size: 1.45rem;
         font-weight: lighter;
         line-height: 1.7rem;
-        margin: 3rem 0 4.3rem 3.5rem;
-        padding-bottom: 3rem;
+        margin: 3rem 0 2rem 3.5rem;
+        padding-bottom: 2rem;
     }
   
     footer .bold-inline {
@@ -460,29 +465,6 @@ a {
   
 /* begin tablet styles */
 
-@media screen and (max-width: 800px) {
-
-    .buttons {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        bottom: 16.5%;
-        margin: 7.2rem 0 0 3.5rem;
-    }
-
-    .spanish-button {
-        margin-top: 3rem;
-    }
-
-    footer {
-        margin: 3rem 0 0 3.5rem;
-        padding-bottom: 0;
-        position: absolute;
-        bottom: 6%;
-    }
-
-}
-
 @media screen and (max-width: 770px) {
 
   .mobile-container {
@@ -491,12 +473,6 @@ a {
 
   .container {
       display: none;
-  }
-
-  .content-container {
-      display: flex;
-      flex-direction: column;
-      margin-top: -2rem;
   }
 
   header {
@@ -540,7 +516,8 @@ a {
   }
 
   .buttons {
-      bottom: 23%;
+      position: absolute;
+      bottom: 18.6%;
       margin: 7.2rem 0 0 2rem;
   }
 
@@ -555,6 +532,8 @@ a {
   }
 
   footer {
+      position: absolute;
+      bottom: 1%;
       font-size: 1.2rem;
       width: 20rem;
       margin: 3rem 0 0 2rem;
