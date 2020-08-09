@@ -3,8 +3,8 @@ const cities = [{id: "rec1", name: "Eugene"}, {id: "rec2", name: "Portland"}, {i
 
 function generateOptionElements(objArray) {
 	let elementString = "";
-	for (int i = 0; i < objArray.length; i++) {
-		elementString += generateElement(objArray[i]);
+	for (let i = 0; i < objArray.length; i++) {
+		elementString += generateOptionElement(objArray[i]);
 	}
 	return elementString;
 }
@@ -17,3 +17,4 @@ function placeOptionElements(elementId, objString) {
 	document.getElementById(elementId).innerHTML = objString;
 }
 
+placeOptionElements("citySelect", generateOptionElements(cities));
