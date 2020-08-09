@@ -26,7 +26,7 @@ li {
 
 a {
   text-decoration: none;
-  color: blue;
+  color: #4A9AF8;
 }
 
 /* begin new header */
@@ -47,15 +47,19 @@ a {
 }
 
 .desktop-logo {
+  position: absolute;
+  left: .5rem;
   width: 66px;
   height: 66px;
   margin: 1.6rem 0 .4rem .75rem;
 }
 
 .little-help-book {
+  position: absolute;
+  left: 1.7rem;
   font-size: 2.2rem;
   white-space: nowrap;
-  margin: 2.4rem 0 0 .7rem;
+  margin: 2.4rem 0 0 5.6rem;
 }
 
 .menu-button {
@@ -63,27 +67,41 @@ a {
   font-size: 1.5rem;
   font-style: normal;
   font-weight: bold;
-  color: #f5f5f5;
+  color: rgb(226, 226, 226);
   background-color: black;
   border-radius: 8px;
   border-style: solid;
   border: none;
-  margin: 3rem 0 1.5rem 0;
+  white-space: nowrap;
+  margin: 2.6rem .5rem 1.5rem 0;
 }
 
 .lane-county {
-  margin: 3.4rem 0 0 0;
+  color: rgb(226, 226, 226);
+  margin: 3rem .5rem 0 30rem;
+  white-space: nowrap;
 }
 
 .search {
-  margin: 3.4rem 0 0 0;
+  width: 3%;
+  margin: 2.3rem 0 0;
+  padding-right: 4.5rem;
 }
 
+header .search input {
+  width: 100%;
+  height: 2.4rem;
+}
+
+.search-input {
+  background-color: #e2e2e2;
+  border-radius: 8px;
+  padding-left: 40px;
+  border: none;
+}
 
 body {
-
   background-color: #f5f5f5;
-
 }
 
   main {
@@ -108,7 +126,7 @@ body {
   }
   
   .category-name>a:hover {
-    color: #bf3fbf;
+    color: #4A9AF8;
   }
   
   .category-name {
@@ -131,6 +149,7 @@ body {
 
   .blue-text {
     color: #4A9AF8;
+    font-weight: bold;
   }
   
   /* popup container */
@@ -233,8 +252,39 @@ body {
   }
   
   .footer-url {
-    color: blue;
+    color: #4A9AF8;
+    font-weight: bold;
   }
+
+
+/* replace menu items with icon */
+
+@media screen and (max-width: 1175px) {
+
+  .search {
+    display: flex;
+    position: absolute;
+    right: 2.5rem;
+  }
+
+  .menu-icon {
+    display: none;
+  }
+
+  .menu-lines {
+    margin-left: -2rem;
+    margin-right: 1rem;
+  }
+
+.hamburger {
+    width: 35px;
+    height: 6px;
+    background-color: rgb(126, 126, 126);
+    border-radius: 2.5px;
+    margin: 5.5px 0 0 10.5px;
+  }
+
+}
 
 /* end desktop styles */
 
