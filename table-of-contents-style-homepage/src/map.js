@@ -5,4 +5,12 @@ function mapInit() {
 	tiles.addTo(mymap);
 }
 
+function setMarker(coordArray) {
+	L.marker(coordArray).addTo(L.map('mapid'));
+}
+
+function setView(coordArray, zoom) {
+	L.map('mapid').setView(coordArray, zoom);
+}
+
 mapInit();
