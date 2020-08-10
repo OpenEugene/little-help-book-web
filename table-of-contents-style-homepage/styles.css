@@ -423,6 +423,16 @@ main {
       margin-right: 2.5rem;
   }
 
+  .help-button:hover {
+    background-color: #4A9AF8;
+    box-shadow: .5rem .5rem .75rem #8888;
+  }
+
+  .spanish-button:hover {
+    background-color: #4A9AF8;
+    box-shadow: .5rem .5rem .75rem #8888;
+  }
+
   .spanish-button {
     margin-top: 3rem;
 }
