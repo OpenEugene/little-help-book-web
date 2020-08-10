@@ -1,16 +1,20 @@
+const mymap = L.map('mapid').setView([51.505, -0.09], 13);
+
 function mapInit() {
-	let mymap = L.map('mapid').setView([51.505, -0.09], 13);
-	var attribution = '&copy; <a href="https://carto.com/">Carto</a>';
-	var tiles = L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}.png", { attribution });
+	let attribution = '&copy; <a href="https://carto.com/">Carto</a>';
+	let tiles = L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}.png", { attribution });
 	tiles.addTo(mymap);
 }
 
-function setMarker(coordArray) {
-	L.marker(coordArray).addTo(L.map('mapid'));
+// Doesn't currently work. Gotta review documentation for marker titles.
+function setMarker(placeInfo) {
+	L.marker([placeInfo["latitude"],placeInfo["longitude"]], {
+		"title": placeInfo["name"]
+	}).addTo("mapid");
 }
 
 function setView(coordArray, zoom) {
-	L.map('mapid').setView(coordArray, zoom);
+	mymap.setView(coordArray, zoom);
 }
 
 mapInit();
