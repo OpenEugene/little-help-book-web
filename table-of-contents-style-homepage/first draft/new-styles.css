@@ -73,6 +73,7 @@ a {
   border-style: solid;
   border: none;
   white-space: nowrap;
+  transition: 0.3s color ease-in-out;
   margin: 2.6rem .5rem 1.5rem 0;
 }
 
@@ -80,6 +81,18 @@ a {
   color: rgb(226, 226, 226);
   margin: 3rem .5rem 0 30rem;
   white-space: nowrap;
+}
+
+.find-my-city:hover {
+  color: white;
+}
+
+.spanish:hover {
+  color: white;
+}
+
+.about:hover {
+  color: white;
 }
 
 .search {
@@ -104,157 +117,168 @@ body {
   background-color: #f5f5f5;
 }
 
-  main {
-    columns: 4;
-  }
+main {
+  columns: 4;
+}
   
-  .table-of-contents {
-    padding: 0 3.5rem 0 3.5rem;
-  }
+.table-of-contents {
+  padding: 0 3.5rem 0 3.5rem;
+}
 
-  .category-name>a {
-    display: block;
-    text-decoration: none;
-    color: black;
-    background-color: rgb(226, 226, 226);
-    /* background-color: #f5f5f5; This style is for category name without a background shape. */
-    font-weight: bold;
-    padding: .5rem 0 .7rem;
-    font-size: 1.5rem;
-    transition: 0.3s color ease-in-out;
-    margin-right: 1rem;
-  }
-  
-  .category-name>a:hover {
-    color: #4A9AF8;
-  }
-  
-  .category-name {
-    padding: 0 0 .75rem 0;
-  }
-  .subcategory {
-    font-size: 1rem;
-    line-height: 2em;
-    color: rgb(88, 88, 88); 
-    margin: -0.5rem 0 1.1rem 0;
-  }
+.category-name>a {
+  display: block;
+  text-decoration: none;
+  color: black;
+  background-color: rgb(226, 226, 226);
+  /* background-color: #f5f5f5; This style is for category name without a background shape. */
+  font-weight: bold;
+  padding: .5rem 0 .7rem;
+  font-size: 1.5rem;
+  transition: 0.3s color ease-in-out;
+  margin-right: 1rem;
+}
 
-  .are-you-in-crisis {
-    font-style: normal;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 1.5em;
-    margin: 1em 0 0 0;
-  }
+.category-name>a:hover {
+  color: #4A9AF8;
+}
 
-  .blue-text {
-    color: #4A9AF8;
-    font-weight: bold;
-  }
-  
-  /* popup container */
-  .popup {
-    position: relative;
-    display: inline-block;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-  
-  /* the actual popup */
-  .popup .popuptext {
-    visibility: hidden;
-    width: 25rem;
-    background-color: #555;
-    color: #fff;
-    border-radius: 6px;
-    padding: .85rem .85rem 1rem 1.15rem;
-    position: absolute;
-    z-index: 1;
-    bottom: 155%;
-    right: -150.8%;
-    margin-left: -80px;
-    font-family: sans-serif;
-    font-size: .85rem;
-    line-height: 1.5rem;
-  }
-  
-  /* toggle this class - hide and show the popup */
-  .popup .show {
-    visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s;
-  }
-  
-  /* add animation (fade in the popup) */
-  @-webkit-keyframes fadeIn {
-    from {opacity: 0;} 
-    to {opacity: 1;}
-  }
-  
-  @keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity:1 ;}
-  }
-  
-  .emergency-button {
-    font-family: sans-serif;
-    font-size: 1.5rem;
-    font-style: normal;
-    font-weight: bold;
-    padding: .5rem;
-    color: black;
-    border: none;
-    background-color: rgb(226, 226, 226);
-    /* background-color: rgb(207, 207, 207); */
-    padding: .7rem .7rem .9rem 0;
-    line-height: 2.25rem;
-    margin: 1.2rem 0 .2rem 0;
-  }
+.category-name {
+  padding: 0 0 .75rem 0;
+}
 
-  .a-z-list {
-    font-style: normal;
-    font-weight: light;
-    font-size: 1em;
-    color: gray;
-    line-height: 1.5em;
-    margin: 1.95em 0 2.25rem 0;
-  }
-  
-  .community-sponsors {
-    text-transform: uppercase;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 1em;
-    margin: 0.8rem 0;
-  }
+.subcategory {
+  font-size: 1rem;
+  line-height: 2em;
+  color: rgb(88, 88, 88);
+  margin: -0.5rem 0 1.1rem 0;
+}
 
-  .footer {
-    display: flex;
-    justify-content: space-around;
-  }
+.subcategory li:hover {
+  color: black;
+  font-weight: bold;
+}
 
-  .footer {
-    display: flex;
-    justify-content: center;
-    font-family: sans-serif;
-    font-style: normal;
-    font-weight: light;
-    font-size: 1rem;
-    color: gray;
-    margin: 3rem 0 1rem;
-    padding: 1rem;
-  }
-  
-  .footer-item {
-    padding: 0 1rem;
-  }
-  
-  .footer-url {
-    color: #4A9AF8;
-    font-weight: bold;
-  }
+.are-you-in-crisis {
+  font-style: normal;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  margin: 1em 0 0 0;
+}
+
+.blue-text {
+  color: #4A9AF8;
+  font-weight: bold;
+  transition: 0.3s color ease-in-out; 
+}
+
+.blue-text:hover {
+  color: #0077ff;
+}
+
+/* popup container */
+.popup {
+  position: relative;
+  display: inline-block;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* the actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 25rem;
+  background-color: #555;
+  color: #fff;
+  border-radius: 6px;
+  padding: .85rem .85rem 1rem 1.15rem;
+  position: absolute;
+  z-index: 1;
+  bottom: 155%;
+  right: -150.8%;
+  margin-left: -80px;
+  font-family: sans-serif;
+  font-size: .85rem;
+  line-height: 1.5rem;
+}
+
+/* toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+
+.emergency-button {
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: bold;
+  padding: .5rem;
+  color: black;
+  border: none;
+  background-color: rgb(226, 226, 226);
+  /* background-color: rgb(207, 207, 207); */
+  padding: .7rem .7rem .9rem 0;
+  line-height: 2.25rem;
+  margin: 1.2rem 0 .2rem 0;
+}
+
+.a-z-list {
+  font-style: normal;
+  font-weight: light;
+  font-size: 1em;
+  color: gray;
+  line-height: 1.5em;
+  margin: 1.95em 0 2.25rem 0;
+}
+
+.community-sponsors {
+  text-transform: uppercase;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1em;
+  margin: 0.8rem 0;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: light;
+  font-size: 1rem;
+  color: gray;
+  margin: 3rem 0 1rem;
+  padding: 1rem;
+}
+
+.footer-item {
+  padding: 0 1rem;
+}
+
+.footer-url {
+  color: #4A9AF8;
+  font-weight: bold;
+}
 
 
 /* replace menu items with icon */
