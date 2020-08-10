@@ -51,7 +51,7 @@ a {
   left: .5rem;
   width: 66px;
   height: 66px;
-  margin: 1.6rem 0 .4rem .75rem;
+  margin: 1.6rem 0 .4rem 1.25rem;
 }
 
 .little-help-book {
@@ -59,7 +59,7 @@ a {
   left: 1.7rem;
   font-size: 2.2rem;
   white-space: nowrap;
-  margin: 2.4rem 0 0 5.6rem;
+  margin: 2.4rem 0 0 5.8rem;
 }
 
 .menu-button {
@@ -380,7 +380,7 @@ main {
       position: absolute;
       width: 66px;
       height: 66px;
-      margin: 1.6rem 0 .4rem .75rem;
+      margin: 1.6rem 0 .4rem 1.25rem;
   }
 
   .little-help-book {
@@ -389,7 +389,7 @@ main {
       font-size: 2.2rem;
       font-weight: bold;
       font-family: sans-serif;
-      margin: 2.4rem 0 0 5.6rem;
+      margin: 2.4rem 0 0 5.8rem;
   }
 
   .people-care {
@@ -476,7 +476,7 @@ header .logo-title {
 img {
     width: 42px;
     height: 42px;
-    margin: 1.49rem 0 .4rem .55rem;
+    margin: 1.49rem 0 .4rem 1.05rem;
 }
 
 .little-help-book {
