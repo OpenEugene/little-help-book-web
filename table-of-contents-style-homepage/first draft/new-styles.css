@@ -154,8 +154,8 @@ main {
 }
 
 .subcategory li:hover {
-  color: black;
-  font-weight: bold;
+  color: #4A9AF8;
+  background-color: rgb(226, 226, 226);
 }
 
 .are-you-in-crisis {
