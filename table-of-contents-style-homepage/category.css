@@ -68,20 +68,56 @@ body {
   margin-left: 20rem;
 }
 
+.breadcrumb-box select {
+  /* hide default arrow */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
 .breadcrumb {
-  background: #ccc7c7;
-  font-size: 1rem;
-  height: 2rem;
-  width: 15rem;
+  background: black;
+  border-color: rgb(126, 126, 126);
+  color: rgb(226, 226, 226);
+  font-family: sans-serif;
+  font-size: 1.45rem;
+  font-style: none;
+  font-weight: bold;
+  height: 2.7rem;
+  width: 16.8rem;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  border-bottom-width: 0.1rem;
+  border-bottom-color: rgb(126, 126, 126);
   margin: 2.6rem 0 0 1.1rem;
 }
 
-option {
-  background-color: #ccc7c7;
+select:hover {
+  color: white;
+  transition: 0.3s color ease-in-out;
 }
 
+option {
+  background-color: white;
+  color: black;
+  font-size: 1.4rem;
+}
+
+/* I haven't figured out how to get this option :hover style to work. */
+option :hover {
+  color: #0077ff;
+  background-color: rgb(226, 226, 226);
+}
+
+.city:hover::after { 
+  color: #F39C12; 
+} 
+/* Neither of those attempts affects the default dropdown style. */
+
 .city {
-  margin-left: 2rem;
+  margin-left: 4.5rem;
 }
 
 .menu-lines {
@@ -201,10 +237,6 @@ header .search input {
 
 .list-map-toggle  {
   position: absolute;
-}
-
-.print {
-
 }
 
 .subcategory-name {
