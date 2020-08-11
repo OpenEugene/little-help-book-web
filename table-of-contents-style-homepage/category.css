@@ -31,6 +31,7 @@ a {
 
 body {
   font-family: sans-serif;
+  background-color: #f5f5f5;
 }
 
 .desktop-header {
@@ -66,7 +67,6 @@ body {
 option {
   background-color: #ccc7c7;
 }
-
 
 .menu-lines {
   margin-left: -2rem;
@@ -127,7 +127,7 @@ input {
 
 .right-column {
   margin-left: 3rem;
-  margin-right: 8.1rem;
+  width: 100%;
 }
 
 .show-arrow, .hide-arrow {
@@ -157,6 +157,7 @@ header .search input {
 
 .nav-buttons {
   display: flex;
+  justify-content: space-between;
   margin: .7rem .7rem .7rem 0;
 }
 
@@ -167,15 +168,14 @@ header .search input {
   border-radius: 8px;
   border-style: solid;
   margin: 0.3rem 0 0 0;
-  padding: .1rem 0 .15rem 0;
 }
 
 .list-map-toggle  {
-  margin: .3rem 6.8rem 0 0;
+
 }
 
 .print {
-  margin: .3rem 0 0 18.3rem;
+
 }
 
 .subcategory-name {
@@ -200,4 +200,10 @@ header .search input {
   color: rgb(88, 88, 88);
   margin: -0.5rem 0 1.1rem 0;
 }
+
+.provider li:hover {
+  color: #0077ff;
+  background-color: rgb(226, 226, 226);
+}
+
 
