@@ -142,6 +142,7 @@ option :hover {
 .left-column {
   margin-left: 3.5rem;
   margin-top: .7rem;
+  min-width: 17.9rem;
 }
 
 .category-page-name {
@@ -239,6 +240,52 @@ header .search input {
 .list-map-toggle  {
   position: absolute;
 }
+
+/* .dropdown-button {
+  cursor: pointer;
+} */
+
+/* It's possible this position: relative will be necessary for the dropdown menu as configured, but currently this breaks the layout when the dropdown style is appled. It's commented out in the html. One difference between how the list-map-toggle button is set up on the subcategory page, it doesn't need a position: absolute for it's placement on the page. That's one difference here and it may be why the toggle button isn't working on this page. */
+/* .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 2rem;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content span {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content span:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+#map {
+  display: flex;
+  width: 85%;
+  height: 100%;
+}
+
+#main > section:not(:first-child) {
+  display: none;
+} */
 
 .subcategory-name {
   display: block;

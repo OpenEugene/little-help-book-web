@@ -140,13 +140,22 @@
                     <section class="nav-buttons">
                         <div class="show-arrow"> > </div>
                         <div class="hide-arrow"> < </div>
-                        <button class="list-map-toggle button-style">list</button>
+
+                        <!-- <div class="dropdown"></div> 
+                            this is a work in progress, it's working on the subcategory page with the map image -->
+                            <button class="list-map-toggle button-style dropdown-button">list</button>
+                            <!-- <div class="dropdown-content">
+                                <span class="linkd" data-target="#provider-list">list</span>
+                                <span class="linkd" data-target="#map">map</span>
+                            </div>
+                        </div> -->
+
                         <button class="print button-style">print</button>
                     </section>    
 
-                    <main class="resource-list">
+                    <main>
                         <h2 class="subcategory-name"><a href="#">Bathrooms</a></h2>
-                        <div>
+                        <section id="provider-list">
                             <ul class="provider">
                                 <li>Department of Human Services</li>
                                 <li>First Place Family Center</li>
@@ -176,7 +185,10 @@
                             <ul class="provider">
                                 <li>Eugene Mission</li>
                                 <li>First Place Family Center</li>
-                        </div>
+                        </section>
+
+                        <!-- <section id="map"><img src="full-screen-map.jpg" alt="This is a placeholder for the OpenStreetMap"></section> -->
+
                     </main>
                 </section>
             </div>
