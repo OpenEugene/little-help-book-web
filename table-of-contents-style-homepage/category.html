@@ -9,9 +9,9 @@
     <script src="category.js"></script>
 </head>
 <body>
-    <div class="page-container">
-        <header class="navigation-menus">
-            <img src="WHITEBIRDLOGO.svg" alt="White Bird Clinic" width="54" height="54">
+    <div class="container">
+        <header class="desktop-header">
+            <img class="desktop-logo" src="white-bird-on-black.png" alt="White Bird Clinic" width="66px" height="66px">
             <select class="breadcrumb city">
                 <option value="">Eugene / Springfield</option>
                 <option value="">Blachly</option>
@@ -66,7 +66,18 @@
                 <option value="">Propane</option>
                 <option value="">Showers</option>             
             </select>
+
+            <div class="search">
+                <div class="menu-lines">
+                  <div class="hamburger"></div>
+                  <div class="hamburger"></div>
+                  <div class="hamburger"></div>        
+                </div>
+                <input type="image" src="search-line.png" class="search-input" type="search">
+              </div>
+
         </header>
+        
             <div class="inner-container">
                 <section class="left-column">
                     <div class="category-page-name">
@@ -117,13 +128,10 @@
                 </section>
                 
                 <section class="right-column">
-                    <div class="search">
-                    <div class="show-arrow"> > </div>
-                    <div class="hide-arrow"> < </div>
-                        <input type="text" placeholder="Search Basic Needs">
-                    </div>
 
                     <section class="nav-buttons">
+                        <div class="show-arrow"> > </div>
+                        <div class="hide-arrow"> < </div>
                         <button class="list-map-toggle button-style">list</button>
                         <button class="print button-style">print</button>
                     </section>    
