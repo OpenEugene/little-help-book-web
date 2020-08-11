@@ -1,10 +1,9 @@
 "use strict"
-jQuery(document).ready(function() {
+$(document).ready(function() {
   console.log('test_airtable');
   const Airtable = require('airtable');
 
-  // const api_key = "key1agtUnabRLb2LS";
-  // Read-only keyk
+  // Read-only key
   const api_key = "keyMmAL4mVBSORkGc";
   // const base = new Airtable({apiKey: api_key}).base('appj3UWymNh6FgtGR');
   // Experimental table
@@ -16,6 +15,7 @@ jQuery(document).ready(function() {
     const category_data = merge_tables(category_records, subcategory_records, provider_records);
     init_dom_toc(category_data);
 
+    // const element = $("#all"); //document.getElementById("all");
     const element = document.getElementById("all");
     //If it isn't "undefined" and it isn't "null", then it exists.
     if(typeof(element) != 'undefined' && element != null){
@@ -32,9 +32,6 @@ function init_dom_toc(category_data) {
     accum += `<h2 class="category-name h123-reset"><a href="#">${record.Name}</a></h2>`;
     // length 1 means only has "No subcategories" placeholder
     console.log(record.Name, record.Subcategories.length)
-    if (record.Subcategories.length == 2) {
-      console.log(record);
-    }
     if (record.Subcategories.length != 1) {
       accum += '<div class="subcategory">';
       accum += '<ul>';
@@ -53,8 +50,19 @@ function init_dom_toc(category_data) {
     return accum;
     // END - Create category
   }, '');
-  // jQuery("#table-of-contents").append(html);
-  jQuery("#table-of-contents").prepend(html);
+  // $("#table-of-contents").append(html);
+  $("#table-of-contents").prepend(html);
+
+  // Grab the template script
+  let theTemplateScript = $("#toc-template").html();
+  // Compile the template
+  let theTemplate = Handlebars.compile(theTemplateScript);
+  // Pass our data to the template
+  let theCompiledHtml = theTemplate({categories : category_data});
+  // console.log(category_data);
+  // console.log("html:", theCompiledHtml);
+  // Add the compiled html to the page
+  $('#table-of-contents-handlebars').prepend(theCompiledHtml);
 }
 
 // function init_dom_toc(category_data) {
@@ -68,7 +76,7 @@ function init_dom_toc(category_data) {
 //     }, '');
 //     return accum;
 //   }, '');
-//   jQuery("#table-of-contents").append(html);
+//   $("#table-of-contents").append(html);
 // }
 
 function init_dom_all(category_data) {
@@ -85,7 +93,7 @@ function init_dom_all(category_data) {
     }, '');
     return accum;
   }, '');
-  jQuery("#all").append(html);
+  $("#all").append(html);
 }
 
 function merge_tables(category_records, subcategory_records, provider_records) {
@@ -97,10 +105,10 @@ function merge_tables(category_records, subcategory_records, provider_records) {
     let category_name = record.get('Name');
     let category_id = record.id;
     // Initialize a no-subcategory subcategory bucket for providers with no subcategories at index 0.
-    // let none_subcategory_record = {'ID' : '<none>', 'CategoryID' : category_id, 'Name' : 'No subcategories', 'NameES' : 'No hay subcategorias', 'Order' : 0, 'Providers' : []};
+    let none_subcategory_record = {'CategoryID' : category_id, 'SubcategoryID' : undefined, 'Name' : 'No subcategories', 'NameES' : 'No hay subcategorias', 'Order' : 0, 'Providers' : []};
     return {
-      // 'ID' : category_id, 'Name' : category_name, 'NameES' : record.get('Name-ES'), 'Order' : record.get('Order'), 'Subcategories' : [none_subcategory_record]
-      'ID' : category_id, 'Name' : category_name, 'NameES' : record.get('Name-ES'), 'Order' : record.get('Order'), 'Subcategories' : []
+      // 'ID' : category_id, 'Name' : category_name, 'NameES' : record.get('Name-ES'), 'Order' : record.get('Order'), 'Subcategories' : []
+      'ID' : category_id, 'Name' : category_name, 'NameES' : record.get('Name-ES'), 'Order' : record.get('Order'), 'Subcategories' : [none_subcategory_record]
     };
   });
 
@@ -110,29 +118,49 @@ function merge_tables(category_records, subcategory_records, provider_records) {
   console.log('*** Processing subcategories');
   subcategory_records.sort((a, b) => (a.get('Order') - b.get('Order')));
   let subcategory_data = subcategory_records.map(function(record) {
+    // console.log('***')
+    let cat_subcat_name = record.get('Name');
+    let cat_subcat_id = record.id;
+
     // !!!NOTE misspelling. Correct in table?
-    // let subcategory = record.get('Name');
     // let category = record.get('Catagory');
-    let subcategory = record.get('Subcategory');
-    let category = record.get('Category');
-    console.log('**', record.get('Name'), category, subcategory);
-    if (!category) {
+    let category_id = record.get('Category');
+    if (category_id) {
+      category_id = category_id[0];
+    } else  {
       console.log('Subcategory', subcategory, 'has no category.', "THIS SHOULDN'T OCCUR");
     }
+
+    let subcategory_id = record.get('Subcategory');
+    let subcategory_name;
+    let subcategory_name_es;
+    if (subcategory_id) {
+      subcategory_id = subcategory_id[0];
+      subcategory_name = record.get('SubcategoryString');
+      subcategory_name_es = record.get('Subcategory-ES')[0];
+    } else {
+      subcategory_name = 'No subcategories';
+      subcategory_name_es = 'No hay subcategorias';
+    }
     return {
-      // 'ID' : record.id, 'CategoryID' : (category ? category[0] : ''), 'Name' : subcategory, 'NameES' : record.get('Name-ES'), 'Order' : record.get('Order'), 'Providers' : []
-      // 'ID' : record.id, 'CategoryID' : (category ? category[0] : ''), 'Name' : subcategory, 'NameES' : record.get('Subcategory-ES'), 'Order' : record.get('Order'), 'Providers' : []
-      // 'ID' : record.id, 'CategoryID' : (category ? category : ''), 'Name' : subcategory, 'NameES' : record.get('Subcategory-ES'), 'Order' : record.get('Order'), 'Providers' : []
-      'ID' : record.id, 'CategoryID' : (category ? category : ''), 'Name' : (subcategory ? subcategory : 'No subcategories'), 'NameES' : (subcategory ? record.get('Subcategory-ES') : 'No hay subcategorias'), 'Order' : record.get('Order'), 'Providers' : []
+      'CatSubcatID': cat_subcat_id, 'CatSubcatName': cat_subcat_name, 'CategoryID' : category_id, 'SubcategoryID' : subcategory_id, 'Name' : subcategory_name, 'NameES' : subcategory_name_es, 'Order' : record.get('Order'), 'Providers' : []
     };
   });
   // Fold into the Category table
   subcategory_data.forEach(function(record) {
     let category_id = record.CategoryID;
     if (category_id) {
-      let category_index = category_data.findIndex(category => category.ID == category_id);
-      console.log(category_index, record.Name);
-      category_data[category_index].Subcategories.push(record);
+      let subcategory_id = record.SubcategoryID;
+      if (subcategory_id) {
+        let category_index = category_data.findIndex(category => category.ID == category_id);
+        // console.log(category_index, record.Name);
+        console.log("pushing", record.CatSubcatName, category_data[category_index].Subcategories.length);
+        category_data[category_index].Subcategories.push(record);
+        console.log("  ", category_data[category_index].Subcategories.length);
+      } else {
+        category_data[0].Subcategories.CatSubcatID = record.CatSubcatID;
+        category_data[0].Subcategories.CatSubcatName = record.CatSubcatName;
+      }
     } else {
       console.log('no category id', record.Name, "THIS SHOULDN'T OCCUR");
     }
@@ -154,12 +182,12 @@ function merge_tables(category_records, subcategory_records, provider_records) {
     if (category_id) {
       let category_index = category_data.findIndex(category => category.ID == category_id);
       if (category_index >= 0) {
-        let subcategory_id;
-        subcategory_id = record.get('Subcategory');
+        let subcategory_id = record.get('Subcategory');
         // let subcategory_id = record.get('SubcategoryOrig');
         if (subcategory_id) {
-          // let subcategory_index = category_data[category_index].Subcategories.findIndex(subcategory => subcategory.ID == subcategory_id);
-          let subcategory_index = category_data[category_index].Subcategories.findIndex(subcategory => subcategory.Name == subcategory_id);
+          // console.log("subcategory_id", subcategory_id);
+          let subcategory_index = category_data[category_index].Subcategories.findIndex(subcategory => subcategory.SubcategoryID == subcategory_id);
+          // let subcategory_index = category_data[category_index].Subcategories.findIndex(subcategory => subcategory.Name == subcategory_id);
           if (subcategory_index >= 0) {
             category_data[category_index].Subcategories[subcategory_index].Providers.push(record);
           } else {

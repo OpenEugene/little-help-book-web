@@ -5,20 +5,49 @@
     <title>Little Help Book - White Bird Clinic</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-	  <script src="airtable.browser.js"></script>
- 	  <script type="text/javascript" src="fetch_data.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+    <script src="airtable.browser.js"></script>
+    <script type="text/javascript" src="fetch_data.js"></script>
   </head>
   <body>
     <h1>AIRTABLE TEST - Check Console Log</h1>
     <div>
       <a name="table-of-contents"></a>
-      <h2>Table of Contents <a href="#all">Goto all</a></h2>
+      <h2>Table of Contents</h2>
+      <a href="#handlebars">Goto Handlebars</a><br>
+      <a href="#all">Goto all</a><br>
     </div>
-    <div id="table-of-contents">
+    <div id="table-of-contents" class="table-of-contents">
     </div>
+
+    <div>
+      <a name="handlebars"></a>
+      <h2>Handlebars</h2>
+      <a href="#table-of-contents">Goto Table of Contents</a><br>
+      <a href="#all">Goto all</a><br>
+    </div>
+    <div id="table-of-contents-handlebars" class="table-of-contents">
+      <script id="toc-template" type="text/x-handlebars-template">
+        {{#categories}}
+          <h2 class="category-name h123-reset"><a href="#">{{Name}}</a></h2>
+          <div class="subcategory">
+            <ul>
+              {{#Subcategories}}
+                {{#if SubcategoryID}}
+                  <li>{{Name}}</li>
+                {{/if}}
+              {{/Subcategories}}
+            </ul>
+          </div>
+        {{/categories}}
+      </script>
+    </div>
+
     <div>
       <a name="all"></a>
-      <h2>ALL (Eng - Span, Order, Qty) <a href="#table-of-contents">Goto Table of Contents</a></h2>
+      <h2>All (Eng - Span, Order, Qty)</h2>
+      <a href="#table-of-contents">Goto Table of Contents</a><br>
+      <a href="#handlebars">Goto Handlebars</a><br>
     </div>
     <div id="all">
     </div>
