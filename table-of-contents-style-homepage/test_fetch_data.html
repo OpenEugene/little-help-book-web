@@ -7,7 +7,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
     <script src="airtable.browser.js"></script>
-    <script type="text/javascript" src="fetch_data.js"></script>
+    <script type="text/javascript" src="dal.js"></script>
+    <script type="text/javascript" src="index.js"></script>
   </head>
   <body>
     <h1>AIRTABLE TEST - Check Console Log</h1>
@@ -33,7 +34,7 @@
           <div class="subcategory">
             <ul>
               {{#Subcategories}}
-                {{#if SubcategoryID}}
+                {{#if SubcategoryId}}
                   <li>{{Name}}</li>
                 {{/if}}
               {{/Subcategories}}
