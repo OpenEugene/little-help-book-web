@@ -91,7 +91,7 @@ body {
   border-bottom: none;
   border-bottom-width: 0.1rem;
   border-bottom-color: rgb(126, 126, 126);
-  margin: 2.6rem 0 0 1.1rem;
+  margin: 2.6rem 0 0 -0.5rem;
 }
 
 select:hover {
@@ -117,7 +117,7 @@ option :hover {
 /* Neither of those attempts affects the default dropdown style. */
 
 .city {
-  margin-left: 4.5rem;
+  margin-left: 8rem;
 }
 
 .menu-lines {
