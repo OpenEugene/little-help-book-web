@@ -114,8 +114,9 @@ input {
 .subcategory-buttons {
   background-color: white;
   font-size: 1rem;
-  width: 7rem;
+  width: 6.5rem;
   height: 4.3rem;
+  min-width: 6.5rem;
   border-radius: 10px;
   border-style: solid;
 }
@@ -130,9 +131,9 @@ input {
 }
 
 .checkbox-search-notes {
-  font-size: .9rem;
+  font-size: 1rem;
   margin-left: .8rem;
-  margin-top: 1.3rem;
+  margin-top: 1rem;
 }
 
 .right-column {
@@ -183,7 +184,7 @@ header .search input {
 }
 
 .list-map-toggle  {
-
+  position: absolute;
 }
 
 .print {

@@ -2,7 +2,7 @@ $(document).ready(function(){
     $(".show-arrow").hide();
     $(".hide-arrow").click(function () {
         $(".left-column").toggle(100);
-        $(".right-column").animate({"margin-left": "-18.2rem"}, 300);
+        $(".right-column").animate({"margin-left": "3.5rem"}, 300);
         $(".show-arrow").toggle();
         $(".hide-arrow").toggle();
     });
@@ -14,7 +14,7 @@ $(document).ready(function(){
 });
 
 function moveRightColumnLeft(){
-    $(".right-column").css("margin-left", "-18.2rem")
+    $(".right-column").css("margin-left", "3.5rem")
 }
 
 function moveRightColumnRight(){
