@@ -6,11 +6,8 @@ function mapInit() {
 	tiles.addTo(mymap);
 }
 
-// Doesn't currently work. Gotta review documentation for marker titles.
 function setMarker(placeInfo) {
-	L.marker([placeInfo["latitude"],placeInfo["longitude"]], {
-		"title": placeInfo["name"]
-	}).addTo("mapid");
+	L.marker([placeInfo.latitude,placeInfo.longitude], {title: placeInfo.name}).addTo(mymap);
 }
 
 function setView(coordArray, zoom) {
