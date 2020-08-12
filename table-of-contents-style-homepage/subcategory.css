@@ -155,6 +155,7 @@ header .search input {
 
 .bottom-of-menu {
   display: flex;
+  justify-content: space-between;
   align-items: baseline;
   margin-top: .3rem;
   margin-left: 3.5rem;
@@ -229,7 +230,7 @@ header .search input {
 .providers {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 1rem;
+  margin-top: .6rem;
   margin-left: 3.5rem;
 }
 
@@ -247,13 +248,13 @@ header .search input {
 }
 
 .provider-address {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   padding-top: 1rem;
   padding-bottom: .5rem;
 }
 
 .provider-phone {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   padding: .5rem 0;
 }
 
