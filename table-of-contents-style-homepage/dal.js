@@ -1,26 +1,62 @@
-
 "use strict"
+
+async function dalGetPlaceTable(base) {
+  const placeTableRaw = await dalGetTable('Help Services', base);
+  placeTableRaw.sort(function(a, b){
+    if(a.Name < b.Name) { return -1; }
+    if(a.Name > b.Name) { return 1; }
+    return 0;
+  });
+  let placeTable = placeTableRaw.map(function(record) {
+    return {
+      'Id' : record.id,
+      'Name' : record.get('Name'),
+      'NameSpanish' : record.get('Name-ES'),
+      'Category' : record.get('Category'),
+      'Subcategory' : record.get('Subcategory'),
+      'Phone' : record.get('Phone'),
+      'Address' : record.get('Physical Address'),
+      'Latitude' : record.get('Latitude'),
+      'Longitude' : record.get('Longitude'),
+      'URL' : record.get('Web Address'),
+      'Email' : record.get('Email Address'),
+      'Hours' : record.get('Hours of Operation'),
+      'Description' : record.get('Description')
+    };
+  });
+  return placeTable;
+}
+
 async function dalGetCategoryTable(base) {
   const categoryTableRaw = await dalGetTable('Categories', base);
   categoryTableRaw.sort((a, b) => (a.get('Order') - b.get('Order')));
   let categoryTable = categoryTableRaw.map(function(record) {
-    let categoryName = record.get('Name');
-    let categoryId = record.id;
     return {
-      'Id' : categoryId, 'Name' : categoryName, 'NameSpanish' : record.get('Name-ES'), 'Order' : record.get('Order'), 'Subcategories' : []
+      'Id' : record.id,
+      'Name' : record.get('Name'),
+      'NameSpanish' : record.get('Name-ES'),
+      'Subcategories' : [],
+      'Order' : record.get('Order')
     };
   });
   return categoryTable;
 }
 
 async function dalGetSubcategoryTable(base) {
-  const subcategoryTable = await dalGetTable('Subcategories', base);
+  const subcategoryTableRaw = await dalGetTable('Subcategories', base);
+  let subcategoryTable = subcategoryTableRaw.map(function(record) {
+    return {
+      'Id' : record.id,
+      'Name' : record.get('Name'),
+      'NameSpanish' : record.get('Name-ES'),
+      'Order' : record.get('Order')
+    };
+  });
   return subcategoryTable;
 }
 
 async function dalGetCatSubcatTable(base) {
   const catSubcatTableRaw = await dalGetTable('CatSubcats', base);
-  catSubcatTableRaw.sort((a, b) => (a.get('Order') - b.get('Order')));
   let catSubcatTable = catSubcatTableRaw.map(function(record) {
     let catSubcatName = record.get('Name');
     let catSubcatId = record.id;
@@ -46,21 +82,17 @@ async function dalGetCatSubcatTable(base) {
       subcategoryNameSpanish = 'No hay subcategorias';
     }
     return {
-      'CatSubcatId': catSubcatId, 'CatSubcatName': catSubcatName, 'CategoryId' : categoryId, 'SubcategoryId' : subcategoryId, 'Name' : subcategoryName, 'NameSpanish' : subcategoryNameSpanish, 'Order' : record.get('Order'), 'Places' : []
+      'CatSubcatId': catSubcatId,
+      'CatSubcatName': catSubcatName,
+      'CategoryId' : categoryId,
+      'SubcategoryId' : subcategoryId,
+      'Name' : subcategoryName,
+      'NameSpanish' : subcategoryNameSpanish,
+      'Order' : record.get('Order'),
+      'Places' : []
     };
   });
   return catSubcatTable;
-}
-
-async function dalGetPlaceTable(base) {
-  const placeTableRaw = await dalGetTable('Help Services', base);
-  placeTableRaw.sort(function(a, b){
-    if(a.Name < b.Name) { return -1; }
-    if(a.Name > b.Name) { return 1; }
-    return 0;
-  });
-  const placeTable = placeTableRaw;
-  return placeTable;
 }
 
 function dalGetTable(tablename, base) {
