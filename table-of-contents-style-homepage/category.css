@@ -223,7 +223,6 @@ header .search input {
 
 .nav-buttons {
   display: flex;
-  justify-content: space-between;
   margin: .7rem .7rem .7rem 0;
 }
 
@@ -237,16 +236,20 @@ header .search input {
   margin: 0.3rem 0 0 0;
 }
 
-.list-map-toggle  {
-  position: absolute;
+.print {
+  margin-left: auto;
 }
 
-/* .dropdown-button {
-  cursor: pointer;
-} */
+.list-map-toggle  {
+  /* position: absolute; */
+}
 
-/* It's possible this position: relative will be necessary for the dropdown menu as configured, but currently this breaks the layout when the dropdown style is appled. It's commented out in the html. One difference between how the list-map-toggle button is set up on the subcategory page, it doesn't need a position: absolute for it's placement on the page. That's one difference here and it may be why the toggle button isn't working on this page. */
-/* .dropdown {
+.dropdown-button {
+  cursor: pointer;
+}
+
+/* One difference between how the list-map-toggle button is set up on the subcategory page, it doesn't need a position: absolute for it's placement on the page. That's one difference here and it may be why the toggle button isn't working on this page. */
+.dropdown {
   position: relative;
   display: inline-block;
 }
@@ -285,7 +288,7 @@ header .search input {
 
 #main > section:not(:first-child) {
   display: none;
-} */
+}
 
 .subcategory-name {
   display: block;
