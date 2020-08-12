@@ -149,18 +149,45 @@ header .search input {
 }
 
 .provider-name {
+  font-size: 1.5rem;
   font-weight: bold;
-  padding: .5rem 0;
-  font-size: 1.3rem;
-  transition: 0.3s color ease-in-out;
+  padding: .5rem 0 .7rem;
+  background-color: rgb(226, 226, 226)
 }
 
-.website>a:hover {
-  color: #bf3fbf;
+.provider-name:hover {
+  transition: 0.3s color ease-in-out;
+  color: #4A9AF8;
+}
+
+.provider-address {
+  font-size: 1.15rem;
+  padding-top: 1rem;
+  padding-bottom: .5rem;
+}
+
+.provider-phone {
+  font-size: 1.15rem;
+  padding: .2rem 0;
+}
+
+.provider-website {
+  padding-top: .5rem;
+  padding-bottom: 1rem;
+}
+
+.provider-website>a:hover {
+  transition: 0.3s color ease-in-out;
+  color: #4A9AF8;
+}
+
+.provider-description {
+  line-height: 1.5rem;
+  padding-bottom: 1rem;
 }
 
 .provider-info {
-  font-size: .95rem;
+  font-size: 1rem;
   line-height: 1.5rem;
   margin: .5rem 0;
 }
@@ -181,15 +208,14 @@ header .search input {
 
 .button-style {
   background-color: white;
-  height: 2rem;
+  font-size: 1rem;
   border-radius: 8px;
   border-style: solid;
   margin: 0.3rem 0 0 0;
 }
 
 .print-page {
-  padding: 0 .5rem;
-  margin: .3rem 0 0 5.9rem;
+  
 }
 
 .update-button {
@@ -197,7 +223,7 @@ header .search input {
 }
 
 .last-update {
-  font-size: .8rem;
+  font-size: 1rem;
 }
 
 #mapid {
