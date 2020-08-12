@@ -281,9 +281,10 @@ header .search input {
 }
 
 #map {
-  display: flex;
-  width: 85%;
+  width: 85%; 
   height: 100%;
+  width: 888.9px;
+  height: 80vh;
 }
 
 #main > section:not(:first-child) {
