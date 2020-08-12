@@ -88,25 +88,29 @@
                     
         </header>
         
+        <div class="bottom-of-menu">
+            <div class="category-page-name">
+                Bathrooms
+            </div>
+            <section class="nav-buttons">
+
+                <div class="dropdown">
+                    <button class="list-map-toggle button-style dropdown-button">list</button>
+                    <div class="dropdown-content">
+                    <span class="linkd" data-target="#provider-tiles">List</span>
+                    <span class="linkd" data-target="#map">Map</span>
+                    </div>
+                </div>
+
+                <button class="print button-style">print</button>
+            </section>
+        </div>
+
         <main id="main">
 
-            <div class="bottom-of-menu">
-                <div class="category-page-name">
-                    Bathrooms
-                </div>
-                <section class="nav-buttons">
-
-                    <div class="dropdown">
-                        <button class="list-map-toggle button-style dropdown-button">list</button>
-                        <div class="dropdown-content">
-                        <span class="linkd" data-target="#provider-tiles">List</span>
-                        <span class="linkd" data-target="#map">Map</span>
-                        </div>
-                    </div>
-
-                    <button class="print button-style">print</button>
-                </section>
-            </div>
+            <section id="map"> 
+                <img src="full-screen-map.jpg" class="placeholder-map-jpg" alt="This is a placeholder for the OpenStreetMap.">
+            </section>
 
             <section id="provider-tiles" class="providers">
 
@@ -181,21 +185,23 @@
             
             </section>
 
-            <!-- <section id="map"><img src="full-screen-map.jpg" alt="This is a placeholder for the OpenStreetMap"></section> -->
-
         </main>
 
-        <footer></footer>
+        <footer class="footer">
+            <div class="footer-item">&copy; Copyright White Bird Clinic</div>
+            <div class="footer-item footer-url">whitebirdclinic.org</div>
+            <div class="footer-item">Eugene, Oregon</div>
+        </footer>
 
     </div>
 <script>
 
-// $(function(){
-//   $('[data-target]').on('click', function(){
-//     var target = $(this).data('target');
-//     $(target).siblings().hide().end().show();
-//   });
-// });
+$(function(){
+  $('[data-target]').on('click', function(){
+    var target = $(this).data('target');
+    $(target).siblings().hide().end().show();
+  });
+});
 
 </script>
 </body>

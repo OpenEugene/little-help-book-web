@@ -281,12 +281,44 @@ header .search input {
   justify-content: space-between;
 }
 
-/* #map {
-  display: flex;
-  width: 85%;
-  height: 100%;
-} */
+#map {
+  margin-left: 3.5rem;
+  width: 100%;
+}
 
-/* #main > section:not(:first-child) {
+#map {
   display: none;
-} */
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: light;
+  font-size: 1rem;
+  color: gray;
+  margin: 3rem 0 1rem;
+  padding: 1rem;
+}
+
+.footer-item {
+  padding: 0 1rem;
+}
+
+.footer-url {
+  color: #4A9AF8;
+  font-weight: bold;
+}
+
+/* this style is for the placeholder map image, and it can be removed when the OpenStreetMap has been installed. */
+.placeholder-map-jpg {
+  width: 95.3%;
+  margin-top: .6rem;
+}
+
