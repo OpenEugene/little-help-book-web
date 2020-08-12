@@ -157,7 +157,6 @@ header .search input {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  margin-top: .3rem;
   margin-left: 3.5rem;
 }
 
