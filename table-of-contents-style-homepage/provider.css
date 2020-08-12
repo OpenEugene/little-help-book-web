@@ -46,6 +46,7 @@ body {
   margin: 0 -0.5rem;
   overflow-y: hidden;
   margin-top: -1rem;
+  margin-bottom: 2.25rem;
 }
 
 .desktop-logo {
@@ -144,15 +145,15 @@ header .search input {
 }
 
 .provider-page {
-  padding: 0 6rem 0 6rem;
-  margin-top: 1.3rem;
+  padding: 0 3.5rem;
 }
 
 .provider-name {
   font-size: 1.5rem;
   font-weight: bold;
   padding: .5rem 0 .7rem;
-  background-color: rgb(226, 226, 226)
+  background-color: rgb(226, 226, 226);
+  width: 48.5%;
 }
 
 .provider-name:hover {
@@ -183,12 +184,12 @@ header .search input {
 
 .provider-description {
   line-height: 1.5rem;
-  padding-bottom: 1rem;
+  padding-bottom: .6rem;
 }
 
 .provider-info {
   font-size: 1rem;
-  line-height: 1.5rem;
+  line-height: 2rem;
   margin: .5rem 0;
 }
 
@@ -204,6 +205,7 @@ header .search input {
   display: flex;
   justify-content: space-between;
   margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 .button-style {
@@ -214,12 +216,16 @@ header .search input {
   margin: 0.3rem 0 0 0;
 }
 
-.print-page {
-  
+.right-button {
+
 }
 
-.update-button {
+.print-page {
 
+}
+
+.update-button, .print-page {
+  padding: 0.5rem;
 }
 
 .last-update {
