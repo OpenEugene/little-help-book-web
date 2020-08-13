@@ -6,14 +6,16 @@ function mapInit() {
 	tiles.addTo(mymap);
 }
 
-function setMarkers(placeArray) {
+function setMarkers(placesArray) {
 	for (int i = 0; i < placeArray.length; i++) {
-		setMarker(placeArray[i]);
+		setMarker(placesArray[i]);
 	}
 }
 
 function setMarker(placeInfo) {
-	L.marker([placeInfo.latitude,placeInfo.longitude], {title: placeInfo.name}).addTo(mymap);
+	if (placeInfo.latitude != 0 || placeInfo.longitude != 0) {
+		L.marker([placeInfo.latitude,placeInfo.longitude], {title: placeInfo.name}).addTo(mymap);	
+	}
 }
 
 function setView(coordArray, zoom) {
