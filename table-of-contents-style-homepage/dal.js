@@ -1,6 +1,15 @@
 "use strict"
 
-async function dalGetPlaceTable(base) {
+const Airtable = require('airtable');
+// Read-only key
+const apiKey = "keyMmAL4mVBSORkGc";
+// Experimental table
+// const base = new Airtable({apiKey: apiKey}).base('appLwxkByQzFlBeVo');
+// Production table
+const base = new Airtable({apiKey: apiKey}).base('appj3UWymNh6FgtGR');
+
+// async function dalGetPlaceTable(base) {
+async function dalGetPlaceTable() {
   const placeTableRaw = await dalGetTable('Help Services', base);
   placeTableRaw.sort(function(a, b){
     if(a.Name < b.Name) { return -1; }
@@ -27,7 +36,8 @@ async function dalGetPlaceTable(base) {
   return placeTable;
 }
 
-async function dalGetCategoryTable(base) {
+// async function dalGetCategoryTable(base) {
+async function dalGetCategoryTable() {
   const categoryTableRaw = await dalGetTable('Categories', base);
   categoryTableRaw.sort((a, b) => (a.get('Order') - b.get('Order')));
   let categoryTable = categoryTableRaw.map(function(record) {
@@ -42,7 +52,8 @@ async function dalGetCategoryTable(base) {
   return categoryTable;
 }
 
-async function dalGetSubcategoryTable(base) {
+// async function dalGetSubcategoryTable(base) {
+async function dalGetSubcategoryTable() {
   const subcategoryTableRaw = await dalGetTable('Subcategories', base);
   let subcategoryTable = subcategoryTableRaw.map(function(record) {
     return {
@@ -55,7 +66,8 @@ async function dalGetSubcategoryTable(base) {
   return subcategoryTable;
 }
 
-async function dalGetCatSubcatTable(base) {
+// async function dalGetCatSubcatTable(base) {
+async function dalGetCatSubcatTable() {
   const catSubcatTableRaw = await dalGetTable('CatSubcats', base);
   let catSubcatTable = catSubcatTableRaw.map(function(record) {
     let catSubcatName = record.get('Name');
@@ -95,7 +107,8 @@ async function dalGetCatSubcatTable(base) {
   return catSubcatTable;
 }
 
-function dalGetTable(tablename, base) {
+// function dalGetTable(tablename, base) {
+function dalGetTable(tablename) {
   return new Promise(function (resolve) {
     let recordsBuffer = [];
 		base(tablename).select({

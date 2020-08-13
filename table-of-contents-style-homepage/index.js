@@ -1,18 +1,10 @@
 "use strict"
 $(document).ready(function() {
-  const Airtable = require('airtable');
-
-  // Read-only key
-  const apiKey = "keyMmAL4mVBSORkGc";
-  // const base = new Airtable({apiKey: apiKey}).base('appj3UWymNh6FgtGR');
-  // Experimental table
-  const base = new Airtable({apiKey: apiKey}).base('appLwxkByQzFlBeVo');
-
   // await has to be inside async function, anonymous in this case
 	(async () => {
-    const categoryTable = await dalGetCategoryTable(base);
-    const catSubcatTable = await dalGetCatSubcatTable(base);
-    const placeTable = await dalGetPlaceTable(base);
+    const categoryTable = await dalGetCategoryTable();
+    const catSubcatTable = await dalGetCatSubcatTable();
+    const placeTable = await dalGetPlaceTable();
     console.log(categoryTable);
 
     const categoryTree = tocMakeCategoryTreeAll(categoryTable, catSubcatTable, placeTable);
