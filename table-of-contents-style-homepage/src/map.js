@@ -6,6 +6,12 @@ function mapInit() {
 	tiles.addTo(mymap);
 }
 
+function setMarkers(placeArray) {
+	for (int i = 0; i < placeArray.length; i++) {
+		setMarker(placeArray[i]);
+	}
+}
+
 function setMarker(placeInfo) {
 	L.marker([placeInfo.latitude,placeInfo.longitude], {title: placeInfo.name}).addTo(mymap);
 }
