@@ -18,13 +18,14 @@
 <body>
 
     <div class="page-container">
+
         <header class="desktop-header">
             <div> <a href="index.html">
                 <img class="desktop-logo" src="white-bird-on-black.png" alt="White Bird Clinic" width="66px" height="66px">
                 <h1 class="little-help-book">Little Help Book</h1> </a>
             </div>
             <div class="breadcrumb-box">
-                <select class="breadcrumb city">
+                <select class="breadcrumb city" id="citySelect">
                     <option value="">Eugene / Springfield</option>
                     <option value="">Blachly</option>
                     <option value="">Coburg</option>
@@ -119,7 +120,7 @@
             </section>
 
     </div>
-    <script type="text/javascript" src="map.js"></script>
-    
+    <script type="text/javascript" src="src/map.js"></script>
+    <script type="text/javascript" src="src/generateSelectOptions.js"></script>
 </body>
 </html>

@@ -290,6 +290,12 @@ header .search input {
   display: none;
 }
 
+#mapid {
+  height: 90vh;
+  width: 100%;
+  min-width: 90vh;
+}
+
 .footer {
   display: flex;
   justify-content: space-around;
@@ -321,4 +327,3 @@ header .search input {
   width: 95.3%;
   margin-top: .6rem;
 }
-
