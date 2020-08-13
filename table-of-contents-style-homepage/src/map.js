@@ -7,7 +7,7 @@ function mapInit() {
 }
 
 function setMarkers(placesArray) {
-	for (int i = 0; i < placeArray.length; i++) {
+	for (let i = 0; i < placesArray.length; i++) {
 		setMarker(placesArray[i]);
 	}
 }
