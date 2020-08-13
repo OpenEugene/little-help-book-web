@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Little Help Book - White Bird Clinic</title>
+    <meta name="description" content="Resource directory for people seeking help with health, housing, financial assistance, shelter, food pantries and meal sites. This helps people navigate the system.">
+    <meta name="keywords" content="white bird, cahoots, crisis, counseling, mobile mental health, substance abuse treatment, free medical care, free dental, sliding scale health care, services for the homeless, shelter, emergency mental health, acute medical care, education, prevention, intervention, oreong, eugene, eugene oregon, springfield, springfield oregon, lane county, kahoots, cahoot, cahootz, unhoused, homelessness, mental health, counseling, mail, benfits, ohp, wellness, whitebird, white bird clinic, day access center, help resources, houseless, opiod treatment, dui, ssi, ssdi, free birth certificate, end of life counseling, acupuncture, hotline, suicide prevention, open 24/7">
+    <link rel="icon" href="https://i2.wp.com/whitebirdclinic.org/wp-content/uploads/2014/03/cropped-White-Bird-Logo-No-Text-1.jpg?fit=32%2C32&amp;ssl=1" sizes="32x32">
     <link rel="stylesheet" type="text/css" href="subcategory.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
@@ -16,13 +19,14 @@
 </head>
 <body>
     
-
     <div class="page-container">
 
-        <header class="navigation-menus">
-            
-            <div class="top-of-menu">
-                <img src="WHITEBIRDLOGO.svg" alt="White Bird Clinic" width="54" height="54">
+        <header class="desktop-header">
+            <div> <a href="index.html">
+                <img class="desktop-logo" src="white-bird-on-black.png" alt="White Bird Clinic" width="66px" height="66px">
+                <h1 class="little-help-book">Little Help Book</h1> </a>
+            </div>
+            <div class="breadcrumb-box">
                 <select class="breadcrumb city">
                     <option value="">Eugene / Springfield</option>
                     <option value="">Blachly</option>
@@ -78,87 +82,96 @@
                     <option value="">Showers</option>             
                 </select>
             </div>
-        
-            <div class="bottom-of-menu">
-                <div class="category-page-name">
-                    Bathrooms
+    
+            <div class="search">
+                <div class="menu-lines">
+                  <div class="hamburger"></div>
+                  <div class="hamburger"></div>
+                  <div class="hamburger"></div>        
                 </div>
-                <section class="nav-buttons">
-
-                    <div class="dropdown">
-                        <button class="list-map-toggle button-style dropdown-button">list</button>
-                        <div class="dropdown-content">
-                        <span class="linkd" data-target="#provider-tiles">Tiles</span>
-                        <span class="linkd" data-target="#map">Map</span>
-                        </div>
-                    </div>
-
-                    <button class="print button-style">print</button>
-                </section>
-                <div class="search">
-                    <input type="text" placeholder="Search">
-                </div>
+                <input type="image" src="search-line.png" class="search-input" type="search">
             </div>
+                    
         </header>
         
+        <div class="bottom-of-menu">
+            <div class="category-page-name">
+                Bathrooms
+            </div>
+            <section class="nav-buttons">
+
+                <div class="dropdown">
+                    <button class="list-map-toggle button-style dropdown-button">list</button>
+                    <div class="dropdown-content">
+                    <span class="linkd" data-target="#provider-tiles">List</span>
+                    <span class="linkd" data-target="#map">Map</span>
+                    </div>
+                </div>
+
+                <button class="print button-style">print</button>
+            </section>
+        </div>
+
         <main id="main">
+          
+            <section id="map"><div class="placeholder-map-jpg" id="mapid"></section>
 
             <section id="provider-tiles" class="providers">
 
                 <div class="tile">
-                    <div class="provider-name">Department of Human Services</div>
+                    <div class="provider-name"><a href="">Department of Human Services</a></div>
                     <div class="provider-address">2101 W. 11 th Ave., Eugene, OR 97402</div>
                     <div class="provider-phone">541-686-7722</div>
                     <div class="provider-website"><a target="_blank" href="https://www.dcfoffices.org/office/west-eugene-dhs-office">dcfoffices.org/office/west-eugene-dhs-office</a></div>
                     <div class="provider-description">State- and federally-funded services. Food benefits (SNAP), employment services, cash assistance (TANF), domestic violence services, child welfare services, health benefits (OHP), senior citizens services. Also, apply for free phones, search for jobs, bathrooms. Apply for services by paper or by computers provided.</div>
                     <div class="last-line">
-                        <div class="provider-hours">Hours:  M-F 7AM - 6PM</div>
+                        <div class="provider-hours">Hours:  Monday–Friday 7am–6pm</div>
                         <div class="legend-icons"> <i class="ri-earth-fill"></i><i class="ri-wheelchair-fill"></i></div>
                     </div>
                 </div>
 
                 <div class="tile">
-                    <div class="provider-name">First Place Family Center</div>
+                    <div class="provider-name"><a href="">First Place Family Center</a></div>
                     <div class="provider-address">1995 Amazon Parkway, Eugene</div>
                     <div class="provider-phone">541-342-7728</div>
                     <div class="provider-website"><a target="_blank" href="https://www.svdp.us/what-we-do/homeless-services/first-place-family-center">svdp.us/what-we-do/homeless-services/first-place-family-center</a></div>
                     <div class="provider-description">Offers a daytime facility for families with children, meals, mail service, laundry, computers, preschool, limited overnight accommodations, and referrals for jobs, housing and recovery.</div>
                     <div class="last-line">
-                        <div class="provider-hours">Hours:  7 days 8AM - 5PM</div>
+                        <div class="provider-hours">Hours:  7 days 8am–5pm</div>
                         <div class="legend-icons"> <i class="ri-earth-fill"></i><i class="ri-wheelchair-fill"></i></div>
                     </div>
                 </div>
 
                 <div class="tile">
-                    <div class="provider-name">G-Street Oasis</div>
+                    <div class="provider-name"><a href="">G-Street Oasis</a></div>
                     <div class="provider-address">1175 G St. Springfield</div>
                     <div class="provider-phone">541-214-0260</div>
                     <div class="provider-website"><a target="_blank" href="https://www.ccslc.org/g-street-oasis">ccslc.org/g-street-oasis</a></div>
                     <div class="provider-description">Provides day shelter and other services for homeless families with children. Laundry, hygiene supplies, bathrooms, kitchen facilities and showers available. Also provides limited transitional housing and referrals for families. To obtain services one must be registered in the program, please call Gail at the phone above to register, or email gstreet@ccslc.org</div>
-                    <div class="provider-hours">Hours:  M-F 7AM - 6PM</div>
+                    <div class="provider-hours">Hours:  Monday–Friday 7am–6pm</div>
                     <div class="legend-icons"></div>
                 </div>
 
                 <div class="tile">
-                    <div class="provider-name">St. Vincent de Paul — Eugene Service Station</div>
+                    <div class="provider-name"><a href="">St. Vincent de Paul — Eugene Service Station</a></div>
                     <div class="provider-address">450 Highway 99 North Eugene</div>
                     <div class="provider-phone">541-461-8688</div>
                     <div class="provider-website"> <a target="_blank" href="https://www.svdp.us/what-we-do/homeless">svdp.us/what-we-do/homeless</a></div>
                     <div class="provider-description">The Eugene Service Station, a day access center for adults 18 and over meals, meals, bathrooms, laundry services, showers, telephones, mail services, and  gift cards that can be used in St. Vinnie’s gift cards to be used for clothing and items for the unsheltered.  It is also where you go to get on the Dusk to Dawn, Safe Parking and Overnight Parking Programs wait list.</div>
                     <div class="last-line">
-                        <div class="provider-hours">Hours:  M-F 7AM - 6PM</div>
+                        <div class="provider-hours">Hours:  Monday–Friday 7am–6pm</div>
                         <div class="legend-icons"> <i class="ri-earth-fill"></i><i class="ri-wheelchair-fill"></i></div>
                    </div>
                 </div>
 
                 <div class="tile">
-                    <div class="provider-name">White Bird — Front Rooms Resource Center</div>
+                    <div class="provider-name"><a href="">White Bird — Front Rooms Resource Center</a></div>
                     <div class="provider-address">341 E. 12th Ave, Eugene</div>
                     <div class="provider-phone">541-342-8255</div>
                     <div class="provider-website"> <a target="_blank" href="https://whitebirdclinic.org/services/info-line/">whitebirdclinic.org/services/info-line</a></div>
                     <div class="provider-description">State- and federally-funded services. Food benefits (SNAP), employment services, cash assistance (TANF), domestic violence services, child welfare services, health benefits (OHP), senior citizens services. Also, apply for free phones, search for jobs, bathrooms. Apply for services by paper or by computers provided.</div>
                     <div class="last-line">
-                        <div class="provider-hours">Hours:  M-F 7AM - 6PM</div>
+                        <div class="provider-hours">Hours:  Monday–Friday 7am–6pm</div>
                         <div class="legend-icons"> <i class="ri-earth-fill"></i></i></div>
                     </div>
                 </div>
@@ -176,11 +189,13 @@
             
             </section>
 
-            <section id="map"><div id="mapid"></section>
-
         </main>
 
-        <footer></footer>
+        <footer class="footer">
+            <div class="footer-item">&copy; Copyright White Bird Clinic</div>
+            <div class="footer-item footer-url">whitebirdclinic.org</div>
+            <div class="footer-item">Eugene, Oregon</div>
+        </footer>
 
     </div>
 <script>

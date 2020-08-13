@@ -4,14 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Little Help Book - White Bird Clinic</title>
+    <meta name="description" content="Resource directory for people seeking help with health, housing, financial assistance, shelter, food pantries and meal sites. This helps people navigate the system.">
+    <meta name="keywords" content="white bird, cahoots, crisis, counseling, mobile mental health, substance abuse treatment, free medical care, free dental, sliding scale health care, services for the homeless, shelter, emergency mental health, acute medical care, education, prevention, intervention, oreong, eugene, eugene oregon, springfield, springfield oregon, lane county, kahoots, cahoot, cahootz, unhoused, homelessness, mental health, counseling, mail, benfits, ohp, wellness, whitebird, white bird clinic, day access center, help resources, houseless, opiod treatment, dui, ssi, ssdi, free birth certificate, end of life counseling, acupuncture, hotline, suicide prevention, open 24/7">
+    <link rel="icon" href="https://i2.wp.com/whitebirdclinic.org/wp-content/uploads/2014/03/cropped-White-Bird-Logo-No-Text-1.jpg?fit=32%2C32&amp;ssl=1" sizes="32x32">
     <link rel="stylesheet" type="text/css" href="category.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="category.js"></script>
 </head>
 <body>
-    <div class="page-container">
-        <header class="navigation-menus">
-            <img src="WHITEBIRDLOGO.svg" alt="White Bird Clinic" width="54" height="54">
+    <div class="container">
+        <header class="desktop-header">
+        <div> <a href="index.html">
+            <img class="desktop-logo" src="white-bird-on-black.png" alt="White Bird Clinic" width="66px" height="66px">
+            <h1 class="little-help-book">Little Help Book</h1> </a>
+        </div>
+        <div class="breadcrumb-box">
             <select class="breadcrumb city">
                 <option value="">Eugene / Springfield</option>
                 <option value="">Blachly</option>
@@ -66,7 +73,19 @@
                 <option value="">Propane</option>
                 <option value="">Showers</option>             
             </select>
+        </div>
+
+        <div class="search">
+            <div class="menu-lines">
+              <div class="hamburger"></div>
+              <div class="hamburger"></div>
+              <div class="hamburger"></div>        
+            </div>
+            <input type="image" src="search-line.png" class="search-input" type="search">
+        </div>
+        
         </header>
+
             <div class="inner-container">
                 <section class="left-column">
                     <div class="category-page-name">
@@ -109,7 +128,7 @@
                         </div>
                     </section>
                     <section class="whats-available"> <button class="subcategory-buttons">What's<br>available?</button>
-                        <div class="checkbox-search-notes">Check boxes, then click<br>to update search result</div>
+                        <div class="checkbox-search-notes">Check boxes, then click to update search result</div>
                     </section>
                     <section class="new-subcategory-search"> <button class="subcategory-buttons">New<br>search</button>
                         <div class="checkbox-search-notes">Clear selected boxes<br>and reset the search</div>
@@ -117,20 +136,33 @@
                 </section>
                 
                 <section class="right-column">
-                    <div class="search">
-                    <div class="show-arrow"> > </div>
-                    <div class="hide-arrow"> < </div>
-                        <input type="text" placeholder="Search Basic Needs">
-                    </div>
 
                     <section class="nav-buttons">
-                        <button class="list-map-toggle button-style">list</button>
-                        <button class="print button-style">print</button>
+                        <div class="show-arrow"> > </div>
+                        <div class="hide-arrow"> < </div>
+
+                        <div class="dropdown">
+                            <button class="list-map-toggle button-style dropdown-button">list</button>
+                            <div class="dropdown-content">
+                                <span class="linkd" data-target="#provider-list">list</span>
+                                <span class="linkd" data-target="#map">map</span>
+                            </div>
+                        </div>
+
+                        <div class="print">
+                            <button class="button-style">print</button>
+                        </div>
+
                     </section>    
 
-                    <main class="resource-list">
+                    <main>
+
+                        <section id="map"> 
+                            <img src="full-screen-map.jpg" class="placeholder-map-jpg" alt="This is a placeholder for the OpenStreetMap">
+                        </section>
+
+                        <section id="provider-list">
                         <h2 class="subcategory-name"><a href="#">Bathrooms</a></h2>
-                        <div>
                             <ul class="provider">
                                 <li>Department of Human Services</li>
                                 <li>First Place Family Center</li>
@@ -160,11 +192,16 @@
                             <ul class="provider">
                                 <li>Eugene Mission</li>
                                 <li>First Place Family Center</li>
-                        </div>
+                        </section>
+
                     </main>
                 </section>
             </div>
-        <div class="footer"></div>
+        <footer class="footer">
+            <div class="footer-item">&copy; Copyright White Bird Clinic</div>
+            <div class="footer-item footer-url">whitebirdclinic.org</div>
+            <div class="footer-item">Eugene, Oregon</div>
+        </footer>
     </div>
 </body>
 </html>

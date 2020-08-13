@@ -26,89 +26,161 @@ body {
 
   a {
     text-decoration: none;
-    color: blue;
+    color: black;
   }
 
-  .page-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: 7.2rem;
-    margin-bottom: 4rem;
+body {
+  font-family: sans-serif;
+  background-color: #f5f5f5;
 }
 
-.top-of-menu {
-    display: flex;
-    align-items: center;
-    position: relative;
-    left: -4.5rem;
-}
-
-img {
-    display: inline;
-    margin: .5rem 0 0 0;
-}
-
-.navigation-menus {
+.desktop-header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
+  color: #f5f5f5;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: black;
+  height: 6.6rem;
+  overflow-x: hidden; 
+  margin: 0 -0.5rem;
+  overflow-y: hidden;
+  margin-top: -1rem;
+}
 
+.desktop-logo {
+  position: absolute;
+  left: .5rem;
+  width: 66px;
+  height: 66px;
+  margin: 1.6rem 0 .4rem 1.25rem;
+}
+
+.little-help-book {
+  position: absolute;
+  left: 1.7rem;
+  font-size: 2.2rem;
+  color: white;
+  white-space: nowrap;
+  margin: 2.4rem 0 0 5.8rem;
+}
+
+.breadcrumb-box {
+  margin-left: 20rem;
+}
+
+.breadcrumb-box select {
+  /* hide default arrow */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
 .breadcrumb {
-  background: #ccc7c7;
-  font-size: 1rem;
-  height: 2rem;
-  width: 15rem;
-  margin: 0 0 0 1.1rem;
+  background: black;
+  border-color: rgb(126, 126, 126);
+  color: rgb(226, 226, 226);
+  font-family: sans-serif;
+  font-size: 1.45rem;
+  font-style: none;
+  font-weight: bold;
+  height: 2.7rem;
+  width: 16.8rem;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  border-bottom-width: 0.1rem;
+  border-bottom-color: rgb(126, 126, 126);
+  margin: 2.6rem 0 0 -0.5rem;
+}
+
+select:hover {
+  color: white;
+  transition: 0.3s color ease-in-out;
 }
 
 option {
-  background-color: #ccc7c7;
+  background-color: white;
+  color: black;
+  font-size: 1.4rem;
 }
 
-.bottom-of-menu {
-  display: flex;
-  align-items: baseline;
-  margin-left: -4.2rem;
-  margin-top: .3rem;
+/* I haven't figured out how to get this option :hover style to work. */
+option :hover {
+  color: #0077ff;
+  background-color: rgb(226, 226, 226);
 }
 
-.category-page-name {
-  font-size: 1.8rem;
-  margin-right: 1rem;
+.city:hover::after { 
+  color: #F39C12; 
+} 
+/* Neither of those attempts affects the default dropdown style. */
+
+.city {
+  margin-left: 8rem;
 }
 
 .search {
   display: flex;
+  width: 3%;
+  margin: 2.3rem 0 0;
+  padding-right: 4.5rem;
 }
 
-.search input[type=text] {
-  width: 32.4rem;
-  height: 36px;
-  border-radius: 8px;
-  border: none;
-  background-color: #e2e2e2;
-  padding: 0 0 0 1rem;
-}
-
-.input[name="size"] {
+header .search input {
   width: 100%;
+  height: 2.4rem;
+}
+
+.search-input {
+  background-color: #e2e2e2;
+  border-radius: 8px;
+  padding-left: 40px;
+  border: none;
+}
+
+.menu-lines {
+  margin-left: -2rem;
+  margin-right: 1rem;
+}
+
+.hamburger {
+  width: 35px;
+  height: 6px;
+  background-color: rgb(126, 126, 126);
+  border-radius: 2.5px;
+  margin: 5.5px 0 0 10.5px;
+}
+
+.bottom-of-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-left: 3.5rem;
+}
+
+.category-page-name {
+  font-size: 2rem;
+  font-weight: bold;
+  white-space: nowrap;
+  margin-right: 1rem;
 }
 
 .nav-buttons {
   display: flex;
+  justify-content: space-between;
   margin: .7rem .7rem .7rem 0;
 }
 
 .button-style {
   background-color: white;
-  height: 2rem;
+  font-size: 1rem;
+  height: 2.5rem;
   width: 4rem;
   border-radius: 8px;
   border-style: solid;
   margin: 0.3rem 0 0 0;
-  padding: .1rem 0 .15rem 0;
 }
 
 .list-map-toggle  {
@@ -157,35 +229,51 @@ option {
 .providers {
   display: flex;
   flex-wrap: wrap;
-  width: 75.5rem;
-  margin-top: 1.5rem;
-  margin-left: 3.8rem;
+  margin-top: .6rem;
+  margin-left: 3.5rem;
 }
 
 .tile {
   width: 30%;
-  margin: 0 1.5rem 1rem 0;
+  margin: 0 2rem 3rem 0;
 }
 
 .provider-name {
+  font-size: 1.5rem;
   font-weight: bold;
-  padding-bottom: .5rem;
+  padding: .5rem 0 .7rem;
+  background-color: rgb(226, 226, 226);
+}
+
+.provider-name>a:hover {
+  transition: 0.3s color ease-in-out;
+  color: #4A9AF8;
 }
 
 .provider-address {
+  font-size: 1.15rem;
+  padding-top: 1rem;
   padding-bottom: .5rem;
 }
 
 .provider-phone {
-  padding-bottom: .5rem;
+  font-size: 1.15rem;
+  padding: .2rem 0;
 }
 
 .provider-website {
+  padding-top: .5rem;
   padding-bottom: 1rem;
 }
 
+.provider-website>a:hover {
+  transition: 0.3s color ease-in-out;
+  color: #4A9AF8;
+}
+
 .provider-description {
-  padding-bottom: .5rem;
+  line-height: 1.5rem;
+  padding-bottom: 1rem;
 }
 
 .last-line {
@@ -194,12 +282,11 @@ option {
 }
 
 #map {
-  display: flex;
-  width: 85%;
-  height: 100%;
+  margin-left: 3.5rem;
+  width: 100%;
 }
 
-#main > section:not(:first-child) {
+#map {
   display: none;
 }
 
@@ -207,4 +294,36 @@ option {
   height: 90vh;
   width: 100%;
   min-width: 90vh;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: light;
+  font-size: 1rem;
+  color: gray;
+  margin: 3rem 0 1rem;
+  padding: 1rem;
+}
+
+.footer-item {
+  padding: 0 1rem;
+}
+
+.footer-url {
+  color: #4A9AF8;
+  font-weight: bold;
+}
+
+/* this style is for the placeholder map image, and it can be removed when the OpenStreetMap has been installed. */
+.placeholder-map-jpg {
+  width: 95.3%;
+  margin-top: .6rem;
 }

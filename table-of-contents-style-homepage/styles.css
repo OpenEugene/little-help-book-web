@@ -1,159 +1,91 @@
-  *,
-  *:before,
-  *:after {
-    box-sizing: border-box;
-  }
-  
- main {
-    font-family: sans-serif;
-  }
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
 
-  .h123-reset {
-    margin: 0;
-    padding: 0;
-  }
+header, main {
+  font-family: sans-serif;
+}
 
-  ul,
-  li {
-    list-style: none;
-  }
-  
-  ul,
-  li {
-    margin: 0;
-    padding: 0;
-  }
+.h123-reset {
+  margin: 0;
+  padding: 0;
+}
 
-  a {
-    text-decoration: none;
-    color: blue;
-  }
-  
-  .container {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  header {
-    /* background-color: #ccc; */
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
-    padding-bottom: 1rem;
-    padding-top: .4rem;
-  }
-  
-  header .top,
-  footer {
-    display: flex;
-    justify-content: space-around;
-    padding: 1rem;
-  }
+ul,
+li {
+  list-style: none;
+}
 
-  header .box-1 {
-      display: flex;
-      flex-direction: column;
-      margin-left: -1rem;
-  }
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
 
-  .little-help-book-title {
-    font-family: sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 1.5rem;
-    line-height: 1rem;
-    white-space: nowrap;
-  }
-  
-  .about {
-    font-family: sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 1rem;
-    padding: 1rem 0 0 0;
-  }
-  
-  .clinic-name {
-    font-family: Concert One, sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 1.9rem;
-    line-height: 1rem;
-    text-align: center;
-    white-space: nowrap;
-  }
-  
-  .emergency-container {
-    font-family: sans-serif;
-    font-style: normal;
-    font-size: .75em;
-    padding: 1.25rem 0 .3rem 0;
-  }
-  
-  .emergency-button {
-    background-color: black;
-    color: white;
-    font-weight: bold;
-    font-size: 1.5em;
-    white-space: nowrap;
-    padding: .5em 1em;
-    border-radius: 22px;
-    border: none;
-  }
-
-  .emergency-button:hover {
-    background-color: #bf3fbf;
-    transition: 1s background-color ease-in-out;
- }
-
- /* begin emergency number list styles */
-
- .emergency-list {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 250px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
- }
- 
- /* Links inside the dropdown */
- .emergency-list a {
-  color: black;
-  padding: 12px 16px;
+a {
   text-decoration: none;
-  display: block;
+  color: #4A9AF8;
+}
+
+/* begin new header */
+
+.desktop-header {
   display: flex;
-  justify-content: center;
-  font-size: 1rem;
- }
- 
- /* Change color of dropdown links on hover */
- .emergency-list a:hover {background-color: #ddd}
- 
- /* end emergency number list styles */
-  
-  header .box-3 {
-      display: flex;
-      flex-direction: column;
-      margin-right: -1rem;
-  }
+  justify-content: space-around;
+  color: #f5f5f5;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: black;
+  height: 6.6rem;
+  overflow-x: hidden; 
+  margin: 0 -0.5rem;
+  overflow-y: hidden;
+  margin-top: -1rem;
+  margin-bottom: 2.25rem;
+}
 
-  .lane-county {
-    font-family: sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 1.5rem;
-    line-height: 1rem;
-    white-space: nowrap;
-  }
-  
-  .find-my-city {
-    font-family: sans-serif;
-    font-style: normal;
-    font-weight: normal;
+.desktop-logo {
+  position: absolute;
+  left: .5rem;
+  width: 66px;
+  height: 66px;
+  margin: 1.6rem 0 .4rem 1.25rem;
+}
 
-  }
+.little-help-book {
+  position: absolute;
+  left: 1.7rem;
+  font-size: 2.2rem;
+  white-space: nowrap;
+  margin: 2.4rem 0 0 5.8rem;
+}
+
+.menu-button {
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: bold;
+  color: rgb(226, 226, 226);
+  background-color: black;
+  border-radius: 8px;
+  border-style: solid;
+  border: none;
+  white-space: nowrap;
+  transition: 0.3s color ease-in-out;
+  margin: 2.6rem .5rem 1.5rem 0;
+}
+
+.lane-county {
+  color: rgb(226, 226, 226);
+  margin: 3rem .5rem 0 30rem;
+  white-space: nowrap;
+}
+
+.find-my-city:hover {
+  color: white;
+}
 
 .dropdown-button {
   border: none;
@@ -161,7 +93,6 @@
   font-size: 1rem;
   line-height: .25rem;
   padding: 1.5rem 0;
- 
 }
 
 .list-of-cities {
@@ -171,11 +102,8 @@
  min-width: 160px;
  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
  z-index: 1;
-}
-
-.dropdown-button:hover {
-   color: #bf3fbf;
-   transition: 0.3s color ease-in-out;
+ top: 6.1rem;
+ left: 50rem;
 }
 
 /* Links inside the dropdown */
@@ -187,346 +115,422 @@
 }
 
 /* Change color of dropdown links on hover */
-.list-of-cities a:hover {background-color: #ddd}
+.list-of-cities a:hover {
+  background-color: #ddd;
+  color: #0077ff;
+}
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
 
-  /* end dropdown styles */
+/* end dropdown styles */
   
-  .spanish {
-    font-family: sans-serif;
-  }
+.spanish:hover {
+  color: white;
+}
 
-  .button-style {
-    background-color: white;
-    height: 2.3rem;
-    border-radius: 8px;
-    border-style: solid;
-    margin: 0 6.3rem 0 0;
-  }
+.about:hover {
+  color: white;
+}
 
-  header .search {
-    margin: 0 auto;
+.search {
+  width: 3%;
+  margin: 2.3rem 0 0;
+  padding-right: 4.5rem;
+}
+
+header .search input {
+  width: 100%;
+  height: 2.4rem;
+}
+
+.search-input {
+  background-color: #e2e2e2;
+  border-radius: 8px;
+  padding-left: 40px;
+  border: none;
+}
+
+body {
+  background-color: #f5f5f5;
+}
+
+main {
+  columns: 4;
+}
+  
+.table-of-contents {
+  padding: 0 3.5rem 0 3.5rem;
+}
+
+.category-name>a {
+  display: block;
+  text-decoration: none;
+  color: black;
+  background-color: rgb(226, 226, 226);
+  /* background-color: #f5f5f5; This style is for category name without a background shape. */
+  font-weight: bold;
+  padding: .5rem 0 .7rem;
+  font-size: 1.5rem;
+  transition: 0.3s color ease-in-out;
+  margin-right: 1rem;
+}
+
+.category-name>a:hover {
+  color: #4A9AF8;
+}
+
+.category-name {
+  padding: 0 0 .75rem 0;
+}
+
+.subcategory {
+  font-size: 1rem;
+  line-height: 2em;
+  color: rgb(88, 88, 88);
+  margin: -0.5rem 0 1.1rem 0;
+}
+
+.subcategory li:hover {
+  color: #0077ff;
+  background-color: rgb(226, 226, 226);
+}
+
+.are-you-in-crisis {
+  font-style: normal;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  margin: 1em 0 0 0;
+}
+
+.blue-text {
+  color: #4A9AF8;
+  font-weight: bold;
+  transition: 0.3s color ease-in-out; 
+}
+
+.blue-text:hover {
+  color: #0077ff;
+}
+
+/* popup container */
+.popup {
+  position: relative;
+  display: inline-block;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* the actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 25rem;
+  background-color: white;
+  color: black;
+  text-transform: none;
+  padding: .85rem .85rem 1rem 1.15rem;
+  position: absolute;
+  z-index: 1;
+  bottom: 158%;
+  right: -142%;
+  margin-left: -80px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-size: 1rem;
+  line-height: 2rem;
+}
+
+/* toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+}
+
+.emergency-button {
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: bold;
+  padding: .5rem;
+  color: black;
+  border: none;
+  background-color: rgb(226, 226, 226);
+  /* background-color: rgb(207, 207, 207); */
+  padding: .7rem .7rem .9rem 0;
+  line-height: 2.25rem;
+  margin: 1.2rem 0 .2rem 0;
+}
+
+.a-z-list {
+  font-style: normal;
+  font-weight: light;
+  font-size: 1em;
+  color: gray;
+  line-height: 1.5em;
+  margin: 1.95em 0 2.25rem 0;
+}
+
+.community-sponsors {
+  text-transform: uppercase;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1em;
+  margin: 0.8rem 0;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: light;
+  font-size: 1rem;
+  color: gray;
+  margin: 3rem 0 1rem;
+  padding: 1rem;
+}
+
+.footer-item {
+  padding: 0 1rem;
+}
+
+.footer-url {
+  color: #4A9AF8;
+  font-weight: bold;
+}
+
+
+/* replace menu items with icon */
+
+@media screen and (max-width: 1175px) {
+
+  .search {
     display: flex;
-    width: 66.6%;
-    margin-left: 5.9rem;
-  }
-  
-  header .search input {
-    width: 100%;
-    height: 2.4rem;
-  }
-  
-  .search-input {
-    background-image: url(WHITEBIRDLOGO.svg);
-    background-size: 30px 30px;
-    background-repeat: no-repeat;
-    background-position: 5px 50%;
-    background-color: #e2e2e2;
-    border-radius: 8px;
-    padding-left: 40px;
-    border: none;
-  }
-
-  main {
-    columns: 4;
-  }
-  
-  .table-of-contents {
-    padding: 0 6rem 0 6rem;
-  }
-
-  .category-name>a {
-    display: block;
-    text-decoration: none;
-    color: blue;
-    background-color: #f5f5f5;
-    font-weight: bold;
-    padding: .5rem 0;
-    font-size: 1rem;
-    transition: 0.3s color ease-in-out;
-  }
-  
-  .category-name>a:hover {
-    color: #bf3fbf;
-  }
-  
-  .category-name {
-    padding: 0 0 .75rem 0;
-  }
-  .subcategory {
-    font-size: .85em;
-    line-height: 2em;
-    color: blue;
-    margin: -0.5rem 0 1.1rem 0;
-  }
-
-  .are-you-in-crisis {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 1.5em;
-    margin: 1em 0 0 0;
-  }
-
-  .blue-text {
-    color: blue;
-  }
-  
-  /* popup container */
-  .popup {
-    position: relative;
-    display: inline-block;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-  
-  /* the actual popup */
-  .popup .popuptext {
-    visibility: hidden;
-    width: 25rem;
-    background-color: #555;
-    color: #fff;
-    border-radius: 6px;
-    padding: .85rem .85rem 1rem 1.15rem;
     position: absolute;
-    z-index: 1;
-    bottom: 155%;
-    right: -150.8%;
-    margin-left: -80px;
-    font-family: sans-serif;
-    font-size: .85rem;
-    line-height: 1.5rem;
-  }
-  
-  /* toggle this class - hide and show the popup */
-  .popup .show {
-    visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s;
-  }
-  
-  /* add animation (fade in the popup) */
-  @-webkit-keyframes fadeIn {
-    from {opacity: 0;} 
-    to {opacity: 1;}
-  }
-  
-  @keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity:1 ;}
-  }
-  
-  .a-z-list {
-    font-style: normal;
-    font-weight: light;
-    font-size: 1em;
-    color: gray;
-    line-height: 1.5em;
-    margin: 1.95em 0 2.25rem 0;
-  }
-  
-  .community-sponsors {
-    text-transform: uppercase;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 1em;
-    margin: 0.8rem 0;
+    right: 2.5rem;
   }
 
-  .footer {
-    display: flex;
-    justify-content: center;
-    font-family: sans-serif;
-    font-style: normal;
-    font-weight: light;
-    font-size: .85rem;
-    color: gray;
-    margin: 3rem 0 1rem;
-  }
-  
-  .footer-item {
-    padding: 0 1rem;
-  }
-  
-  .footer-url {
-    color: blue;
+  .menu-icon {
+    display: none;
   }
 
-  /* end Desktop styles and begin responsive resizing to Tablet and Mobile */
-  
-  @media screen and (max-width: 1056px) {
-    main {
-      columns: 3;
-    }
-
-    header {
-        flex-direction: column-reverse;
-    }
-
-    .button-style {
-      margin: 0 .6rem 0 0;
-    }
-
-    header .search {
-        margin: 1rem auto 0;
-        width: 74%;
-    }
-
-    .hamburger {
-        width: 35px;
-        height: 6px;
-        background-color: rgb(126, 126, 126);
-        border-radius: 2.5px;
-        margin: 5.5px 0 0 10.5px;
-      }
-    
-    header .top {
-        flex-direction: row-reverse;
-        margin-top: -.8rem;
-    }
-
-    .little-help-book-title {
-        position: absolute;
-        top: 5.5rem;
-        left: 6.5rem;    
-    }
-
-    .about {
-        display: none;
-    }
-
-    header .box-2 {
-        margin-top: 1rem;
-    }
-
-    header .box-3 {
-        margin: 2.8rem 0 0 2.5rem;
-    }
-
-    .lane-county {
-        font-size: 1rem;
-        margin-bottom: -.6rem;
-        margin-top: .3rem;
-    }
-
-    .find-my-city {
-        color: blue;
-    }
-    
-    .table-of-contents {
-        margin: -2.2rem 0 0 0;
-    }
-
-    .category-name>a {
-        padding: 1rem 0;
-      }
-
-    .category-name {
-    text-align: center; 
-    margin: auto;
-    max-width: 20rem;   
-    }
-
-    .subcategory {
-        display: none;
-    }
-  
-    .community-sponsors {
-        display: none;
-    }
-
-  @media screen and (max-width: 770px) {
-    main {
-      columns: 2;
-    }  
-
-    header {
-        flex-direction: column-reverse;
-    }
-
-    header .search {
-
-    }
+  .menu-lines {
+    margin-left: -2rem;
+    margin-right: 1rem;
   }
-  
-  @media screen and (max-width: 640px) {
-    main {
-      columns: 1;
-      margin: 0 auto;
-    }
-  
-    header {
-      flex-direction: column-reverse;
-    }
 
-    header .top {
-        flex-direction: column;
-        margin: auto;
-        align-items: center;
-    }
+.hamburger {
+    width: 35px;
+    height: 6px;
+    background-color: rgb(126, 126, 126);
+    border-radius: 2.5px;
+    margin: 5.5px 0 0 10.5px;
+  }
 
-    header .search {
-        width: 90%
-    }
+}
 
-    .little-help-book-title {
-        text-transform: uppercase;
-        position: static;
-    }
+/* end desktop styles */
 
-    header .box-2 {
-        margin-top: 0;
-    }
+.mobile-container {
+  display: none;
+}
 
-    .clinic-name {
-        display: none;
-    }
+/* responsive transition to tablet */
 
-    header .box-3 {
-        flex-direction: row;
-        margin: .9rem 0 0 .6rem;
-    }
+@media screen and (max-width: 1056px) {
 
-    .lane-county {
-        font-size: 1rem;
-        margin-top: 0;
-    }
+  .mobile-container {
+      display: inline;
+  }
 
-    .find-my-city {
-        padding: .4rem;
-        margin-left: .5rem;
-    }
+  .container {
+      display: none;
+  }
 
-    .dropdown-button {
+  .content-container {
       display: flex;
-      padding: 0;
-    }
-
-    .list-of-cities {
-      margin-top: 1rem;
-    }
-
-    .table-of-contents {
-        margin: -1.7rem 0 0 0;
-        padding: 0 3rem;
-    }
-
-    .are-you-in-crisis {
-        text-align: center;
-    }
-
-    .a-z-list {
-        text-align: center;
-    }
-
-    .footer {
-        flex-direction: column;
-        text-align: center;
-        line-height: 1.7rem;
-        margin: .8rem 0 1rem;
-    }
+      flex-direction: column;
   }
-  
+
+  header {
+    padding-top: 0;
+  }
+
+  header .logo-title {
+    display: flex;
+  }
+
+  .black-top {
+      background-color: black;
+      height: 6.6rem;
+      overflow-x: hidden; 
+      margin: 0 -0.5rem;
+      overflow-y: hidden;
+      margin-top: -1rem;
+  }
+
+  img {
+      position: absolute;
+      width: 66px;
+      height: 66px;
+      margin: 1.6rem 0 .4rem 1.25rem;
+  }
+
+  .little-help-book {
+      position: absolute;
+      color: white;
+      font-size: 2.2rem;
+      font-weight: bold;
+      font-family: sans-serif;
+      margin: 2.4rem 0 0 5.8rem;
+  }
+
+  .people-care {
+      font-size: 5.2rem;
+      font-weight: bold;
+      margin: 5.5rem 0 0 3.5rem;
+  }
+
+  .find-help-in-lane {
+      font-size: 2.3rem;
+      font-weight: bold;
+      line-height: 3.3rem;
+      margin: 1.5rem 5rem 0 3.5rem;
+  }
+
+  .buttons {
+      display: flex;
+      flex-direction: column;
+      margin: 8.8rem 0 2rem 3.5rem;
+  }
+
+  .help-button, .spanish-button {
+      background-color: black;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      width: 13rem;
+      height: 7rem;
+      font-size: 2rem;
+      font-weight: bold;
+      margin-right: 2.5rem;
+  }
+
+  .help-button:hover {
+    background-color: #4A9AF8;
+    box-shadow: .5rem .5rem .75rem #8888;
+  }
+
+  .spanish-button:hover {
+    background-color: #4A9AF8;
+    box-shadow: .5rem .5rem .75rem #8888;
+  }
+
+  .spanish-button {
+    margin-top: 3rem;
+}
+
+  footer {
+      font-family: sans-serif;
+      font-size: 1.45rem;
+      font-weight: lighter;
+      line-height: 1.7rem;
+      margin: 3rem 0 2rem 3.5rem;
+      padding-bottom: 2rem;
+  }
+
+  footer .bold-inline {
+      display: inline;
+      font-size: 1.45rem;
+      font-weight: bold;
+  }
+}
+
+/* begin tablet styles */
+
+@media screen and (max-width: 770px) {
+
+.mobile-container {
+    display: inline;
+}
+
+.container {
+    display: none;
+}
+
+header {
+    padding-top: 0;
+}
+
+header .logo-title {
+    display: flex;
+}
+
+}
+
+/* begin mobile styles */
+
+@media screen and (max-width: 640px) {
+
+.black-top {
+    height: 5rem;
+}
+
+img {
+    width: 42px;
+    height: 42px;
+    margin: 1.49rem 0 .4rem 1.05rem;
+}
+
+.little-help-book {
+    font-size: 1.2rem;
+    margin: 2.1rem 0 0 3.7rem;
+}
+
+.people-care {
+    font-size: 2.4rem;
+    margin: 3.5rem 0 0 2rem;
+}
+
+.find-help-in-lane {
+    font-size: 1.125rem;
+    line-height: 1.7rem;
+    margin: 1rem 0.5rem 0 2rem;
+}
+
+.buttons {
+    position: absolute;
+    bottom: 18.6%;
+    margin: 7.2rem 0 0 2rem;
+}
+
+.help-button, .spanish-button {
+    width: 10rem;
+    height: 5rem;
+    font-size: 1.5rem;
+}
+
+.spanish-button {
+    margin-top: 1.8rem;
+}
+
+footer {
+    position: absolute;
+    bottom: 1%;
+    font-size: 1.2rem;
+    width: 20rem;
+    margin: 3rem 0 0 2rem;
+}
+
+footer .bold-inline {
+    font-size: 1.2rem;
+}
+
+}

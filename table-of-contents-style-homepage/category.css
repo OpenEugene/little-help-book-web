@@ -4,170 +4,349 @@
   box-sizing: border-box;
 }
 
-body {
+header, main {
   font-family: sans-serif;
 }
 
 .h123-reset {
-    margin: 0;
-    padding: 0;
-  }
+  margin: 0;
+  padding: 0;
+}
 
-  ul,
-  li {
-    list-style: none;
-  }
-  
-  ul,
-  li {
-    margin: 0;
-    padding: 0;
-  }
+ul,
+li {
+  list-style: none;
+}
 
-  a {
-    text-decoration: none;
-    color: blue;
-  }
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
 
-  .page-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-left: 7.2rem;
-  }
-  
-  img {
-      display: inline;
-      margin: .5rem 0 0 0;
-  }
+a {
+  text-decoration: none;
+  color: black;
+}
 
-  .navigation-menus {
-    display: flex;
-    align-items: center;
-    position: relative;
-    left: -4.5rem;
-  }
+body {
+  font-family: sans-serif;
+  background-color: #f5f5f5;
+}
 
-  .breadcrumb {
-    background: #ccc7c7;
-    font-size: 1rem;
-    height: 2rem;
-    width: 15rem;
-    margin: 0 0 0 1.1rem;
-  }
+.desktop-header {
+  display: flex;
+  justify-content: space-around;
+  color: #f5f5f5;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: black;
+  height: 6.6rem;
+  overflow-x: hidden; 
+  margin: 0 -0.5rem;
+  overflow-y: hidden;
+  margin-top: -1rem;
+}
 
-  option {
-    background-color: #ccc7c7;
-  }
+.desktop-logo {
+  position: absolute;
+  left: .5rem;
+  width: 66px;
+  height: 66px;
+  margin: 1.6rem 0 .4rem 1.25rem;
+}
 
-  .inner-container {
-    display: flex;
-    margin-top: 1rem;
-  }
+.little-help-book {
+  position: absolute;
+  left: 1.7rem;
+  font-size: 2.2rem;
+  color: white;
+  white-space: nowrap;
+  margin: 2.4rem 0 0 5.8rem;
+}
 
-  .category-page-name {
-    font-size: 1.8rem;
-  }
+.breadcrumb-box {
+  margin-left: 20rem;
+}
 
-  .subcategory-checkboxes {
-    margin: 1rem 0;
-  }
+.breadcrumb-box select {
+  /* hide default arrow */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
 
-  input {
-    margin: 0 .2rem 0 0;
-  }
+.breadcrumb {
+  background: black;
+  border-color: rgb(126, 126, 126);
+  color: rgb(226, 226, 226);
+  font-family: sans-serif;
+  font-size: 1.45rem;
+  font-style: none;
+  font-weight: bold;
+  height: 2.7rem;
+  width: 16.8rem;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  border-bottom-width: 0.1rem;
+  border-bottom-color: rgb(126, 126, 126);
+  margin: 2.6rem 0 0 -0.5rem;
+}
 
-  .subcategory-list {
-    font-size: .8rem;
-    line-height: 1.3rem;
-  }
+select:hover {
+  color: white;
+  transition: 0.3s color ease-in-out;
+}
 
-  .subcategory-buttons {
-    background-color: white;
-    width: 4.7rem;
-    height: 3.5rem;
-    border-radius: 10px;
-    border-style: solid;
-  }
+option {
+  background-color: white;
+  color: black;
+  font-size: 1.4rem;
+}
 
-  .whats-available {
-    display: flex;
-    margin-bottom: .3rem;
-  }
+/* I haven't figured out how to get this option :hover style to work. */
+option :hover {
+  color: #0077ff;
+  background-color: rgb(226, 226, 226);
+}
 
-  .new-subcategory-search {
-    display: flex;
-  }
+.city:hover::after { 
+  color: #F39C12; 
+} 
+/* Neither of those attempts affects the default dropdown style. */
 
-  .checkbox-search-notes {
-    font-size: .8rem;
-    margin: 1rem;
-  }
+.city {
+  margin-left: 8rem;
+}
 
-  .right-column {
-    margin-left: 3rem;
-    margin-right: 8.1rem;
-  }
+.menu-lines {
+  margin-left: -2rem;
+  margin-right: 1rem;
+}
 
-  .show-arrow, .hide-arrow {
-    font-size: 2rem;
-    font-family: serif;
-    margin: 0 .5rem 0 -1.7rem;
-  }
+.hamburger {
+  width: 35px;
+  height: 6px;
+  background-color: rgb(126, 126, 126);
+  border-radius: 2.5px;
+  margin: 5.5px 0 0 10.5px;
+}
 
-  .search {
-    display: flex;
-    align-items: end;
-  }
+.inner-container {
+  display: flex;
+  background-color: #f5f5f5;
+}
 
-  .search input[type=text] {
-    width: 85%;
-    height: 36px;
-    border-radius: 8px;
-    border: none;
-    background-color: #e2e2e2;
-    padding: 0 0 0 1rem;
-  }
+.left-column {
+  margin-left: 3.5rem;
+  margin-top: 1.1rem;
+  min-width: 17.9rem;
+}
 
-  .input[name="size"] {
-    width: 100%;
-  }
+.category-page-name {
+  font-size: 2rem;
+  font-weight: bold;
+  white-space: nowrap;
+}
 
-  .nav-buttons {
-    display: flex;
-    margin: .7rem .7rem .7rem 0;
-  }
+.subcategory-checkboxes {
+  margin: 1rem 0;
+}
 
-  .button-style {
-    background-color: white;
-    height: 2rem;
-    width: 4rem;
-    border-radius: 8px;
-    border-style: solid;
-    margin: 0.3rem 0 0 0;
-    padding: .1rem 0 .15rem 0;
-  }
+input {
+  margin: 0 .2rem 0 0;
+}
 
-  .list-map-toggle  {
-    margin: .3rem 6.8rem 0 0;
-  }
+.subcategory-list {
+  font-size: 1rem;
+  line-height: 1.4rem;
+  white-space: nowrap;
+}
 
-  .print {
-    margin: .3rem 0 0 18.3rem;
-  }
+.subcategory-buttons {
+  background-color: white;
+  font-size: 1rem;
+  width: 6.5rem;
+  height: 4.3rem;
+  min-width: 6.5rem;
+  border-radius: 10px;
+  border-style: solid;
+}
 
-  .provider {
-    font-size: .85em;
-    font-family: sans-serif;
-    line-height: 2em;
-    color: blue;
-  }
+.whats-available {
+  display: flex;
+  margin-bottom: .3rem;
+}
 
-  .subcategory-name {
-    font-weight: bold;
-    padding: .5em 0;
-    font-size: 1em;
-    background-color: #f5f5f5;
-    margin-bottom: 0;
-    width: 33.2rem;
+.new-subcategory-search {
+  display: flex;
+}
+
+.checkbox-search-notes {
+  font-size: 1rem;
+  margin-left: .8rem;
+  margin-top: 1rem;
+}
+
+.right-column {
+  margin-left: 3rem;
+  width: 100%;
+  margin-right: 3.5rem;
+}
+
+.show-arrow, .hide-arrow {
+  font-size: 2rem;
+  font-family: serif;
+  margin: .3rem .5rem 0 -1.7rem;
+}
+
+.search {
+  display: flex;
+  width: 3%;
+  margin: 2.3rem 0 0;
+  padding-right: 4.5rem;
+}
+
+header .search input {
+  width: 100%;
+  height: 2.4rem;
+}
+
+.search-input {
+  background-color: #e2e2e2;
+  border-radius: 8px;
+  padding-left: 40px;
+  border: none;
+}
+
+.nav-buttons {
+  display: flex;
+  margin: .7rem .7rem .7rem 0;
+}
+
+.button-style {
+  background-color: white;
+  font-size: 1rem;
+  height: 2.5rem;
+  width: 4rem;
+  border-radius: 8px;
+  border-style: solid;
+  margin: 0.3rem 0 0 0;
+}
+
+.print {
+  margin-left: auto;
+}
+
+.list-map-toggle  {
+  /* position: absolute; */
+}
+
+.dropdown-button {
+  cursor: pointer;
+}
+
+/* One difference between how the list-map-toggle button is set up on the subcategory page, it doesn't need a position: absolute for it's placement on the page. That's one difference here and it may be why the toggle button isn't working on this page. */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 2rem;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content span {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content span:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+#map {
+  width: 85%; 
+  height: 100%;
+  width: 888.9px;
+  height: 80vh;
+}
+
+#map {
+  display: none;
+}
+
+.subcategory-name {
+  display: block;
+  text-decoration: none;
+  color: black;
+  background-color: rgb(226, 226, 226);
+  font-weight: bold;
+  padding: .5rem 0 .7rem;
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+.subcategory-name>a:hover {
+  transition: 0.3s color ease-in-out;
+  color: #4A9AF8;
+}
+
+.provider {
+  font-size: 1rem;
+  line-height: 2em;
+  color: rgb(88, 88, 88);
+  margin: -0.5rem 0 1.1rem 0;
+}
+
+.provider li:hover {
+  color: #0077ff;
+  background-color: rgb(226, 226, 226);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: light;
+  font-size: 1rem;
+  color: gray;
+  margin: 3rem 0 1rem;
+  padding: 1rem;
+}
+
+.footer-item {
+  padding: 0 1rem;
+}
+
+.footer-url {
+  color: #4A9AF8;
+  font-weight: bold;
+}
+
+/* this style is for the placeholder map image, and it can be removed when the OpenStreetMap has been installed. */
+.placeholder-map-jpg {
+  width: 98.5%;
+  margin-top: .3rem;
 }
