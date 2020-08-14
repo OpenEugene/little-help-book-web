@@ -1,4 +1,5 @@
 const mymap = L.map('mapid').setView([51.505, -0.09], 13);
+this.markers;
 
 function mapInit() {
 	let attribution = '&copy; <a href="https://carto.com/">Carto</a>';
@@ -7,6 +8,7 @@ function mapInit() {
 }
 
 function setMarkers(placesArray) {
+	markers = L.markerClusterGroup();
 	for (let i = 0; i < placesArray.length; i++) {
 		setMarker(placesArray[i]);
 	}
