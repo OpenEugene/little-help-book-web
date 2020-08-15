@@ -38,9 +38,9 @@ class NavBreadcrumb {
 	/*
 	This will provide a coordinate set for the setView method when we want to 
 	set the view of the map.
-	It does this by getting the minimum and maximum of each place's
-	latitude and longitude, and then averages them out to find the central
-	point between all locations on the map.
+	It does this by getting the minimum and maximum of the availablePlace
+	array's latitude and longitude, and then averages them out to find the
+	central point between all locations on the map.
 	*/
 	get viewCoordinates() {
 		let x = () => {
