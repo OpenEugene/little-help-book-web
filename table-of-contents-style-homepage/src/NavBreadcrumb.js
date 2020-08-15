@@ -51,7 +51,7 @@ class NavBreadcrumb {
 			let ly = this.availablePlaces.map(p => p.longitude);
 			return (ly.max() + lx.min()) / 2;
 		}
-		return [x, y];
+		return [x(), y()];
 	}
 
 	filterOnCity(dataset) {
