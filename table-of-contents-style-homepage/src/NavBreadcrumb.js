@@ -42,7 +42,7 @@ class NavBreadcrumb {
 	array's latitude and longitude, and then averages them out to find the
 	central point between all locations on the map.
 	*/
-	calcViewCoordinates() {
+	get viewCoordinates() {
 		let x = () => {
 			let lx = this.availablePlaces.map(p => p.latitude);
 			return (lx.max() + lx.min()) / 2;
