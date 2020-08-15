@@ -55,29 +55,18 @@ class NavBreadcrumb {
 	}
 
 	filterOnCity(dataset) {
-		return (this.focused.city != null) ? dataset.filter(x => {
-			for (let i = 0; i < x.categorylist.length) {
-				if (x.categorylist[i].subcategories.includes(this.focused.city.id)) {
-					return true;
-				}
-			}
-			return false;
-		}) : dataset;
+		return (this.focused.city != null) ?
+			dataset.filter(x => x.subcategorylist.map(c => c.id).includes(this.focused.city)) : dataset;
 	}
 
 	filterOnCategory(dataset) {
-		return (this.focused.category != null) ? dataset.filter(x => x.id === value) : dataset;
+		return (this.focused.category != null) ? 
+			dataset.filter(x => x.categorylist.map(c => c.id).contains(this.focused.category)) : dataset;
 	}
 
 	filterOnSubcat(dataset) {
-		return (this.focused.subcats != null) ? dataset.filter(x => {
-				for (let i = 0; i < x.categorylist.length; i++) {
-					if (x.categorylist[i].subcategories.contains(this.focused.subcat.id)) {
-						return true;
-					}
-				}
-				return false;
-			}) : dataset;
+		return (this.focused.subcats != null) ? 
+			dataset.filter(x => x.subcategorylist.map(c => c.id).contains(this.focused.subcat)) : dataset;
 	}
 
 	// Assigns proper function to the City select box.
