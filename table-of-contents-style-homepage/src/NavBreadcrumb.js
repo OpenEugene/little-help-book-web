@@ -1,11 +1,13 @@
 class NavBreadcrumb {
-	cities;
-	categories;
-	subcats;
-	places;
-	mymap;
+	#cities;
+	#categories;
+	#subcats;
+	#places;
+	#mymap;
+	// This object contains the selected options in the breadcrumb navigation.
+	// NOTE: these will contain the id of the fields, not the whole object.
 	focused = {city: null, category: null, subcat: null};
-	availablePlaces;
+	#availablePlaces;
 
 	constructor(cities, categories, subcats, places, mymap = null) {
 		this.cities = cities;
@@ -33,6 +35,10 @@ class NavBreadcrumb {
 
 	get availablePlaces() {
 		return this.availablePlaces;
+	}
+
+	get focused() {
+		return this.focused;
 	}
 
 	/*
@@ -80,12 +86,12 @@ class NavBreadcrumb {
 
 	filterOnCategory(dataset) {
 		return (this.focused.category != null) ? 
-			dataset.filter(x => x.categorylist.map(c => c.id).contains(this.focused.category)) : dataset;
+			dataset.filter(x => x.categorylist.map(c => c.id).includes(this.focused.category)) : dataset;
 	}
 
 	filterOnSubcat(dataset) {
 		return (this.focused.subcats != null) ? 
-			dataset.filter(x => x.subcategorylist.map(c => c.id).contains(this.focused.subcat)) : dataset;
+			dataset.filter(x => x.subcategorylist.map(c => c.id).includes(this.focused.subcat)) : dataset;
 	}
 
 	// Assigns proper function to the City select box.

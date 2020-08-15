@@ -1,0 +1,58 @@
+Here is an example of the structure of the Places json data. This is here just to clearly show how the data is organized, in case of any confusion.
+Primarily, the important ones to note are:
+categories (array) - places[x]["categories"][x]
+subcategories (array) - places[x]["subcategories"][x]
+
+[
+  {
+    "id": "rec0KEybPLVxeNQ21",
+    "name": "Eugene Police non-emergency line",
+    "nameSpanish": null,
+    "phone": "541 682-5111",
+    "address": null,
+    "categories": null,
+    "categoryName": "Information",
+    "categoryList": [
+      {
+        "id": "recVOvYENdFBUNQip",
+        "name": "Information",
+        "nameSpanish": "Información",
+        "subcategories": [
+          "recHUTQxrnDpIYLN9",
+          "recGw7WjXZB0LFEKp"
+        ],
+        "subcategoryList": [
+          {
+            "id": "recHUTQxrnDpIYLN9",
+            "name": "Crisis Lines / Hotlines",
+            "nameSpanish": "Líneas de crisis/Líneas de calor",
+            "order": 1
+          },
+          {
+            "id": "recGw7WjXZB0LFEKp",
+            "name": "Referral and Information Services",
+            "nameSpanish": "Servicios de Referencia e Información",
+            "order": 2
+          }
+        ],
+        "order": 8
+      }
+    ],
+    "subcategories": null,
+    "subcategoryName": "Crisis Lines / Hotlines",
+    "subcategoryList": [
+      {
+        "id": "recHUTQxrnDpIYLN9",
+        "name": "Crisis Lines / Hotlines",
+        "nameSpanish": "Líneas de crisis/Líneas de calor",
+        "order": 1
+      }
+    ],
+    "latitude": 0,
+    "longitude": 0,
+    "url": null,
+    "email": null,
+    "hours": "24/7",
+    "description": "Eugene Police non-emergency line"
+  }
+]
