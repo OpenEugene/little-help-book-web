@@ -42,16 +42,35 @@ class NavBreadcrumb {
 	array's latitude and longitude, and then averages them out to find the
 	central point between all locations on the map.
 	*/
-	get viewCoordinates() {
+	calcViewCoordinates() {
 		let x = () => {
 			let lx = this.availablePlaces.map(p => p.latitude);
 			return (lx.max() + lx.min()) / 2;
 		}
 		let y = () => {
 			let ly = this.availablePlaces.map(p => p.longitude);
-			return (ly.max() + lx.min()) / 2;
+			return (ly.max() + ly.min()) / 2;
 		}
 		return [x(), y()];
+	}
+
+	// Generates multiple option elements
+	generateOptionElements(objArray) {
+		let elementString = "";
+		for (let i = 0; i < objArray.length; i++) {
+			elementString += generateOptionElement(objArray[i]);
+		}
+		return elementString;
+	}
+
+	// Generates a single option element
+	generateOptionElement(obj) {
+		return `<option value=${obj.id}>${obj.name}</option>`;
+	}
+
+	// Writes an element string (objString) the element's innerHTML (elementId)
+	placeOptionElements(elementId, objString) {
+		document.getElementById(elementId).innerHTML = objString;
 	}
 
 	filterOnCity(dataset) {
@@ -73,7 +92,7 @@ class NavBreadcrumb {
 	assignCitySelectEvent(elementId) {
 		document.getElementById(elementId).onchange((value) => {
 			// find the city by id, and set the focused city to it.
-			this.focused.city = this.cities.find(x => x.id === value);
+			this.focused.city = this.cities.find(x => x.id === value).id;
 			/*
 			This function chain checks for a selected city, category and subcategory.
 			It then will filter the list of places on the selected items.
@@ -89,7 +108,7 @@ class NavBreadcrumb {
 	assignCategorySelectEvent(elementId) {
 		document.getElementById(elementId).onchange((value) => {
 			// find the category by id, and set the focused category to it.
-			this.focused.category = this.categories.find(x => x.id === value);
+			this.focused.category = this.categories.find(x => x.id === value).id;
 			/*
 			This function chain checks for a selected city, category and subcategory.
 			It then will filter the list of places on the selected items.
@@ -104,7 +123,7 @@ class NavBreadcrumb {
 	assignSubcatSelectEvent(elementId) {
 		document.getElementById(elementId).onchange((value) => {
 			//find the subcategory by id, and set the focused subcatgory to it.
-			this.focused.subcat = this.subcats.find(x => x.id === value);
+			this.focused.subcat = this.subcats.find(x => x.id === value).id;
 			/*
 			This function chain checks for a selected city, category and subcategory.
 			It then will filter the list of places on the selected items.
