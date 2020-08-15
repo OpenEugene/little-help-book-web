@@ -20,9 +20,16 @@ function setMarkers(placesArray) {
 function createMarker(placeInfo) {
 	if (placeInfo.latitude != 0 || placeInfo.longitude != 0) {
 		let marker = new L.marker([placeInfo.latitude,placeInfo.longitude], {title: placeInfo.name})
-		marker.bindPopUp(`<h3>${placeInfo.name}</h3>`);
+		marker.bindPopUp(generatePopUpHtml(placeInfo));
 		markers.push(marker);
 	}
+}
+
+function generatePopUpHtml(placeInfo) {
+	return `<h3>${placeInfo.name}</h3><br />
+			<p>${(placeInfo.phone != null) ? placeInfo.phone : "No phone number provided"}</p><br />
+			<p>${(placeInfo.address != null) ? placeInfo.address : "No address provided"}</p><br />
+			<p>${(placeInfo.hours != null) ? "Hours: " + placeInfo.hours : "No hours provided"}</p>`
 }
 
 function removeMarkers() {

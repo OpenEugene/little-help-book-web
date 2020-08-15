@@ -27,7 +27,6 @@ class NavBreadcrumb {
 	*/
 	get viewCoordinates() {
 		if (this.availablePlaces != null) {
-
 			let x = () => {
 				let lx = this.availablePlaces.map(p => p.latitude);
 			return (lx.max() + lx.min()) / 2;
