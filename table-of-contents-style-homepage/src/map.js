@@ -19,8 +19,9 @@ function setMarkers(placesArray) {
 
 function createMarker(placeInfo) {
 	if (placeInfo.latitude != 0 || placeInfo.longitude != 0) {
-		let marker = new L.marker([placeInfo.latitude,placeInfo.longitude], {title: placeInfo.name})
+		let marker = new L.marker([placeInfo.latitude,placeInfo.longitude], {draggable: false})
 		marker.bindPopUp(generatePopUpHtml(placeInfo));
+		marker.on('click', () => {this.openPopUp();})
 		markers.push(marker);
 	}
 }
@@ -34,7 +35,7 @@ function generatePopUpHtml(placeInfo) {
 
 function removeMarkers() {
 	markers.forEach(m => {
-		map.removeLayer(m);
+		mymap.removeLayer(m);
 	});
 	markers = [];
 }
