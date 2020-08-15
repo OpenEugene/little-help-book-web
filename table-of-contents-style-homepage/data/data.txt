@@ -1,7 +1,9 @@
 Here is an example of the structure of the Places json data. This is here just to clearly show how the data is organized, in case of any confusion.
 Primarily, the important ones to note are:
-categories (array) - places[x]["categories"][x]
-subcategories (array) - places[x]["subcategories"][x]
+categories (array of objects) - places[x]["categories"][x]
+subcategories (array of objects) - places[x]["subcategories"][x]
+latitude (float) - places[x]["latitude"]
+longitude (float) - places[x]["longitude"]
 
 [
   {
@@ -54,5 +56,138 @@ subcategories (array) - places[x]["subcategories"][x]
     "email": null,
     "hours": "24/7",
     "description": "Eugene Police non-emergency line"
+  }
+]
+
+Here's an example of the Category data.
+Important pieces of data to note:
+subcategories (array of strings) - categories[x]["subcategories"][x]
+
+[
+{
+  "id": "recYtWC2H01X9ZQeZ",
+  "name": "Basic Needs",
+  "nameSpanish": "Necesidades básicas",
+  "subcategories": [
+    "rec1bWRCyeOg7SOqO",
+    "recHpBkQDFLBUagtg",
+    "recUaACoGqNcegY54",
+    "reco73M3XN3qT6g1P",
+    "recuS9L96QMEpybZo",
+    "rec6aP3bPB38KrABg",
+    "recEsx5O2cXr0kxTz",
+    "recmnCTnHXvojhShw",
+    "recMmjZLuohaSh4jf",
+    "reciSQAPAWE7859Va",
+    "recH1Fpetv5qwZAdS",
+    "recfMqBBh8LZSwTVm",
+    "recwgc2Ma9ENrGNhi",
+    "rec0Qn08keA3kfRDW",
+    "recQfIbSyNiGLUejd"
+  ],
+  "subcategoryList": [
+    {
+      "id": "rec1bWRCyeOg7SOqO",
+      "name": "Bedding",
+      "nameSpanish": "Cama",
+      "order": 2
+    },
+    {
+      "id": "recHpBkQDFLBUagtg",
+      "name": "Clothing",
+      "nameSpanish": "Ropa",
+      "order": 3
+    },
+    {
+      "id": "recUaACoGqNcegY54",
+      "name": "Bathrooms",
+      "nameSpanish": "Baños",
+      "order": 1
+    },
+    {
+      "id": "reco73M3XN3qT6g1P",
+      "name": "Day Shelters",
+      "nameSpanish": "Refugios de día",
+      "order": 4
+    },
+    {
+      "id": "recuS9L96QMEpybZo",
+      "name": "Haircuts",
+      "nameSpanish": "Cortes",
+      "order": 6
+    },
+    {
+      "id": "rec6aP3bPB38KrABg",
+      "name": "Day Storage",
+      "nameSpanish": "Almacenamiento de día",
+      "order": 5
+    },
+    {
+      "id": "recEsx5O2cXr0kxTz",
+      "name": "Household Goods",
+      "nameSpanish": "Artículos para el hogar",
+      "order": 7
+    },
+    {
+      "id": "recmnCTnHXvojhShw",
+      "name": "Hygiene Items",
+      "nameSpanish": "Artículos de higiene",
+      "order": 8
+    },
+    {
+      "id": "recMmjZLuohaSh4jf",
+      "name": "ID / Birth Certificate Replacement",
+      "nameSpanish": "Reemplazo de identificación / certificado de nacimiento",
+      "order": 9
+    },
+    {
+      "id": "reciSQAPAWE7859Va",
+      "name": "Laundry",
+      "nameSpanish": "Lavandería",
+      "order": 11
+    },
+    {
+      "id": "recH1Fpetv5qwZAdS",
+      "name": "Internet Access & Library Services",
+      "nameSpanish": "Acceso a Internet & Servicios de biblioteca",
+      "order": 10
+    },
+    {
+      "id": "recfMqBBh8LZSwTVm",
+      "name": "Mail and Messages",
+      "nameSpanish": "Correo y mensajes",
+      "order": 12
+    },
+    {
+      "id": "recwgc2Ma9ENrGNhi",
+      "name": "Propane",
+      "nameSpanish": "Propano",
+      "order": 14
+    },
+    {
+      "id": "rec0Qn08keA3kfRDW",
+      "name": "Phone",
+      "nameSpanish": "Teléfono",
+      "order": 13
+    },
+    {
+      "id": "recQfIbSyNiGLUejd",
+      "name": "Showers",
+      "nameSpanish": "Duchas",
+      "order": 15
+    }
+  ],
+  "order": 1
+}
+]
+
+Here's an example of the Subcategory data. This won't be quite as useful to access directly. 
+
+[
+  {
+    "id": "rec3ZCfYyDmXlMNmC",
+    "name": "Addiction Recovery Services",
+    "nameSpanish": "Servicios de Recuperación de Adicciones",
+    "order": 1
   }
 ]

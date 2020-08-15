@@ -6,7 +6,7 @@ class NavBreadcrumb {
 	#mymap;
 	// This object contains the selected options in the breadcrumb navigation.
 	// NOTE: these will contain the id of the fields, not the whole object.
-	focused = {city: null, category: null, subcat: null};
+	#focused = {city: null, category: null, subcat: null};
 	#availablePlaces;
 
 	constructor(cities, categories, subcats, places, mymap = null) {
