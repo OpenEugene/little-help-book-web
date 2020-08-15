@@ -1,5 +1,5 @@
 const mymap = L.map('mapid').setView([51.505, -0.09], 13);
-this.markers;
+markers = L.markerClusterGroup();
 
 function mapInit() {
 	let attribution = '&copy; <a href="https://carto.com/">Carto</a>';
@@ -8,7 +8,6 @@ function mapInit() {
 }
 
 function setMarkers(placesArray) {
-	markers = L.markerClusterGroup();
 	for (let i = 0; i < placesArray.length; i++) {
 		setMarker(placesArray[i]);
 	}
@@ -16,8 +15,13 @@ function setMarkers(placesArray) {
 
 function setMarker(placeInfo) {
 	if (placeInfo.latitude != 0 || placeInfo.longitude != 0) {
-		L.marker([placeInfo.latitude,placeInfo.longitude], {title: placeInfo.name}).addTo(mymap);	
+		markers.addLayer(L.marker([placeInfo.latitude,placeInfo.longitude], {title: placeInfo.name}));
+		mymap.addLayer(markers);
 	}
+}
+
+function removeMarkers() {
+	markers.clearLayers();
 }
 
 function setView(coordArray, zoom) {

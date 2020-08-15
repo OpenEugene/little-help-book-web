@@ -35,6 +35,25 @@ class NavBreadcrumb {
 		return this.availablePlaces;
 	}
 
+	/*
+	This will hopefully average out the coordinates, and provide a 
+	coordinate set for the setView method when we want to set the view of the
+	map. It does this by getting the minimum and maximum of each place's
+	latitude and longitude, and then averages them out to find the central
+	point between all locations on the map.
+	*/
+	get viewCoordinates() {
+		let x = () => {
+			let lx = this.availablePlaces.map(p => p.latitude);
+			return (lx.max() + lx.min()) / 2;
+		}
+		let y = () => {
+			let ly = this.availablePlaces.map(p => p.longitude);
+			return (ly.max() + lx.min()) / 2;
+		}
+		return [x, y];
+	}
+
 	filterOnCity(dataset) {
 		return (this.focused.city != null) ? dataset.filter(x => {
 			for (let i = 0; i < x.categorylist.length) {
@@ -66,9 +85,13 @@ class NavBreadcrumb {
 		document.getElementById(elementId).onchange((value) => {
 			// find the city by id, and set the focused city to it.
 			this.focused.city = this.cities.find(x => x.id === value);
+			/*
+			This function chain checks for a selected city, category and subcategory.
+			It then will filter the list of places on the selected items.
+			*/
 			this.availablePlaces = this.filterOnSubcat(this.filterOnCategory(this.filterOnCity(this.places)));
 			if (this.mymap != null) {
-				setView([city.latitude,city.longitude], 5);
+				setView(this.viewCoordinates)
 			}
 		});
 	}
@@ -78,6 +101,10 @@ class NavBreadcrumb {
 		document.getElementById(elementId).onchange((value) => {
 			// find the category by id, and set the focused category to it.
 			this.focused.category = this.categories.find(x => x.id === value);
+			/*
+			This function chain checks for a selected city, category and subcategory.
+			It then will filter the list of places on the selected items.
+			*/
 			this.availablePlaces = this.filterOnSubcat(this.filterOnCategory(this.filterOnCity(this.places)));
 			if (this.mymap != null) {
 				setMarkers(this.availablePlaces);
@@ -89,9 +116,13 @@ class NavBreadcrumb {
 		document.getElementById(elementId).onchange((value) => {
 			//find the subcategory by id, and set the focused subcatgory to it.
 			this.focused.subcat = this.subcats.find(x => x.id === value);
+			/*
+			This function chain checks for a selected city, category and subcategory.
+			It then will filter the list of places on the selected items.
+			*/
 			this.availablePlaces = this.filterOnSubcat(this.filterOnCategory(this.filterOnCity(this.places)));
 			if (this.mymap != null) {
-				setMarkers()
+				setMarkers(this.availablePlaces);
 			}
 		});
 	}
