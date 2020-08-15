@@ -1,5 +1,3 @@
-const places = [{"id":"rec0KEybPLVxeNQ21","name":"Eugene Police non-emergency line","nameSpanish":null,"phone":"541 682-5111","address":null,"categories":null,"categoryName":"Information","categoryList":[{"id":"recVOvYENdFBUNQip","name":"Information","nameSpanish":"Información","subcategories":["recHUTQxrnDpIYLN9","recGw7WjXZB0LFEKp"],"subcategoryList":[{"id":"recHUTQxrnDpIYLN9","name":"Crisis Lines / Hotlines","nameSpanish":"Líneas de crisis/Líneas de calor","order":1},{"id":"recGw7WjXZB0LFEKp","name":"Referral and Information Services","nameSpanish":"Servicios de Referencia e Información","order":2}],"order":8}],"subcategories":null,"subcategoryName":"Crisis Lines / Hotlines","subcategoryList":[{"id":"recHUTQxrnDpIYLN9","name":"Crisis Lines / Hotlines","nameSpanish":"Líneas de crisis/Líneas de calor","order":1}],"latitude":0,"longitude":0,"url":null,"email":null,"hours":"24/7","description":"Eugene Police non-emergency line"}]
-
 function generateServiceTiles(objArray) {
 	let objString = "";
 	for (let i = 0; i < objArray.length; i++) {
@@ -26,5 +24,3 @@ function generateServiceTile(obj) {
 function placeServiceTiles(elementId, objString) {
 	document.getElementById(elementId).innerHTML = objString;
 }
-
-placeServiceTiles("provider-tiles", generateServiceTiles(places));

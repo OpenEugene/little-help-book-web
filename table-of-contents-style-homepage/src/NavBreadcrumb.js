@@ -1,44 +1,21 @@
 class NavBreadcrumb {
-	#cities;
-	#categories;
-	#subcats;
-	#places;
-	#mymap;
+	cities;
+	categories;
+	subcats;
+	places;
+	mymap;
 	// This object contains the selected options in the breadcrumb navigation.
 	// NOTE: these will contain the id of the fields, not the whole object.
-	#focused = {city: null, category: null, subcat: null};
-	#availablePlaces;
+	focused = {city: null, category: null, subcat: null};
+	availableSubcats;
+	availablePlaces;
 
 	constructor(cities, categories, subcats, places, mymap = null) {
 		this.cities = cities;
-		this.categories = cats;
+		this.categories = categories;
 		this.subcats = subcats;
 		this.places = places;
 		this.mymap = mymap;
-	}
-
-	get cities() {
-		return this.cities;
-	}
-
-	get categories() {
-		return this.categories;
-	}
-
-	get subcats() {
-		return this.subcats;
-	}
-
-	get places() {
-		return this.places;
-	}
-
-	get availablePlaces() {
-		return this.availablePlaces;
-	}
-
-	get focused() {
-		return this.focused;
 	}
 
 	/*
@@ -49,15 +26,19 @@ class NavBreadcrumb {
 	central point between all locations on the map.
 	*/
 	get viewCoordinates() {
-		let x = () => {
-			let lx = this.availablePlaces.map(p => p.latitude);
+		if (this.availablePlaces != null) {
+
+			let x = () => {
+				let lx = this.availablePlaces.map(p => p.latitude);
 			return (lx.max() + lx.min()) / 2;
+			}
+			let y = () => {
+				let ly = this.availablePlaces.map(p => p.longitude);
+				return (ly.max() + ly.min()) / 2;
+			}
+			return [x(), y()];	
 		}
-		let y = () => {
-			let ly = this.availablePlaces.map(p => p.longitude);
-			return (ly.max() + ly.min()) / 2;
-		}
-		return [x(), y()];
+		return null;
 	}
 
 	// Generates multiple option elements
@@ -92,6 +73,11 @@ class NavBreadcrumb {
 	filterOnSubcat(dataset) {
 		return (this.focused.subcats != null) ? 
 			dataset.filter(x => x.subcategorylist.map(c => c.id).includes(this.focused.subcat)) : dataset;
+	}
+
+	filterSubcatOptions() {
+		return (this.focused.category != null) ?
+			subcats.filter(x => categories.find(c => c.id === this.focused.category).subcategories.includes(x.id)) : subcats;
 	}
 
 	// Assigns proper function to the City select box.
