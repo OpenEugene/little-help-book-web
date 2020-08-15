@@ -60,21 +60,29 @@ class NavBreadcrumb {
 		document.getElementById(elementId).innerHTML = objString;
 	}
 
+	// pass in an array of places, and returns a filtered version based on
+	// what's stored in this.focused.city
 	filterOnCity(dataset) {
 		return (this.focused.city != null) ?
 			dataset.filter(x => x.subcategorylist.map(c => c.id).includes(this.focused.city)) : dataset;
 	}
 
+	// pass in an array of places, and returns a filtered version based on
+	// what's stored in this.focused.category
 	filterOnCategory(dataset) {
 		return (this.focused.category != null) ? 
 			dataset.filter(x => x.categorylist.map(c => c.id).includes(this.focused.category)) : dataset;
 	}
 
+	// pass in an array of places, and returns a filtered version based on
+	// what's stored in this.focused.subcat
 	filterOnSubcat(dataset) {
 		return (this.focused.subcats != null) ? 
 			dataset.filter(x => x.subcategorylist.map(c => c.id).includes(this.focused.subcat)) : dataset;
 	}
 
+	// This will filter out the subcategories that aren't part of the parent
+	// category stored in this.focused.category
 	filterSubcatOptions() {
 		return (this.focused.category != null) ?
 			subcats.filter(x => categories.find(c => c.id === this.focused.category).subcategories.includes(x.id)) : subcats;
@@ -112,6 +120,7 @@ class NavBreadcrumb {
 		});
 	}
 
+	// Assigns proper function to the Subcategory select box.
 	assignSubcatSelectEvent(elementId) {
 		document.getElementById(elementId).onchange((value) => {
 			//find the subcategory by id, and set the focused subcatgory to it.

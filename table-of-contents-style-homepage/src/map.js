@@ -9,14 +9,19 @@ function mapInit() {
 
 function setMarkers(placesArray) {
 	for (let i = 0; i < placesArray.length; i++) {
-		setMarker(placesArray[i]);
+		createMarker(placesArray[i]);
+	}
+	removeMarkers();
+	for (let i = 0; i < placesArray.length; i++) {
+		mymap.addLayer(markers[i]);
 	}
 }
 
-function setMarker(placeInfo) {
+function createMarker(placeInfo) {
 	if (placeInfo.latitude != 0 || placeInfo.longitude != 0) {
-		markers.push(L.marker([placeInfo.latitude,placeInfo.longitude], {title: placeInfo.name}));
-		mymap.addLayer(markers);
+		let marker = new L.marker([placeInfo.latitude,placeInfo.longitude], {title: placeInfo.name})
+		marker.bindPopUp(`<h3>${placeInfo.name}</h3>`);
+		markers.push(marker);
 	}
 }
 
