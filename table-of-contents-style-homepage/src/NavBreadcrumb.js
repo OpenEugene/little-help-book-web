@@ -36,9 +36,9 @@ class NavBreadcrumb {
 	}
 
 	/*
-	This will hopefully average out the coordinates, and provide a 
-	coordinate set for the setView method when we want to set the view of the
-	map. It does this by getting the minimum and maximum of each place's
+	This will provide a coordinate set for the setView method when we want to 
+	set the view of the map.
+	It does this by getting the minimum and maximum of each place's
 	latitude and longitude, and then averages them out to find the central
 	point between all locations on the map.
 	*/
