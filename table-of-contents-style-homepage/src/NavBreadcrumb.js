@@ -26,10 +26,10 @@ class NavBreadcrumb {
 	central point between all locations on the map.
 	*/
 	get viewCoordinates() {
-		if (this.availablePlaces != null) {
+		if (this.availablePlaces != null || this.availablePlaces != "") {
 			let x = () => {
 				let lx = this.availablePlaces.map(p => p.latitude);
-			return (lx.max() + lx.min()) / 2;
+				return (lx.max() + lx.min()) / 2;
 			}
 			let y = () => {
 				let ly = this.availablePlaces.map(p => p.longitude);
@@ -62,28 +62,28 @@ class NavBreadcrumb {
 	// pass in an array of places, and returns a filtered version based on
 	// what's stored in this.focused.city
 	filterOnCity(dataset) {
-		return (this.focused.city != null) ?
+		return (this.focused.city != null || this.focused.city != "") ?
 			dataset.filter(x => x.subcategorylist.map(c => c.id).includes(this.focused.city)) : dataset;
 	}
 
 	// pass in an array of places, and returns a filtered version based on
 	// what's stored in this.focused.category
 	filterOnCategory(dataset) {
-		return (this.focused.category != null) ? 
+		return (this.focused.category != null || this.focused.city != "") ? 
 			dataset.filter(x => x.categorylist.map(c => c.id).includes(this.focused.category)) : dataset;
 	}
 
 	// pass in an array of places, and returns a filtered version based on
 	// what's stored in this.focused.subcat
 	filterOnSubcat(dataset) {
-		return (this.focused.subcats != null) ? 
+		return (this.focused.subcat != null || this.focused.subcat != "") ? 
 			dataset.filter(x => x.subcategorylist.map(c => c.id).includes(this.focused.subcat)) : dataset;
 	}
 
 	// This will filter out the subcategories that aren't part of the parent
 	// category stored in this.focused.category
 	filterSubcatOptions() {
-		return (this.focused.category != null) ?
+		return (this.focused.category != null || this.focused.category != "") ?
 			subcats.filter(x => categories.find(c => c.id === this.focused.category).subcategories.includes(x.id)) : subcats;
 	}
 
@@ -98,7 +98,7 @@ class NavBreadcrumb {
 			*/
 			this.availablePlaces = this.filterOnSubcat(this.filterOnCategory(this.filterOnCity(this.places)));
 			if (this.mymap != null) {
-				setView(this.viewCoordinates)
+				setView(this.viewCoordinates);
 			}
 		});
 	}
@@ -112,6 +112,7 @@ class NavBreadcrumb {
 			This function chain checks for a selected city, category and subcategory.
 			It then will filter the list of places on the selected items.
 			*/
+			this.availableSubcats = this.filterSubcatOptions(this.subcats);
 			this.availablePlaces = this.filterOnSubcat(this.filterOnCategory(this.filterOnCity(this.places)));
 			if (this.mymap != null) {
 				setMarkers(this.availablePlaces);

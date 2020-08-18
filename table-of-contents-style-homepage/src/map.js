@@ -3,7 +3,8 @@ markers = [];
 
 function mapInit() {
 	let attribution = '&copy; <a href="https://carto.com/">Carto</a>';
-	let tiles = L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}.png", { attribution });
+	let tiles = L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}.png",
+		{ attribution });
 	tiles.addTo(mymap);
 }
 
