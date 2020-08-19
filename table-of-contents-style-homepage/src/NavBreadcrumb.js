@@ -26,7 +26,7 @@ class NavBreadcrumb {
 	central point between all locations on the map.
 	*/
 	get viewCoordinates() {
-		if (this.availablePlaces != null || this.availablePlaces != "") {
+		if (this.availablePlaces != null || this.availablePlaces != []) {
 			let x = () => {
 				let lx = this.availablePlaces.filter(x => x.latitude != 0).map(p => p.latitude);
 				return (Math.min(...lx) + Math.max(...lx)) / 2;
