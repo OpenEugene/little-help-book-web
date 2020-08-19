@@ -552,7 +552,7 @@ footer .bold-inline {
   }
   
   /* pop-up container */
-  .popup {
+  .mobile-popup {
     position: relative;
     display: inline-block;
     -webkit-user-select: none;
@@ -562,10 +562,10 @@ footer .bold-inline {
   }
   
   /* the actual pop-up */
-  .popup .popuptext {
+  .mobile-popup .mobile-popuptext {
     visibility: hidden;
     width: 280%;
-    background-color: #fff;
+    background-color: #f5f5f5;
     color: #6a6a6a;
     border-radius: 6px;
     padding: 1rem 1.25rem 11rem 0.1rem;
@@ -580,7 +580,7 @@ footer .bold-inline {
   }
   
   /* toggle this class - hide and show the pop-up */
-  .popup .show {
+  .mobile-popup .show {
     visibility: visible;
     -webkit-animation: fadeIn 1s;
     animation: fadeIn 1s;
@@ -601,7 +601,7 @@ footer .bold-inline {
   .outline-buttons {
     display: flex;
     flex-direction: column;
-    margin: 12rem 3.5rem 4rem;
+    margin: 19% 3.5rem 4rem;
   }
 
   .emergency-lines-button, .find-my-city-button, .find-a-service-button {

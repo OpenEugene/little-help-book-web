@@ -67,8 +67,8 @@ function getMobilePageTwo() {
           </header>
           <main class="content-container">
             <h3 class="mobile-are-you-in-crisis">Are you in 
-              <div class="popup" onclick="crisisPopup()"><span class="blue-text">crisis</span>?
-              <span class="popuptext" id="myPopup">A crisis is defined personally by each individual 
+              <div class="mobile-popup" onclick="mobileCrisisPopup()"><span class="blue-text">crisis</span>?
+              <span class="mobile-popuptext" id="mobileCrisis">A crisis is defined personally by each individual 
               who reaches out to White Bird Clinic. It can be a difficult or dangerous time, but it 
               is also an opportunity for change. Anxiety, depression, grief, trauma, identity issues,
               abuse, interpersonal conflict, and other external or internal factors can contribute to 
@@ -89,4 +89,9 @@ function getMobilePageTwo() {
 
 function findHelp() {
   document.getElementById("mobile-container").innerHTML = getMobilePageTwo();
+}
+
+function mobileCrisisPopup() {
+  var popup = document.getElementById("mobileCrisis");
+  popup.classList.toggle("show");
 }
