@@ -29,11 +29,11 @@ class NavBreadcrumb {
 		if (this.availablePlaces != null || this.availablePlaces != "") {
 			let x = () => {
 				let lx = this.availablePlaces.filter(x => x.latitude != 0).map(p => p.latitude);
-				return (lx.max() + lx.min()) / 2;
+				return (Math.min(...lx) + Math.max(...lx)) / 2;
 			}
 			let y = () => {
 				let ly = this.availablePlaces.filter(x => x.longitude != 0).map(p => p.longitude);
-				return (ly.max() + ly.min()) / 2;
+				return (Math.min(...ly) + Math.max(...ly)) / 2;
 			}
 			return [x(), y()];	
 		}
