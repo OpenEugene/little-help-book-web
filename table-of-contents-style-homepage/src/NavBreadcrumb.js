@@ -28,11 +28,11 @@ class NavBreadcrumb {
 	get viewCoordinates() {
 		if (this.availablePlaces != null || this.availablePlaces != "") {
 			let x = () => {
-				let lx = this.availablePlaces.map(p => p.latitude);
+				let lx = this.availablePlaces.filter(x => x.latitude != 0).map(p => p.latitude);
 				return (lx.max() + lx.min()) / 2;
 			}
 			let y = () => {
-				let ly = this.availablePlaces.map(p => p.longitude);
+				let ly = this.availablePlaces.filter(x => x.longitude != 0).map(p => p.longitude);
 				return (ly.max() + ly.min()) / 2;
 			}
 			return [x(), y()];	
@@ -40,11 +40,17 @@ class NavBreadcrumb {
 		return null;
 	}
 
+	get selectsAreChecked() {
+		return this.focused.city != null &&
+			this.focused.category != null &&
+			this.focused.subcat != null;
+	}
+
 	// Generates multiple option elements
 	generateOptionElements(objArray) {
 		let elementString = "";
 		for (let i = 0; i < objArray.length; i++) {
-			elementString += generateOptionElement(objArray[i]);
+			elementString += this.generateOptionElement(objArray[i]);
 		}
 		return elementString;
 	}
@@ -84,55 +90,21 @@ class NavBreadcrumb {
 	// category stored in this.focused.category
 	filterSubcatOptions() {
 		return (this.focused.category != null && this.focused.category != "") ?
-			this.subcats.filter(x => categories.find(c => c.id === this.focused.category).subcategories.includes(x.id)) : this.subcats;
+			this.subcats.filter(x => this.categories.find(c => c.id === this.focused.category).subcategories.includes(x.id)) : this.subcats;
 	}
 
 	// Assigns proper function to the City select box.
-	assignCitySelectEvent(elementId) {
-		document.getElementById(elementId).onchange((value) => {
-			// find the city by id, and set the focused city to it.
-			this.focused.city = this.cities.find(x => x.id === value).id;
-			/*
-			This function chain checks for a selected city, category and subcategory.
-			It then will filter the list of places on the selected items.
-			*/
-			this.availablePlaces = this.filterOnSubcat(this.filterOnCategory(this.filterOnCity(this.places)));
-			if (this.mymap != null) {
-				setView(this.viewCoordinates);
-			}
-		});
+	assignCitySelectEvent(elementId, newEvent) {
+		document.getElementById(elementId).addEventListener("change", newEvent);
 	}
 
 	// Assigns proper function to the Category select box.
-	assignCategorySelectEvent(elementId) {
-		document.getElementById(elementId).onchange((value) => {
-			// find the category by id, and set the focused category to it.
-			this.focused.category = this.categories.find(x => x.id === value).id;
-			/*
-			This function chain checks for a selected city, category and subcategory.
-			It then will filter the list of places on the selected items.
-			*/
-			this.availableSubcats = this.filterSubcatOptions(this.subcats);
-			this.availablePlaces = this.filterOnSubcat(this.filterOnCategory(this.filterOnCity(this.places)));
-			if (this.mymap != null) {
-				setMarkers(this.availablePlaces);
-			}
-		});
+	assignCategorySelectEvent(catElementId, newEvent) {
+		document.getElementById(catElementId).addEventListener("change", newEvent);
 	}
 
 	// Assigns proper function to the Subcategory select box.
-	assignSubcatSelectEvent(elementId) {
-		document.getElementById(elementId).onchange((value) => {
-			//find the subcategory by id, and set the focused subcatgory to it.
-			this.focused.subcat = this.subcats.find(x => x.id === value).id;
-			/*
-			This function chain checks for a selected city, category and subcategory.
-			It then will filter the list of places on the selected items.
-			*/
-			this.availablePlaces = this.filterOnSubcat(this.filterOnCategory(this.filterOnCity(this.places)));
-			if (this.mymap != null) {
-				setMarkers(this.availablePlaces);
-			}
-		});
+	assignSubcatSelectEvent(elementId, newEvent) {
+		document.getElementById(elementId).addEventListener("change", newEvent);
 	}
 }
