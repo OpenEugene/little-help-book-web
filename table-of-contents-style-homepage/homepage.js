@@ -66,7 +66,7 @@ function getMobilePageTwo() {
             <div class="black-top"></div>
           </header>
           <main class="content-container">
-            <h3 class="are-you-in-crisis">Are you in 
+            <h3 class="mobile-are-you-in-crisis">Are you in 
               <div class="popup" onclick="crisisPopup()"><span class="blue-text">crisis</span>?
               <span class="popuptext" id="myPopup">A crisis is defined personally by each individual 
               who reaches out to White Bird Clinic. It can be a difficult or dangerous time, but it 
@@ -79,9 +79,9 @@ function getMobilePageTwo() {
               </span>
             </h3>
             <div class="outline-buttons">
-              <button class="emergency-lines">Emergency Crisis Lines</button>
-              <button class="find-my-city">Find my City</button>
-              <button class="find-a-service">Find a Service</button>
+              <button class="emergency-lines-button">Emergency Crisis Lines</button>
+              <button class="find-my-city-button">Find my City</button>
+              <button class="find-a-service-button">Find a Service</button>
             </div>
           </main>` 
 }
