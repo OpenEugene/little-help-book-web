@@ -32,7 +32,7 @@ a {
 /* begin tablet styles */
 
 @media screen and (max-width: 1056px) {
-  /*
+
     header .logo-title {
       display: flex;
     }
@@ -57,7 +57,7 @@ a {
         font-family: sans-serif;
         margin: 1.4rem 0 0 5.6rem;
     }
-  */
+
     .are-you-in-crisis {
         font-style: normal;
         font-family: sans-serif;
@@ -141,7 +141,7 @@ a {
 /* begin mobile styles */
 
 @media screen and (max-width: 640px) {
-  /*
+
     header .logo-title {
         display: flex;
     }
@@ -166,7 +166,7 @@ a {
         font-family: sans-serif;
         margin: 1.1rem 0 0 3.7rem;
     }
-  */
+  
     .are-you-in-crisis {
         font-size: 2.2rem;
         font-weight: bold;
@@ -176,7 +176,7 @@ a {
     .outline-buttons {
         margin: 32% 1.5rem 4rem;
     }
-  
+
     button {
         height: 6.8rem;
         font-size: 1.4rem;
