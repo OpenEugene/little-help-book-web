@@ -84,7 +84,7 @@ class NavBreadcrumb {
 	// category stored in this.focused.category
 	filterSubcatOptions() {
 		return (this.focused.category != null && this.focused.category != "") ?
-			this.subcats.filter(x => categories.find(c => c.id === this.focused.category).subcategories.includes(x.id)) : subcats;
+			this.subcats.filter(x => categories.find(c => c.id === this.focused.category).subcategories.includes(x.id)) : this.subcats;
 	}
 
 	// Assigns proper function to the City select box.
