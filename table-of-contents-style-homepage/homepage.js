@@ -81,14 +81,43 @@ function getMobilePageTwo() {
             <div class="outline-buttons">
               <button class="emergency-lines-button">Emergency Crisis Lines</button>
               <button class="find-my-city-button">Find my City</button>
-              <button class="find-a-service-button">Find a Service</button>
+              <button class="find-a-service-button" onclick="mostSought()">Find a Service</button>
             </div>
           </main>` 
+}
+
+function getMobilePageMostSought() {
+  return `<header class="logo-title">
+            <img src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
+            <h1 class="little-help-book">Little Help Book</h1>
+            <div class="black-top"></div>
+          </header>
+          <main class="content-container">
+            <div class="mobile-category-buttons">
+              <h2 class="mobile-category-name h123-reset"><a href="#">Basic Needs</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Money</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Food</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Health</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Rent / Utilities</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Resource Sharing</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Shelter</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Transportation</a></h2>
+              <div class="bottom-line">
+                <h2 class="mobile-category-name h123-reset"><a href="#">Youth</a></h2>
+                <h2 class="mobile-category-name more-button h123-reset">More<span class="more-arrow"> ></h2>
+              </div>
+            </div>
+          </main>`
 }
 
 
 function findHelp() {
   document.getElementById("mobile-container").innerHTML = getMobilePageTwo();
+}
+
+function mostSought() {
+  console.log("mostSought");
+  document.getElementById("mobile-container").innerHTML = getMobilePageMostSought();
 }
 
 function mobileCrisisPopup() {
