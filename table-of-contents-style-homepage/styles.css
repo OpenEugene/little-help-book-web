@@ -479,59 +479,59 @@ header .logo-title {
 
 @media screen and (max-width: 640px) {
 
-.black-top {
-    height: 5rem;
-}
+  .black-top {
+      height: 5rem;
+  }
 
-img {
-    width: 42px;
-    height: 42px;
-    margin: 1.49rem 0 .4rem 1.05rem;
-}
+  img {
+      width: 42px;
+      height: 42px;
+      margin: 1.49rem 0 .4rem 1.05rem;
+  }
 
-.little-help-book {
-    font-size: 1.2rem;
-    margin: 2.1rem 0 0 3.7rem;
-}
+  .little-help-book {
+      font-size: 1.2rem;
+      margin: 2.1rem 0 0 3.7rem;
+  }
 
-.people-care {
-    font-size: 2.4rem;
-    margin: 3.5rem 0 0 2rem;
-}
+  .people-care {
+      font-size: 2.4rem;
+      margin: 3.5rem 0 0 2rem;
+  }
 
-.find-help-in-lane {
-    font-size: 1.125rem;
-    line-height: 1.7rem;
-    margin: 1rem 0.5rem 0 2rem;
-}
+  .find-help-in-lane {
+      font-size: 1.125rem;
+      line-height: 1.7rem;
+      margin: 1rem 0.5rem 0 2rem;
+  }
 
-.buttons {
-    position: absolute;
-    bottom: 18.6%;
-    margin: 7.2rem 0 0 2rem;
-}
+  .buttons {
+      position: absolute;
+      bottom: 18.6%;
+      margin: 7.2rem 0 0 2rem;
+  }
 
-.help-button, .spanish-button {
-    width: 10rem;
-    height: 5rem;
-    font-size: 1.5rem;
-}
+  .help-button, .spanish-button {
+      width: 10rem;
+      height: 5rem;
+      font-size: 1.5rem;
+  }
 
-.spanish-button {
-    margin-top: 1.8rem;
-}
+  .spanish-button {
+      margin-top: 1.8rem;
+  }
 
-footer {
-    position: absolute;
-    bottom: 1%;
-    font-size: 1.2rem;
-    width: 20rem;
-    margin: 3rem 0 0 2rem;
-}
+  footer {
+      position: absolute;
+      bottom: 1%;
+      font-size: 1.2rem;
+      width: 20rem;
+      margin: 3rem 0 0 2rem;
+  }
 
-footer .bold-inline {
-    font-size: 1.2rem;
-}
+  footer .bold-inline {
+      font-size: 1.2rem;
+  }
 
 }
 
@@ -545,7 +545,7 @@ footer .bold-inline {
     font-size: 4.5rem;
     font-weight: bold;
     margin: 6.2rem 0 0 3.5rem;
-} 
+  } 
 
   .blue-text {
     color: #4A9AF8;
@@ -616,11 +616,10 @@ footer .bold-inline {
     font-weight: bold;
     margin-bottom: 2rem;
     padding-left: 2rem;
+    max-width: 36rem;
   }
 
-}
-
-/* end tablet styles */
+} /* end tablet styles for screen that appears after pressing Find Help */
 
 /* begin styles for the Find Help mobile screen */
 
@@ -641,6 +640,35 @@ footer .bold-inline {
     font-size: 1.4rem;
     margin-bottom: 1.5rem;
     padding-left: 5.8%; 
+    max-width: 20.2rem;
   }
 
 }
+
+/* begin mobile styles for Find a Service intro screen */
+
+@media screen and (max-width: 640px) {
+
+  .mobile-category-buttons {
+    padding: 1.5rem 0.5rem 0 1rem;
+  }
+
+  .mobile-category-name {
+    padding: 1rem;
+  }
+
+  .bottom-line {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .more-button {
+    color: gray;
+  }
+
+  .more-arrow {
+    font-size: 1.8rem;
+    margin-left: .3rem;
+  }
+
+} /* end mobile styles for Find a Service intro screen */
