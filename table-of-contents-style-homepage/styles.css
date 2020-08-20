@@ -672,3 +672,40 @@ header .logo-title {
   }
 
 } /* end mobile styles for Find a Service intro screen */
+
+
+/* begin mobile styles for the page of Emergency Crisis Lines */
+
+.how-to-call {
+  margin: 1.5rem 0 0 1.5rem;
+  font-weight: bold;
+  font-size: 1.7rem;
+  color: gray;
+}
+
+.emergency-container {
+  padding: 1.5rem 1rem 0 1rem;
+}
+
+.emergency-line {
+  padding: 0.5rem 0 0;
+  background-color: white;
+  margin-bottom: 1.8rem;
+}
+
+.emergency-number {
+  padding: .5rem;
+}
+
+.emergency-description {
+  padding: 0 0.2rem 1rem 0.5rem;
+  margin-top: 0.5rem;
+  line-height: 1.5rem;
+}
+
+.divider-line {
+  margin: 0 0 0 .5rem;
+  padding: 0;
+  color: gray;
+}
+/* end mobile styles for the page of Emergency Crisis Lines */
