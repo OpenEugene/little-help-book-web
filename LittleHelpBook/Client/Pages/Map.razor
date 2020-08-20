@@ -23,10 +23,18 @@
     private GoogleMap map1;
     private MapOptions mapOptions;
 
+    private Stack<Marker> markers = new Stack<Marker>();
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await cache.GetAllPlaces();
+
+        }
+    }
     protected override async Task OnInitializedAsync()
     {
-        await cache.GetAllPlaces();
 
         mapOptions = new MapOptions()
         {
@@ -42,15 +50,50 @@
     }
     private async Task OnAfterMapInitAsync()
     {
-        foreach (var place in await cache.GetAllPlaces())
+        await Task.Delay(2000);
+        Console.WriteLine("Srart loading");
+        var places = await cache.GetAllPlaces();
+        var placesList = places.Where(x => IsValid(x.Latitude, x.Longitude)).ToList().Take(10);
+        Console.WriteLine("End loading " + placesList.Count());
+        await Task.Delay(2000);
+
+        foreach (var place in placesList)
         {
             if (place != null)
             {
-                await AddMarker(place);
+                if (IsValid(place.Latitude, place.Longitude))
+                {
+
+                    await AddMarker(place);
+                    Console.WriteLine($"{place.Latitude}, {place.Longitude}");
+                }
+
             }
         }
 
     }
+
+    public static bool IsValid(double latitude, double longtitude)
+    {
+        if (latitude == 0 && longtitude == 0)
+        {
+            return false;
+        }
+
+        if (latitude < -90 || latitude > 90)
+        {
+            return false;
+        }
+
+        if (longtitude < -180 || longtitude > 180)
+        {
+            return false;
+        }
+
+
+        return true;
+    }
+
     private async Task AddMarker(LittleHelpBook.Shared.Data.Place place)
     {
         var position = new LatLngLiteral {Lat = place.Latitude, Lng = place.Longitude};
@@ -86,7 +129,7 @@
         });
 
 
-        //markers.Push(marker);
+        markers.Push(marker);
 
 
     }
