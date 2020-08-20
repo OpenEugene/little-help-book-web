@@ -1,25 +1,43 @@
 const cityboxId = "citySelect";
 const catboxId = "catSelect";
 const subcatboxId = "subcatSelect";
-let nbc = new NavBreadcrumb(mockCities, mockCategories, mockSubcats, mockPlaces);
+var categoryTable;
+var subcatTable;
+var placeTable;
+var nbc;
+"use strict"
+$(document).ready(function() {
+  // await has to be inside async function, anonymous in this case
+    (async () => {
+        categoryTable = await dalGetCategoryTable();
+        subcatTable = await dalGetSubcategoryTable();
+        placeTable = await dalGetPlaceTable();
+        nbc = new NavBreadcrumb(mockCities, categoryTable, subcatTable, placeTable);
 
-/*
-Assign a unique ID to the select elements, so I can find them later.
-We could hard code these into the DOM, but this ensures that I'll always
-have these elements regardless of future changes to the DOM. Just don't
-delete the select box class associations, and I can find them.
-*/
-document.getElementsByClassName("city")[0].setAttribute("id", cityboxId);
-document.getElementsByClassName("category")[0].setAttribute("id", catboxId);
-document.getElementsByClassName("subcategory")[0].setAttribute("id", subcatboxId);
+        /*
+        Assign a unique ID to the select elements, so I can find them later.
+        We could hard code these into the DOM, but this ensures that I'll always
+        have these elements regardless of future changes to the DOM. Just don't
+        delete the select box class associations, and I can find them.
+        */
+        document.getElementsByClassName("city")[0].setAttribute("id", cityboxId);
+        document.getElementsByClassName("category")[0].setAttribute("id", catboxId);
+        document.getElementsByClassName("subcategory")[0].setAttribute("id", subcatboxId);
 
-/*
-Generate and place option element HTML to place into each appropriate
-select box, based on the data that was passed into our NavBreadcrumb object.
-*/
-nbc.placeOptionElements(cityboxId, nbc.generateOptionElements(nbc.cities));
-nbc.placeOptionElements(catboxId, nbc.generateOptionElements(nbc.categories));
-nbc.placeOptionElements(subcatboxId, nbc.generateOptionElements(nbc.subcats));
+        /*
+        Generate and place option element HTML to place into each appropriate
+        select box, based on the data that was passed into our NavBreadcrumb object.
+        */
+        nbc.placeOptionElements(cityboxId, nbc.generateOptionElements(nbc.cities));
+        nbc.placeOptionElements(catboxId, nbc.generateOptionElements(nbc.categories));
+        nbc.placeOptionElements(subcatboxId, nbc.generateOptionElements(nbc.subcats));
+
+        // Assign the appropriate events handlers to the select elements
+        nbc.assignCitySelectEvent(cityboxId, citySelectEvent);
+        nbc.assignCategorySelectEvent(catboxId, categorySelectEvent);
+        nbc.assignSubcatSelectEvent(subcatboxId, subcatSelectEvent);
+    })()
+});
 
 // functions used to generate the service tiles using the data.
 // These functions were moved from generateServiceTile.js
@@ -90,6 +108,7 @@ function subcatSelectEvent() {
     It then will filter the list of places on the selected items.
     */
     nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
+    document.getElementsByClassName("category-page-name")[0].innerHTML = nbc.focused.subcat;
     if (nbc.selectsAreChecked) {
         placeServiceTiles("provider-tiles", generateServiceTiles(nbc.availablePlaces));
     }
@@ -97,8 +116,3 @@ function subcatSelectEvent() {
         setMarkers(nbc.availablePlaces);
     }
 }
-
-// Assign the appropriate events handlers to the select elements
-nbc.assignCitySelectEvent(cityboxId, citySelectEvent);
-nbc.assignCategorySelectEvent(catboxId, categorySelectEvent);
-nbc.assignSubcatSelectEvent(subcatboxId, subcatSelectEvent);

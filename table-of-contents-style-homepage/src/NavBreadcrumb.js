@@ -69,21 +69,21 @@ class NavBreadcrumb {
 	// what's stored in this.focused.city
 	filterOnCity(dataset) {
 		return (this.focused.city != null && this.focused.city != "") ?
-			dataset.filter(x => x.subcategorylist.map(c => c.id).includes(this.focused.city)) : dataset;
+			dataset.filter(x => x.subcategory.map(c => c.id).includes(this.focused.city)) : dataset;
 	}
 
 	// pass in an array of places, and returns a filtered version based on
 	// what's stored in this.focused.category
 	filterOnCategory(dataset) {
 		return (this.focused.category != null && this.focused.city != "") ? 
-			dataset.filter(x => x.categorylist.map(c => c.id).includes(this.focused.category)) : dataset;
+			dataset.filter(x => x.category.map(c => c.id).includes(this.focused.category)) : dataset;
 	}
 
 	// pass in an array of places, and returns a filtered version based on
 	// what's stored in this.focused.subcat
 	filterOnSubcat(dataset) {
 		return (this.focused.subcat != null && this.focused.subcat != "") ? 
-			dataset.filter(x => x.subcategorylist.map(c => c.id).includes(this.focused.subcat)) : dataset;
+			dataset.filter(x => x.subcategory.map(c => c.id).includes(this.focused.subcat)) : dataset;
 	}
 
 	// This will filter out the subcategories that aren't part of the parent
