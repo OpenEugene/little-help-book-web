@@ -550,7 +550,7 @@ header .logo-title {
     font-family: sans-serif;
     font-size: 3rem;
     font-weight: bold;
-    margin-top: 1rem;
+    margin-top: 1.9rem;
     margin-right: 3.5rem;
   }
 
@@ -641,6 +641,12 @@ header .logo-title {
 
 @media screen and (max-width: 640px) {
 
+  .back-arrow {
+    font-size: 2.5rem;
+    margin-top: 1.3rem;
+    margin-right: 2.2rem;
+  }
+
   .mobile-are-you-in-crisis {
     font-size: 2.2rem;
     font-weight: bold;
@@ -663,8 +669,8 @@ header .logo-title {
     background-color: #f5f5f5;
     color: #6a6a6a;
     width: 20.3rem;
-    padding: 0 0.85rem 11rem 0.6rem;
-    bottom: -45rem;
+    padding: 0 0.85rem 0.5rem 0.6rem;
+    bottom: -31rem;
     right: -17.3%;
     font-family: sans-serif;
     font-size: 1rem;

@@ -71,9 +71,8 @@ function getMobilePageTwo() {
               is also an opportunity for change. Anxiety, depression, grief, trauma, identity issues,
               abuse, interpersonal conflict, and other external or internal factors can contribute to 
               a time of crisis. If you find your ability to access your own resources is compromised by a 
-              crisis event, please reach out to us on our 24/7 crisis line at 541-687-4000 or 
-              1-800-422-7558 or click the Emergency Crisis Lines button for a complete listing of phone 
-              numbers.
+              crisis event, please call our crisis line at 541-687-4000 or 1-800-422-7558 or click the 
+              Emergency Crisis Lines button for a complete listing of phone numbers.
               </span>
             </h3>
             <div class="outline-buttons">
@@ -85,10 +84,10 @@ function getMobilePageTwo() {
 }
 
 function getMobilePageMostSought() {
-  return `<header class="logo-title">
+  return `<header class="logo-title black-top">
             <img src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
             <h1 class="little-help-book">Little Help Book</h1>
-            <div class="black-top"></div>
+            <div class="back-arrow"><</div>
           </header>
           <main class="content-container">
             <div class="mobile-category-buttons">
@@ -109,10 +108,10 @@ function getMobilePageMostSought() {
 }
 
 function getMobilePageEmergency() {
-  return `<header class="logo-title">
+  return `<header class="logo-title black-top">
               <img src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
               <h1 class="little-help-book">Little Help Book</h1>
-              <div class="black-top"></div>
+              <div class="back-arrow"><</div>
           </header>
           <main class="content-container">
             <p class="how-to-call">Touch blue text to call.</p>
