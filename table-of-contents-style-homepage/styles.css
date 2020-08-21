@@ -367,7 +367,7 @@ main {
     display: flex;
   }
 
-  .black-top {
+  header {
       background-color: black;
       height: 6.6rem;
       overflow-x: hidden; 
@@ -380,7 +380,7 @@ main {
       position: absolute;
       width: 66px;
       height: 66px;
-      margin: 1.6rem 0 .4rem 1.25rem;
+      margin: 1.6rem 0 .4rem 1.75rem;
   }
 
   .little-help-book {
@@ -479,14 +479,14 @@ header .logo-title {
 
 @media screen and (max-width: 640px) {
 
-  .black-top {
+  header {
       height: 5rem;
   }
 
   img {
       width: 42px;
       height: 42px;
-      margin: 1.49rem 0 .4rem 1.05rem;
+      margin: 1.49rem 0 .4rem 1.35rem;
   }
 
   .little-help-book {
@@ -538,6 +538,21 @@ header .logo-title {
 /* begin tablet styles for the mobile-intro screen that appears after pressing Find Help */
 
 @media screen and (max-width: 1056px) {
+
+  .logo-title {
+    display: flex;
+  }
+
+  .back-arrow {
+    color: white;
+    display: flex;
+    margin-left: auto;
+    font-family: sans-serif;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-right: 3.5rem;
+  }
 
   .mobile-are-you-in-crisis {
     font-style: normal;

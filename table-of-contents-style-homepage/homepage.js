@@ -40,10 +40,9 @@ function crisisPopup() {
 }
 
 function getMobilePageOne() {
-  return `<header class="logo-title">
+  return `<header class="logo-title black-top">
             <img src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
             <h1 class="little-help-book">Little Help Book</h1>
-            <div class="black-top"></div>
           </header>
           <main class="content-container" id="mobile-container">
             <div class="people-care">People care.</div>
@@ -59,10 +58,10 @@ function getMobilePageOne() {
 }
 
 function getMobilePageTwo() {
-  return `<header class="logo-title">
+  return `<header class="logo-title black-top">
             <img src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
             <h1 class="little-help-book">Little Help Book</h1>
-            <div class="black-top"></div>
+            <div class="back-arrow"><</div>
           </header>
           <main class="content-container">
             <h3 class="mobile-are-you-in-crisis">Are you in 
