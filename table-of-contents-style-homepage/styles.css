@@ -645,7 +645,33 @@ header .logo-title {
 
 }
 
-/* begin mobile styles for Find a Service intro screen */
+/* begin tablet styles for the screen that appears when someone clicks the "Find a Service" button */
+
+@media screen and (max-width: 1056px) {
+  .mobile-category-buttons {
+    padding: 1.5rem 0.5rem 0 1rem;
+  }
+
+  .mobile-category-name {
+    padding: 1rem;
+  }
+
+  .bottom-line {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .more-button {
+    color: gray;
+  }
+
+  .more-arrow {
+    font-size: 1.8rem;
+    margin-left: .3rem;
+  }
+}
+
+/* begin mobile styles for most-sought category intro screen, this appears after pressing the "Find a Service" button */
 
 @media screen and (max-width: 640px) {
 
@@ -674,7 +700,7 @@ header .logo-title {
 } /* end mobile styles for Find a Service intro screen */
 
 
-/* begin mobile styles for the page of Emergency Crisis Lines */
+/* begin mobile and tablet styles for the Emergency Crisis Lines */
 
 .how-to-call {
   margin: 1.5rem 0 0 1.5rem;
@@ -688,24 +714,25 @@ header .logo-title {
 }
 
 .emergency-line {
-  padding: 0.5rem 0 0;
+  padding: 0.5rem 0 0.5rem 0;
   background-color: white;
   margin-bottom: 1.8rem;
 }
 
 .emergency-number {
   padding: .5rem;
+  padding-left: 0.8rem;
 }
 
 .emergency-description {
-  padding: 0 0.2rem 1rem 0.5rem;
+  padding: 0 0.5rem 0 0.8rem;
   margin-top: 0.5rem;
   line-height: 1.5rem;
 }
 
 .divider-line {
   margin: 0 0 0 .5rem;
-  padding: 0;
-  color: gray;
+  padding: 0 0 0 0.5rem;
+  color: #f5f5f5;
 }
 /* end mobile styles for the page of Emergency Crisis Lines */

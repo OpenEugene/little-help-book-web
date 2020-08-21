@@ -123,7 +123,7 @@ function getMobilePageEmergency() {
               </div>
               <div class="emergency-line">
                 <h2 class="emergency-number h123-reset"><a href="tel:541-682-5111">CAHOOTS – Eugene only – 541-682-5111</a></h2>
-                <div class="divider-line">––––––––––––––––––––––––––––</div>
+                <div class="divider-line">–––––––––––––––––––––––––––––––</div>
                 <h2 class="emergency-number h123-reset"><a href="tel:541-726-3714">CAHOOTS – Springfield only – 541-726-3714</a></h2>
                 <p class="emergency-description">Provides on-site care for mental health or substance abuse emergencies, conflict resolution/mediation, transport to other agencies, deals with housing crises and first aid. Dispatched by police non-emergency line. Hours: all day, every day.</p>
               </div>
