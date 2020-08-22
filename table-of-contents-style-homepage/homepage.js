@@ -40,16 +40,15 @@ function crisisPopup() {
 }
 
 function getMobilePageOne() {
-  return `<header class="logo-title">
+  return `<header class="logo-title black-top">
             <img src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
             <h1 class="little-help-book">Little Help Book</h1>
-            <div class="black-top"></div>
           </header>
           <main class="content-container" id="mobile-container">
             <div class="people-care">People care.</div>
             <h3 class="find-help-in-lane">Find help in Lane County, Oregon. Available by phone or in person.</h3>
             <div class="buttons">
-              <button class="help-button" id="help-button">Find Help</button>
+              <button class="help-button" id="help-button" onclick="findHelp()">Find Help</button>
               <button class="spanish-button">Español</button>
             </div>
           </main>
@@ -59,10 +58,10 @@ function getMobilePageOne() {
 }
 
 function getMobilePageTwo() {
-  return `<header class="logo-title">
+  return `<header class="logo-title black-top">
             <img src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
             <h1 class="little-help-book">Little Help Book</h1>
-            <div class="black-top"></div>
+            <div class="back-arrow" onclick="mobileIntro()"><</div>
           </header>
           <main class="content-container">
             <h3 class="mobile-are-you-in-crisis">Are you in 
@@ -72,24 +71,23 @@ function getMobilePageTwo() {
               is also an opportunity for change. Anxiety, depression, grief, trauma, identity issues,
               abuse, interpersonal conflict, and other external or internal factors can contribute to 
               a time of crisis. If you find your ability to access your own resources is compromised by a 
-              crisis event, please reach out to us on our 24/7 crisis line at 541-687-4000 or 
-              1-800-422-7558 or click the Emergency Crisis Lines button for a complete listing of phone 
-              numbers.
+              crisis event, please call our crisis line at 541-687-4000 or 1-800-422-7558 or click the 
+              Emergency Crisis Lines button for a complete listing of phone numbers.
               </span>
             </h3>
             <div class="outline-buttons">
               <button class="emergency-lines-button" onclick="emergencyPage()">Emergency Crisis Lines</button>
-              <button class="find-my-city-button">Find my City</button>
+              <button class="find-my-city-button" onclick="mobileCity()">Find my City</button>
               <button class="find-a-service-button" onclick="mostSought()">Find a Service</button>
             </div>
           </main>`;
 }
 
 function getMobilePageMostSought() {
-  return `<header class="logo-title">
+  return `<header class="logo-title black-top">
             <img src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
             <h1 class="little-help-book">Little Help Book</h1>
-            <div class="black-top"></div>
+            <div class="back-arrow" onclick="findHelp()"><</div>
           </header>
           <main class="content-container">
             <div class="mobile-category-buttons">
@@ -103,17 +101,76 @@ function getMobilePageMostSought() {
               <h2 class="mobile-category-name h123-reset"><a href="#">Transportation</a></h2>
               <div class="bottom-line">
                 <h2 class="mobile-category-name h123-reset"><a href="#">Youth</a></h2>
-                <h2 class="mobile-category-name more-button h123-reset">More<span class="more-arrow"> ></h2>
+                <h2 class="mobile-category-name more-button h123-reset" onclick="moreCategories()">More<span class="more-arrow"> ></h2>
               </div>
             </div>
           </main>`;
 }
 
+function getMobilePageMoreSought() {
+  return `<header class="logo-title black-top">
+            <img src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
+            <h1 class="little-help-book">Little Help Book</h1>
+            <div class="back-arrow" onclick="findHelp()"><</div>
+          </header>
+          <main class="content-container">
+            <div class="mobile-category-buttons">
+              <h2 class="mobile-category-name h123-reset"><a href="#">Basic Needs</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Money</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Food</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Health</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Rent / Utilities</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Resource Sharing</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Shelter</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Transportation</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Youth</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Care</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Education</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Information</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Jewish Interests</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Latino / Latinx</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Legal</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">LGBTQIA</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Post-Incarceration</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Seniors</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Transportation</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Veterans</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Work</a></h2>
+            </div>
+          </main>`;
+}
+
+function getMobilePageCity() {
+  return `    <header class="logo-title black-top">
+  <img src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
+  <h1 class="little-help-book">Little Help Book</h1>
+  <div class="back-arrow" onclick="findHelp()"><</div>
+</header>
+<main class="content-container">
+  <div class="mobile-city-list">
+      <h2 class="mobile-category-name h123-reset"><a href="">Eugene / Springfield</a></h2>
+      <h2 class="mobile-category-name h123-reset"><a href="">Blachly</a></h2>
+      <h2 class="mobile-category-name h123-reset"><a href="">Coburg</a></h2>
+      <h2 class="mobile-category-name h123-reset"><a href="">Cottage Grove</a></h2>
+      <h2 class="mobile-category-name h123-reset"><a href="">Creswell</a></h2>
+      <h2 class="mobile-category-name h123-reset"><a href="">Dexter</a></h2>
+      <h2 class="mobile-category-name h123-reset"><a href="">Dorena</a></h2>
+      <h2 class="mobile-category-name h123-reset"><a href="">Florence</a></h2>
+      <h2 class="mobile-category-name h123-reset"><a href="">Junction City / Cheshire</a></h2>
+      <h2 class="mobile-category-name h123-reset"><a href="">Lowell</a></h2>
+      <h2 class="mobile-category-name h123-reset"><a href="">Mapleton</a></h2>
+      <h2 class="mobile-category-name h123-reset"><a href="">Oakridge</a></h2>
+      <h2 class="mobile-category-name h123-reset"><a href="">Veneta</a></h2>
+      <h2 class="mobile-category-name h123-reset"><a href="">Walterville</a></h2>
+  </div>
+</main>`;
+}
+
 function getMobilePageEmergency() {
-  return `<header class="logo-title">
+  return `<header class="logo-title black-top">
               <img src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
               <h1 class="little-help-book">Little Help Book</h1>
-              <div class="black-top"></div>
+              <div class="back-arrow" onclick="findHelp()"><</div>
           </header>
           <main class="content-container">
             <p class="how-to-call">Touch blue text to call.</p>
@@ -123,7 +180,7 @@ function getMobilePageEmergency() {
               </div>
               <div class="emergency-line">
                 <h2 class="emergency-number h123-reset"><a href="tel:541-682-5111">CAHOOTS – Eugene only – 541-682-5111</a></h2>
-                <div class="divider-line">––––––––––––––––––––––––––––</div>
+                <div class="divider-line"></div>
                 <h2 class="emergency-number h123-reset"><a href="tel:541-726-3714">CAHOOTS – Springfield only – 541-726-3714</a></h2>
                 <p class="emergency-description">Provides on-site care for mental health or substance abuse emergencies, conflict resolution/mediation, transport to other agencies, deals with housing crises and first aid. Dispatched by police non-emergency line. Hours: all day, every day.</p>
               </div>
@@ -153,7 +210,7 @@ function getMobilePageEmergency() {
               </div>
               <div class="emergency-line">
                 <h2 class="emergency-number h123-reset"><a href="tel:541-687-4000">White Bird 24/7 Crisis Line – 541-687-4000</a></h2>
-                <div class="divider-line">––––––––––––––––––––––––––––</div>
+                <div class="divider-line"></div>
                 <h2 class="emergency-number h123-reset"><a href="tel:1-800-422-7558">White Bird 24/7 Crisis Line – 1-800-422-7558</a></h2>
                 <p class="emergency-description">Crisis intervention, mental health referral and transportation assistance for people with mental health needs in Eugene or Springfield without homes. Available all day, every day.</p>
               </div>
@@ -169,6 +226,10 @@ function mostSought() {
   document.getElementById("mobile-container").innerHTML = getMobilePageMostSought();
 }
 
+function mobileCity() {
+  document.getElementById("mobile-container").innerHTML = getMobilePageCity();
+}
+
 function emergencyPage() {
   document.getElementById("mobile-container").innerHTML = getMobilePageEmergency();
 }
@@ -176,4 +237,16 @@ function emergencyPage() {
 function mobileCrisisPopup() {
   var popup = document.getElementById("mobileCrisis");
   popup.classList.toggle("show");
+}
+
+// back arrow on mobile page two 
+
+function mobileIntro() {
+  document.getElementById("mobile-container").innerHTML = getMobilePageOne();
+}
+
+// More button on the "Find a Service" page
+
+function moreCategories() {
+  document.getElementById("mobile-container").innerHTML = getMobilePageMoreSought();
 }

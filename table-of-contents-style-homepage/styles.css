@@ -367,7 +367,7 @@ main {
     display: flex;
   }
 
-  .black-top {
+  header {
       background-color: black;
       height: 6.6rem;
       overflow-x: hidden; 
@@ -380,7 +380,7 @@ main {
       position: absolute;
       width: 66px;
       height: 66px;
-      margin: 1.6rem 0 .4rem 1.25rem;
+      margin: 1.6rem 0 .4rem 1.75rem;
   }
 
   .little-help-book {
@@ -479,14 +479,14 @@ header .logo-title {
 
 @media screen and (max-width: 640px) {
 
-  .black-top {
+  header {
       height: 5rem;
   }
 
   img {
       width: 42px;
       height: 42px;
-      margin: 1.49rem 0 .4rem 1.05rem;
+      margin: 1.49rem 0 .4rem 1.35rem;
   }
 
   .little-help-book {
@@ -539,6 +539,21 @@ header .logo-title {
 
 @media screen and (max-width: 1056px) {
 
+  .logo-title {
+    display: flex;
+  }
+
+  .back-arrow {
+    color: white;
+    display: flex;
+    margin-left: auto;
+    font-family: sans-serif;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-top: 1.9rem;
+    margin-right: 3.5rem;
+  }
+
   .mobile-are-you-in-crisis {
     font-style: normal;
     font-family: sans-serif;
@@ -568,15 +583,16 @@ header .logo-title {
     background-color: #f5f5f5;
     color: #6a6a6a;
     border-radius: 6px;
-    padding: 1rem 1.25rem 11rem 0.1rem;
+    padding: 1rem 1.25rem 9.3rem 0.1rem;
     position: absolute;
     z-index: 1;
     bottom: -845%;
     right: -19%;
     margin-left: -80px;
     font-family: sans-serif;
+    font-weight: normal;
     font-size: 1.5rem;
-    line-height: 2.5rem;
+    line-height: 2.8rem;
   }
   
   /* toggle this class - hide and show the pop-up */
@@ -625,11 +641,61 @@ header .logo-title {
 
 @media screen and (max-width: 640px) {
 
+  .back-arrow {
+    font-size: 2rem;
+    margin-top: 1.6rem;
+    margin-right: 2.2rem;
+  }
+
   .mobile-are-you-in-crisis {
     font-size: 2.2rem;
     font-weight: bold;
     margin: 3.5rem 0 0 2rem;
   }
+
+  /* pop-up container */
+  .mobile-popup {
+    position: relative;
+    display: inline-block;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* crisis pop-up */
+  .mobile-popup .mobile-popuptext {
+    visibility: hidden;
+    background-color: #f5f5f5;
+    color: #6a6a6a;
+    width: 20.3rem;
+    padding: 0 0.85rem 0.5rem 0.6rem;
+    bottom: -31rem;
+    right: -17.3%;
+    font-family: sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 2.1rem;
+  }
+  
+  /* toggle this class - hide and show the pop-up */
+  .mobile-popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+  }
+  
+  /* add animation (fade in the pop-up) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  } 
+  /* end popup styles */
 
   .outline-buttons {
     margin: 25% 1.5rem 0;
@@ -645,7 +711,33 @@ header .logo-title {
 
 }
 
-/* begin mobile styles for Find a Service intro screen */
+/* begin tablet styles for the screen that appears when someone clicks the "Find a Service" button */
+
+@media screen and (max-width: 1056px) {
+  .mobile-category-buttons {
+    padding: 1.5rem 0.5rem 0 1rem;
+  }
+
+  .mobile-category-name {
+    padding: 1rem;
+  }
+
+  .bottom-line {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .more-button {
+    color: gray;
+  }
+
+  .more-arrow {
+    font-size: 1.8rem;
+    margin-left: .3rem;
+  }
+}
+
+/* begin mobile styles for most-sought category intro screen, this appears after pressing the "Find a Service" button */
 
 @media screen and (max-width: 640px) {
 
@@ -674,7 +766,7 @@ header .logo-title {
 } /* end mobile styles for Find a Service intro screen */
 
 
-/* begin mobile styles for the page of Emergency Crisis Lines */
+/* begin mobile and tablet styles for the Emergency Crisis Lines */
 
 .how-to-call {
   margin: 1.5rem 0 0 1.5rem;
@@ -688,24 +780,31 @@ header .logo-title {
 }
 
 .emergency-line {
-  padding: 0.5rem 0 0;
+  padding: 0.5rem 0 0.5rem 0;
   background-color: white;
   margin-bottom: 1.8rem;
 }
 
 .emergency-number {
   padding: .5rem;
+  padding-left: 0.8rem;
 }
 
 .emergency-description {
-  padding: 0 0.2rem 1rem 0.5rem;
+  padding: 0 0.5rem 0 0.8rem;
   margin-top: 0.5rem;
   line-height: 1.5rem;
 }
 
 .divider-line {
-  margin: 0 0 0 .5rem;
-  padding: 0;
-  color: gray;
+  background-color: #f5f5f5;
+  height: 0.5rem;
+  margin: 0.25rem 0;
 }
 /* end mobile styles for the page of Emergency Crisis Lines */
+
+/* begin mobile styles for list of cities page */
+
+.mobile-city-list {
+  padding: 1.5rem 0.5rem 0 1rem;
+}
