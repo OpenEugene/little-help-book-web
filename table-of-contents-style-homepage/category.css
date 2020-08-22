@@ -378,6 +378,10 @@ header .search input {
     flex-direction: column;
   }
 
+  .right-column {
+    width: auto;
+  }
+
   .content-container {
       display: flex;
       flex-direction: column;
@@ -453,6 +457,12 @@ header .search input {
     .little-help-book {
         font-size: 1.2rem;
         margin: 2.1rem 0 0 3.7rem;
+    }
+
+    footer {
+      flex-direction: column;
+      align-items: center;
+      line-height: 2rem;
     }
   
   }
