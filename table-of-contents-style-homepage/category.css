@@ -380,6 +380,18 @@ header .search input {
 
   .right-column {
     width: auto;
+    margin-left: 3.5rem;
+  }
+
+  ul, li {
+    margin-bottom: 1.5rem;
+    color: black;
+  }
+
+  .provider {
+    font-size: 1.1rem;
+    line-height: 1.5rem;
+    margin: 0.3rem 0 2.7rem 0;
   }
 
   .content-container {
@@ -457,6 +469,18 @@ header .search input {
     .little-help-book {
         font-size: 1.2rem;
         margin: 2.1rem 0 0 3.7rem;
+    }
+
+    .left-column, .right-column {
+      margin-left: 2rem;
+    }
+
+    .right-column {
+      margin-right: 1rem;
+    }
+
+    .provider {
+      margin: 0.3rem 0.7rem 2.7rem 0;
     }
 
     footer {
