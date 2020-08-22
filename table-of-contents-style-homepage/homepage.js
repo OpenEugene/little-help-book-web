@@ -111,7 +111,7 @@ function getMobilePageEmergency() {
   return `<header class="logo-title black-top">
               <img src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
               <h1 class="little-help-book">Little Help Book</h1>
-              <div class="back-arrow"><</div>
+              <div class="back-arrow" onclick="findHelp()"><</div>
           </header>
           <main class="content-container">
             <p class="how-to-call">Touch blue text to call.</p>

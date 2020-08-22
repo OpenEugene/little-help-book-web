@@ -642,8 +642,8 @@ header .logo-title {
 @media screen and (max-width: 640px) {
 
   .back-arrow {
-    font-size: 2.5rem;
-    margin-top: 1.3rem;
+    font-size: 2rem;
+    margin-top: 1.6rem;
     margin-right: 2.2rem;
   }
 
