@@ -48,7 +48,7 @@ function getMobilePageOne() {
             <div class="people-care">People care.</div>
             <h3 class="find-help-in-lane">Find help in Lane County, Oregon. Available by phone or in person.</h3>
             <div class="buttons">
-              <button class="help-button" id="help-button">Find Help</button>
+              <button class="help-button" id="help-button" onclick="findHelp()">Find Help</button>
               <button class="spanish-button">Español</button>
             </div>
           </main>
@@ -61,7 +61,7 @@ function getMobilePageTwo() {
   return `<header class="logo-title black-top">
             <img src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
             <h1 class="little-help-book">Little Help Book</h1>
-            <div class="back-arrow"><</div>
+            <div class="back-arrow" onclick="mobileIntro()"><</div>
           </header>
           <main class="content-container">
             <h3 class="mobile-are-you-in-crisis">Are you in 
@@ -175,3 +175,10 @@ function mobileCrisisPopup() {
   var popup = document.getElementById("mobileCrisis");
   popup.classList.toggle("show");
 }
+
+// back arrow on mobile page two — this is a work in progress, when it returns to page one then the Find Help button doesn't work?
+
+function mobileIntro() {
+  document.getElementById("mobile-container").innerHTML = getMobilePageOne();
+}
+
