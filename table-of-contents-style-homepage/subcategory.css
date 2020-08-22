@@ -346,20 +346,10 @@ header .search input {
       display: none;
   }
 
-  
   body {
     display: flex;
     flex-direction: column-reverse;
   }
-
-  .inner-container {
-    flex-direction: column;
-  }
-
-  .content-container {
-    display: flex;
-    flex-direction: column;
-}
 
   header {
     padding-top: 0;
@@ -398,6 +388,17 @@ header .search input {
     display: flex;
     justify-content: right;
     margin-right: 2.5rem;
+  }
+
+  #main {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .providers {
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 85rem;
   }
 }
 
