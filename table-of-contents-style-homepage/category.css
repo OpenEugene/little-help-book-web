@@ -350,3 +350,110 @@ header .search input {
   width: 98.5%;
   margin-top: .3rem;
 }
+
+/* end desktop styles */
+
+.mobile-container {
+  display: none;
+}
+
+/* responsive transition to tablet */
+
+@media screen and (max-width: 1056px) {
+
+  .mobile-container {
+      display: inline;
+  }
+
+  .desktop-header, .breadcrumb-box, .subcategory-checkboxes, .nav-buttons {
+      display: none;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  
+  .content-container {
+      display: flex;
+      flex-direction: column;
+  }
+
+  header {
+    padding-top: 0;
+  }
+
+  header .logo-title {
+    display: flex;
+  }
+
+  header {
+      background-color: black;
+      height: 6.6rem;
+      overflow-x: hidden; 
+      margin: 0 -0.5rem;
+      overflow-y: hidden;
+      margin-top: -1rem;
+  }
+
+  img {
+      position: absolute;
+      width: 66px;
+      height: 66px;
+      margin: 1.6rem 0 .4rem 1.75rem;
+  }
+
+  .little-help-book {
+      position: absolute;
+      color: white;
+      font-size: 2.2rem;
+      font-weight: bold;
+      font-family: sans-serif;
+      margin: 2.4rem 0 0 5.8rem;
+  }
+
+}
+
+
+/* begin tablet styles */
+
+@media screen and (max-width: 770px) {
+
+  .mobile-container {
+      display: inline;
+  }
+  
+  .container {
+      display: none;
+  }
+  
+  header {
+      padding-top: 0;
+  }
+  
+  header .logo-title {
+      display: flex;
+  }
+  
+  }
+  
+  /* begin mobile styles */
+  
+  @media screen and (max-width: 640px) {
+  
+    header {
+        height: 5rem;
+    }
+  
+    img {
+        width: 42px;
+        height: 42px;
+        margin: 1.49rem 0 .4rem 1.35rem;
+    }
+  
+    .little-help-book {
+        font-size: 1.2rem;
+        margin: 2.1rem 0 0 3.7rem;
+    }
+  
+  }
