@@ -377,7 +377,7 @@ header .search input {
   .inner-container {
     flex-direction: column;
   }
-  
+
   .content-container {
       display: flex;
       flex-direction: column;
@@ -418,17 +418,12 @@ header .search input {
 
 }
 
-
 /* begin tablet styles */
 
 @media screen and (max-width: 770px) {
 
   .mobile-container {
       display: inline;
-  }
-  
-  .container {
-      display: none;
   }
   
   header {
