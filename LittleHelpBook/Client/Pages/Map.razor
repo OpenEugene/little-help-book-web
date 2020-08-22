@@ -50,12 +50,8 @@
     }
     private async Task OnAfterMapInitAsync()
     {
-        await Task.Delay(2000);
-        Console.WriteLine("Srart loading");
         var places = await cache.GetAllPlaces();
-        var placesList = places.Where(x => IsValid(x.Latitude, x.Longitude)).ToList().Take(10);
-        Console.WriteLine("End loading " + placesList.Count());
-        await Task.Delay(2000);
+        var placesList = places.Where(x => IsValid(x.Latitude, x.Longitude)).ToList();
 
         foreach (var place in placesList)
         {
