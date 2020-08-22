@@ -101,8 +101,41 @@ function getMobilePageMostSought() {
               <h2 class="mobile-category-name h123-reset"><a href="#">Transportation</a></h2>
               <div class="bottom-line">
                 <h2 class="mobile-category-name h123-reset"><a href="#">Youth</a></h2>
-                <h2 class="mobile-category-name more-button h123-reset">More<span class="more-arrow"> ></h2>
+                <h2 class="mobile-category-name more-button h123-reset" onclick="moreCategories()">More<span class="more-arrow"> ></h2>
               </div>
+            </div>
+          </main>`;
+}
+
+function getMobilePageMoreSought() {
+  return `<header class="logo-title black-top">
+            <img src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
+            <h1 class="little-help-book">Little Help Book</h1>
+            <div class="back-arrow" onclick="findHelp()"><</div>
+          </header>
+          <main class="content-container">
+            <div class="mobile-category-buttons">
+              <h2 class="mobile-category-name h123-reset"><a href="#">Basic Needs</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Money</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Food</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Health</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Rent / Utilities</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Resource Sharing</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Shelter</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Transportation</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Youth</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Care</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Education</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Information</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Jewish Interests</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Latino / Latinx</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Legal</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">LGBTQIA</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Post-Incarceration</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Seniors</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Transportation</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Veterans</a></h2>
+              <h2 class="mobile-category-name h123-reset"><a href="#">Work</a></h2>
             </div>
           </main>`;
 }
@@ -212,3 +245,8 @@ function mobileIntro() {
   document.getElementById("mobile-container").innerHTML = getMobilePageOne();
 }
 
+// More button on the "Find a Service" page
+
+function moreCategories() {
+  document.getElementById("mobile-container").innerHTML = getMobilePageMoreSought();
+}
