@@ -802,3 +802,9 @@ header .logo-title {
   margin: 0.25rem 0;
 }
 /* end mobile styles for the page of Emergency Crisis Lines */
+
+/* begin mobile styles for list of cities page */
+
+.mobile-city-list {
+  padding: 1.5rem 0.5rem 0 1rem;
+}

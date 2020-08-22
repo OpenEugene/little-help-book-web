@@ -77,7 +77,7 @@ function getMobilePageTwo() {
             </h3>
             <div class="outline-buttons">
               <button class="emergency-lines-button" onclick="emergencyPage()">Emergency Crisis Lines</button>
-              <button class="find-my-city-button">Find my City</button>
+              <button class="find-my-city-button" onclick="mobileCity()">Find my City</button>
               <button class="find-a-service-button" onclick="mostSought()">Find a Service</button>
             </div>
           </main>`;
@@ -105,6 +105,32 @@ function getMobilePageMostSought() {
               </div>
             </div>
           </main>`;
+}
+
+function getMobilePageCity() {
+  return `    <header class="logo-title black-top">
+  <img src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
+  <h1 class="little-help-book">Little Help Book</h1>
+  <div class="back-arrow" onclick="findHelp()"><</div>
+</header>
+<main class="content-container">
+  <div class="mobile-city-list">
+      <h2 class="mobile-category-name h123-reset"><a href="">Eugene / Springfield</a></h2>
+      <h2 class="mobile-category-name h123-reset"><a href="">Blachly</a></h2>
+      <h2 class="mobile-category-name h123-reset"><a href="">Coburg</a></h2>
+      <h2 class="mobile-category-name h123-reset"><a href="">Cottage Grove</a></h2>
+      <h2 class="mobile-category-name h123-reset"><a href="">Creswell</a></h2>
+      <h2 class="mobile-category-name h123-reset"><a href="">Dexter</a></h2>
+      <h2 class="mobile-category-name h123-reset"><a href="">Dorena</a></h2>
+      <h2 class="mobile-category-name h123-reset"><a href="">Florence</a></h2>
+      <h2 class="mobile-category-name h123-reset"><a href="">Junction City / Cheshire</a></h2>
+      <h2 class="mobile-category-name h123-reset"><a href="">Lowell</a></h2>
+      <h2 class="mobile-category-name h123-reset"><a href="">Mapleton</a></h2>
+      <h2 class="mobile-category-name h123-reset"><a href="">Oakridge</a></h2>
+      <h2 class="mobile-category-name h123-reset"><a href="">Veneta</a></h2>
+      <h2 class="mobile-category-name h123-reset"><a href="">Walterville</a></h2>
+  </div>
+</main>`;
 }
 
 function getMobilePageEmergency() {
@@ -167,6 +193,10 @@ function mostSought() {
   document.getElementById("mobile-container").innerHTML = getMobilePageMostSought();
 }
 
+function mobileCity() {
+  document.getElementById("mobile-container").innerHTML = getMobilePageCity();
+}
+
 function emergencyPage() {
   document.getElementById("mobile-container").innerHTML = getMobilePageEmergency();
 }
@@ -176,7 +206,7 @@ function mobileCrisisPopup() {
   popup.classList.toggle("show");
 }
 
-// back arrow on mobile page two — this is a work in progress, when it returns to page one then the Find Help button doesn't work?
+// back arrow on mobile page two 
 
 function mobileIntro() {
   document.getElementById("mobile-container").innerHTML = getMobilePageOne();
