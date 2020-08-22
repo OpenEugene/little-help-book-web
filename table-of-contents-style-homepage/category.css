@@ -476,6 +476,14 @@ header .search input {
         margin: 2.1rem 0 0 3.7rem;
     }
 
+    #search {
+      margin-right: 1.5rem;
+    }
+
+    .search {
+      margin: 1.5rem 0 0;
+    }
+
     .left-column, .right-column {
       margin-left: 2rem;
     }
