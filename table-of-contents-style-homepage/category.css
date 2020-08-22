@@ -365,13 +365,17 @@ header .search input {
       display: inline;
   }
 
-  .desktop-header, .breadcrumb-box, .subcategory-checkboxes, .nav-buttons {
+  .desktop-header, .breadcrumb-box, .subcategory-checkboxes, .nav-buttons, .whats-available, .new-subcategory-search {
       display: none;
   }
 
   body {
     display: flex;
     flex-direction: column-reverse;
+  }
+
+  .inner-container {
+    flex-direction: column;
   }
   
   .content-container {
