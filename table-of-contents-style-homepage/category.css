@@ -432,6 +432,11 @@ header .search input {
       margin: 2.4rem 0 0 5.8rem;
   }
 
+  #search {
+    display: flex;
+    justify-content: right;
+    margin-right: 2.5rem;
+  }
 }
 
 /* begin tablet styles */
