@@ -173,10 +173,13 @@ label {
 input {
 	border: none;
 	padding: 1rem 34%;
+	margin-top: 0.4rem;
+	margin-bottom: 1.5rem;
 }
 
 .left-side {
-	width: 50%;
+	width: 47%;
+	margin-right: 2rem;
 }
 
 .about-heading {
@@ -187,6 +190,7 @@ input {
 	display: flex;
 	flex-direction: column;
 	font-size: 1.1rem;
+	margin-bottom: 2rem;
 }
 
 .blue-link {
