@@ -156,7 +156,6 @@ header .search input {
 .bottom-of-menu {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
   margin-left: 3.5rem;
 }
 
@@ -165,6 +164,7 @@ header .search input {
   font-weight: bold;
   white-space: nowrap;
   margin-right: 1rem;
+  margin-top: 1.1rem;
 }
 
 .nav-buttons {
@@ -390,15 +390,21 @@ header .search input {
     margin-right: 2.5rem;
   }
 
-  #main {
-    display: flex;
-    flex-wrap: wrap;
+  .category-page-name {
+
+  }
+
+  .bottom-of-menu {
+    margin-right: 3.5rem;
   }
 
   .providers {
     display: flex;
     flex-wrap: wrap;
-    min-width: 85rem;
+  }
+
+  .tile {
+    width: 43%;
   }
 }
 
