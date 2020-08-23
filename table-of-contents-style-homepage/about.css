@@ -1,5 +1,12 @@
 a {
-    color: white;
-  }
+	color: white;
+}
 
-  
+.about-content {
+	display: flex;
+	flex-direction: column;
+}
+
+.terms-of-use {
+  color: gray;
+}
