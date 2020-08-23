@@ -133,6 +133,10 @@ a {
   color: white;
 }
 
+.about {
+  color: rgb(226, 226, 226);
+}
+
 .search {
   width: 3%;
   margin: 2.3rem 0 0;
