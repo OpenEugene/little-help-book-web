@@ -41,7 +41,6 @@ a {
   margin: 0 -0.5rem;
   overflow-y: hidden;
   margin-top: -1rem;
-  margin-bottom: 2.25rem;
 }
 
 .desktop-logo {
@@ -58,6 +57,81 @@ a {
   font-size: 2.2rem;
   white-space: nowrap;
   margin: 2.4rem 0 0 5.8rem;
+}
+
+.breadcrumb-box {
+  margin-left: 20rem;
+}
+
+.breadcrumb-box select {
+  /* hide default arrow */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.breadcrumb {
+  background: black;
+  border-color: rgb(126, 126, 126);
+  color: rgb(226, 226, 226);
+  font-family: sans-serif;
+  font-size: 1.45rem;
+  font-style: none;
+  font-weight: bold;
+  height: 2.7rem;
+  width: 16.8rem;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  border-bottom-width: 0.1rem;
+  border-bottom-color: rgb(126, 126, 126);
+  margin: 2.6rem 0 0 -0.5rem;
+}
+
+select:hover {
+  color: white;
+  transition: 0.3s color ease-in-out;
+}
+
+option {
+  background-color: white;
+  color: black;
+  font-size: 1.4rem;
+}
+
+/* I haven't figured out how to get this option :hover style to work. */
+option :hover {
+  color: #0077ff;
+  background-color: rgb(226, 226, 226);
+}
+
+.city:hover::after { 
+  color: #F39C12; 
+} 
+/* Neither of those attempts affects the default dropdown style. */
+
+.city {
+  margin-left: 8rem;
+}
+
+.search {
+  display: flex;
+  width: 3%;
+  margin: 2.3rem 0 0;
+  padding-right: 4.5rem;
+}
+
+header .search input {
+  width: 100%;
+  height: 2.4rem;
+}
+
+.search-input {
+  background-color: #e2e2e2;
+  border-radius: 8px;
+  padding-left: 40px;
+  border: none;
 }
 
 .menu-button {
@@ -160,6 +234,7 @@ body {
 .about-container {
 	display: flex;
 	margin: 0 3.5rem;
+	margin-top: 2.25rem;
 }
 
 .right-side {
@@ -208,6 +283,7 @@ input {
 p {
 	margin: 0;
 	padding: 0;
+	line-height: 1.7rem;
 }
 
 .footer {
@@ -239,3 +315,147 @@ p {
 .terms-of-use {
   color: gray;
 }
+
+/* end desktop styles */
+
+.mobile-container {
+  display: none;
+}
+
+/* responsive transition to tablet */
+
+@media screen and (max-width: 1056px) {
+
+  .mobile-container {
+      display: inline;
+  }
+
+  .desktop-header, .breadcrumb-box {
+      display: none;
+	}
+	
+	.menu-lines {
+		margin-left: -2rem;
+		margin-right: 1rem;
+	}
+
+	.hamburger {
+		width: 35px;
+		height: 6px;
+		background-color: rgb(126, 126, 126);
+		border-radius: 2.5px;
+		margin: 5.5px 0 0 10.5px;
+	}
+
+  body {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  header {
+    padding-top: 0;
+  }
+
+  header .logo-title {
+    display: flex;
+  }
+
+  header {
+      background-color: black;
+      height: 6.6rem;
+      overflow-x: hidden; 
+      margin: 0 -0.5rem;
+      overflow-y: hidden;
+      margin-top: -1rem;
+  }
+
+  img {
+      position: absolute;
+      width: 66px;
+      height: 66px;
+      margin: 1.6rem 0 .4rem 1.75rem;
+  }
+
+  .little-help-book {
+      position: absolute;
+      color: white;
+      font-size: 2.2rem;
+      font-weight: bold;
+      font-family: sans-serif;
+      margin: 2.4rem 0 0 5.8rem;
+  }
+
+  #search {
+    display: flex;
+    justify-content: right;
+    margin-right: 2.5rem;
+  }
+}
+
+/* begin tablet styles */
+
+@media screen and (max-width: 770px) {
+
+		.mobile-container {
+				display: inline;
+		}
+		
+		header {
+				padding-top: 0;
+		}
+		
+		header .logo-title {
+				display: flex;
+		}
+
+		.about-container {
+			flex-direction: column;
+		}
+
+		.left-side {
+			width: 100%;
+		}
+
+		.right-side {
+			width: 100%;
+		}
+  }
+  
+  /* begin mobile styles */
+  
+  @media screen and (max-width: 640px) {
+  
+    header {
+        height: 5rem;
+    }
+  
+    img {
+        width: 42px;
+        height: 42px;
+        margin: 1.49rem 0 .4rem 1.35rem;
+    }
+  
+    .little-help-book {
+        font-size: 1.2rem;
+        margin: 2.1rem 0 0 3.7rem;
+    }
+
+    #search {
+      margin-right: 1.5rem;
+    }
+
+    .search {
+      margin: 1.5rem 0 0;
+		}
+
+		.about-container {
+			margin-top: 1.75rem;
+			margin: 0 2rem;
+		}
+		
+		footer {
+			flex-direction: column;
+			align-items: center;
+			line-height: 2rem;
+		}
+	}
