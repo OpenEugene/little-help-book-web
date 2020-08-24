@@ -82,13 +82,13 @@
 		  </div>
 		</section>
 		<section class="right-side">
-			<form action="mailto:arthur@openeugene.org" enctype="text/plain">
+			<form autocomplete="off" action="mailto:info@whitebirdclinic.org" enctype="text/plain">
 
 				<label for="provider-name">Service Provider Name:</label><br>
 				<input class="form" type="text" id="provider-name" name="provider-name"><br>
 
 				<label for="street-address">Street Address:</label><br>
-				<input class="form" type="text" id="street-address" name="street-address"><br>
+				<textarea class="form" type="text" id="street-address" name="street-address"></textarea><br>
 
 				<label for="phone">Phone:</label><br>
 				<input class="form" type="text" id="phone" name="phone"><br>
@@ -97,24 +97,27 @@
 				<input class="form" type="text" id="website" name="website"><br>
 
 				<label for="description">Description of Service:</label><br>
-				<input class="form" type="text" id="description" name="description"><br>
+				<textarea class="form" type="text" id="description" name="description"></textarea><br>
 
 				<label for="hours">Hours:</label><br>
-				<input class="form" type="text" id="hours" name="hours"><br>
+				<textarea class="form" type="text" id="hours" name="hours"></textarea><br>
 
 				<label for="local-contact">Local Contact Person:</label><br>
-				<input class="form" type="text" id="local-contact" name="local-contact"><br>
+				<textarea class="form" type="text" id="local-contact" name="local-contact"></textarea><br>
 
 				<label for="languages">Languages Spoken:</label><br>
-				<input class="form" type="text" id="languages" name="languages"><br>
+				<textarea class="form" type="text" id="languages" name="languages"></textarea><br>
 
 				<label for="area-served">Area Served:</label><br>
-				<input class="form" type="text" id="area-served" name="area-served"><br>
+				<textarea class="form" type="text" id="area-served" name="area-served"></textarea><br>
 
 				<label for="notes">Any Additional Information:</label><br>
-				<input class="form" type="text" id="notes" name="notes"><br>
+				<textarea class="form" type="text" id="notes" name="notes"></textarea><br>
 
-				<input class="submit-button" type="submit" value="Send">
+				<div class="form-buttons">
+				<input class="submit-button clear" type="reset" value="Clear">
+				<input class="submit-button send" type="submit" value="Send">
+				</div>
 			</form>
 
 		</section>
