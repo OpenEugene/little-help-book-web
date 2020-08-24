@@ -279,7 +279,7 @@ label {
 	font-size: 1.1rem;
 }
 
-input {
+.form, .submit-button {
 	border: none;
 	padding: 1rem 34%;
 	margin-top: 0.4rem;
@@ -465,6 +465,10 @@ input {
 
 		.about-container {
 			margin: 1.75rem 2rem 0 2rem;
+		}
+
+		.form {
+			padding: 1rem 26%;
 		}
 		
 		footer {
