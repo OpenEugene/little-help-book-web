@@ -29,6 +29,10 @@ a {
 	color: white;
 }
 
+.homepage-link {
+	margin-left: -1.7rem;
+}
+
 .desktop-header {
   display: flex;
   justify-content: space-around;
@@ -196,6 +200,11 @@ header .search input {
 .show {display:block;}
 
 /* end dropdown styles */
+
+/* spanish refers to the Español nav button */
+.spanish:hover {
+  color: white;
+}
 
 .about:hover {
   color: white;
