@@ -311,6 +311,13 @@ main {
   font-weight: bold;
 }
 
+.terms-of-use {
+  color: gray;
+}
+
+.terms-of-use:hover {
+  color: #4A9AF8;
+}
 
 /* replace menu items with icon */
 

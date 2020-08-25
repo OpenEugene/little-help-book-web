@@ -345,6 +345,14 @@ header .search input {
   font-weight: bold;
 }
 
+.terms-of-use {
+  color: gray;
+}
+
+.terms-of-use:hover {
+  color: #4A9AF8;
+}
+
 /* this style is for the placeholder map image, and it can be removed when the OpenStreetMap has been installed. */
 .placeholder-map-jpg {
   width: 98.5%;

@@ -342,6 +342,10 @@ textarea, input {
   color: gray;
 }
 
+.terms-of-use:hover {
+  color: #4A9AF8;
+}
+
 /* end desktop styles */
 
 .mobile-container {
