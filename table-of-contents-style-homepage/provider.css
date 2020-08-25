@@ -46,7 +46,6 @@ body {
   margin: 0 -0.5rem;
   overflow-y: hidden;
   margin-top: -1rem;
-  margin-bottom: 2.25rem;
 }
 
 .desktop-logo {
@@ -107,7 +106,6 @@ option {
   font-size: 1.4rem;
 }
 
-
 .city {
   margin-left: 8rem;
 }
@@ -146,6 +144,7 @@ header .search input {
 
 .provider-page {
   padding: 0 3.5rem;
+  margin-top: 2.25rem;
 }
 
 .provider-name {
@@ -270,34 +269,45 @@ header .search input {
   }
 
   header {
-      background-color: black;
-      height: 6.6rem;
-      overflow-x: hidden; 
-      margin: 0 -0.5rem;
-      overflow-y: hidden;
-      margin-top: -1rem;
+    background-color: black;
+    height: 6.6rem;
+    overflow-x: hidden; 
+    margin: 0 -0.5rem;
+    overflow-y: hidden;
+    margin-top: -1rem;
   }
 
   img {
-      position: absolute;
-      width: 66px;
-      height: 66px;
-      margin: 1.6rem 0 .4rem 1.75rem;
+    position: absolute;
+    width: 66px;
+    height: 66px;
+    margin: 1.6rem 0 .4rem 1.75rem;
   }
 
   .little-help-book {
-      position: absolute;
-      color: white;
-      font-size: 2.2rem;
-      font-weight: bold;
-      font-family: sans-serif;
-      margin: 2.4rem 0 0 5.8rem;
+    position: absolute;
+    color: white;
+    font-size: 2.2rem;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin: 2.4rem 0 0 5.8rem;
   }
 
   #search {
     display: flex;
     justify-content: right;
     margin-right: 2.5rem;
+  }
+
+  .provider-page {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .map {
+    padding-bottom: 1.25rem;
+    padding-left: 0;
+    width: 100%;
   }
 }
 
@@ -306,40 +316,39 @@ header .search input {
 @media screen and (max-width: 770px) {
 
   .mobile-container {
-        display: inline;
-    }
-    
-    header {
-        padding-top: 0;
-    }
-    
-    header .logo-title {
-        display: flex;
-    }
-
-    .tile {
-      width: 100%;
-    }
-    
+    display: inline;
   }
+    
+  header {
+    padding-top: 0;
+  }
+  
+  header .logo-title {
+    display: flex;
+  }
+
+  #mapid {
+    min-width: 0;
+  }
+}
   
   /* begin mobile styles */
   
   @media screen and (max-width: 640px) {
   
   header {
-      height: 5rem;
-  }
+    height: 5rem;
+}
 
   img {
-      width: 42px;
-      height: 42px;
-      margin: 1.49rem 0 .4rem 1.35rem;
+    width: 42px;
+    height: 42px;
+    margin: 1.49rem 0 .4rem 1.35rem;
   }
 
   .little-help-book {
-      font-size: 1.2rem;
-      margin: 2.1rem 0 0 3.7rem;
+    font-size: 1.2rem;
+    margin: 2.1rem 0 0 3.7rem;
   }
 
   #search {
@@ -348,5 +357,21 @@ header .search input {
 
   .search {
     margin: 1.5rem 0 0;
+  }
+
+  .provider-page {
+    padding: 0 2rem;
+  }
+
+  .provider-name {
+    width: 100%;
+  }
+
+  .update-button {
+    width: 84%;
+  }
+
+  .print-page {
+    height: 57.6px;
   }
 }
