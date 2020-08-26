@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>Little Help Book - White Bird Clinic</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="../styles.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
   <script src="airtable.browser.js"></script>
@@ -58,14 +58,14 @@
     </div>
     <script id="table-of-contents-template" type="text/x-handlebars-template">
       {{#categories}}
-        <h2 class="category-name h123-reset"><a href="#">{{Name}}</a></h2>
+        <h2 class="category-name h123-reset"><a href="#">{{name}}</a></h2>
         <div class="subcategory">
           <ul>
-            {{#Subcategories}}
-              {{#if SubcategoryId}}
-                <li>{{Name}}</li>
+            {{#subcategories}}
+              {{#if subcategoryId}}
+                <li>{{name}}</li>
               {{/if}}
-            {{/Subcategories}}
+            {{/subcategories}}
           </ul>
         </div>
       {{/categories}}
@@ -78,7 +78,7 @@
     <div class="footer-item">Eugene, Oregon</div>
   </footer>
 </div>
-<script src="homepage.js">
+<!--<script src="../homepage.js">-->
 </script>
 </body>
 </html>

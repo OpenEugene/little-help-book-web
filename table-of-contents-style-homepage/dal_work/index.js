@@ -2,13 +2,13 @@
 $(document).ready(function() {
   // await has to be inside async function, anonymous in this case
 	(async () => {
-    const categoryTable = await dalGetCategoryTable();
-    const catSubcatTable = await dalGetCatSubcatTable();
-    const placeTable = await dalGetPlaceTable();
-    console.log(categoryTable);
+        const categoryTable = await dalGetCategoryTable();
+        const catSubcatTable = await dalGetCatSubcatTable();
+        const categoryTree = tocMakeCategoryTree(categoryTable, catSubcatTable);
 
-    const categoryTree = tocMakeCategoryTreeAll(categoryTable, catSubcatTable, placeTable);
-    initDomToc(categoryTree);
+        initDomToc(categoryTree);
+        const cityTable = await dalGetCityTable();
+        console.log(cityTable);
 	})()
 });
 
