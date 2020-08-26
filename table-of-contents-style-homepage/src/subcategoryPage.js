@@ -1,6 +1,7 @@
 const cityboxId = "citySelect";
 const catboxId = "catSelect";
 const subcatboxId = "subcatSelect";
+var cityTable;
 var categoryTable;
 var subcatTable;
 var placeTable;
@@ -15,15 +16,15 @@ $(document).ready(function() {
         represent an option to not filter on that item.
         */
         // this mock data will be replaced once we have a city fetch in dal.js
-        mockCities.splice(0, 0, {id: "NA", name: "Select City"})
-
+        cityTable = await dalGetCityTable();
+        cityTable.splice(0, 0, {id: "NA", name: "Select City"})
         categoryTable = await dalGetCategoryTable();
         categoryTable.splice(0, 0, {id: "NA", name: "Select Category"});
         subcatTable = await dalGetSubcategoryTable();
         subcatTable.splice(0, 0, {id: "", name: "Select Subcategory"});
         subcatTable.splice(1, 0, {id: "all", name: "All"});
         placeTable = await dalGetPlaceTable();
-        nbc = new NavBreadcrumb(mockCities, categoryTable, subcatTable, placeTable);
+        nbc = new NavBreadcrumb(cityTable, categoryTable, subcatTable, placeTable);
 
         /*
         Assign a unique ID to the select elements, so I can find them later.
@@ -47,11 +48,6 @@ $(document).ready(function() {
         nbc.assignCitySelectEvent(cityboxId, citySelectEvent);
         nbc.assignCategorySelectEvent(catboxId, categorySelectEvent);
         nbc.assignSubcatSelectEvent(subcatboxId, subcatSelectEvent);
-
-        // Populate NavBreadcrumb.focused data on page initialization.
-        nbc.focused.city = nbc.cities[0].id;
-        nbc.focused.category = nbc.categories[0].id;
-        nbc.focused.subcat = nbc.subcats[0].id;
     })()
 });
 

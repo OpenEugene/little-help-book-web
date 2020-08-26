@@ -20,6 +20,7 @@ async function dalGetPlaceTable() {
       'id' : record.id,
       'name' : record.get('Name'),
       'nameSpanish' : record.get('Name-ES'),
+      'city' : record.get('City'),
       'category' : record.get('Category'),
       'subcategory' : record.get('Subcategory'),
       'phone' : record.get('Phone'),
