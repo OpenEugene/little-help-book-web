@@ -5,21 +5,22 @@ $(document).ready(function() {
     const categoryTable = await dalGetCategoryTable();
     const catSubcatTable = await dalGetCatSubcatTable();
     const placeTable = await dalGetPlaceTable();
-    console.log(categoryTable);
+    // console.log(categoryTable);
 
     const categoryTree = tocMakeCategoryTreeAll(categoryTable, catSubcatTable, placeTable);
+    console.log('categoryTree', categoryTree);
     initDomAll(categoryTree);
 	})()
 });
 
 function initDomAll(categoryTree) {
   let html = categoryTree.reduce(function (accum, record) {
-    accum += `<h3>${record.Name} ${record.NameSpanish}, ${record.Order}, ${record.Subcategories.length}</h3>`;
-    accum += record.Subcategories.reduce(function(accum, record) {
-      if (record.Places.length > 0) {
-        accum += `<p><b>${record.Name} - ${record.NameSpanish}, ${record.Order}, ${record.Places.length}</b></p>`;
-        accum += record.Places.reduce(function(accum, record) {
-          return accum + `${record.Name}<br>`;
+    accum += `<h3>${record.name} ${record.nameSpanish}, ${record.order}, ${record.subcategories.length}</h3>`;
+    accum += record.subcategories.reduce(function(accum, record) {
+      if (record.places.length > 0) {
+        accum += `<p><b>${record.name} - ${record.nameSpanish}, ${record.order}, ${record.places.length}</b></p>`;
+        accum += record.places.reduce(function(accum, record) {
+          return accum + `${record.name}<br>`;
         }, '');
       }
       return accum;

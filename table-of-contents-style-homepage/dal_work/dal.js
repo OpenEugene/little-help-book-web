@@ -8,12 +8,11 @@ const apiKey = "keyMmAL4mVBSORkGc";
 // Production table
 const base = new Airtable({apiKey: apiKey}).base('appj3UWymNh6FgtGR');
 
-// async function dalGetPlaceTable(base) {
 async function dalGetPlaceTable() {
   const placeTableRaw = await dalGetTable('Help Services', base);
   placeTableRaw.sort(function(a, b){
-    if(a.Name < b.Name) { return -1; }
-    if(a.Name > b.Name) { return 1; }
+    if(a.get('Name') < b.get('Name')) { return -1; }
+    if(a.get('Name') > b.get('Name')) { return 1; }
     return 0;
   });
   let placeTable = placeTableRaw.map(function(record) {
@@ -36,23 +35,25 @@ async function dalGetPlaceTable() {
   return placeTable;
 }
 
-// async function dalGetCategoryTable(base) {
 async function dalGetCategoryTable() {
   const categoryTableRaw = await dalGetTable('Categories', base);
   categoryTableRaw.sort((a, b) => (a.get('Order') - b.get('Order')));
   let categoryTable = categoryTableRaw.map(function(record) {
+    let subcategories = record.get('Subcategories');
+    if (!subcategories) {
+      subcategories = [];
+    }
     return {
       'id' : record.id,
       'name' : record.get('Name'),
       'nameSpanish' : record.get('Name-ES'),
-      'subcategories' : record.get('Subcategories'),
+      'subcategories' : subcategories,
       'order' : record.get('Order')
     };
   });
   return categoryTable;
 }
 
-// async function dalGetSubcategoryTable(base) {
 async function dalGetSubcategoryTable() {
   const subcategoryTableRaw = await dalGetTable('Subcategories', base);
   let subcategoryTable = subcategoryTableRaw.map(function(record) {
@@ -66,7 +67,6 @@ async function dalGetSubcategoryTable() {
   return subcategoryTable;
 }
 
-// async function dalGetCatSubcatTable(base) {
 async function dalGetCatSubcatTable() {
   const catSubcatTableRaw = await dalGetTable('CatSubcats', base);
   let catSubcatTable = catSubcatTableRaw.map(function(record) {
@@ -107,7 +107,17 @@ async function dalGetCatSubcatTable() {
   return catSubcatTable;
 }
 
-// function dalGetTable(tablename, base) {
+async function dalGetCityTable() {
+  const cityTableRaw = await dalGetTable('Cities', base);
+  let cityTable = cityTableRaw.map(function(record) {
+    return {
+      'id' : record.id,
+      'name' : record.get('Name'),
+    };
+  });
+  return cityTable;
+}
+
 function dalGetTable(tablename) {
   return new Promise(function (resolve) {
     let recordsBuffer = [];
