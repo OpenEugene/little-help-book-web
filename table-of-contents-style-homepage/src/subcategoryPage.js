@@ -87,9 +87,7 @@ function citySelectEvent() {
     It then will filter the list of places on the selected items.
     */
     nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
-    if (nbc.selectsAreChecked) {
-        placeServiceTiles("provider-tiles", generateServiceTiles(nbc.availablePlaces));
-    }
+    placeServiceTiles("provider-tiles", generateServiceTiles(nbc.availablePlaces));
     if (nbc.mymap != null) {
         setView(nbc.viewCoordinates, 5);
     }
@@ -104,9 +102,7 @@ function categorySelectEvent() {
     nbc.availableSubcats = nbc.filterSubcatOptions(nbc.subcats);
     nbc.placeOptionElements(subcatboxId, nbc.generateOptionElements(nbc.availableSubcats));
     nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
-    if (nbc.selectsAreChecked) {
         placeServiceTiles("provider-tiles", generateServiceTiles(nbc.availablePlaces));
-    }
     if (nbc.mymap != null) {
         setMarkers(nbc.availablePlaces);
     }
@@ -120,9 +116,7 @@ function subcatSelectEvent() {
     */
     nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
     document.getElementsByClassName("category-page-name")[0].innerHTML = nbc.subcats.find(x => x.id === this.value).name;
-    if (nbc.selectsAreChecked) {
-        placeServiceTiles("provider-tiles", generateServiceTiles(nbc.availablePlaces));
-    }
+    placeServiceTiles("provider-tiles", generateServiceTiles(nbc.availablePlaces));
     if (nbc.mymap != null) {
         setMarkers(nbc.availablePlaces);
     }
