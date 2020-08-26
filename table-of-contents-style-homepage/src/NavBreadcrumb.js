@@ -68,29 +68,30 @@ class NavBreadcrumb {
 	// pass in an array of places, and returns a filtered version based on
 	// what's stored in this.focused.city
 	filterOnCity(dataset) {
-		return (this.focused.city != null && this.focused.city != "") ?
-			dataset.filter(x => x.subcategory.map(c => c.id).includes(this.focused.city)) : dataset;
+		return (this.focused.city != "NA" ||this.focused.city != null || this.focused.city != "") ?
+			dataset.filter(x => { (x.subcategory != null) ? x.subcategory.map(c => c.id).includes(this.focused.city) : false; }) : dataset;
 	}
 
 	// pass in an array of places, and returns a filtered version based on
 	// what's stored in this.focused.category
 	filterOnCategory(dataset) {
-		return (this.focused.category != null && this.focused.city != "") ? 
+		return (this.focused.category != "NA" || this.focused.category != null || this.focused.city != "") ? 
 			dataset.filter(x => x.category.map(c => c.id).includes(this.focused.category)) : dataset;
 	}
 
 	// pass in an array of places, and returns a filtered version based on
 	// what's stored in this.focused.subcat
 	filterOnSubcat(dataset) {
-		return (this.focused.subcat != null && this.focused.subcat != "") ? 
-			dataset.filter(x => x.subcategory.map(c => c.id).includes(this.focused.subcat)) : dataset;
+		return (this.focused.subcat != "all" || this.focused.subcat != null || this.focused.subcat != "") ? 
+			dataset.filter(x => { (x.subcategory != null) ? x.subcategory.map(c => c.id).includes(this.focused.subcat) : false; }) : dataset;
 	}
 
 	// This will filter out the subcategories that aren't part of the parent
 	// category stored in this.focused.category
 	filterSubcatOptions() {
 		return (this.focused.category != null && this.focused.category != "") ?
-			this.subcats.filter(x => this.categories.find(c => c.id === this.focused.category).subcategories.includes(x.id)) : this.subcats;
+			this.subcats.filter(x => { return (this.categories.find(c => c.id === this.focused.category).subcategories != null) ? 
+				x.id == "all" || this.categories.find(c => c.id === this.focused.category).subcategories.includes(x.id) : false }) : this.subcats;
 	}
 
 	// Assigns proper function to the City select box.

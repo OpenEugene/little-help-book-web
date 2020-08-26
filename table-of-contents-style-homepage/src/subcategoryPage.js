@@ -9,8 +9,19 @@ var nbc;
 $(document).ready(function() {
   // await has to be inside async function, anonymous in this case
     (async () => {
+        /*
+        Pull data from Airtable using the dal.js functions.
+        Also, populate additional elements at the top of each list to
+        represent an option to not filter on that item.
+        */
+        // this mock data will be replaced once we have a city fetch in dal.js
+        mockCities.splice(0, 0, {id: "NA", name: "Select City"})
+
         categoryTable = await dalGetCategoryTable();
+        categoryTable.splice(0, 0, {id: "NA", name: "Select Category"});
         subcatTable = await dalGetSubcategoryTable();
+        subcatTable.splice(0, 0, {id: "", name: "Select Subcategory"});
+        subcatTable.splice(1, 0, {id: "all", name: "All"});
         placeTable = await dalGetPlaceTable();
         nbc = new NavBreadcrumb(mockCities, categoryTable, subcatTable, placeTable);
 
@@ -36,6 +47,11 @@ $(document).ready(function() {
         nbc.assignCitySelectEvent(cityboxId, citySelectEvent);
         nbc.assignCategorySelectEvent(catboxId, categorySelectEvent);
         nbc.assignSubcatSelectEvent(subcatboxId, subcatSelectEvent);
+
+        // Populate NavBreadcrumb.focused data on page initialization.
+        nbc.focused.city = nbc.cities[0].id;
+        nbc.focused.category = nbc.categories[0].id;
+        nbc.focused.subcat = nbc.subcats[0].id;
     })()
 });
 
@@ -68,7 +84,6 @@ function placeServiceTiles(elementId, objString) {
 
 // Create the appropriate event handlers for the select elements.
 function citySelectEvent() {
-    console.log(this.value);
     // find the city by id, and set the focused city to it.
     nbc.focused.city = nbc.cities.find(x => x.id === this.value).id;
     /*
@@ -108,7 +123,7 @@ function subcatSelectEvent() {
     It then will filter the list of places on the selected items.
     */
     nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
-    document.getElementsByClassName("category-page-name")[0].innerHTML = nbc.focused.subcat;
+    document.getElementsByClassName("category-page-name")[0].innerHTML = nbc.subcats.find(x => x.id === this.value).name;
     if (nbc.selectsAreChecked) {
         placeServiceTiles("provider-tiles", generateServiceTiles(nbc.availablePlaces));
     }
