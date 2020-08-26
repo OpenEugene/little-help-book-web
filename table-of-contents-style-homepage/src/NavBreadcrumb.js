@@ -82,7 +82,7 @@ class NavBreadcrumb {
 	// what's stored in this.focused.subcat
 	filterOnSubcat(dataset) {
 		return (this.focused.subcat != "all" && this.focused.subcat != null && this.focused.subcat != "") ? 
-			dataset.filter(x => { return (x.subcategory != null) ? x.subcategory.map(c => c.id).includes(this.focused.subcat) : false; }) : dataset;
+			dataset.filter(x => { return (x.subcategory != null) ? x.subcategory.includes(this.focused.subcat) : false; }) : dataset;
 	}
 
 	// This will filter out the subcategories that aren't part of the parent
