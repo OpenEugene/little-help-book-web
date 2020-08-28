@@ -7,6 +7,7 @@ class NavBreadcrumb {
 	// This object contains the selected options in the breadcrumb navigation.
 	// NOTE: these will contain the id of the fields, not the whole object.
 	focused = {city: null, category: null, subcat: null};
+	availableCategories;
 	availableSubcats;
 	availablePlaces;
 
@@ -75,7 +76,7 @@ class NavBreadcrumb {
 	// what's stored in this.focused.category
 	filterOnCategory(dataset) {
 		return (this.focused.category != "NA" && this.focused.category != null && this.focused.city != "") ? 
-			dataset.filter(x => x.category.includes(this.focused.category)) : dataset;
+			dataset.filter(x => (x.category != null) ? x.category.includes(this.focused.category) : false) : dataset;
 	}
 
 	// pass in an array of places, and returns a filtered version based on
@@ -91,6 +92,13 @@ class NavBreadcrumb {
 		return (this.focused.category != "NA" && this.focused.category != null && this.focused.category != "") ?
 			this.subcats.filter(x => { return (this.categories.find(c => c.id === this.focused.category).subcategories != null) ? 
 				x.id === "all" || this.categories.find(c => c.id === this.focused.category).subcategories.includes(x.id) : false }) : this.subcats;
+	}
+
+	filterCategoryOptions() {
+		return (this.focused.city != "NA" && this.focused.city != null && this.focused.city != "") ?
+			this.categories.filter(x => x.id === "NA" || this.availablePlaces.map(x => x.category).filter(x => x != null)
+				.reduce((accumulator, currentValue) => accumulator.concat(currentValue))
+					.filter((value, index, self) => self.indexOf(value) === index).includes(x.id)) : this.categories;
 	}
 
 	// Assigns proper function to the City select box.

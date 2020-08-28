@@ -82,11 +82,20 @@ function placeServiceTiles(elementId, objString) {
 function citySelectEvent() {
     // find the city by id, and set the focused city to it.
     nbc.focused.city = nbc.cities.find(x => x.id === this.value).id;
+    // Reset the category selection back to "Select Category" when new city is selected.
+    nbc.focused.category = "NA";
+    // Reset the subcat selection back to all when city is changed.
+    nbc.focused.subcat = "all";
     /*
     This function chain checks for a selected city, category and subcategory.
     It then will filter the list of places on the selected items.
     */
     nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
+    // Change available categories to select from when city changes
+    nbc.availableCategories = nbc.filterCategoryOptions();
+    nbc.placeOptionElements(catboxId, nbc.generateOptionElements(nbc.availableCategories));
+    nbc.availableSubcats = nbc.filterSubcatOptions();
+    nbc.placeOptionElements(subcatboxId, nbc.generateOptionElements(nbc.availableSubcats));
     placeServiceTiles("provider-tiles", generateServiceTiles(nbc.availablePlaces));
     if (nbc.mymap != null) {
         setView(nbc.viewCoordinates, 5);
@@ -95,14 +104,16 @@ function citySelectEvent() {
 function categorySelectEvent() {
     // find the category by id, and set the focused category to it.
     nbc.focused.category = nbc.categories.find(x => x.id === this.value).id;
+    // Reset the subcat selection back to all when category is changed.
+    nbc.focused.subcat = "all";
+    nbc.availableSubcats = nbc.filterSubcatOptions();
     /*
     This function chain checks for a selected city, category and subcategory.
     It then will filter the list of places on the selected items.
     */
-    nbc.availableSubcats = nbc.filterSubcatOptions(nbc.subcats);
-    nbc.placeOptionElements(subcatboxId, nbc.generateOptionElements(nbc.availableSubcats));
     nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
-        placeServiceTiles("provider-tiles", generateServiceTiles(nbc.availablePlaces));
+    nbc.placeOptionElements(subcatboxId, nbc.generateOptionElements(nbc.availableSubcats));
+    placeServiceTiles("provider-tiles", generateServiceTiles(nbc.availablePlaces));
     if (nbc.mymap != null) {
         setMarkers(nbc.availablePlaces);
     }
