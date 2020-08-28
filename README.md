@@ -18,7 +18,7 @@ When this guide is accessible online, social service providers in other cities c
 
 From a survey response (also in the Docs), it's clear that the site will be mucho mejor with a Spanish language version. Google Translate of the website and some of our team's basic understanding of the language can do an okay job—but to really create a good translation, we will work with native Spanish speakers. This is kinda circular, because if you clicked through the Notion, you saw that's also a README, a README inside of README but wait! Go back to that and read the project roles, and at the bottom there you'll see a link to the PDF of the actual Little Help Book. That will really give you an idea of the information we're putting online, the Table of Contents, the information architecture is all there. Let's make it easy to access and use online. Thanks for your help! 
 
-Lane County social service providers need a strong community referral network. In building a community referral network, the regional social service providers are looking at how to make multiple systems effective and functional. 
+Lane County social service providers need a strong community referral network. In building a network, the regional social service providers are looking at how to make multiple systems effective and functional. 
 
 The goal: a **universal data source**, so that providers **in a multi-system network** can update their information in one place and it's updated everywhere.
 
