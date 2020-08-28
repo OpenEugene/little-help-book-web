@@ -91,7 +91,7 @@ class NavBreadcrumb {
 	filterSubcatOptions() {
 		return (this.focused.category != "NA" && this.focused.category != null && this.focused.category != "") ?
 			this.subcats.filter(x => { return (this.categories.find(c => c.id === this.focused.category).subcategories != null) ? 
-				x.id === "all" || this.categories.find(c => c.id === this.focused.category).subcategories.includes(x.id) : false }) : this.subcats;
+				x.id === "all" || x.id === "NA" || this.categories.find(c => c.id === this.focused.category).subcategories.includes(x.id) : false }) : this.subcats;
 	}
 
 	filterCategoryOptions() {

@@ -21,7 +21,7 @@ $(document).ready(function() {
         categoryTable = await dalGetCategoryTable();
         categoryTable.splice(0, 0, {id: "NA", name: "Select Category"});
         subcatTable = await dalGetSubcategoryTable();
-        subcatTable.splice(0, 0, {id: "", name: "Select Subcategory"});
+        subcatTable.splice(0, 0, {id: "NA", name: "Select Subcategory"});
         subcatTable.splice(1, 0, {id: "all", name: "All"});
         placeTable = await dalGetPlaceTable();
         nbc = new NavBreadcrumb(cityTable, categoryTable, subcatTable, placeTable);
