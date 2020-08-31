@@ -20,7 +20,7 @@ From a survey response (also in the Docs), it's clear that the site will be much
 
 Lane County social service providers need a strong community referral network. In building a network, the regional social service providers are looking at how to make multiple systems effective and functional. 
 
-The goal: a **universal data source**, so that providers **in a multi-system network** can update their information in one place and it's updated everywhere.
+The goal: a **universal data source**, so that providers **in a multi-system network** can update their information in one place and it's updated everywhere. Please see the Open Referral Initiative: Executive Summary: https://docs.google.com/document/d/1xjXYN0zzUVWK3GdINP3erO-Jm0LUz75962SyRF0ggIA/edit
 
 A regional council with different working groups may begin convening, and one of those groups could deal with technology and interoperability of platforms, both technical and legal issues.
 
