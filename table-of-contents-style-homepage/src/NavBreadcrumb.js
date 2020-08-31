@@ -69,7 +69,16 @@ class NavBreadcrumb {
 	// what's stored in this.focused.city
 	filterOnCity(dataset) {
 		return (this.focused.city != "NA" && this.focused.city != null && this.focused.city != "") ?
-			dataset.filter(x => { return (x.city != null) ? x.city.includes(this.focused.city) : true; }) : dataset;
+			dataset.filter(x => { return (x.city != null) ? x.city.includes(this.focused.city) : true; })
+				.sort((a, b) => {
+					if (a.city != null && b.city == null) {
+						return -1;
+					}
+					if (a.city == null && b.city != null) {
+						return 1;
+					}
+					return 0;
+				}) : dataset;
 	}
 
 	// pass in an array of places, and returns a filtered version based on
