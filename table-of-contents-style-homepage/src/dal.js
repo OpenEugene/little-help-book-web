@@ -38,7 +38,11 @@ async function dalGetPlaceTable() {
 
 async function dalGetCategoryTable() {
   const categoryTableRaw = await dalGetTable('Categories', base);
-  categoryTableRaw.sort((a, b) => (a.get('Order') - b.get('Order')));
+  categoryTableRaw.sort(function(a, b){
+    if(a.get('Name') < b.get('Name')) { return -1; }
+    if(a.get('Name') > b.get('Name')) { return 1; }
+    return 0;
+  });
   let categoryTable = categoryTableRaw.map(function(record) {
     let subcategories = record.get('Subcategories');
     if (!subcategories) {
@@ -49,7 +53,6 @@ async function dalGetCategoryTable() {
       'name' : record.get('Name'),
       'nameSpanish' : record.get('Name-ES'),
       'subcategories' : subcategories,
-      'order' : record.get('Order')
     };
   });
   return categoryTable;
@@ -57,12 +60,16 @@ async function dalGetCategoryTable() {
 
 async function dalGetSubcategoryTable() {
   const subcategoryTableRaw = await dalGetTable('Subcategories', base);
+  subcategoryTableRaw.sort(function(a, b){
+    if(a.get('Name') < b.get('Name')) { return -1; }
+    if(a.get('Name') > b.get('Name')) { return 1; }
+    return 0;
+  });
   let subcategoryTable = subcategoryTableRaw.map(function(record) {
     return {
       'id' : record.id,
       'name' : record.get('Name'),
       'nameSpanish' : record.get('Name-ES'),
-      'order' : record.get('Order')
     };
   });
   return subcategoryTable;
@@ -101,7 +108,6 @@ async function dalGetCatSubcatTable() {
       'subcategoryId' : subcategoryId,
       'name' : subcategoryName,
       'nameSpanish' : subcategoryNameSpanish,
-      'order' : record.get('Order'),
       'places' : []
     };
   });

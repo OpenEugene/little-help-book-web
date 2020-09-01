@@ -5,6 +5,7 @@ var placeTable;
 var nbc;
 var categoryTree;
 var catSubcatTable;
+var savedHtml;
 "use strict"
 $(document).ready(function() {
   // await has to be inside async function, anonymous in this case
@@ -15,7 +16,7 @@ $(document).ready(function() {
         represent an option to not filter on that item.
         */
         cityTable = await dalGetCityTable();
-        cityTable.splice(0, 0, {id: "NA", name: "Select City"})
+        cityTable.splice(0, 0, {id: "NA", name: "Find my City"})
 
         categoryTable = await dalGetCategoryTable();
         subcatTable = await dalGetSubcategoryTable();
@@ -32,11 +33,16 @@ $(document).ready(function() {
 
         catSubcatTable = await dalGetCatSubcatTable();
         categoryTree = tocMakeCategoryTree(categoryTable, catSubcatTable);
-        updateDomToc(categoryTree);
+
+        /*
+        Save the hard-coded stuff to prepend later
+        */
+        savedHtml = $('#table-of-contents').html();
+        updateDomToc(categoryTree, savedHtml);
     })()
 });
 
-function updateDomToc(categoryTree) {
+function updateDomToc(categoryTree, savedHtml) {
     // Grab the template script
     let theTemplateScript = $("#table-of-contents-template").html();
     // Compile the template
@@ -45,4 +51,6 @@ function updateDomToc(categoryTree) {
     let compiledHtml = theTemplate({categories : categoryTree});
     // Add the compiled html to the page
     $('#table-of-contents').empty().append(compiledHtml);
+    // Add the saved bits to the end
+    $('#table-of-contents').append(savedHtml);
 }
