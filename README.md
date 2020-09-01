@@ -26,7 +26,7 @@ A regional council with different working groups may begin convening, and one of
 
 ## Database Management
 
-Airtable holds our data and makes it available with [Airtable API](https://airtable.com/appj3UWymNh6FgtGR/api/docs#curl/introduction). 
+Airtable holds our data and makes it available with [Airtable API](https://littlehelpbook.com/swagger/index.html) with Airtable-generated documentation [here](https://airtable.com/appj3UWymNh6FgtGR/api/docs#curl/introduction). 
 
 Here are steps to follow when making changes in the base in order to not interrupt data entry or website usage:
 
