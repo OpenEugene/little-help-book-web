@@ -24,5 +24,13 @@ The goal: a **universal data source**, so that providers **in a multi-system net
 
 A regional council with different working groups may begin convening, and one of those groups could deal with technology and interoperability of platforms, both technical and legal issues.
 
+## Database Management
 
+Airtable holds our data and makes it available with Airtable API. 
+
+Here are steps to follow when making changes in the base in order to not interrupt data entry or website usage:
+
+* Back up the table
+* Make your changes in the base
+* Test the changes and check compatibility with existing code
 
