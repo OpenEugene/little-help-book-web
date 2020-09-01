@@ -4,7 +4,7 @@ function tocMakeCategoryTreeAll(categoryTable, catSubcatTable, placeTable) {
   //
   // PROVIDERS
   //
-  console.log('*** Processing places');
+  // console.log('*** Processing places');
   // Fold into the Category table
   placeTable.forEach(function(record) {
     let categoryId = record.category;
@@ -20,7 +20,7 @@ function tocMakeCategoryTreeAll(categoryTable, catSubcatTable, placeTable) {
             console.log('no subcategory index', record.name, subcategoryId, "THIS SHOULDN'T OCCUR");
           }
         } else {
-          console.log('no subcategory id', record.name);
+          // console.log('no subcategory id', record.name);
           let subcategoryIndex = 0;
           categoryTree[categoryIndex].subcategories[subcategoryIndex].places.push(record);
         }
@@ -32,7 +32,6 @@ function tocMakeCategoryTreeAll(categoryTable, catSubcatTable, placeTable) {
     }
   });
 
-  // console.log(categoryTree);
   return categoryTree;
 }
 
@@ -40,12 +39,11 @@ function tocMakeCategoryTree(categoryTable, catSubcatTable) {
   //
   // CATEGORIES
   //
-  console.log('tocMergeTables BEGIN');
+  // console.log('tocMergeTables BEGIN');
   // Initialize a no-subcategory subcategory bucket for places with no subcategories at index 0.
   categoryTable.forEach(function(record) {
     let noneSubcategoryRecord;
     noneSubcategoryRecord = {'categoryId' : record.id, 'subcategoryId' : undefined, 'name' : 'No subcategories', 'nameSpanish' : 'No hay subcategorias', 'order' : 0, 'places' : []};
-    // console.log('record.subcategories', record.subcategories);
     record.subcategories = [];
     record.subcategories.push(noneSubcategoryRecord);
   });
@@ -53,7 +51,7 @@ function tocMakeCategoryTree(categoryTable, catSubcatTable) {
   //
   // SUBCATEGORIES
   //
-  console.log('*** Processing subcategories');
+  // console.log('*** Processing subcategories');
   // Fold into the Category table
   catSubcatTable.sort((a, b) => (a.order - b.order));
   catSubcatTable.forEach(function(record) {
@@ -62,10 +60,7 @@ function tocMakeCategoryTree(categoryTable, catSubcatTable) {
       let subcategoryId = record.subcategoryId;
       if (subcategoryId) {
         let categoryIndex = categoryTree.findIndex(category => category.id == categoryId);
-        // console.log(categoryIndex, record.Name);
-        // console.log("pushing", record.catSubcatName, categoryTree[categoryIndex].subcategories.length);
         categoryTree[categoryIndex].subcategories.push(record);
-        // console.log("  ", categoryTree[categoryIndex].subcategories.length);
       } else {
         categoryTree[0].subcategories.catSubcatId = record.catSubcatId;
         categoryTree[0].subcategories.catSubcatName = record.catSubcatName;
@@ -74,7 +69,6 @@ function tocMakeCategoryTree(categoryTable, catSubcatTable) {
       console.log('no category id', record.Name, "THIS SHOULDN'T OCCUR");
     }
   });
-  // console.log(categoryTree);
-  console.log('tocMergeTables END');
+  // console.log('tocMergeTables END');
   return categoryTree;
 }

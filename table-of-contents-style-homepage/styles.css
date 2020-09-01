@@ -79,6 +79,36 @@ a .little-help-book {
   margin: 2.6rem .5rem 1.5rem 0;
 }
 
+.breadcrumb-box {
+  margin-left: 20rem;
+}
+
+.breadcrumb-box select {
+  /* hide default arrow */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.breadcrumb {
+  background: black;
+  border-color: rgb(126, 126, 126);
+  color: rgb(226, 226, 226);
+  font-family: sans-serif;
+  font-size: 1.45rem;
+  font-style: none;
+  font-weight: bold;
+  height: 2.7rem;
+  width: 16.8rem;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  border-bottom-width: 0.1rem;
+  border-bottom-color: rgb(126, 126, 126);
+  margin: 2.6rem 0 0 -0.5rem;
+}
+
 .lane-county {
   color: rgb(226, 226, 226);
   margin: 3rem .5rem 0 30rem;
