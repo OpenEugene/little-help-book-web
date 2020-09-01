@@ -80,7 +80,8 @@ a .little-help-book {
 }
 
 .breadcrumb-box {
-  margin-left: 20rem;
+  /* margin-left: 20rem; */
+  margin-left: 3rem;
 }
 
 .breadcrumb-box select {
@@ -107,6 +108,11 @@ a .little-help-book {
   border-bottom-width: 0.1rem;
   border-bottom-color: rgb(126, 126, 126);
   margin: 2.6rem 0 0 -0.5rem;
+}
+
+select:hover {
+  color: white;
+  transition: 0.3s color ease-in-out;
 }
 
 .lane-county {

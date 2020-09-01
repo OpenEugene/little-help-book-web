@@ -15,7 +15,7 @@ $(document).ready(function() {
         represent an option to not filter on that item.
         */
         cityTable = await dalGetCityTable();
-        cityTable.splice(0, 0, {id: "NA", name: "Select City"})
+        cityTable.splice(0, 0, {id: "NA", name: "Find my City"})
 
         categoryTable = await dalGetCategoryTable();
         subcatTable = await dalGetSubcategoryTable();
