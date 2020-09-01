@@ -33,7 +33,7 @@ namespace LittleHelpBook.Server.Controllers
 
             var data = await _airTableService.GetCategoriesPopulatedAsync();
 
-            return data.OrderBy(o=>o.Order).ToArray();
+            return data.OrderBy(o=>o.Name).ToArray();
 
         }
 

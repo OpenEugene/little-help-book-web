@@ -47,6 +47,8 @@ namespace LittleHelpBook.Server.Services
                     {
                         cat.SubcategoryList.Add(await GetSubcategoryAsync(id));
                     }
+
+                    cat.SubcategoryList.OrderBy(sc => sc.Name);
                 }
             }
 
