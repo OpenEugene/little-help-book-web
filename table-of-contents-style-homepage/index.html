@@ -21,179 +21,78 @@
     <!-- end social media image and content description -->
     <link rel="icon" href="https://i2.wp.com/whitebirdclinic.org/wp-content/uploads/2014/03/cropped-White-Bird-Logo-No-Text-1.jpg?fit=32%2C32&amp;ssl=1" sizes="32x32">
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+    <script rel="text/javascript" src="src/airtable.browser.js"></script>
+    <script rel="text/javascript" src="src/dal.js"></script>
+    <script type="text/javascript" src="src/toc.js"></script>
 </head>
 <body>
     <div class="container">
         <header class="desktop-header">
-          <div class="homepage-link">
-            <a href="index.html">
-            <img class="desktop-logo" src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
-            <h1 class="little-help-book">Little Help Book</h1>
-            </a>
-          </div>
-              <div class="lane-county menu-icon">Lane County, Oregon</div>
-              <button onclick="cityMenu()" class="find-my-city menu-button menu-icon" class="dropdown-button">Find my City</button>
-                <div id="cityList" class="list-of-cities">
-                  <a href="">Blachly</a>
-                  <a href="">Coburg</a>
-                  <a href="">Cottage Grove</a>
-                  <a href="">Creswell</a>
-                  <a href="">Dexter</a>
-                  <a href="">Dorena</a>
-                  <a href="">Florence</a>
-                  <a href="">Junction City / Cheshire</a>
-                  <a href="">Lowell</a>
-                  <a href="">Mapleton</a>
-                  <a href="">Oakridge</a>
-                  <a href="">Veneta</a>
-                  <a href="">Walterville</a>
-                </div>
-              <button class="spanish menu-button menu-icon">Español</button>
-              <button class="about menu-button menu-icon"><a class="about" href="about.html">About</a></button>
+            <div class="homepage-link">
+                <a href="index.html">
+                    <img class="desktop-logo" src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
+                    <h1 class="little-help-book">Little Help Book</h1>
+                </a>
+            </div>
+            <div class="lane-county menu-icon">Lane County, Oregon</div>
+
+            <!-- Preserving original code to preserve the classes in case I broke some css. -->
+            <!-- <button onclick="cityMenu()" class="find-my-city menu-button menu-icon" class="dropdown-button">Find my City</button>
+            <div id="cityList" class="list-of-cities">
+            </div> -->
+            <!-- Gets filled dynamically -->
+            <select class="breadcrumb city" id="citySelect">
+                <option value="">Select City</option>
+            </select>
+
+            <button class="spanish menu-button menu-icon">Español</button>
+            <button class="about menu-button menu-icon"><a class="about" href="about.html">About</a></button>
             <div class="search">
-              <a href="about.html">
-              <div class="menu-lines">
-                <div class="hamburger"></div>
-                <div class="hamburger"></div>
-                <div class="hamburger"></div>
-              </div>
-              </a>
-              <input type="image" src="search-line.png" class="search-input" type="search">
+                <a href="about.html">
+                    <div class="menu-lines">
+                        <div class="hamburger"></div>
+                        <div class="hamburger"></div>
+                        <div class="hamburger"></div>
+                    </div>
+                </a>
+                <input type="image" src="search-line.png" class="search-input" type="search">
             </div>
         </header>
 
-        <main class="table-of-contents">
-            <h2 class="category-name h123-reset"><a href="#">Basic Needs</a></h2>
-            <div class="subcategory">
-              <ul>
-                <li>Bathrooms</li>
-                <li>Bedding</li>
-                <li>Clothing</li>
-                <li>Day Shelters</li>
-                <li>Day Storage</li>
-                <li>Haircuts</li>
-                <li>Household Goods</li>
-                <li>Hygiene Items</li>
-                <li>iD / Birth Certificate Replacement</li>
-                <li>Internet Access & Library Services</li>
-                <li>Laundry</li>
-                <li>Mail and Messages</li>
-                <li>Phone</li>
-                <li>Propane</li>
-                <li>Showers</li>
-              </ul>
-            </div>
-            <h2 class="category-name h123-reset"><a href="#">Care</a></h2>
-            <div class="subcategory">
-              <ul>
-                <li>Burial and Cremation</li>
-                <li>Domestic Violence / Sexual Assault</li>
-                <li>Family Care Services</li>
-                <li>Pet Care</li>
-              </ul>
-            </div>
-            <h2 class="category-name h123-reset"><a href="#">Education</a></h2>
-            <div class="subcategory">
-              <ul>
-                <li>Adult Education</li>
-              </ul>
-            </div>
-            <h2 class="category-name h123-reset"><a href="#">Food</a></h2>
-            <div class="subcategory">
-              <ul>
-                <li>Food Boxes / Pantries</li>
-                <li>Meals</li>
-              </ul>
-            </div>
-            <h2 class="category-name h123-reset"><a href="#">Health</a></h2>
-            <div class="subcategory">
-              <ul>
-                <li>Addiction & Recovery</li>
-                <li>Counseling & Mental Health</li>
-                <li>Dental</li>
-                <li>HIV / AIDS</li>
-                <li>Medical Clinics / Urgent Care / Emergency Rooms</li>
-                <li>Needle Exchange / Disposal</li>
-                <li>Oregon Health Plan Sign Up</li>
-                <li>Prescription Assistance (non-pain reliever)</li>
-                <li>Reproductive Health, Birth Control</li>
-                <li>Vision / Hearing Aids</li>
-              </ul>
-            </div>
-            <h2 class="category-name h123-reset"><a href="#">Information</a></h2>
-            <div class="subcategory">
-              <ul>
-                <li>Crisis Lines / Hotlines</li>
-                <li>Referral and Information Services</li>
-              </ul>
-            </div>
-            <h2 class="category-name h123-reset"><a href="#">Jewish Interests</a></h2>
-            <h2 class="category-name h123-reset"><a href="#">Latino / Latinx</a></h2>
-            <h2 class="category-name h123-reset"><a href="#">Legal</a></h2>
-            <div class="subcategory">
-              <ul>
-                <li>Know Your Rights</li>
-                <li>Legal Services</li>
-              </ul>
-            </div>
-            <h2 class="category-name h123-reset"><a href="#">LGBTQIA</a></h2>
-            <h2 class="category-name h123-reset"><a href="#">Money</a></h2>
-            <div class="subcategory">
-              <ul>
-                <li>Financial Assistance</li>
-                <li>Rent Assistance</li>
-                <li>Utility Assistance</li>
-              </ul>
-            </div>
-            <h2 class="category-name h123-reset"><a href="#">Post-Incarceration</a></h2>
-            <h2 class="category-name h123-reset"><a href="#">Seniors</a></h2>
-            <h2 class="category-name h123-reset"><a href="#">Shelter</a></h2>
-            <div class="subcategory">
-              <ul>
-                <li>Housing Navigation</li>
-                <li>Overnight Parking</li>
-                <li>Overnight / Short Term Shelters</li>
-                <li>Transitional or Permanent Housing</li>
-              </ul>
-            </div>
-            <h2 class="category-name h123-reset"><a href="#">Transportation</a></h2>
-            <h2 class="category-name h123-reset"><a href="#">Veterans</a></h2>
-            <h2 class="category-name h123-reset"><a href="#">Work</a></h2>
-            <div class="subcategory">
-              <ul>
-                <li>Job Search</li>
-              </ul>
-            </div>
-            <h2 class="category-name h123-reset"><a href="#">Youth</a></h2>
-            <div class="are-you-in-crisis">Are you in <div class="popup" onclick="crisisPopup()"><span class="blue-text">crisis</span>?<span class="popuptext" id="myPopup">A crisis is defined personally by each individual who reaches out to White Bird Clinic. It can be a difficult or dangerous time, but it is also an opportunity for change. Anxiety, depression, grief, trauma, identity issues, abuse, interpersonal conflict, and other external or internal factors can contribute to a time of crisis. If you find your ability to access your own resources is compromised by a crisis event, please reach out to us on our 24/7 crisis line at 541-687-4000 or 1-800-422-7558 or click the Emergency Crisis Lines button for a complete listing of phone numbers.</span>
-            </div>
-
-            <button onclick="emergencyCrisis()" class="emergency-button"> <span class="emergency-text">Emergency Crisis Lines</span></button>
-
-        </div>
-            <div class="a-z-list">To browse service providers by name, see our <a href="#" class="blue-text">A to Z list.</a></div>
-            <div class="community-sponsors">Community Sponsors</div>
-            <div class="subcategory">
-              <ul>
-                <li>Lane County, Oregon</li>
-                <li>Lane County Human Services</li>
-                <li>City of Eugene</li>
-                <li>Sponsors, Justice Reimagined</li>
-                <li>Eugene Mennonite</li>
-                <li>HIVAlliance</li>
-                <li>Community Supported Shelters</li>
-              </ul>
-            </div>
+        <!-- Main will be filled with data from the database, formatted as specified in the handlebars template below. -->
+        <main id="table-of-contents" class="table-of-contents">
         </main>
+        <!-- Handlebars template -->
+        <script id="table-of-contents-template" type="text/x-handlebars-template">
+        {{#categories}}
+            <h2 class="category-name h123-reset"><a href="#">{{name}}</a></h2>
+            <div class="subcategory">
+                <ul>
+                    {{#subcategories}}
+                    {{#if subcategoryId}}
+                        <li>{{name}}</li>
+                    {{/if}}
+                    {{/subcategories}}
+                </ul>
+            </div>
+        {{/categories}}
+        </script>
+
         <footer class="footer">
-          <div class="footer-item">CC <script language="javascript" type="text/javascript">
-            var today = new Date()
-            var year = today.getFullYear()
-            document.write(year)
-            </script> White Bird Clinic</div>
-          <div class="footer-item"> <a href="https://whitebirdclinic.org/" class="footer-url">whitebirdclinic.org</a></div>
-          <div class="footer-item"><a href="terms-of-use.html" class="terms-of-use">Terms of Use</a></div>
-      </footer>
+            <div class="footer-item">CC 
+                <script language="javascript" type="text/javascript">
+                    var today = new Date()
+                    var year = today.getFullYear()
+                    document.write(year)
+                </script>
+                White Bird Clinic
+            </div>
+            <div class="footer-item"> <a href="https://whitebirdclinic.org/" class="footer-url">whitebirdclinic.org</a></div>
+            <div class="footer-item">
+                <a href="terms-of-use.html" class="terms-of-use">Terms of Use</a>
+            </div>
+        </footer>
     </div>
 
     <div class="mobile-container" id="mobile-container">
@@ -212,7 +111,10 @@
             </main>
         <footer>Human service resource guide powered by <h2 class="bold-inline h123-reset">White Bird Clinic</h2></footer>
     </div>
-    <script src="homepage.js">
-    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="homepage.js"></script>
+    <script type="text/javascript" src="src/NavBreadcrumb.js"></script>
+    <!-- <script type="text/javascript" src="src/mockData.js"></script> -->
+    <script type="text/javascript" src="src/indexPage.js"></script>
 </body>
 </html>
