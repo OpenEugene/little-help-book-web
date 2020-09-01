@@ -22,7 +22,7 @@ $(document).ready(function() {
         categoryTable.splice(0, 0, {id: "NA", name: "Select Category"});
         subcatTable = await dalGetSubcategoryTable();
         subcatTable.splice(0, 0, {id: "NA", name: "Select Subcategory"});
-        subcatTable.splice(1, 0, {id: "all", name: "All"});
+        subcatTable.splice(1, 0, {id: "NA", name: "All"});
         placeTable = await dalGetPlaceTable();
         nbc = new NavBreadcrumb(cityTable, categoryTable, subcatTable, placeTable);
 
@@ -85,7 +85,7 @@ function citySelectEvent() {
     // Reset the category selection back to "Select Category" when new city is selected.
     nbc.focused.category = "NA";
     // Reset the subcat selection back to all when city is changed.
-    nbc.focused.subcat = "all";
+    nbc.focused.subcat = "NA";
     /*
     This function chain checks for a selected city, category and subcategory.
     It then will filter the list of places on the selected items.
@@ -105,7 +105,7 @@ function categorySelectEvent() {
     // find the category by id, and set the focused category to it.
     nbc.focused.category = nbc.categories.find(x => x.id === this.value).id;
     // Reset the subcat selection back to all when category is changed.
-    nbc.focused.subcat = "all";
+    nbc.focused.subcat = "NA";
     nbc.availableSubcats = nbc.filterSubcatOptions();
     /*
     This function chain checks for a selected city, category and subcategory.

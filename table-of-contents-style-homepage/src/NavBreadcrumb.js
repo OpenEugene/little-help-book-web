@@ -41,11 +41,6 @@ class NavBreadcrumb {
 		return null;
 	}
 
-	get selectsAreChecked() {
-		return this.focused.city != null &&
-			this.focused.category != null;
-	}
-
 	// Generates multiple option elements
 	generateOptionElements(objArray) {
 		let elementString = "";
@@ -91,7 +86,7 @@ class NavBreadcrumb {
 	// pass in an array of places, and returns a filtered version based on
 	// what's stored in this.focused.subcat
 	filterOnSubcat(dataset) {
-		return (this.focused.subcat != "all" && this.focused.subcat != null && this.focused.subcat != "") ? 
+		return (this.focused.subcat != "NA" && this.focused.subcat != null && this.focused.subcat != "") ? 
 			dataset.filter(x => { return (x.subcategory != null) ? x.subcategory.includes(this.focused.subcat) : false; }) : dataset;
 	}
 
