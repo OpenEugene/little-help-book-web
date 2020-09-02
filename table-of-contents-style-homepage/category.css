@@ -1,38 +1,7 @@
-/* *,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-
-header, main {
-  font-family: sans-serif;
-}
-
-.h123-reset {
-  margin: 0;
-  padding: 0;
-}
-
-ul,
-li {
-  list-style: none;
-}
-
-ul,
-li {
-  margin: 0;
-  padding: 0;
-} */
-
 a {
   text-decoration: none;
   color: black;
 }
-
-/* body {
-  font-family: sans-serif;
-  background-color: #f5f5f5;
-} */
 
 main {
   columns: auto;
@@ -109,17 +78,6 @@ option {
   color: black;
   font-size: 1.4rem;
 }
-
-/* I haven't figured out how to get this option :hover style to work. */
-option :hover {
-  color: #0077ff;
-  background-color: rgb(226, 226, 226);
-}
-
-.city:hover::after { 
-  color: #F39C12; 
-} 
-/* Neither of those attempts affects the default dropdown style. */
 
 .city {
   margin-left: 8rem;
@@ -252,7 +210,6 @@ header .search input {
   cursor: pointer;
 }
 
-/* One difference between how the list-map-toggle button is set up on the subcategory page, it doesn't need a position: absolute for it's placement on the page. That's one difference here and it may be why the toggle button isn't working on this page. */
 .dropdown {
   position: relative;
   display: inline-block;
@@ -323,40 +280,6 @@ header .search input {
   background-color: rgb(226, 226, 226);
 }
 
-.footer {
-  display: flex;
-  justify-content: space-around;
-}
-
-.footer {
-  display: flex;
-  justify-content: center;
-  font-family: sans-serif;
-  font-style: normal;
-  font-weight: light;
-  font-size: 1rem;
-  color: gray;
-  margin: 3rem 0 1rem;
-  padding: 1rem;
-}
-
-.footer-item {
-  padding: 0 1rem;
-}
-
-.footer-url {
-  color: #4A9AF8;
-  font-weight: bold;
-}
-
-.terms-of-use {
-  color: gray;
-}
-
-.terms-of-use:hover {
-  color: #4A9AF8;
-}
-
 /* this style is for the placeholder map image, and it can be removed when the OpenStreetMap has been installed. */
 .placeholder-map-jpg {
   width: 98.5%;
@@ -410,7 +333,7 @@ header .search input {
       display: flex;
       flex-direction: column;
   }
-
+/* 
   header {
     padding-top: 0;
   }
@@ -433,8 +356,8 @@ header .search input {
       width: 66px;
       height: 66px;
       margin: 1.6rem 0 .4rem 1.75rem;
-  }
-
+  } */
+/* 
   .little-help-book {
       position: absolute;
       color: white;
@@ -442,7 +365,7 @@ header .search input {
       font-weight: bold;
       font-family: sans-serif;
       margin: 2.4rem 0 0 5.8rem;
-  }
+  } */
 
   #search {
     display: flex;
@@ -455,18 +378,17 @@ header .search input {
 
 @media screen and (max-width: 770px) {
 
-  .mobile-container {
-      display: inline;
-  }
-  
-  header {
-      padding-top: 0;
-  }
-  
-  header .logo-title {
-      display: flex;
-  }
-  
+    .mobile-container {
+        display: inline;
+    }
+    
+    header {
+        padding-top: 0;
+    }
+    
+    header .logo-title {
+        display: flex;
+    }
   }
   
   /* begin mobile styles */
