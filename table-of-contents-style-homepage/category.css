@@ -41,11 +41,6 @@ main {
   margin: 2.6rem 0 0 -0.5rem;
 }
 
-/* select:hover {
-  color: white;
-  transition: 0.3s color ease-in-out;
-} */
-
 option {
   background-color: white;
   color: black;

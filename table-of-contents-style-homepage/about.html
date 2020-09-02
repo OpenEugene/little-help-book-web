@@ -19,9 +19,10 @@
     <meta name="twitter:image" content="https://github.com/OpenEugene/little-help-book-web/blob/develop/table-of-contents-style-homepage/WhiteBirdEugeneOregon.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <!-- end social media image and content description -->
-		<link rel="icon" href="https://i2.wp.com/whitebirdclinic.org/wp-content/uploads/2014/03/cropped-White-Bird-Logo-No-Text-1.jpg?fit=32%2C32&amp;ssl=1" sizes="32x32">
-		<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-		<link rel="stylesheet" href="about.css">
+	<link rel="icon" href="https://i2.wp.com/whitebirdclinic.org/wp-content/uploads/2014/03/cropped-White-Bird-Logo-No-Text-1.jpg?fit=32%2C32&amp;ssl=1" sizes="32x32">
+	<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="stylesheet" type="text/css" href="about.css">
 </head>
 <body>
 	<div class="container">
@@ -32,8 +33,15 @@
 				<h1 class="little-help-book">Little Help Book</h1>    
 				</a>
 			</div>
-				<div class="lane-county menu-icon">Lane County, Oregon</div>
-				<button onclick="cityMenu()" class="find-my-city menu-button menu-icon" class="dropdown-button">Find my City</button>
+			<div class="lane-county menu-icon">Lane County, Oregon</div>
+
+            <div class="breadcrumb-box">
+                <select class="breadcrumb city menu-icon" id="citySelect">
+                    <option value="">Find my City</option>
+                </select>
+            </div>
+
+				<!-- <button onclick="cityMenu()" class="find-my-city menu-button menu-icon" class="dropdown-button">Find my City</button>
 						<div id="cityList" class="list-of-cities">
 						<a href="">Blachly</a>
 						<a href="">Coburg</a>
@@ -48,7 +56,7 @@
 						<a href="">Oakridge</a>
 						<a href="">Veneta</a>
 						<a href="">Walterville</a>
-						</div>
+						</div> -->
 				<button class="spanish menu-button menu-icon">Español</button>
 				<button class="about menu-button menu-icon">About</button>
 			<div class="search">
@@ -152,5 +160,7 @@
 </div>
 <script src="homepage.js">
 </script>
+<script rel="text/javascript" src="src/dal.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
 </body>
 </html>
