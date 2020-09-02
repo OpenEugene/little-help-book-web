@@ -1,68 +1,14 @@
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
+a {
+  text-decoration: none;
+  color: black;
 }
 
-body {
-  font-family: sans-serif;
-}
-
-.h123-reset {
-    margin: 0;
-    padding: 0;
-  }
-
-  ul,
-  li {
-    list-style: none;
-  }
-  
-  ul,
-  li {
-    margin: 0;
-    padding: 0;
-  }
-
-  a {
-    text-decoration: none;
-    color: black;
-  }
-
-body {
-  font-family: sans-serif;
-  background-color: #f5f5f5;
+main {
+  columns: auto;
 }
 
 .desktop-header {
-  display: flex;
-  justify-content: space-around;
-  color: #f5f5f5;
-  font-size: 1.5rem;
-  font-weight: bold;
-  background-color: black;
-  height: 6.6rem;
-  overflow-x: hidden; 
-  margin: 0 -0.5rem;
-  overflow-y: hidden;
-  margin-top: -1rem;
-}
-
-.desktop-logo {
-  position: absolute;
-  left: .5rem;
-  width: 66px;
-  height: 66px;
-  margin: 1.6rem 0 .4rem 1.25rem;
-}
-
-.little-help-book {
-  position: absolute;
-  left: 1.7rem;
-  font-size: 2.2rem;
-  color: white;
-  white-space: nowrap;
-  margin: 2.4rem 0 0 5.8rem;
+  margin-bottom: 0;
 }
 
 .breadcrumb-box {
@@ -81,7 +27,7 @@ body {
   border-color: rgb(126, 126, 126);
   color: rgb(226, 226, 226);
   font-family: sans-serif;
-  font-size: 1.45rem;
+  font-size: 1.25rem;
   font-style: none;
   font-weight: bold;
   height: 2.7rem;
@@ -105,17 +51,6 @@ option {
   color: black;
   font-size: 1.4rem;
 }
-
-/* I haven't figured out how to get this option :hover style to work. */
-option :hover {
-  color: #0077ff;
-  background-color: rgb(226, 226, 226);
-}
-
-.city:hover::after { 
-  color: #F39C12; 
-} 
-/* Neither of those attempts affects the default dropdown style. */
 
 .city {
   margin-left: 8rem;
@@ -296,40 +231,6 @@ header .search input {
   min-width: 90vh;
 }
 
-.footer {
-  display: flex;
-  justify-content: space-around;
-}
-
-.footer {
-  display: flex;
-  justify-content: center;
-  font-family: sans-serif;
-  font-style: normal;
-  font-weight: light;
-  font-size: 1rem;
-  color: gray;
-  margin: 3rem 0 1rem;
-  padding: 1rem;
-}
-
-.footer-item {
-  padding: 0 1rem;
-}
-
-.footer-url {
-  color: #4A9AF8;
-  font-weight: bold;
-}
-
-.terms-of-use {
-  color: gray;
-}
-
-.terms-of-use:hover {
-  color: #4A9AF8;
-}
-
 /* this style is for the placeholder map image, and it can be removed when the OpenStreetMap has been installed. */
 .placeholder-map-jpg {
   width: 95.3%;
@@ -357,39 +258,6 @@ header .search input {
   body {
     display: flex;
     flex-direction: column-reverse;
-  }
-
-  header {
-    padding-top: 0;
-  }
-
-  header .logo-title {
-    display: flex;
-  }
-
-  header {
-      background-color: black;
-      height: 6.6rem;
-      overflow-x: hidden; 
-      margin: 0 -0.5rem;
-      overflow-y: hidden;
-      margin-top: -1rem;
-  }
-
-  img {
-      position: absolute;
-      width: 66px;
-      height: 66px;
-      margin: 1.6rem 0 .4rem 1.75rem;
-  }
-
-  .little-help-book {
-      position: absolute;
-      color: white;
-      font-size: 2.2rem;
-      font-weight: bold;
-      font-family: sans-serif;
-      margin: 2.4rem 0 0 5.8rem;
   }
 
   #search {
@@ -421,42 +289,14 @@ header .search input {
 
 @media screen and (max-width: 770px) {
 
-  .mobile-container {
-        display: inline;
-    }
-    
-    header {
-        padding-top: 0;
-    }
-    
-    header .logo-title {
-        display: flex;
-    }
-
     .tile {
       width: 100%;
     }
-    
   }
   
   /* begin mobile styles */
   
   @media screen and (max-width: 640px) {
-  
-  header {
-      height: 5rem;
-  }
-
-  img {
-      width: 42px;
-      height: 42px;
-      margin: 1.49rem 0 .4rem 1.35rem;
-  }
-
-  .little-help-book {
-      font-size: 1.2rem;
-      margin: 2.1rem 0 0 3.7rem;
-  }
 
   #search {
     margin-right: 1.5rem;
@@ -485,5 +325,7 @@ header .search input {
     flex-direction: column;
     align-items: center;
     line-height: 2rem;
+    position: static;
+    width: auto;
   }
 }

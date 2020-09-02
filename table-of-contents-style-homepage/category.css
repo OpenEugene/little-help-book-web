@@ -306,39 +306,6 @@ header .search input {
       display: flex;
       flex-direction: column;
   }
-/* 
-  header {
-    padding-top: 0;
-  }
-
-  header .logo-title {
-    display: flex;
-  }
-
-  header {
-      background-color: black;
-      height: 6.6rem;
-      overflow-x: hidden; 
-      margin: 0 -0.5rem;
-      overflow-y: hidden;
-      margin-top: -1rem;
-  }
-
-  img {
-      position: absolute;
-      width: 66px;
-      height: 66px;
-      margin: 1.6rem 0 .4rem 1.75rem;
-  } */
-/* 
-  .little-help-book {
-      position: absolute;
-      color: white;
-      font-size: 2.2rem;
-      font-weight: bold;
-      font-family: sans-serif;
-      margin: 2.4rem 0 0 5.8rem;
-  } */
 
   #search {
     display: flex;
