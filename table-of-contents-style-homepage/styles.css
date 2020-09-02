@@ -373,7 +373,7 @@ main {
     margin-right: 1rem;
   }
 
-.hamburger {
+  .hamburger {
     width: 35px;
     height: 6px;
     background-color: rgb(126, 126, 126);
