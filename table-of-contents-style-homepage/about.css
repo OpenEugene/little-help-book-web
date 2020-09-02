@@ -334,7 +334,7 @@ textarea, input {
       display: none;
 	}
 	
-	.menu-lines {
+	/* .menu-lines {
 		margin-left: -2rem;
 		margin-right: 1rem;
 	}
@@ -345,7 +345,7 @@ textarea, input {
 		background-color: rgb(126, 126, 126);
 		border-radius: 2.5px;
 		margin: 5.5px 0 0 10.5px;
-	}
+	} */
 
   body {
     display: flex;
@@ -361,16 +361,16 @@ textarea, input {
   }
 
   header {
-      background-color: black;
+      /* background-color: black;
       height: 6.6rem;
       overflow-x: hidden; 
       margin: 0 -0.5rem;
       overflow-y: hidden;
-      margin-top: -1rem;
+      margin-top: -1rem; */
       padding-top: 0;
   }
 
-  img {
+  /* img {
       position: absolute;
       width: 66px;
       height: 66px;
@@ -384,7 +384,7 @@ textarea, input {
       font-weight: bold;
       font-family: sans-serif;
       margin: 2.4rem 0 0 5.8rem;
-  }
+  } */
 
     #search {
       display: flex;
@@ -409,20 +409,20 @@ textarea, input {
   
   @media screen and (max-width: 640px) {
   
-    header {
+    /* header {
         height: 5rem;
-    }
+    } */
   
-    img {
+    /* img {
         width: 42px;
         height: 42px;
         margin: 1.49rem 0 .4rem 1.35rem;
     }
-  
-    .little-help-book {
+   */
+    /* .little-help-book {
         font-size: 1.2rem;
         margin: 2.1rem 0 0 3.7rem;
-    }
+    } */
 
     #search {
       margin-right: 1.5rem;
@@ -430,7 +430,8 @@ textarea, input {
 
     .search {
       margin: 1.5rem 0 0;
-		}
+      right: 1.5rem;
+    }
 
 		.about-container {
 			margin: 1.75rem 2rem 0 2rem;
