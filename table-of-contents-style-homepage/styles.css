@@ -33,7 +33,7 @@ a {
   display: flex;
   justify-content: space-around;
   color: #f5f5f5;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: bold;
   background-color: black;
   height: 6.6rem;
@@ -66,7 +66,7 @@ a .little-help-book {
 
 .menu-button {
   font-family: sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-style: normal;
   font-weight: bold;
   color: rgb(226, 226, 226);
@@ -76,12 +76,11 @@ a .little-help-book {
   border: none;
   white-space: nowrap;
   transition: 0.3s color ease-in-out;
-  margin: 2.6rem .5rem 1.5rem 0;
+  margin: 2.8rem .5rem 1.5rem 0;
 }
 
 .breadcrumb-box {
-  /* margin-left: 20rem; */
-  margin-left: 3rem;
+  margin-left: 0rem;
 }
 
 .breadcrumb-box select {
@@ -96,11 +95,11 @@ a .little-help-book {
   border-color: rgb(126, 126, 126);
   color: rgb(226, 226, 226);
   font-family: sans-serif;
-  font-size: 1.45rem;
+  font-size: 1.25rem;
   font-style: none;
   font-weight: bold;
   height: 2.7rem;
-  width: 16.8rem;
+  width: 14.5rem;
   border-top: none;
   border-left: none;
   border-right: none;
@@ -117,7 +116,7 @@ select:hover {
 
 .lane-county {
   color: rgb(226, 226, 226);
-  margin: 3rem .5rem 0 30rem;
+  margin: 3.2rem .5rem 0 30rem;
   white-space: nowrap;
 }
 
