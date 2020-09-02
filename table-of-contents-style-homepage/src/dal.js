@@ -10,11 +10,7 @@ const base = new Airtable({apiKey: apiKey}).base('appj3UWymNh6FgtGR');
 
 async function dalGetPlaceTable() {
   const placeTableRaw = await dalGetTable('Help Services', base);
-  placeTableRaw.sort(function(a, b){
-    if(a.get('Name') < b.get('Name')) { return -1; }
-    if(a.get('Name') > b.get('Name')) { return 1; }
-    return 0;
-  });
+  placeTableRaw.sort((a, b) => { compareNames(a,b); });
   let placeTable = placeTableRaw.map(function(record) {
     return {
       'id' : record.id,
@@ -38,11 +34,7 @@ async function dalGetPlaceTable() {
 
 async function dalGetCategoryTable() {
   const categoryTableRaw = await dalGetTable('Categories', base);
-  categoryTableRaw.sort(function(a, b){
-    if(a.get('Name') < b.get('Name')) { return -1; }
-    if(a.get('Name') > b.get('Name')) { return 1; }
-    return 0;
-  });
+  categoryTableRaw.sort((a, b) => { compareNames(a,b); });
   let categoryTable = categoryTableRaw.map(function(record) {
     let subcategories = record.get('Subcategories');
     if (!subcategories) {
@@ -60,11 +52,7 @@ async function dalGetCategoryTable() {
 
 async function dalGetSubcategoryTable() {
   const subcategoryTableRaw = await dalGetTable('Subcategories', base);
-  subcategoryTableRaw.sort(function(a, b){
-    if(a.get('Name') < b.get('Name')) { return -1; }
-    if(a.get('Name') > b.get('Name')) { return 1; }
-    return 0;
-  });
+  subcategoryTableRaw.sort((a, b) => { compareNames(a,b); });
   let subcategoryTable = subcategoryTableRaw.map(function(record) {
     return {
       'id' : record.id,
@@ -146,4 +134,13 @@ function dalGetTable(tablename) {
 			resolve(recordsBuffer);
 		})
   })
+}
+
+function compareNames(a, b) {
+  let aName = a.get('Name').toLowerCase();
+  let bName = b.get('Name').toLowerCase();
+  let result = 0;
+  if(aName < bName) { result = -1; }
+  else if(aName > bName) { result = 1; }
+  return result;
 }
