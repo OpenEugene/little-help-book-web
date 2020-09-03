@@ -15,26 +15,14 @@ $(document).ready(function() {
         Also, populate additional elements at the top of each list to
         represent an option to not filter on that item.
         */
-        // this mock data will be replaced once we have a city fetch in dal.js
         cityTable = await dalGetCityTable();
-        cityTable.splice(0, 0, {id: "NA", name: "Select City"})
+        cityTable.splice(0, 0, {id: "NA", name: "All"})
         categoryTable = await dalGetCategoryTable();
-        categoryTable.splice(0, 0, {id: "NA", name: "Select Category"});
+        categoryTable.splice(0, 0, {id: "NA", name: "All"});
         subcatTable = await dalGetSubcategoryTable();
-        subcatTable.splice(0, 0, {id: "NA", name: "Select Subcategory"});
-        subcatTable.splice(1, 0, {id: "NA", name: "All"});
+        subcatTable.splice(0, 0, {id: "NA", name: "All"});
         placeTable = await dalGetPlaceTable();
         nbc = new NavBreadcrumb(cityTable, categoryTable, subcatTable, placeTable);
-
-        /*
-        Assign a unique ID to the select elements, so I can find them later.
-        We could hard code these into the DOM, but this ensures that I'll always
-        have these elements regardless of future changes to the DOM. Just don't
-        delete the select box class associations, and I can find them.
-        */
-        document.getElementsByClassName("city")[0].setAttribute("id", cityboxId);
-        document.getElementsByClassName("category")[0].setAttribute("id", catboxId);
-        document.getElementsByClassName("subcategory")[0].setAttribute("id", subcatboxId);
 
         /*
         Generate and place option element HTML to place into each appropriate
