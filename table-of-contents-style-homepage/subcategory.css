@@ -15,35 +15,8 @@ main {
   margin-left: 20rem;
 }
 
-.breadcrumb-box select {
-  /* hide default arrow */
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
-
 .breadcrumb {
-  background: black;
-  border-color: rgb(126, 126, 126);
-  color: rgb(226, 226, 226);
-  font-family: sans-serif;
-  font-size: 1.25rem;
-  font-style: none;
-  font-weight: bold;
-  height: 2.7rem;
   width: 16.8rem;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-bottom: none;
-  border-bottom-width: 0.1rem;
-  border-bottom-color: rgb(126, 126, 126);
-  margin: 2.6rem 0 0 -0.5rem;
-}
-
-select:hover {
-  color: white;
-  transition: 0.3s color ease-in-out;
 }
 
 option {
@@ -58,21 +31,6 @@ option {
 
 .search {
   display: flex;
-  width: 3%;
-  margin: 2.3rem 0 0;
-  padding-right: 4.5rem;
-}
-
-header .search input {
-  width: 100%;
-  height: 2.4rem;
-}
-
-.search-input {
-  background-color: #e2e2e2;
-  border-radius: 8px;
-  padding-left: 40px;
-  border: none;
 }
 
 .menu-lines {
@@ -248,11 +206,11 @@ header .search input {
 @media screen and (max-width: 1056px) {
 
   .mobile-container {
-      display: inline;
+    display: inline;
   }
 
   .desktop-header, .breadcrumb-box {
-      display: none;
+    display: none;
   }
 
   body {
@@ -289,10 +247,10 @@ header .search input {
 
 @media screen and (max-width: 770px) {
 
-    .tile {
-      width: 100%;
-    }
+  .tile {
+    width: 100%;
   }
+}
   
   /* begin mobile styles */
   

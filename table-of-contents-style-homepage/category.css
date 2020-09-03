@@ -112,21 +112,6 @@ input {
 
 .search {
   display: flex;
-  width: 3%;
-  margin: 2.3rem 0 0;
-  padding-right: 4.5rem;
-}
-
-header .search input {
-  width: 100%;
-  height: 2.4rem;
-}
-
-.search-input {
-  background-color: #e2e2e2;
-  border-radius: 8px;
-  padding-left: 40px;
-  border: none;
 }
 
 .nav-buttons {
@@ -243,11 +228,11 @@ header .search input {
 @media screen and (max-width: 1056px) {
 
   .mobile-container {
-      display: inline;
+    display: inline;
   }
 
   .desktop-header, .breadcrumb-box, .subcategory-checkboxes, .nav-buttons, .whats-available, .new-subcategory-search {
-      display: none;
+    display: none;
   }
 
   body {
@@ -276,8 +261,8 @@ header .search input {
   }
 
   .content-container {
-      display: flex;
-      flex-direction: column;
+    display: flex;
+    flex-direction: column;
   }
 
   #search {
@@ -292,15 +277,15 @@ header .search input {
 @media screen and (max-width: 770px) {
 
     .mobile-container {
-        display: inline;
+      display: inline;
     }
     
     header {
-        padding-top: 0;
+      padding-top: 0;
     }
     
     header .logo-title {
-        display: flex;
+      display: flex;
     }
   }
   
@@ -309,47 +294,46 @@ header .search input {
   @media screen and (max-width: 640px) {
   
     header {
-        height: 5rem;
+      height: 5rem;
     }
   
     img {
-        width: 42px;
-        height: 42px;
-        margin: 1.49rem 0 .4rem 1.35rem;
+      width: 42px;
+      height: 42px;
+      margin: 1.49rem 0 .4rem 1.35rem;
     }
   
     .little-help-book {
-        font-size: 1.2rem;
-        margin: 2.1rem 0 0 3.7rem;
+      font-size: 1.2rem;
+      margin: 2.1rem 0 0 3.7rem;
     }
 
     #search {
-        margin-right: 1.5rem;
+      margin-right: 1.5rem;
     }
 
     .search {
-        margin: 1.5rem 0 0;
-        right: 1.5rem;
+      margin: 1.5rem 0 0;
+      right: 1.5rem;
     }
 
     .left-column, .right-column {
-        margin-left: 2rem;
+      margin-left: 2rem;
     }
 
     .right-column {
-        margin-right: 1rem;
+      margin-right: 1rem;
     }
 
     .provider {
-        margin: 0.3rem 0.7rem 2.7rem 0;
+      margin: 0.3rem 0.7rem 2.7rem 0;
     }
 
     footer {
-        flex-direction: column;
-        align-items: center;
-        line-height: 2rem;
-        position: static;
-        width: auto;
+      flex-direction: column;
+      align-items: center;
+      line-height: 2rem;
+      position: static;
+      width: auto;
     }
-  
   }
