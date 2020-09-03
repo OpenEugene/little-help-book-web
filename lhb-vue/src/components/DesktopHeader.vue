@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  name: "desktop=header",
+  name: "desktop-header",
 };
 </script>
 
