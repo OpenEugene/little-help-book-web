@@ -355,16 +355,16 @@ main {
 @media screen and (max-width: 1056px) {
 
   .mobile-container {
-      display: inline;
+    display: inline;
   }
 
   .container {
-      display: none;
+    display: none;
   }
 
   .content-container {
-      display: flex;
-      flex-direction: column;
+    display: flex;
+    flex-direction: column;
   }
 
   header {
@@ -376,59 +376,59 @@ main {
   }
 
   header {
-      background-color: black;
-      height: 6.6rem;
-      overflow-x: hidden; 
-      margin: 0 -0.5rem;
-      overflow-y: hidden;
-      margin-top: -1rem;
+    background-color: black;
+    height: 6.6rem;
+    overflow-x: hidden; 
+    margin: 0 -0.5rem;
+    overflow-y: hidden;
+    margin-top: -1rem;
   }
 
   img {
-      position: absolute;
-      width: 66px;
-      height: 66px;
-      margin: 1.6rem 0 .4rem 1.75rem;
+    position: absolute;
+    width: 66px;
+    height: 66px;
+    margin: 1.6rem 0 .4rem 1.75rem;
   }
 
   .little-help-book {
-      position: absolute;
-      color: white;
-      font-size: 2.2rem;
-      font-weight: bold;
-      font-family: sans-serif;
-      margin: 2.4rem 0 0 5.8rem;
+    position: absolute;
+    color: white;
+    font-size: 2.2rem;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin: 2.4rem 0 0 5.8rem;
   }
 
   .people-care {
-      font-size: 5.2rem;
-      font-weight: bold;
-      margin: 5.5rem 0 0 3.5rem;
+    font-size: 5.2rem;
+    font-weight: bold;
+    margin: 5.5rem 0 0 3.5rem;
   }
 
   .find-help-in-lane {
-      font-size: 2.3rem;
-      font-weight: bold;
-      line-height: 3.3rem;
-      margin: 1.5rem 5rem 0 3.5rem;
+    font-size: 2.3rem;
+    font-weight: bold;
+    line-height: 3.3rem;
+    margin: 1.5rem 5rem 0 3.5rem;
   }
 
   .buttons {
-      display: flex;
-      flex-direction: column;
-      margin: 8.8rem 0 2rem 3.5rem;
+    display: flex;
+    flex-direction: column;
+    margin: 8.8rem 0 2rem 3.5rem;
   }
 
   .help-button, .spanish-button {
-      background-color: black;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      width: 13rem;
-      height: 7rem;
-      font-size: 2rem;
-      font-weight: bold;
-      margin-right: 2.5rem;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    width: 13rem;
+    height: 7rem;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-right: 2.5rem;
   }
 
   .help-button:hover {
@@ -446,18 +446,18 @@ main {
 }
 
   footer {
-      font-family: sans-serif;
-      font-size: 1.45rem;
-      font-weight: lighter;
-      line-height: 1.7rem;
-      margin: 3rem 0 2rem 3.5rem;
-      padding-bottom: 2rem;
+    font-family: sans-serif;
+    font-size: 1.45rem;
+    font-weight: lighter;
+    line-height: 1.7rem;
+    margin: 3rem 0 2rem 3.5rem;
+    padding-bottom: 2rem;
   }
 
   footer .bold-inline {
-      display: inline;
-      font-size: 1.45rem;
-      font-weight: bold;
+    display: inline;
+    font-size: 1.45rem;
+    font-weight: bold;
   }
 }
 
@@ -466,19 +466,19 @@ main {
 @media screen and (max-width: 770px) {
 
   .mobile-container {
-      display: inline;
+    display: inline;
   }
 
   .container {
-      display: none;
+    display: none;
   }
 
   header {
-      padding-top: 0;
+    padding-top: 0;
   }
 
   header .logo-title {
-      display: flex;
+    display: flex;
   }
 }
 
@@ -487,57 +487,57 @@ main {
 @media screen and (max-width: 640px) {
 
   header {
-      height: 5rem;
+    height: 5rem;
   }
 
   img {
-      width: 42px;
-      height: 42px;
-      margin: 1.49rem 0 .4rem 1.35rem;
+    width: 42px;
+    height: 42px;
+    margin: 1.49rem 0 .4rem 1.35rem;
   }
 
   .little-help-book {
-      font-size: 1.2rem;
-      margin: 2.1rem 0 0 3.7rem;
+    font-size: 1.2rem;
+    margin: 2.1rem 0 0 3.7rem;
   }
 
   .people-care {
-      font-size: 2.4rem;
-      margin: 3.5rem 0 0 2rem;
+    font-size: 2.4rem;
+    margin: 3.5rem 0 0 2rem;
   }
 
   .find-help-in-lane {
-      font-size: 1.125rem;
-      line-height: 1.7rem;
-      margin: 1rem 0.5rem 0 2rem;
+    font-size: 1.125rem;
+    line-height: 1.7rem;
+    margin: 1rem 0.5rem 0 2rem;
   }
 
   .buttons {
-      position: absolute;
-      bottom: 18.6%;
-      margin: 7.2rem 0 0 2rem;
+    position: absolute;
+    bottom: 18.6%;
+    margin: 7.2rem 0 0 2rem;
   }
 
   .help-button, .spanish-button {
-      width: 10rem;
-      height: 5rem;
-      font-size: 1.5rem;
+    width: 10rem;
+    height: 5rem;
+    font-size: 1.5rem;
   }
 
   .spanish-button {
-      margin-top: 1.8rem;
+    margin-top: 1.8rem;
   }
 
   footer {
-      position: absolute;
-      bottom: 1%;
-      font-size: 1.2rem;
-      width: 20rem;
-      margin: 3rem 0 0 2rem;
+    position: absolute;
+    bottom: 1%;
+    font-size: 1.2rem;
+    width: 20rem;
+    margin: 3rem 0 0 2rem;
   }
 
   footer .bold-inline {
-      font-size: 1.2rem;
+    font-size: 1.2rem;
   }
 }
 
