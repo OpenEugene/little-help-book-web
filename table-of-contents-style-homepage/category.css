@@ -272,68 +272,36 @@ input {
   }
 }
 
-/* begin tablet styles */
-
-@media screen and (max-width: 770px) {
-
-    .mobile-container {
-      display: inline;
-    }
-    
-    header {
-      padding-top: 0;
-    }
-    
-    header .logo-title {
-      display: flex;
-    }
-  }
-  
   /* begin mobile styles */
   
-  @media screen and (max-width: 640px) {
-  
-    header {
-      height: 5rem;
-    }
-  
-    img {
-      width: 42px;
-      height: 42px;
-      margin: 1.49rem 0 .4rem 1.35rem;
-    }
-  
-    .little-help-book {
-      font-size: 1.2rem;
-      margin: 2.1rem 0 0 3.7rem;
-    }
+@media screen and (max-width: 640px) {
 
-    #search {
-      margin-right: 1.5rem;
-    }
-
-    .search {
-      margin: 1.5rem 0 0;
-      right: 1.5rem;
-    }
-
-    .left-column, .right-column {
-      margin-left: 2rem;
-    }
-
-    .right-column {
-      margin-right: 1rem;
-    }
-
-    .provider {
-      margin: 0.3rem 0.7rem 2.7rem 0;
-    }
-
-    footer {
-      flex-direction: column;
-      align-items: center;
-      line-height: 2rem;
-      position: static;
-      width: auto;
-    }
+  #search {
+    margin-right: 1.5rem;
   }
+
+  .search {
+    margin: 1.5rem 0 0;
+    right: 1.5rem;
+  }
+
+  .left-column, .right-column {
+    margin-left: 2rem;
+  }
+
+  .right-column {
+    margin-right: 1rem;
+  }
+
+  .provider {
+    margin: 0.3rem 0.7rem 2.7rem 0;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: center;
+    line-height: 2rem;
+    position: static;
+    width: auto;
+  }
+}
