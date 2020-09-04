@@ -36,17 +36,18 @@ $(document).ready(function() {
 
         catSubcatTable = await dalGetCatSubcatTable();
         categoryTree = tocMakeCategoryTree(categoryTable, catSubcatTable, selectedCity);
-        console.log(categoryTree);
 
         /*
         Save the hard-coded stuff to prepend later
         */
         savedHtml = $('#table-of-contents').html();
-        updateDomToc(categoryTree, savedHtml);
+        // updateDomToc(categoryTree, savedHtml);
+        updateDomToc();
     })()
 });
 
-function updateDomToc(categoryTree, savedHtml) {
+// function updateDomToc(categoryTree, savedHtml) {
+function updateDomToc() {
     // Grab the template script
     let theTemplateScript = $("#table-of-contents-template").html();
     // Compile the template
