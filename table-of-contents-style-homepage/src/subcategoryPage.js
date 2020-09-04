@@ -22,7 +22,7 @@ $(document).ready(function() {
         subcatTable = await dalGetSubcategoryTable();
         subcatTable.splice(0, 0, {id: "NA", name: "All"});
         placeTable = await dalGetPlaceTable();
-        nbc = new NavBreadcrumb(cityTable, categoryTable, subcatTable, placeTable);
+        nbc = new NavBreadcrumb(cityTable, categoryTable, subcatTable, placeTable, mymap);
 
         /*
         Generate and place option element HTML to place into each appropriate
@@ -86,7 +86,7 @@ function citySelectEvent() {
     nbc.placeOptionElements(subcatboxId, nbc.generateOptionElements(nbc.availableSubcats));
     placeServiceTiles("provider-tiles", generateServiceTiles(nbc.availablePlaces));
     if (nbc.mymap != null) {
-        setView(nbc.viewCoordinates, 5);
+        setMarkers(nbc.availablePlaces);
     }
 }
 function categorySelectEvent() {
