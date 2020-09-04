@@ -87,6 +87,7 @@ function citySelectEvent() {
     placeServiceTiles("provider-tiles", generateServiceTiles(nbc.availablePlaces));
     if (nbc.mymap != null) {
         setMarkers(nbc.availablePlaces);
+        setView(nbc.viewCoordinates, 10);
     }
 }
 function categorySelectEvent() {
