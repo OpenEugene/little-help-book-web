@@ -9,20 +9,20 @@ function mapInit() {
 }
 
 function setMarkers(placesArray) {
+	removeMarkers();
 	for (let i = 0; i < placesArray.length; i++) {
 		createMarker(placesArray[i]);
 	}
-	removeMarkers();
-	for (let i = 0; i < placesArray.length; i++) {
-		mymap.addLayer(markers[i]);
+	for (let i = 0; i < markers.length; i++) {
+		markers[i].addTo(mymap).bindPopup(generatePopUpHtml(placesArray[i]));
 	}
 }
 
 function createMarker(placeInfo) {
-	if (placeInfo.latitude != 0 || placeInfo.longitude != 0) {
-		let marker = new L.marker([placeInfo.latitude,placeInfo.longitude], {draggable: false})
-		marker.bindPopUp(generatePopUpHtml(placeInfo));
-		marker.on('click', () => {this.openPopUp();})
+	let la = placeInfo.latitude;
+	let lo = placeInfo.longitude;
+	if (la != 0 && la != null && lo != 0 && lo != null) {
+		let marker = L.marker([placeInfo.latitude,placeInfo.longitude], {draggable: false})
 		markers.push(marker);
 	}
 }
