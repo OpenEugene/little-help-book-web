@@ -1,11 +1,12 @@
-var cityTable;
-var categoryTable;
-var subcatTable;
-var placeTable;
-var nbc;
-var categoryTree;
-var catSubcatTable;
-var savedHtml;
+let cityTable;
+let categoryTable;
+let subcatTable;
+let placeTable;
+let nbc;
+let categoryTree;
+let catSubcatTable;
+let savedHtml;
+let selectedCity;
 "use strict"
 $(document).ready(function() {
   // await has to be inside async function, anonymous in this case
@@ -16,6 +17,8 @@ $(document).ready(function() {
         represent an option to not filter on that item.
         */
         cityTable = await dalGetCityTable();
+        selectedCity = cityTable[0].id;
+        // selectedCity = "";
         cityTable.splice(0, 0, {id: "NA", name: "Find my City"})
 
         categoryTable = await dalGetCategoryTable();
@@ -32,7 +35,8 @@ $(document).ready(function() {
         // nbc.assignCitySelectEvent(cityboxId, citySelectEvent);
 
         catSubcatTable = await dalGetCatSubcatTable();
-        categoryTree = tocMakeCategoryTree(categoryTable, catSubcatTable);
+        categoryTree = tocMakeCategoryTree(categoryTable, catSubcatTable, selectedCity);
+        console.log(categoryTree);
 
         /*
         Save the hard-coded stuff to prepend later

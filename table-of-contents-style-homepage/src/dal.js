@@ -56,6 +56,7 @@ async function dalGetSubcategoryTable() {
   let subcategoryTable = subcategoryTableRaw.map(function(record) {
     return {
       'id' : record.id,
+      'categoryId' : record.get('Catagory'),
       'name' : record.get('Name'),
       'nameSpanish' : record.get('Name-ES'),
     };
