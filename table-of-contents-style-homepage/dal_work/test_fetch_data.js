@@ -15,10 +15,10 @@ $(document).ready(function() {
 
 function initDomAll(categoryTree) {
   let html = categoryTree.reduce(function (accum, record) {
-    accum += `<h3>${record.name} ${record.nameSpanish}, ${record.order}, ${record.subcategories.length}</h3>`;
+    accum += `<h3>${record.name} ${record.nameSpanish}, ${record.subcategories.length}</h3>`;
     accum += record.subcategories.reduce(function(accum, record) {
       if (record.places.length > 0) {
-        accum += `<p><b>${record.name} - ${record.nameSpanish}, ${record.order}, ${record.places.length}</b></p>`;
+        accum += `<p><b>${record.name} - ${record.nameSpanish}, ${record.places.length}</b></p>`;
         accum += record.places.reduce(function(accum, record) {
           return accum + `${record.name}<br>`;
         }, '');
