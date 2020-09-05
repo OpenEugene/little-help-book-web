@@ -44,8 +44,10 @@ $(document).ready(function() {
         nbc.assignSubcatSelectEvent(subcatboxId, subcatSelectEvent);
 
         catSubcatTable = await dalGetCatSubcatTable();
-        categoryTree = tocMakeCategoryTreeAll(categoryTable, catSubcatTable, placeTable);
-        updateDomCat();
+        categoryTree = await dalGetCategoryTable();
+        categoryTree = tocMakeCategoryTreeAll(categoryTree, catSubcatTable, placeTable);
+        updateDom();
+        console.log(categoryTable)
     })()
 });
 
@@ -80,7 +82,7 @@ function citySelectEvent() {
 
     const categoryTree = tocMakeCategoryTreeAll(categoryTable, catSubcatTable, placeTable);
 
-    updateDOM();
+    updateDom();
     if (nbc.mymap != null) {
         setMarkers(nbc.availablePlaces);
     }
@@ -91,13 +93,14 @@ function categorySelectEvent() {
     // Reset the subcat selection back to all when category is changed.
     nbc.focused.subcat = "NA";
     nbc.availableSubcats = nbc.filterSubcatOptions();
+    console.log(nbc.availableSubcats);
     /*
     This function chain checks for a selected city, category and subcategory.
     It then will filter the list of places on the selected items.
     */
     nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
     nbc.placeOptionElements(subcatboxId, nbc.generateOptionElements(nbc.availableSubcats));
-    updateDOM();
+    updateDom();
     if (nbc.mymap != null) {
         setMarkers(nbc.availablePlaces);
     }
@@ -111,26 +114,20 @@ function subcatSelectEvent() {
     */
     nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
     document.getElementsByClassName("category-page-name")[0].innerHTML = nbc.subcats.find(x => x.id === this.value).name;
-    updateDOMCat();
+    updateDom();
     if (nbc.mymap != null) {
         setMarkers(nbc.availablePlaces);
     }
 }
 
-function updateDomCat() {
-    console.log('updateDomCat')
-    console.log(selectedCategory)
-    console.log(categoryTree);
+function updateDom() {
     let categoryBranch = categoryTree.find(category => category.id == selectedCategory);
-    console.log(categoryBranch);
     // Grab the template script
     let theTemplateScript = $("#provider-list-template").html();
-    console.log(theTemplateScript);
     // Compile the template
     let theTemplate = Handlebars.compile(theTemplateScript);
     // Pass our data to the template
     let compiledHtml = theTemplate({subcategories : categoryBranch.subcategories});
-    console.log(compiledHtml);
     // Add the compiled html to the page
     $('#provider-list').empty().append(compiledHtml);
 }
