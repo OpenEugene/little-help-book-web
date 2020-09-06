@@ -6,8 +6,7 @@ var categoryTable;
 var subcatTable;
 var placeTable;
 var nbc;
-let categoryTree;
-let selectedCategory;
+// let categoryTree;
 "use strict"
 $(document).ready(function() {
   // await has to be inside async function, anonymous in this case
@@ -21,8 +20,6 @@ $(document).ready(function() {
         categoryTable = await dalGetCategoryTable();
         subcatTable = await dalGetSubcategoryTable();
         placeTable = await dalGetPlaceTable();
-
-        selectedCategory = categoryTable[0].id;
 
         cityTable.splice(0, 0, {id: "NA", name: "All"})
         categoryTable.splice(0, 0, {id: "NA", name: "All"});
@@ -44,27 +41,25 @@ $(document).ready(function() {
         nbc.assignSubcatSelectEvent(subcatboxId, subcatSelectEvent);
 
         catSubcatTable = await dalGetCatSubcatTable();
-        categoryTree = await dalGetCategoryTable();
-        categoryTree = tocMakeCategoryTreeAll(categoryTree, catSubcatTable, placeTable);
-        updateDom();
-        console.log(categoryTable)
+
+        let urlParams = new URLSearchParams(window.location.search);
+        cityValue = (urlParams.has('city') ? urlParams.get('city') : 'NA')
+        categoryValue = (urlParams.has('category') ? urlParams.get('category') : 'NA')
+        document.getElementById(cityboxId).value = cityValue;
+        citySelectEvent();
+        document.getElementById(catboxId).value = categoryValue;
+        categorySelectEvent();
+
+        // updateDom();
     })()
 });
-
-// functions used to generate the service tiles using the data.
-// These functions were moved from generateServiceTile.js
-function generateServiceTiles(objArray) {
-    let objString = "";
-    for (let i = 0; i < objArray.length; i++) {
-        objString += generateServiceTile(objArray[i]);
-    }
-    return objString;
-}
 
 // Create the appropriate event handlers for the select elements.
 function citySelectEvent() {
     // find the city by id, and set the focused city to it.
-    nbc.focused.city = nbc.cities.find(x => x.id === this.value).id;
+    // nbc.focused.city = nbc.cities.find(x => x.id === this.value).id;
+    nbc.focused.city = nbc.cities.find(x => x.id === document.getElementById(cityboxId).value).id;
+
     // Reset the category selection back to "Select Category" when new city is selected.
     nbc.focused.category = "NA";
     // Reset the subcat selection back to all when city is changed.
@@ -79,21 +74,16 @@ function citySelectEvent() {
     nbc.placeOptionElements(catboxId, nbc.generateOptionElements(nbc.availableCategories));
     nbc.availableSubcats = nbc.filterSubcatOptions();
     nbc.placeOptionElements(subcatboxId, nbc.generateOptionElements(nbc.availableSubcats));
-
-    const categoryTree = tocMakeCategoryTreeAll(categoryTable, catSubcatTable, placeTable);
-
     updateDom();
-    if (nbc.mymap != null) {
-        setMarkers(nbc.availablePlaces);
-    }
 }
+
 function categorySelectEvent() {
     // find the category by id, and set the focused category to it.
-    nbc.focused.category = nbc.categories.find(x => x.id === this.value).id;
+    // nbc.focused.category = nbc.categories.find(x => x.id === this.value).id;
+    nbc.focused.category = nbc.categories.find(x => x.id === document.getElementById(catboxId).value).id;
     // Reset the subcat selection back to all when category is changed.
     nbc.focused.subcat = "NA";
     nbc.availableSubcats = nbc.filterSubcatOptions();
-    console.log(nbc.availableSubcats);
     /*
     This function chain checks for a selected city, category and subcategory.
     It then will filter the list of places on the selected items.
@@ -101,9 +91,6 @@ function categorySelectEvent() {
     nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
     nbc.placeOptionElements(subcatboxId, nbc.generateOptionElements(nbc.availableSubcats));
     updateDom();
-    if (nbc.mymap != null) {
-        setMarkers(nbc.availablePlaces);
-    }
 }
 function subcatSelectEvent() {
     //find the subcategory by id, and set the focused subcatgory to it.
@@ -115,19 +102,66 @@ function subcatSelectEvent() {
     nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
     document.getElementsByClassName("category-page-name")[0].innerHTML = nbc.subcats.find(x => x.id === this.value).name;
     updateDom();
-    if (nbc.mymap != null) {
-        setMarkers(nbc.availablePlaces);
-    }
 }
 
 function updateDom() {
-    let categoryBranch = categoryTree.find(category => category.id == selectedCategory);
+    let availableCatSubcatIds = [];
+    let catSubcatPlaces = []
+    nbc.availablePlaces.forEach(record => {
+        record.catSubcatId.forEach(id => {
+            if (!availableCatSubcatIds.includes(id)) {
+                availableCatSubcatIds.push(id);
+                catSubcatPlaces.push([record]);
+            } else {
+                let index = availableCatSubcatIds.findIndex(value => value == id);
+                catSubcatPlaces[index].push(record);
+            }
+        })
+    });
+    let availableCatSubcats = [];
+    catSubcatTable.forEach(record => {
+        let proceed = true;
+        if (nbc.focused.category != 'NA') {
+            proceed = false;
+            if (record.categoryId == nbc.focused.category) {
+                proceed = true;
+            }
+            if (proceed) {
+                if (nbc.focused.subcat != 'NA') {
+                    proceed = false;
+                    if (record.subcategoryId == nbc.focused.subcat) {
+                        proceed = true;
+                    }
+                }
+            }
+        } else {
+            // This else clause is for the case where category is set to "All", and subcategory isn't, i.e. 
+            // is set to something specific. 
+            if (nbc.focused.subcat != 'NA') {
+                proceed = false;
+                if (record.subcategoryId == nbc.focused.subcat) {
+                    proceed = true;
+                }
+            }
+        }
+        if (proceed) {
+            if (availableCatSubcatIds.includes(record.catSubcatId)) {
+                let index = availableCatSubcatIds.findIndex(value => value == record.catSubcatId);
+                record.places = catSubcatPlaces[index];
+                availableCatSubcats.push(record);
+            }
+        }
+    });
+    let categoryData =  {subcategories : availableCatSubcats};
+    if (nbc.mymap != null) {
+        setMarkers(nbc.availablePlaces);
+    }
     // Grab the template script
     let theTemplateScript = $("#provider-list-template").html();
     // Compile the template
     let theTemplate = Handlebars.compile(theTemplateScript);
     // Pass our data to the template
-    let compiledHtml = theTemplate({subcategories : categoryBranch.subcategories});
+    let compiledHtml = theTemplate({subcategories : categoryData.subcategories});
     // Add the compiled html to the page
     $('#provider-list').empty().append(compiledHtml);
 }

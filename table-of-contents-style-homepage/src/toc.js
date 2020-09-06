@@ -22,14 +22,16 @@ function tocMakeCategoryTree(categoryTable, catSubcatTable, selectedCity) {
   //
   // console.log('tocMergeTables BEGIN');
   // Initialize a no-subcategory subcategory bucket for places with no subcategories at index 0.
+  let categoryTree = [];
   categoryTable.forEach(function(record) {
     let noneSubcategoryRecord;
     noneSubcategoryRecord = {'catSubcatId' : undefined, 'catSubcatName' : undefined, 'categoryId' : record.id, 'subcategoryId' : undefined, 'name' : 'No subcategories', 'nameSpanish' : 'No hay subcategorias', 'places' : [], 'selectedCity' : selectedCity};
     record.selectedCity = selectedCity;
     record.subcategories = [];
     record.subcategories.push(noneSubcategoryRecord);
+    categoryTree.push(record);
   });
-  let categoryTree = categoryTable;
+  // let categoryTree = categoryTable;
   //
   // SUBCATEGORIES
   //
