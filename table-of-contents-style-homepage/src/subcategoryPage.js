@@ -36,6 +36,26 @@ $(document).ready(function() {
         nbc.assignCitySelectEvent(cityboxId, citySelectEvent);
         nbc.assignCategorySelectEvent(catboxId, categorySelectEvent);
         nbc.assignSubcatSelectEvent(subcatboxId, subcatSelectEvent);
+
+        /*
+        Look at the URL search parameters. If they exist, pull them in and use
+        them to inform the initial data on the page.
+        */
+        let urlParams = new URLSearchParams(window.location.search);
+        let cityValue = (urlParams.has('city') ? urlParams.get('city') : 'NA');
+        let catValue = (urlParams.has('category') ? urlParams.get('category') : 'NA');
+        let subcatValue = (urlParams.has('subcategory') ? urlParams.get('subcategory') : 'NA');
+        document.getElementById(cityboxId).value = cityValue;
+        nbc.filterCategoryOptions();
+        document.getElementById(catboxId).value = catValue;
+        nbc.filterSubcatOptions();
+        document.getElementById(subcatboxId).value = subcatValue;
+        nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
+        document.getElementsByClassName("category-page-name")[0].innerHTML = nbc.subcats.find(x => x.id === subcatValue).name;
+        placeServiceTiles("provider-tiles", generateServiceTiles(nbc.availablePlaces));
+        if (nbc.mymap != null) {
+            setMarkers(nbc.availablePlaces);
+        }
     })()
 });
 
