@@ -44,9 +44,9 @@ function createMarker(placeInfo) {
 }
 
 function generatePopUpHtml(placeInfo) {
-	return `<h3>${placeInfo.name}</h3><br />
-			<p>${(placeInfo.phone != null) ? placeInfo.phone : "No phone number provided"}</p><br />
-			<p>${(placeInfo.address != null) ? placeInfo.address : "No address provided"}</p><br />
+	return `<h3>${placeInfo.name}</h3>
+			<p>${(placeInfo.phone != null) ? placeInfo.phone : "No phone number provided"}</p>
+			<p>${(placeInfo.address != null) ? placeInfo.address : "No address provided"}</p>
 			<p>${(placeInfo.hours != null) ? "Hours: " + placeInfo.hours : "No hours provided"}</p>`
 }
 

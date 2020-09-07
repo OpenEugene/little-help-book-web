@@ -127,7 +127,7 @@ function categorySelectEvent() {
     }
 }
 function subcatSelectEvent() {
-    //find the subcategory by id, and set the focused subcatgory to it.
+    //find the subcategory by id, and set the focused subcategory to it.
     nbc.focused.subcat = nbc.subcats.find(x => x.id === this.value).id;
     /*
     This function chain checks for a selected city, category and subcategory.
