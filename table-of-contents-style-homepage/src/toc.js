@@ -1,74 +1,61 @@
 "use strict"
-function tocMakeCategoryTreeAll(categoryTable, catSubcatTable, placeTable) {
-  let categoryTree = tocMakeCategoryTree(categoryTable, catSubcatTable);
+function tocMakeCategoryTreeAll(categoryTable, catSubcatTable, placeTable, selectedCity) {
+  let categoryTree = tocMakeCategoryTree(categoryTable, catSubcatTable, selectedCity);
   //
   // PROVIDERS
   //
-  // console.log('*** Processing places');
-  // Fold into the Category table
-  placeTable.forEach(function(record) {
-    let categoryId = record.category;
-    if (categoryId) {
-      let categoryIndex = categoryTree.findIndex(category => category.id == categoryId);
-      if (categoryIndex >= 0) {
-        let subcategoryId = record.subcategory;
-        if (subcategoryId) {
-          let subcategoryIndex = categoryTree[categoryIndex].subcategories.findIndex(subcategory => subcategory.subcategoryId == subcategoryId);
-          if (subcategoryIndex >= 0) {
-            categoryTree[categoryIndex].subcategories[subcategoryIndex].places.push(record);
-          } else {
-            console.log('no subcategory index', record.name, subcategoryId, "THIS SHOULDN'T OCCUR");
-          }
-        } else {
-          // console.log('no subcategory id', record.name);
-          let subcategoryIndex = 0;
-          categoryTree[categoryIndex].subcategories[subcategoryIndex].places.push(record);
-        }
-      } else {
-        console.log('no category index', record.name, "THIS SHOULDN'T OCCUR");
+  categoryTree.forEach(function(catRecord) {
+    catRecord.subcategories.forEach(function(subcatRecord) {
+      // The only records that shouldn't pass this condition are the no-subcategory buckets that are empty.
+      if (subcatRecord.catSubcatId) {
+        let placesFiltered = placeTable.filter(placeRecord => placeRecord.catSubcatId.includes(subcatRecord.catSubcatId));
+        subcatRecord.places = placesFiltered;
       }
-    } else {
-      console.log('no category id', record.name, "THIS SHOULDN'T OCCUR");
-    }
+    });
   });
-
   return categoryTree;
 }
 
-function tocMakeCategoryTree(categoryTable, catSubcatTable) {
+function tocMakeCategoryTree(categoryTable, catSubcatTable, selectedCity) {
   //
   // CATEGORIES
   //
   // console.log('tocMergeTables BEGIN');
   // Initialize a no-subcategory subcategory bucket for places with no subcategories at index 0.
+  let categoryTree = [];
   categoryTable.forEach(function(record) {
     let noneSubcategoryRecord;
-    noneSubcategoryRecord = {'categoryId' : record.id, 'subcategoryId' : undefined, 'name' : 'No subcategories', 'nameSpanish' : 'No hay subcategorias', 'order' : 0, 'places' : []};
+    noneSubcategoryRecord = {'catSubcatId' : undefined, 'catSubcatName' : undefined, 'categoryId' : record.id, 'subcategoryId' : undefined, 'name' : 'No subcategories', 'nameSpanish' : 'No hay subcategorias', 'places' : [], 'selectedCity' : selectedCity};
+    record.selectedCity = selectedCity;
     record.subcategories = [];
     record.subcategories.push(noneSubcategoryRecord);
+    categoryTree.push(record);
   });
-  let categoryTree = categoryTable;
+  // let categoryTree = categoryTable;
   //
   // SUBCATEGORIES
   //
   // console.log('*** Processing subcategories');
   // Fold into the Category table
-  catSubcatTable.sort((a, b) => (a.order - b.order));
   catSubcatTable.forEach(function(record) {
     let categoryId = record.categoryId;
     if (categoryId) {
+      let categoryIndex = categoryTree.findIndex(category => category.id == categoryId);
+
       let subcategoryId = record.subcategoryId;
       if (subcategoryId) {
-        let categoryIndex = categoryTree.findIndex(category => category.id == categoryId);
+        record.selectedCity = selectedCity;
         categoryTree[categoryIndex].subcategories.push(record);
-      } else {
-        categoryTree[0].subcategories.catSubcatId = record.catSubcatId;
-        categoryTree[0].subcategories.catSubcatName = record.catSubcatName;
+      }
+      else {
+        categoryTree[categoryIndex].subcategories[0].catSubcatId = record.catSubcatId;
+        categoryTree[categoryIndex].subcategories[0].catSubcatName = record.catSubcatName;
       }
     } else {
       console.log('no category id', record.Name, "THIS SHOULDN'T OCCUR");
     }
   });
   // console.log('tocMergeTables END');
+  // console.log(categoryTree)
   return categoryTree;
 }

@@ -83,12 +83,12 @@
         <!-- Handlebars template -->
         <script id="table-of-contents-template" type="text/x-handlebars-template">
         {{#categories}}
-            <h2 class="category-name h123-reset"><a href="#">{{name}}</a></h2>
+            <h2 class="category-name h123-reset"><a href="category.html?category={{id}}{{#if selectedCity}}&city={{selectedCity}}{{/if}}">{{name}}</a></h2>
             <div class="subcategory">
                 <ul>
                     {{#subcategories}}
                     {{#if subcategoryId}}
-                        <li>{{name}}</li>
+                        <li><a href="subcategory.html?category={{categoryId}}&subcategory={{subcategoryId}}{{#if selectedCity}}&city={{selectedCity}}{{/if}}">{{name}}</a></li>
                     {{/if}}
                     {{/subcategories}}
                 </ul>

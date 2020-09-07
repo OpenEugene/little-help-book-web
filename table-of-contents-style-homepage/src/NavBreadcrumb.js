@@ -19,6 +19,11 @@ class NavBreadcrumb {
 		this.mymap = mymap;
 	}
 
+	// This is a shortcut to evaluate if a value is null, zero or an empty array.
+	isNullOrZero(item) {
+		return item == 0 || item == null || item == [];
+	}
+
 	/*
 	This will provide a coordinate set for the setView method when we want to 
 	set the view of the map.
@@ -27,13 +32,14 @@ class NavBreadcrumb {
 	central point between all locations on the map.
 	*/
 	get viewCoordinates() {
-		if (this.availablePlaces != null || this.availablePlaces != []) {
+		let ap = this.availablePlaces;
+		if (!this.isNullOrZero(ap)) {
 			let x = () => {
-				let lx = this.availablePlaces.filter(x => x.latitude != 0).map(p => p.latitude);
+				let lx = ap.map(p => p.latitude).filter(x => x != null && x != 0);
 				return (Math.min(...lx) + Math.max(...lx)) / 2;
 			}
 			let y = () => {
-				let ly = this.availablePlaces.filter(x => x.longitude != 0).map(p => p.longitude);
+				let ly = ap.map(p => p.longitude).filter(x => x != null && x != 0);
 				return (Math.min(...ly) + Math.max(...ly)) / 2;
 			}
 			return [x(), y()];
@@ -63,8 +69,9 @@ class NavBreadcrumb {
 	// pass in an array of places, and returns a filtered version based on
 	// what's stored in this.focused.city
 	filterOnCity(dataset) {
-		return (this.focused.city != "NA" && this.focused.city != null && this.focused.city != "") ?
-			dataset.filter(x => { return (x.city != null) ? x.city.includes(this.focused.city) : true; })
+		let fc = this.focused.city;
+		return (fc != "NA" && !this.isNullOrZero(fc)) ?
+			dataset.filter(x => { return (x.city != null) ? x.city.includes(fc) : true; })
 				.sort((a, b) => {
 					if (a.city != null && b.city == null) {
 						return -1;
@@ -79,27 +86,31 @@ class NavBreadcrumb {
 	// pass in an array of places, and returns a filtered version based on
 	// what's stored in this.focused.category
 	filterOnCategory(dataset) {
-		return (this.focused.category != "NA" && this.focused.category != null && this.focused.city != "") ? 
-			dataset.filter(x => (x.category != null) ? x.category.includes(this.focused.category) : false) : dataset;
+		let fc = this.focused.category;
+		return (fc != "NA" && !this.isNullOrZero(fc)) ? 
+			dataset.filter(x => (x.category != null) ? x.category.includes(fc) : false) : dataset;
 	}
 
 	// pass in an array of places, and returns a filtered version based on
 	// what's stored in this.focused.subcat
 	filterOnSubcat(dataset) {
-		return (this.focused.subcat != "NA" && this.focused.subcat != null && this.focused.subcat != "") ? 
-			dataset.filter(x => { return (x.subcategory != null) ? x.subcategory.includes(this.focused.subcat) : false; }) : dataset;
+		let fsc = this.focused.subcat;
+		return (fsc != "NA" && !this.isNullOrZero(fsc)) ? 
+			dataset.filter(x => { return (x.subcategory != null) ? x.subcategory.includes(fsc) : false; }) : dataset;
 	}
 
 	// This will filter out the subcategories that aren't part of the parent
 	// category stored in this.focused.category
 	filterSubcatOptions() {
-		return (this.focused.category != "NA" && this.focused.category != null && this.focused.category != "") ?
-			this.subcats.filter(x => { return (this.categories.find(c => c.id === this.focused.category).subcategories != null) ? 
-				x.id === "all" || x.id === "NA" || this.categories.find(c => c.id === this.focused.category).subcategories.includes(x.id) : false }) : this.subcats;
+		let fc = this.focused.category
+		return (fc != "NA" && !this.isNullOrZero(fc)) ?
+			this.subcats.filter(x => { return (this.categories.find(c => c.id === fc).subcategories != null) ? 
+				x.id === "NA" || this.categories.find(c => c.id === fc).subcategories.includes(x.id) : false }) : this.subcats;
 	}
 
 	filterCategoryOptions() {
-		return (this.focused.city != "NA" && this.focused.city != null && this.focused.city != "") ?
+		let fc = this.focused.city;
+		return (fc != "NA" && !this.isNullOrZero(fc)) ?
 			this.categories.filter(x => x.id === "NA" || this.availablePlaces.map(x => x.category).filter(x => x != null)
 				.reduce((accumulator, currentValue) => accumulator.concat(currentValue))
 					.filter((value, index, self) => self.indexOf(value) === index).includes(x.id)) : this.categories;

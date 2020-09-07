@@ -16,6 +16,7 @@ async function dalGetPlaceTable() {
       'id' : record.id,
       'name' : record.get('Name'),
       'nameSpanish' : record.get('Name-ES'),
+      'catSubcatId' : record.get('CatSubcat'),
       'city' : record.get('City'),
       'category' : record.get('Category'),
       'subcategory' : record.get('Subcategory'),
@@ -56,6 +57,7 @@ async function dalGetSubcategoryTable() {
   let subcategoryTable = subcategoryTableRaw.map(function(record) {
     return {
       'id' : record.id,
+      'categoryId' : record.get('Catagory'),
       'name' : record.get('Name'),
       'nameSpanish' : record.get('Name-ES'),
     };
@@ -83,7 +85,7 @@ async function dalGetCatSubcatTable() {
     let subcategoryNameSpanish;
     if (subcategoryId) {
       subcategoryId = subcategoryId[0];
-      subcategoryName = record.get('SubcategoryString');
+      subcategoryName = record.get('SubcategoryString')[0];
       subcategoryNameSpanish = record.get('Subcategory-ES')[0];
     } else {
       subcategoryName = 'No subcategories';

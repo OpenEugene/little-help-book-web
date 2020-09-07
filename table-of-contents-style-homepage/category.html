@@ -24,7 +24,10 @@
     <link rel="stylesheet" type="text/css" href="category.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="category.js"></script>
-</head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+    <script rel="text/javascript" src="src/airtable.browser.js"></script>
+    <script rel="text/javascript" src="src/dal.js"></script>
+</head >
 <body>
     <div>
         <header class="desktop-header">
@@ -33,59 +36,11 @@
             <h1 class="little-help-book">Little Help Book</h1> </a>
         </div>
         <div class="breadcrumb-box">
-            <select class="breadcrumb city">
-                <option value="">Eugene / Springfield</option>
-                <option value="">Blachly</option>
-                <option value="">Coburg</option>
-                <option value="">Cottage Grove</option>
-                <option value="">Creswell</option>
-                <option value="">Dexter</option>
-                <option value="">Dorena</option>
-                <option value="">Florence</option>
-                <option value="">Junction City / Cheshire</option>
-                <option value="">Lowell</option>
-                <option value="">Mapleton</option>
-                <option value="">Oakridge</option>
-                <option value="">Veneta</option>
-                <option value="">Walterville</option>
+            <select class="breadcrumb city" id="citySelect">
             </select>
-            <select class="breadcrumb category">
-                <option value="">Basic Needs</option>
-                <option value="">Care</option>
-                <option value="">Education</option>
-                <option value="">Food</option>
-                <option value="">Health</option>
-                <option value="">Housing</option>
-                <option value="">Information</option>
-                <option value="">Jewish Interests</option>
-                <option value="">Lation / Latinx</option>
-                <option value="">Legal</option>
-                <option value="">LGBTQIA</option>
-                <option value="">Money</option>
-                <option value="">Post-Incarceration</option>
-                <option value="">Seniors</option>
-                <option value="">Transportation</option>
-                <option value="">Veterans</option>
-                <option value="">Work</option>
-                <option value="">Youth</option>
+            <select class="breadcrumb category" id="catSelect">
             </select>
-            <select class="breadcrumb subcategory">
-                <option value="">All</option>
-                <option value="">Bathrooms</option>
-                <option value="">Bedding</option>
-                <option value="">Clothing</option>
-                <option value="">Day Shelters</option>
-                <option value="">Day Storage</option>
-                <option value="">Haircuts</option>
-                <option value="">Household Goods</option>
-                <option value="">Hygiene Items</option>
-                <option value="">iD / Birth Certificate Replacement</option>
-                <option value="">Internet Access & Library Services</option>
-                <option value="">Laundry</option>
-                <option value="">Mail and Messages</option>
-                <option value="">Phone</option>
-                <option value="">Propane</option>
-                <option value="">Showers</option>             
+            <select class="breadcrumb subcategory-menu" id="subcatSelect">
             </select>
         </div>
 
@@ -181,37 +136,22 @@
                         </section>
 
                         <section id="provider-list">
-                        <h2 class="subcategory-name"><a href="#">Bathrooms</a></h2>
-                            <ul class="provider">
-                                <li>Department of Human Services</li>
-                                <li>First Place Family Center</li>
-                                <li>G-Street Oasis</li>
-                                <li>St. Vincent de Paul — Eugene Service Station</li>
-                                <li>White Bird — Front Rooms Resource Center</li>
-                            </ul>
-                            <h2 class="subcategory-name"><a href="#">Bedding</a></h2>
-                            <ul class="provider">
-                                <li>First Christian Church — Helping Hand Room</li>
-                                <li>St. Vincent de Paul — Eugene Service Station</li>
-                            </ul>
-                            <h2 class="subcategory-name"><a href="#">Clothing</a></h2>
-                            <ul class="provider">
-                                <li>Catholic Community Services Springfield Center</li>
-                                <li>Ebbert United Methodist Church</li>
-                                <li>Eugene Mission</li>
-                                <li>First Christian Church — Helping Hand Room</li>
-                                <li>First Way of Eugene</li>
-                                <li>Looking Glass — New Roads Program</li>
-                                <li>Share Fair</li>
-                                <li>Springfield Adventist Community Center</li>
-                                <li>St. Vincent de Paul — Eugene Service Center</li>
-                                <li>White Bird — Front Rooms Resource Center</li>
-                            </ul>
-                            <h2 class="subcategory-name"><a href="#">Day Shelters</a></h2>
-                            <ul class="provider">
-                                <li>Eugene Mission</li>
-                                <li>First Place Family Center</li>
                         </section>
+                        <script id="provider-list-template" type="text/x-handlebars-template">
+                        {{#subcategories}}
+                        {{#if places}}
+                            <!-- <h2 class="subcategory-name"><a href="subcategory.html?category={{categoryId}}&subcategory={{subcategoryId}}">{{name}}</a></h2> -->
+                            <h2 class="subcategory-name"><a href="subcategory.html?category={{categoryId}}&subcategory={{subcategoryId}}">{{catSubcatName}}</a></h2>
+                            <!-- <h2 class="subcategory-name">{{name}}</h2> -->
+                                <ul class="provider">
+                                    {{#places}}
+                                        <li><a href="provider.html">{{name}}</a></li>
+                                        <!-- <li>{{name}}</li> -->
+                                    {{/places}}
+                                </ul>
+                        {{/if}}
+                        {{/subcategories}}
+                        </script>
 
                     </main>
                 </section>
@@ -245,5 +185,9 @@
             </div>
         </header>
     </div>
+<script type="text/javascript" src="src/NavBreadcrumb.js"></script>
+<script type="text/javascript" src="src/mockData.js"></script>
+<script type="text/javascript" src="src/categoryPage.js"></script>
+<script type="text/javascript" src="src/toc.js"></script>
 </body>
 </html>
