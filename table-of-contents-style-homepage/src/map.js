@@ -1,5 +1,6 @@
 const mymap = L.map('mapid').setView([44.0521,-123.0868], 7);
 markers = [];
+invalidMarkers = [];
 
 function mapInit() {
 	let attribution = '&copy; <a href="https://carto.com/">Carto</a>';
@@ -40,6 +41,10 @@ function createMarker(placeInfo) {
 	if (isValidCoord(la, lo)) {
 		let marker = L.marker([placeInfo.latitude,placeInfo.longitude], {draggable: false})
 		markers.push(marker);
+	}
+	else {
+		invalidMarkers = [];
+		invalidMarkers.push(placeInfo.id);
 	}
 }
 
