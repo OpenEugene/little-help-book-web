@@ -18,10 +18,26 @@ function setMarkers(placesArray) {
 	}
 }
 
+function isValidCoord(lat, long) {
+	if (lat == 0 && long == 0) {
+		return false;
+	}
+	else if (lat == null || long == null) {
+		return false;
+	}
+	else if (lat > 90 || lat < -90) {
+		return false;
+	}
+	else if (long > 180 || long < -180) {
+		return false;
+	}
+	return true;
+}
+
 function createMarker(placeInfo) {
 	let la = placeInfo.latitude;
 	let lo = placeInfo.longitude;
-	if (la != 0 && la != null && lo != 0 && lo != null) {
+	if (isValidCoord(la, lo)) {
 		let marker = L.marker([placeInfo.latitude,placeInfo.longitude], {draggable: false})
 		markers.push(marker);
 	}
