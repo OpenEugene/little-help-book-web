@@ -20,13 +20,13 @@ async function dalGetPlaceTable() {
       'city' : record.get('City'),
       'category' : record.get('Category'),
       'subcategory' : record.get('Subcategory'),
-      'phone' : record.get('Phone'),
+      'phone' : record.get('Phone Number'),
       'address' : record.get('Physical Address'),
       'latitude' : record.get('Latitude'),
       'longitude' : record.get('Longitude'),
-      'url' : record.get('Web Address'),
+      'url' : record.get('Web address'),
       'email' : record.get('Email Address'),
-      'hours' : record.get('Hours of Operation'),
+      'hours' : record.get('Hours of operation'),
       'description' : record.get('Description')
     };
   });
