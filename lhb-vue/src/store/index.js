@@ -21,7 +21,11 @@ export default new Vuex.Store({
       email: '',
       hours: '',
       description: ''
-    }
+    },
+    activeCity: '',
+    activeCategory: '',
+    activeSubcategory: '',
+    inSpanish: false
   },
   mutations: {
     SET_ACTIVE_PLACE(state, data) {
@@ -32,6 +36,9 @@ export default new Vuex.Store({
     },
     SET_CATEGORIES(state, data) {
       state.categories = data;
+    },
+    TOGGLE_LANGUAGE(state, data) {
+      state.inSpanish = data;
     }
   },
   strict: true

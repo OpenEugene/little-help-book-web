@@ -1,24 +1,22 @@
 <template>
   <!-- Can probably use v-show to toggle the desktop and mobile versions -->
   <div class="desktop-header">
-    <router-link v-bind:to="{ name: 'Home' }">
+    <router-link v-bind:to="{ name: 'Home' }" class="homepage-link">
       <img class="desktop-logo" src="@/assets/white-bird-on-black.png" alt="White Bird Clinic" />
       <h1 class="little-help-book">Little Help Book</h1>
     </router-link>
-    <nav class="nav-bar">
-      <!-- Is the active city supposed to display, with Eugene as default? -->
-      <!-- Is cityMenu() in the template homepage.js meant as a filter toggle for all locations in that city? -->
-      <!-- Wonder if it's possible to add an inSpanish boolean or something to each component to toggle language? -->
-      <router-link v-bind:to="{ name: 'About' }">
-        <h2 class="about menu-button">About</h2>
-      </router-link>
-    </nav>
+    <nav-bar />
   </div>
 </template>
 
 <script>
+import NavBar from '@/components/NavBar.vue';
+
 export default {
-  name: "desktop-header",
+  name: 'desktop-header',
+  components: {
+    NavBar
+  }
 };
 </script>
 
@@ -53,20 +51,5 @@ export default {
   white-space: nowrap;
   margin: 2.4rem 0 0 5.8rem;
   color: white;
-}
-
-.menu-button {
-  font-family: sans-serif;
-  font-size: 1.5rem;
-  font-style: normal;
-  font-weight: bold;
-  color: rgb(226, 226, 226);
-  background-color: black;
-  border-radius: 8px;
-  border-style: solid;
-  border: none;
-  white-space: nowrap;
-  transition: 0.3s color ease-in-out;
-  margin: 2.6rem 0.5rem 1.5rem 0;
 }
 </style>

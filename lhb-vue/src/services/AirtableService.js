@@ -1,6 +1,10 @@
 import axios from 'axios'
 
-// Read-only key
+// Can only fetch 100 records from Airtable.
+// Only here to experiment with what Vue and Axios can do without dal.js
+// Can be eliminated with direct calls to dal.js instead
+
+// Read-only key used here
 const https = axios.create({
     baseURL: 'https://api.airtable.com/v0/appj3UWymNh6FgtGR/api/',
     headers: {
