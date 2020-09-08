@@ -133,7 +133,7 @@
         <main id="main">
           
             <section id="map"><div class="placeholder-map-jpg" id="mapid"></section>
-
+            
             <section id="provider-tiles" class="providers">
 
                 <div class="tile">
@@ -246,6 +246,7 @@ $(function(){
   $('[data-target]').on('click', function(){
     var target = $(this).data('target');
     $(target).siblings().hide().end().show();
+    mymap.invalidateSize();
   });
 });
 
