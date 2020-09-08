@@ -12,6 +12,10 @@
       v-on:click.prevent="toggleLanguage"
       v-if="$store.state.inSpanish"
     >English</button>
+    <!-- This formatting needs manipulating -->
+    <button class="about menu-button menu-icon">
+      <router-link :to="{ name: 'About' }">About</router-link>
+    </button>
   </div>
 </template>
 
