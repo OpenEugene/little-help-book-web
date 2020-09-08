@@ -104,6 +104,7 @@ function citySelectEvent() {
     nbc.placeOptionElements(catboxId, nbc.generateOptionElements(nbc.availableCategories));
     nbc.availableSubcats = nbc.filterSubcatOptions();
     nbc.placeOptionElements(subcatboxId, nbc.generateOptionElements(nbc.availableSubcats));
+    document.getElementsByClassName("category-page-name")[0].innerHTML = "All";
     placeServiceTiles("provider-tiles", generateServiceTiles(nbc.availablePlaces));
     if (nbc.mymap != null) {
         setMarkers(nbc.availablePlaces);
@@ -121,6 +122,7 @@ function categorySelectEvent() {
     */
     nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
     nbc.placeOptionElements(subcatboxId, nbc.generateOptionElements(nbc.availableSubcats));
+    document.getElementsByClassName("category-page-name")[0].innerHTML = "All";
     placeServiceTiles("provider-tiles", generateServiceTiles(nbc.availablePlaces));
     if (nbc.mymap != null) {
         setMarkers(nbc.availablePlaces);
