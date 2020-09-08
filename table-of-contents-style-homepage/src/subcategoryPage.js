@@ -78,7 +78,10 @@ function generateServiceTile(obj) {
                 <div class="provider-description">${ (obj["description"] != null) ? obj["description"] : "No description provided" }</div>
                 <div class="last-line">
                     <div class="provider-hours">Hours:  ${ (obj["hours"] != null) ? obj["hours"] : "Not provided" }</div>
-                    <div class="legend-icons"><i class="ri-earth-fill"></i><i class="ri-wheelchair-fill"></i></div>
+                    <div class="legend-icons">
+                        <i class="ri-earth-fill"></i>
+                        ${ (obj["wheelchair"] == "y") ? "<i class='ri-wheelchair-fill'></i>" : "" }
+                    </div>
                 </div>
             </div>`
 }

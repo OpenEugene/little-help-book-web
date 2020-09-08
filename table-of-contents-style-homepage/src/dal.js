@@ -27,7 +27,8 @@ async function dalGetPlaceTable() {
       'url' : record.get('Web address'),
       'email' : record.get('Email Address'),
       'hours' : record.get('Hours of operation'),
-      'description' : record.get('Description')
+      'description' : record.get('Description'),
+      'wheelchair' : record.get('Wheelchair access (y)')
     };
   });
   return placeTable;
