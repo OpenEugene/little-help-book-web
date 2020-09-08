@@ -65,3 +65,7 @@ Here are steps to follow when making changes in the base in order to not interru
 * Make your changes in the base
 * Test the changes and check compatibility with existing code
 
+**Note on Longitude/Latitude pulled from Airtable**
+
+For locations outside of Lane County or without a physical address, longitude and latitude both currently default to [0, 0], and no marker will be displayed on the map.
+
