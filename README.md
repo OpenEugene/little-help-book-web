@@ -21,7 +21,7 @@ All the information about human and social service providers in Lane County that
 
 ### Website
 
-Our progressive web app is a public website that interacts with the database. The website has two unique users: social service providers and people in need. These Netlify pages aren't connected to the database but they allow you to see the pages without downloading the repo and, in a desktop browser, the responsive transition to tablet and mobile screen sizes:
+Our progressive web app is a public website that interacts with the database. The website has two unique users: social service providers and people in need. These Netlify pages are currently being connected to the database and they allow you to see the pages without downloading the repo and, in a desktop browser, the responsive transition to tablet and mobile screen sizes:
 
 Homepage: https://little-help-book.netlify.app/table-of-contents-style-homepage/index.html
 
@@ -67,5 +67,5 @@ Here are steps to follow when making changes in the base in order to not interru
 
 **Note on Longitude/Latitude pulled from Airtable**
 
-For locations outside of Lane County or without a physical address, longitude and latitude both currently default to [0, 0], and no marker will be displayed on the map.
+For locations outside of Lane County and the crisis lines without a physical address, longitude and latitude both default to [0, 0], and no markers are displayed on the map.
 
