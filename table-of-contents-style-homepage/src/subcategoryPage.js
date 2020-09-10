@@ -45,19 +45,27 @@ $(document).ready(function() {
         let cityValue = (urlParams.has('city') ? urlParams.get('city') : 'NA');
         let catValue = (urlParams.has('category') ? urlParams.get('category') : 'NA');
         let subcatValue = (urlParams.has('subcategory') ? urlParams.get('subcategory') : 'NA');
+        // First, use the query params to update the data in the Navigation
         nbc.focused.city = cityValue;
         nbc.focused.category = catValue;
         nbc.focused.subcat = subcatValue;
+        // Filter the data in the Navigation
         nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
+        // Filter the available categories, since city might have changed
         nbc.availableCategories = nbc.filterCategoryOptions();
         nbc.placeOptionElements(catboxId, nbc.generateOptionElements(nbc.availableCategories));
+        // Filter the available subcategories, since categories might have changed
         nbc.availableSubcats = nbc.filterSubcatOptions();
         nbc.placeOptionElements(subcatboxId, nbc.generateOptionElements(nbc.availableSubcats));
+        // Show the city-category-subcategory from the query in the navigation
         document.getElementById(cityboxId).value = cityValue;
         document.getElementById(catboxId).value = catValue;
         document.getElementById(subcatboxId).value = subcatValue;
+        // Change the subcategory focused in the body
         document.getElementsByClassName("category-page-name")[0].innerHTML = nbc.subcats.find(x => x.id === subcatValue).name;
+        // Generate the service tiles in the body
         placeServiceTiles("provider-tiles", generateServiceTiles(nbc.availablePlaces));
+        // If a map is passed into the navigation class, update the markers
         if (nbc.mymap != null) {
             setMarkers(nbc.availablePlaces);
         }
