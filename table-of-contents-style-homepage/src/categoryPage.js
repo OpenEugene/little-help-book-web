@@ -100,7 +100,6 @@ function subcatSelectEvent() {
     It then will filter the list of places on the selected items.
     */
     nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
-    document.getElementsByClassName("category-page-name")[0].innerHTML = nbc.subcats.find(x => x.id === this.value).name;
     updateDom();
 }
 
@@ -153,6 +152,7 @@ function updateDom() {
         }
     });
     let categoryData =  {subcategories : availableCatSubcats};
+    document.getElementsByClassName("category-page-name")[0].innerHTML = nbc.categories.find(x => x.id === nbc.focused.category).name;
     if (nbc.mymap != null) {
         setMarkers(nbc.availablePlaces);
     }
