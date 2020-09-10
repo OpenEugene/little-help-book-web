@@ -46,11 +46,14 @@ $(document).ready(function() {
         let catValue = (urlParams.has('category') ? urlParams.get('category') : 'NA');
         let subcatValue = (urlParams.has('subcategory') ? urlParams.get('subcategory') : 'NA');
         document.getElementById(cityboxId).value = cityValue;
-        nbc.filterCategoryOptions();
+        nbc.focused.city = cityValue;
         document.getElementById(catboxId).value = catValue;
-        nbc.filterSubcatOptions();
+        nbc.focused.category = catValue;
         document.getElementById(subcatboxId).value = subcatValue;
+        nbc.focused.subcat = subcatValue;
         nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
+        nbc.filterCategoryOptions();
+        nbc.filterSubcatOptions();
         document.getElementsByClassName("category-page-name")[0].innerHTML = nbc.subcats.find(x => x.id === subcatValue).name;
         placeServiceTiles("provider-tiles", generateServiceTiles(nbc.availablePlaces));
         if (nbc.mymap != null) {
