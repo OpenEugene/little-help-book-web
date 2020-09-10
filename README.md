@@ -61,7 +61,7 @@ Airtable holds our data and makes it available with [Airtable API](https://littl
 
 Here are steps to follow when making changes in the base in order to not interrupt data entry or website usage:
 
-* Back up the table
+* Back up the table by [taking a snapshot](https://support.airtable.com/hc/en-us/articles/202584799-Taking-and-Restoring-Base-Snapshots) in case changes need to be rolled back/undone
 * Make your changes in the base
 * Test the changes and check compatibility with existing code
 
