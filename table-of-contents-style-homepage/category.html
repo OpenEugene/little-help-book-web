@@ -139,12 +139,11 @@
                         <script id="provider-list-template" type="text/x-handlebars-template">
                         {{#subcategories}}
                         {{#if places}}
-                            <!-- <h2 class="subcategory-name"><a href="subcategory.html?category={{categoryId}}&subcategory={{subcategoryId}}">{{name}}</a></h2> -->
                             <h2 class="subcategory-name"><a href="subcategory.html?category={{categoryId}}&subcategory={{subcategoryId}}">{{#if name}}{{name}}{{else}}Providers{{/if}}</a></h2>
                             <!-- <h2 class="subcategory-name">{{name}}</h2> -->
                                 <ul class="provider">
                                     {{#places}}
-                                        <li><a href="provider.html">{{name}}</a></li>
+                                        <li><a href="provider.html?place={{id}}"">{{name}}</a></li>
                                         <!-- <li>{{name}}</li> -->
                                     {{/places}}
                                 </ul>
