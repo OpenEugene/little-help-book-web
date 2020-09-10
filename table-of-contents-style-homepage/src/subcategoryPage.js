@@ -45,15 +45,17 @@ $(document).ready(function() {
         let cityValue = (urlParams.has('city') ? urlParams.get('city') : 'NA');
         let catValue = (urlParams.has('category') ? urlParams.get('category') : 'NA');
         let subcatValue = (urlParams.has('subcategory') ? urlParams.get('subcategory') : 'NA');
-        document.getElementById(cityboxId).value = cityValue;
         nbc.focused.city = cityValue;
-        document.getElementById(catboxId).value = catValue;
         nbc.focused.category = catValue;
-        document.getElementById(subcatboxId).value = subcatValue;
         nbc.focused.subcat = subcatValue;
         nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
-        nbc.filterCategoryOptions();
-        nbc.filterSubcatOptions();
+        nbc.availableCategories = nbc.filterCategoryOptions();
+        nbc.placeOptionElements(catboxId, nbc.generateOptionElements(nbc.availableCategories));
+        nbc.availableSubcats = nbc.filterSubcatOptions();
+        nbc.placeOptionElements(subcatboxId, nbc.generateOptionElements(nbc.availableSubcats));
+        document.getElementById(cityboxId).value = cityValue;
+        document.getElementById(catboxId).value = catValue;
+        document.getElementById(subcatboxId).value = subcatValue;
         document.getElementsByClassName("category-page-name")[0].innerHTML = nbc.subcats.find(x => x.id === subcatValue).name;
         placeServiceTiles("provider-tiles", generateServiceTiles(nbc.availablePlaces));
         if (nbc.mymap != null) {
