@@ -95,6 +95,14 @@ function categorySelectEvent() {
 function subcatSelectEvent() {
     //find the subcategory by id, and set the focused subcatgory to it.
     nbc.focused.subcat = nbc.subcats.find(x => x.id === this.value).id;
+
+    //Update the category when chosing a subcategory - primarily for when category is "All"
+    let catSubcatRecord = catSubcatTable.find(x => x.subcategoryId == nbc.focused.subcat);
+    let catId = catSubcatRecord.categoryId;
+    //Update the category listbox
+    document.getElementById(catboxId).value = catId;
+    nbc.focused.category = catId;
+
     /*
     This function chain checks for a selected city, category and subcategory.
     It then will filter the list of places on the selected items.
