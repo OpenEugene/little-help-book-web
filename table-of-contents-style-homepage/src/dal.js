@@ -90,8 +90,8 @@ async function dalGetCatSubcatTable() {
       subcategoryName = record.get('SubcategoryString')[0];
       subcategoryNameSpanish = record.get('Subcategory-ES')[0];
     } else {
-      subcategoryName = 'No subcategories';
-      subcategoryNameSpanish = 'No hay subcategorias';
+      subcategoryName = '';
+      subcategoryNameSpanish = '';
     }
     return {
       'catSubcatId': catSubcatId,

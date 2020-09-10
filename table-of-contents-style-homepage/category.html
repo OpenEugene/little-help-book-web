@@ -62,7 +62,6 @@
                 <!-- this left column contains the checkbox filters and we decided to defer this feature until after the MVP -->
                 <section class="left-column">
                     <div class="category-page-name">
-                        Basic Needs
                     </div>
                     <!-- <section class="subcategory-checkboxes">
                         <div class="subcategory-list">
@@ -141,7 +140,7 @@
                         {{#subcategories}}
                         {{#if places}}
                             <!-- <h2 class="subcategory-name"><a href="subcategory.html?category={{categoryId}}&subcategory={{subcategoryId}}">{{name}}</a></h2> -->
-                            <h2 class="subcategory-name"><a href="subcategory.html?category={{categoryId}}&subcategory={{subcategoryId}}">{{catSubcatName}}</a></h2>
+                            <h2 class="subcategory-name"><a href="subcategory.html?category={{categoryId}}&subcategory={{subcategoryId}}">{{#if name}}{{name}}{{else}}Providers{{/if}}</a></h2>
                             <!-- <h2 class="subcategory-name">{{name}}</h2> -->
                                 <ul class="provider">
                                     {{#places}}
