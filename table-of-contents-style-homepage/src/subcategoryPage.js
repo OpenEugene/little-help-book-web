@@ -16,12 +16,14 @@ $(document).ready(function() {
         represent an option to not filter on that item.
         */
         cityTable = await dalGetCityTable();
-        cityTable.splice(0, 0, {id: "NA", name: "All"})
         categoryTable = await dalGetCategoryTable();
-        categoryTable.splice(0, 0, {id: "NA", name: "All"});
         subcatTable = await dalGetSubcategoryTable();
-        subcatTable.splice(0, 0, {id: "NA", name: "All"});
         placeTable = await dalGetPlaceTable();
+
+        cityTable.splice(0, 0, {id: "NA", name: "All"})
+        categoryTable.splice(0, 0, {id: "NA", name: "All"});
+        subcatTable.splice(0, 0, {id: "NA", name: "All"});
+
         nbc = new NavBreadcrumb(cityTable, categoryTable, subcatTable, placeTable, mymap);
 
         /*
@@ -37,40 +39,97 @@ $(document).ready(function() {
         nbc.assignCategorySelectEvent(catboxId, categorySelectEvent);
         nbc.assignSubcatSelectEvent(subcatboxId, subcatSelectEvent);
 
+        catSubcatTable = await dalGetCatSubcatTable();
+
         /*
         Look at the URL search parameters. If they exist, pull them in and use
         them to inform the initial data on the page.
         */
         let urlParams = new URLSearchParams(window.location.search);
         let cityValue = (urlParams.has('city') ? urlParams.get('city') : 'NA');
-        let catValue = (urlParams.has('category') ? urlParams.get('category') : 'NA');
+        let categoryValue = (urlParams.has('category') ? urlParams.get('category') : 'NA');
         let subcatValue = (urlParams.has('subcategory') ? urlParams.get('subcategory') : 'NA');
-        // First, use the query params to update the data in the Navigation
-        nbc.focused.city = cityValue;
-        nbc.focused.category = catValue;
-        nbc.focused.subcat = subcatValue;
-        // Filter the data in the Navigation
-        nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
-        // Filter the available categories, since city might have changed
-        nbc.availableCategories = nbc.filterCategoryOptions();
-        nbc.placeOptionElements(catboxId, nbc.generateOptionElements(nbc.availableCategories));
-        // Filter the available subcategories, since categories might have changed
-        nbc.availableSubcats = nbc.filterSubcatOptions();
-        nbc.placeOptionElements(subcatboxId, nbc.generateOptionElements(nbc.availableSubcats));
+
         // Show the city-category-subcategory from the query in the navigation
         document.getElementById(cityboxId).value = cityValue;
-        document.getElementById(catboxId).value = catValue;
+        citySelectEvent();
+        document.getElementById(catboxId).value = categoryValue;
+        categorySelectEvent();
         document.getElementById(subcatboxId).value = subcatValue;
-        // Change the subcategory focused in the body
-        document.getElementsByClassName("category-page-name")[0].innerHTML = nbc.subcats.find(x => x.id === subcatValue).name;
-        // Generate the service tiles in the body
-        placeServiceTiles("provider-tiles", generateServiceTiles(nbc.availablePlaces));
-        // If a map is passed into the navigation class, update the markers
-        if (nbc.mymap != null) {
-            setMarkers(nbc.availablePlaces);
-        }
+        subcatSelectEvent();
     })()
 });
+
+// Create the appropriate event handlers for the select elements.
+function citySelectEvent() {
+    // find the city by id, and set the focused city to it.
+    nbc.focused.city = nbc.cities.find(x => x.id === document.getElementById(cityboxId).value).id;
+    // Reset the category selection back to "Select Category" when new city is selected.
+    nbc.focused.category = "NA";
+    // Reset the subcat selection back to all when city is changed.
+    nbc.focused.subcat = "NA";
+    /*
+    This function chain checks for a selected city, category and subcategory.
+    It then will filter the list of places on the selected items.
+    */
+    nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
+    // Change available categories to select from when city changes
+    nbc.availableCategories = nbc.filterCategoryOptions();
+    nbc.placeOptionElements(catboxId, nbc.generateOptionElements(nbc.availableCategories));
+    nbc.availableSubcats = nbc.filterSubcatOptions();
+    nbc.placeOptionElements(subcatboxId, nbc.generateOptionElements(nbc.availableSubcats));
+
+    updateDom();
+}
+
+function categorySelectEvent() {
+    // find the category by id, and set the focused category to it.
+    nbc.focused.category = nbc.categories.find(x => x.id === document.getElementById(catboxId).value).id;
+    // Reset the subcat selection back to all when category is changed.
+    nbc.focused.subcat = "NA";
+    nbc.availableSubcats = nbc.filterSubcatOptions();
+    /*
+    This function chain checks for a selected city, category and subcategory.
+    It then will filter the list of places on the selected items.
+    */
+    nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
+    nbc.placeOptionElements(subcatboxId, nbc.generateOptionElements(nbc.availableSubcats));
+
+    updateDom();
+}
+
+function subcatSelectEvent() {
+    //find the subcategory by id, and set the focused subcategory to it.
+    nbc.focused.subcat = nbc.subcats.find(x => x.id === document.getElementById(subcatboxId).value).id;
+
+    //Update the category when chosing a subcategory - primarily for when category is "All"
+    let catSubcatRecord = catSubcatTable.find(x => x.subcategoryId == nbc.focused.subcat);
+    let catId = catSubcatRecord.categoryId;
+    //Update the category listbox
+    document.getElementById(catboxId).value = catId;
+    nbc.focused.category = catId;
+
+    /*
+    This function chain checks for a selected city, category and subcategory.
+    It then will filter the list of places on the selected items.
+    */
+    nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
+
+    updateDom();
+}
+
+function updateDom() {
+    // Change the subcategory focused in the body
+    document.getElementsByClassName("category-page-name")[0].innerHTML = nbc.subcats.find(x => x.id === nbc.focused.subcat).name;
+
+    // Generate the service tiles in the body
+    placeServiceTiles("provider-tiles", generateServiceTiles(nbc.availablePlaces));
+
+    // If a map is passed into the navigation class, update the markers
+    if (nbc.mymap != null) {
+        setMarkers(nbc.availablePlaces);
+    }
+}
 
 // functions used to generate the service tiles using the data.
 // These functions were moved from generateServiceTile.js
@@ -81,6 +140,7 @@ function generateServiceTiles(objArray) {
     }
     return objString;
 }
+
 function generateServiceTile(obj) {
     let urlTemplate = (obj["url"] != null) ? `<a target="_blank" href="${obj["url"]}">${obj["url"]}</a>` : "No website provided";
     return `<div class="tile" id=${obj["id"]}>
@@ -98,63 +158,7 @@ function generateServiceTile(obj) {
                 </div>
             </div>`
 }
+
 function placeServiceTiles(elementId, objString) {
     document.getElementById(elementId).innerHTML = objString;
-}
-
-// Create the appropriate event handlers for the select elements.
-function citySelectEvent() {
-    // find the city by id, and set the focused city to it.
-    nbc.focused.city = nbc.cities.find(x => x.id === this.value).id;
-    // Reset the category selection back to "Select Category" when new city is selected.
-    nbc.focused.category = "NA";
-    // Reset the subcat selection back to all when city is changed.
-    nbc.focused.subcat = "NA";
-    /*
-    This function chain checks for a selected city, category and subcategory.
-    It then will filter the list of places on the selected items.
-    */
-    nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
-    // Change available categories to select from when city changes
-    nbc.availableCategories = nbc.filterCategoryOptions();
-    nbc.placeOptionElements(catboxId, nbc.generateOptionElements(nbc.availableCategories));
-    nbc.availableSubcats = nbc.filterSubcatOptions();
-    nbc.placeOptionElements(subcatboxId, nbc.generateOptionElements(nbc.availableSubcats));
-    document.getElementsByClassName("category-page-name")[0].innerHTML = "All";
-    placeServiceTiles("provider-tiles", generateServiceTiles(nbc.availablePlaces));
-    if (nbc.mymap != null) {
-        setMarkers(nbc.availablePlaces);
-    }
-}
-function categorySelectEvent() {
-    // find the category by id, and set the focused category to it.
-    nbc.focused.category = nbc.categories.find(x => x.id === this.value).id;
-    // Reset the subcat selection back to all when category is changed.
-    nbc.focused.subcat = "NA";
-    nbc.availableSubcats = nbc.filterSubcatOptions();
-    /*
-    This function chain checks for a selected city, category and subcategory.
-    It then will filter the list of places on the selected items.
-    */
-    nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
-    nbc.placeOptionElements(subcatboxId, nbc.generateOptionElements(nbc.availableSubcats));
-    document.getElementsByClassName("category-page-name")[0].innerHTML = "All";
-    placeServiceTiles("provider-tiles", generateServiceTiles(nbc.availablePlaces));
-    if (nbc.mymap != null) {
-        setMarkers(nbc.availablePlaces);
-    }
-}
-function subcatSelectEvent() {
-    //find the subcategory by id, and set the focused subcategory to it.
-    nbc.focused.subcat = nbc.subcats.find(x => x.id === this.value).id;
-    /*
-    This function chain checks for a selected city, category and subcategory.
-    It then will filter the list of places on the selected items.
-    */
-    nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
-    document.getElementsByClassName("category-page-name")[0].innerHTML = nbc.subcats.find(x => x.id === this.value).name;
-    placeServiceTiles("provider-tiles", generateServiceTiles(nbc.availablePlaces));
-    if (nbc.mymap != null) {
-        setMarkers(nbc.availablePlaces);
-    }
 }
