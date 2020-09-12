@@ -1,33 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Little Help Book - White Bird Clinic</title>
-    <meta name="description" content="Resource directory for people seeking help with health, housing, financial assistance, shelter, food pantries and meal sites. This helps people navigate the system.">
-    <meta name="keywords" content="white bird, cahoots, crisis, counseling, mobile mental health, substance abuse treatment, free medical care, free dental, sliding scale health care, services for the homeless, shelter, emergency mental health, acute medical care, education, prevention, intervention, oreong, eugene, eugene oregon, springfield, springfield oregon, lane county, kahoots, cahoot, cahootz, unhoused, homelessness, mental health, counseling, mail, benfits, ohp, wellness, whitebird, white bird clinic, day access center, help resources, houseless, opiod treatment, dui, ssi, ssdi, free birth certificate, end of life counseling, acupuncture, hotline, suicide prevention, open 24/7">
-    <link rel="icon" href="https://i2.wp.com/whitebirdclinic.org/wp-content/uploads/2014/03/cropped-White-Bird-Logo-No-Text-1.jpg?fit=32%2C32&amp;ssl=1" sizes="32x32">
+    <meta name="description"
+        content="Resource directory for people seeking help with health, housing, financial assistance, shelter, food pantries and meal sites. This helps people navigate the system.">
+    <meta name="keywords"
+        content="white bird, cahoots, crisis, counseling, mobile mental health, substance abuse treatment, free medical care, free dental, sliding scale health care, services for the homeless, shelter, emergency mental health, acute medical care, education, prevention, intervention, oreong, eugene, eugene oregon, springfield, springfield oregon, lane county, kahoots, cahoot, cahootz, unhoused, homelessness, mental health, counseling, mail, benfits, ohp, wellness, whitebird, white bird clinic, day access center, help resources, houseless, opiod treatment, dui, ssi, ssdi, free birth certificate, end of life counseling, acupuncture, hotline, suicide prevention, open 24/7">
+    <link rel="icon"
+        href="https://i2.wp.com/whitebirdclinic.org/wp-content/uploads/2014/03/cropped-White-Bird-Logo-No-Text-1.jpg?fit=32%2C32&amp;ssl=1"
+        sizes="32x32">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="stylesheet" type="text/css" href="provider.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
         integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-        crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-        crossorigin=""></script>
+        crossorigin="" />
 </head>
+
 <body>
 
     <div class="page-container">
 
         <header class="desktop-header">
             <div> <a href="index.html">
-                <img class="desktop-logo" src="white-bird-on-black.png" alt="White Bird Clinic" width="66px" height="66px">
-                <h1 class="little-help-book">Little Help Book</h1> </a>
+                    <img class="desktop-logo" src="white-bird-on-black.png" alt="White Bird Clinic" width="66px"
+                        height="66px">
+                    <h1 class="little-help-book">Little Help Book</h1>
+                </a>
             </div>
             <div class="breadcrumb-box">
                 <select class="breadcrumb city" id="citySelect">
-                    <option value="">Eugene / Springfield</option>
+                    <select class="breadcrumb city" id="citySelect">
+                    </select>
+                    <select class="breadcrumb category" id="catSelect">
+                    </select>
+                    <select class="breadcrumb subcategory-menu" id="subcatSelect">
+                    </select>
+                    <!-- <option value="">Eugene / Springfield</option>
                     <option value="">Blachly</option>
                     <option value="">Coburg</option>
                     <option value="">Cottage Grove</option>
@@ -40,8 +51,8 @@
                     <option value="">Mapleton</option>
                     <option value="">Oakridge</option>
                     <option value="">Veneta</option>
-                    <option value="">Walterville</option>
-                </select>
+                    <option value="">Walterville</option> -->
+                    <!-- </select>
                 <select class="breadcrumb category">
                     <option value="">Basic Needs</option>
                     <option value="">Care</option>
@@ -79,48 +90,53 @@
                     <option value="">Phone</option>
                     <option value="">Propane</option>
                     <option value="">Showers</option>             
-                </select>
+                </select> -->
             </div>
-    
+
             <div class="search">
                 <a href="about.html">
-                <div class="menu-lines"> 
-                  <div class="hamburger"></div>
-                  <div class="hamburger"></div>
-                  <div class="hamburger"></div>        
-                </div>
+                    <div class="menu-lines">
+                        <div class="hamburger"></div>
+                        <div class="hamburger"></div>
+                        <div class="hamburger"></div>
+                    </div>
                 </a>
                 <input type="image" src="search-line.png" class="search-input" type="search">
             </div>
-                    
+
         </header>
 
-            <section class="provider-page">
+        <section class="provider-page">
 
-                <section class="map"> <div id="mapid"></div> </section>
-
-                <div class="provider-name">G-Street Oasis</div>
-                <div class="provider-address">1175 G St. Springfield</div>
-                <div class="provider-phone">541-214-0260</div>
-                <div class="provider-website"><a href="https://www.ccslc.org/">ccslc.org</a></div>
-                <div class="provider-description">Provides day shelter and other services for homeless families with children. Laundry, hygiene supplies, bathrooms, kitchen facilities and showers available. Also provides limited transitional housing and referrals for families. To obtain services one must be registered in the program.</div>
-                <div class="provider-info">Hours:  Monday–Friday 7am–6pm</div>
-                <div class="provider-info">Local contact: Gail, 541-214-0206, gstreet@ccslc.org</div>
-                <div class="provider-info">Languages:</div>
-                <div class="provider-info">Area served:</div>
-                <div class="provider-info">Notes:</div>
-
-                <section class="bottom-container">
-                    <div class="left-button">
-                        <a href="about.html"><button class="update-button button-style">Update your information</button></a>
-                        <p class="last-update">Last update: July 30, 2020</p>
-                    </div>
-                    <div class="right-button">
-                        <button class="print-page button-style">Print this page</button>
-                    </div>
-                </section>
-
+            <section class="map">
+                <div id="mapid"></div>
             </section>
+
+            <div class="provider-name">G-Street Oasis</div>
+            <div class="provider-address">1175 G St. Springfield</div>
+            <div class="provider-phone">541-214-0260</div>
+            <div class="provider-website"><a href="https://www.ccslc.org/">ccslc.org</a></div>
+            <div class="provider-description">Provides day shelter and other services for homeless families with
+                children. Laundry, hygiene supplies, bathrooms, kitchen facilities and showers available. Also provides
+                limited transitional housing and referrals for families. To obtain services one must be registered in
+                the program.</div>
+            <div class="provider-info">Hours: Monday–Friday 7am–6pm</div>
+            <div class="provider-info">Local contact: Gail, 541-214-0206, gstreet@ccslc.org</div>
+            <div class="provider-info">Languages:</div>
+            <div class="provider-info">Area served:</div>
+            <div class="provider-info">Notes:</div>
+
+            <section class="bottom-container">
+                <div class="left-button">
+                    <a href="about.html"><button class="update-button button-style">Update your information</button></a>
+                    <p class="last-update">Last update: July 30, 2020</p>
+                </div>
+                <div class="right-button">
+                    <button class="print-page button-style">Print this page</button>
+                </div>
+            </section>
+
+        </section>
     </div>
 
     <div class="mobile-container" id="mobile-container">
@@ -130,18 +146,49 @@
             <div id="search">
                 <div class="search">
                     <a href="about.html">
-                    <div class="menu-lines">
-                    <div class="hamburger"></div>
-                    <div class="hamburger"></div>
-                    <div class="hamburger"></div>        
-                    </div>
+                        <div class="menu-lines">
+                            <div class="hamburger"></div>
+                            <div class="hamburger"></div>
+                            <div class="hamburger"></div>
+                        </div>
                     </a>
                     <input type="image" src="search-line.png" class="search-input" type="search">
                 </div>
             </div>
         </header>
     </div>
+
+    <footer class="footer">
+        <div class="footer-item">CC
+            <script language="javascript" type="text/javascript">
+                var today = new Date()
+                var year = today.getFullYear()
+                document.write(year)
+            </script> White Bird Clinic</div>
+        <div class="footer-item"> <a href="https://whitebirdclinic.org/" class="footer-url">whitebirdclinic.org</a>
+        </div>
+        <div class="footer-item"><a href="terms-of-use.html" class="terms-of-use">Terms of Use</a></div>
+    </footer>
+
+    <script>
+        $(function () {
+            $('[data-target]').on('click', function () {
+                var target = $(this).data('target');
+                $(target).siblings().hide().end().show();
+                mymap.invalidateSize();
+            });
+        });
+    </script>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+    <script rel="text/javascript" src="src/airtable.browser.js"></script>
+    <script rel="text/javascript" src="src/dal.js"></script>
     <script type="text/javascript" src="src/map.js"></script>
     <script type="text/javascript" src="src/generateSelectOptions.js"></script>
+    <script type="text/javascript" src="src/NavBreadcrumb.js"></script>
+    <script type="text/javascript" src="src/providerPage.js"></script>
 </body>
+
 </html>
