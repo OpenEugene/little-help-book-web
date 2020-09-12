@@ -11,7 +11,6 @@
 
 <script>
 import NavBar from '@/components/NavBar.vue';
-import dal from '..\..\..\src\dal.js';
 
 export default {
   name: 'desktop-header',

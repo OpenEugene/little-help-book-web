@@ -7,6 +7,7 @@ export default new Vuex.Store({
   state: {
     places: [],
     categories: [],
+    cities: [],
     activePlace: {
       id: '',
       name: '',
@@ -36,6 +37,12 @@ export default new Vuex.Store({
     },
     SET_CATEGORIES(state, data) {
       state.categories = data;
+    },
+    SET_CITIES(state, data) {
+      state.cities = data;
+    },
+    SET_ACTIVE_CITY(state, data) {
+      state.activeCity = data;
     },
     TOGGLE_LANGUAGE(state, data) {
       state.inSpanish = data;

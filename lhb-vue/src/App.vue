@@ -7,10 +7,15 @@
 
 <script>
 import DesktopHeader from '@/components/DesktopHeader.vue'
+import dalService from '..\..\..\src\dal.js'
 
 export default {
   components: {
     DesktopHeader
+  },
+  created() {
+    // Run when page loads
+    dalService.dalGetCityTable().then((response) => this.$store.commit("SET_CITIES", response.data)).catch((err) => console.log(err + ": No city data available."));
   }
 }
 </script>
