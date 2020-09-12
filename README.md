@@ -13,7 +13,7 @@ at the Progress Bar & Grill http://progressbarandgrill.com
 
 ## Roadmap
 
-We are beginning with a database of human services and a public website. When the site has been tested and we've had time to build in any improvements from insights gained through qualitative research [https://info.codeforamerica.org/qualitative-research], it's possible to consider how we might add a content management system. Simultaneous to our development of tools is the ongoing conversation with the human and social service providers in Lane County, Oregon to better understand how the referral network can exchange data. And so, four big pieces to the Little Help Book:
+We are beginning with a database of human services and a public website. When the site has been tested and we've had time to build in any improvements from insights gained through qualitative research [https://info.codeforamerica.org/qualitative-research], it's possible to consider how we might add a content management system. Simultaneous to our development of tools is the ongoing conversation with the human and social service providers in Lane County, Oregon to better understand how organizations maintaining information can exchange data. And so, four big pieces to the Little Help Book:
 
 ### Database 
 
@@ -37,7 +37,7 @@ A content management system for social workers in Lane County to interact with t
 
 ### Interoperability 
 
-Lane County social service providers need a strong community referral network. In building a network, the regional social service providers are looking at how to make multiple systems effective and functional. The goal: a **universal data source**, so that providers **in a multi-system network** can update their information in one place and it's updated everywhere. Please see the Open Referral Initiative: Executive Summary: https://docs.google.com/document/d/1xjXYN0zzUVWK3GdINP3erO-Jm0LUz75962SyRF0ggIA/edit
+Lane County social service providers need a strong public information network. In building a network, the regional social service providers are looking at how to make multiple systems effective and functional. The goal: a **universal data source**, so that providers **in a multi-system network** can update their information in one place and it's updated everywhere. Please see the Open Referral Initiative: Executive Summary: https://docs.google.com/document/d/1xjXYN0zzUVWK3GdINP3erO-Jm0LUz75962SyRF0ggIA/edit
 
 Code for America fellows in 2013 developed an application programming interface for a database that had previously only been used to print a resource directory. A member of the team, Greg Bloom, published Towards a Community Data Commons [https://beyondtransparency.org/chapters/part-5/towards-a-community-data-commons/]. Then in 2014, with the co-sponsorship of Code for America, Bloom initiated Open Referral [https://openreferral.org/]. 
 
