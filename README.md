@@ -65,7 +65,8 @@ Here are steps to follow when making changes in the base in order to not interru
 * Make your changes in the base
 * Test the changes and check compatibility with existing code
 
+### Data Verification
+
 **Note on Longitude/Latitude pulled from Airtable**
 
 For locations outside of Lane County and the crisis lines without a physical address, longitude and latitude both default to [0, 0], and no markers are displayed on the map.
-
