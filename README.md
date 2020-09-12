@@ -13,7 +13,7 @@ at the Progress Bar & Grill http://progressbarandgrill.com
 
 ## Roadmap
 
-We are beginning with a database of human services and a public website. When the site has been tested and we've had time to build in any improvements from insights gained through qualitative research [https://info.codeforamerica.org/qualitative-research], it's possible to consider how we might add a content management system. Simultaneous to our development of tools is the ongoing conversation with the human and social service providers in Lane County, Oregon to better understand how the referral network can exchange data. And so, four big pieces to the Little Help Book:
+We are beginning with a database of human services and a public website. When the site has been tested and we've had time to build in any improvements from insights gained through qualitative research [https://info.codeforamerica.org/qualitative-research], it's possible to consider how we might add a content management system. Simultaneous to our development of tools is the ongoing conversation with the human and social service providers in Lane County, Oregon to better understand how organizations maintaining information can exchange data. And so, four big pieces to the Little Help Book:
 
 ### Database 
 
