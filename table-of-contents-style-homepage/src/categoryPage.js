@@ -6,7 +6,6 @@ var categoryTable;
 var subcatTable;
 var placeTable;
 var nbc;
-// let categoryTree;
 "use strict"
 $(document).ready(function() {
   // await has to be inside async function, anonymous in this case
@@ -42,22 +41,24 @@ $(document).ready(function() {
 
         catSubcatTable = await dalGetCatSubcatTable();
 
+        /*
+        Look at the URL search parameters. If they exist, pull them in and use
+        them to inform the initial data on the page.
+        */
         let urlParams = new URLSearchParams(window.location.search);
-        cityValue = (urlParams.has('city') ? urlParams.get('city') : 'NA')
-        categoryValue = (urlParams.has('category') ? urlParams.get('category') : 'NA')
+        let cityValue = (urlParams.has('city') ? urlParams.get('city') : 'NA')
+        let categoryValue = (urlParams.has('category') ? urlParams.get('category') : 'NA')
+
         document.getElementById(cityboxId).value = cityValue;
         citySelectEvent();
         document.getElementById(catboxId).value = categoryValue;
         categorySelectEvent();
-
-        // updateDom();
     })()
 });
 
 // Create the appropriate event handlers for the select elements.
 function citySelectEvent() {
     // find the city by id, and set the focused city to it.
-    // nbc.focused.city = nbc.cities.find(x => x.id === this.value).id;
     nbc.focused.city = nbc.cities.find(x => x.id === document.getElementById(cityboxId).value).id;
 
     // Reset the category selection back to "Select Category" when new city is selected.
@@ -79,7 +80,6 @@ function citySelectEvent() {
 
 function categorySelectEvent() {
     // find the category by id, and set the focused category to it.
-    // nbc.focused.category = nbc.categories.find(x => x.id === this.value).id;
     nbc.focused.category = nbc.categories.find(x => x.id === document.getElementById(catboxId).value).id;
     // Reset the subcat selection back to all when category is changed.
     nbc.focused.subcat = "NA";
@@ -92,16 +92,19 @@ function categorySelectEvent() {
     nbc.placeOptionElements(subcatboxId, nbc.generateOptionElements(nbc.availableSubcats));
     updateDom();
 }
+
 function subcatSelectEvent() {
     //find the subcategory by id, and set the focused subcatgory to it.
     nbc.focused.subcat = nbc.subcats.find(x => x.id === this.value).id;
 
     //Update the category when chosing a subcategory - primarily for when category is "All"
-    let catSubcatRecord = catSubcatTable.find(x => x.subcategoryId == nbc.focused.subcat);
-    let catId = catSubcatRecord.categoryId;
-    //Update the category listbox
-    document.getElementById(catboxId).value = catId;
-    nbc.focused.category = catId;
+    if (nbc.focused.subcat != "NA") {
+        let catSubcatRecord = catSubcatTable.find(x => x.subcategoryId == nbc.focused.subcat);
+        let catId = catSubcatRecord.categoryId;
+        //Update the category listbox
+        document.getElementById(catboxId).value = catId;
+        nbc.focused.category = catId;
+    }
 
     /*
     This function chain checks for a selected city, category and subcategory.

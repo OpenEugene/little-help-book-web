@@ -65,6 +65,7 @@ function citySelectEvent() {
     // find the city by id, and set the focused city to it.
     nbc.focused.city = nbc.cities.find(x => x.id === document.getElementById(cityboxId).value).id;
     // Reset the category selection back to "Select Category" when new city is selected.
+
     nbc.focused.category = "NA";
     // Reset the subcat selection back to all when city is changed.
     nbc.focused.subcat = "NA";
@@ -78,7 +79,6 @@ function citySelectEvent() {
     nbc.placeOptionElements(catboxId, nbc.generateOptionElements(nbc.availableCategories));
     nbc.availableSubcats = nbc.filterSubcatOptions();
     nbc.placeOptionElements(subcatboxId, nbc.generateOptionElements(nbc.availableSubcats));
-
     updateDom();
 }
 
@@ -94,7 +94,6 @@ function categorySelectEvent() {
     */
     nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
     nbc.placeOptionElements(subcatboxId, nbc.generateOptionElements(nbc.availableSubcats));
-
     updateDom();
 }
 
@@ -103,18 +102,19 @@ function subcatSelectEvent() {
     nbc.focused.subcat = nbc.subcats.find(x => x.id === document.getElementById(subcatboxId).value).id;
 
     //Update the category when chosing a subcategory - primarily for when category is "All"
-    let catSubcatRecord = catSubcatTable.find(x => x.subcategoryId == nbc.focused.subcat);
-    let catId = catSubcatRecord.categoryId;
-    //Update the category listbox
-    document.getElementById(catboxId).value = catId;
-    nbc.focused.category = catId;
+    if (nbc.focused.subcat != "NA") {
+        let catSubcatRecord = catSubcatTable.find(x => x.subcategoryId == nbc.focused.subcat);
+        let catId = catSubcatRecord.categoryId;
+        //Update the category listbox
+        document.getElementById(catboxId).value = catId;
+        nbc.focused.category = catId;
+    }
 
     /*
     This function chain checks for a selected city, category and subcategory.
     It then will filter the list of places on the selected items.
     */
     nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
-
     updateDom();
 }
 
@@ -122,43 +122,17 @@ function updateDom() {
     // Change the subcategory focused in the body
     document.getElementsByClassName("category-page-name")[0].innerHTML = nbc.subcats.find(x => x.id === nbc.focused.subcat).name;
 
-    // Generate the service tiles in the body
-    placeServiceTiles("provider-tiles", generateServiceTiles(nbc.availablePlaces));
-
     // If a map is passed into the navigation class, update the markers
     if (nbc.mymap != null) {
         setMarkers(nbc.availablePlaces);
     }
-}
 
-// functions used to generate the service tiles using the data.
-// These functions were moved from generateServiceTile.js
-function generateServiceTiles(objArray) {
-    let objString = "";
-    for (let i = 0; i < objArray.length; i++) {
-        objString += generateServiceTile(objArray[i]);
-    }
-    return objString;
-}
-
-function generateServiceTile(obj) {
-    let urlTemplate = (obj["url"] != null) ? `<a target="_blank" href="${obj["url"]}">${obj["url"]}</a>` : "No website provided";
-    return `<div class="tile" id=${obj["id"]}>
-                <div class="provider-name">${obj["name"]}</div>
-                <div class="provider-address">${ (obj["address"] != null) ? obj["address"] : "No address provided" }</div>
-                <div class="provider-phone">${ (obj["phone"] != null) ? obj["phone"] : "No phone number provided" }</div>
-                <div class="provider-website">${urlTemplate}</div>
-                <div class="provider-description">${ (obj["description"] != null) ? obj["description"] : "No description provided" }</div>
-                <div class="last-line">
-                    <div class="provider-hours">Hours:  ${ (obj["hours"] != null) ? obj["hours"] : "Not provided" }</div>
-                    <div class="legend-icons">
-                        ${ (obj["languageHelp"] == "y") ? "<i class='ri-earth-fill'></i>" : "" }
-                        ${ (obj["wheelchair"] == "y") ? "<i class='ri-wheelchair-fill'></i>" : "" }
-                    </div>
-                </div>
-            </div>`
-}
-
-function placeServiceTiles(elementId, objString) {
-    document.getElementById(elementId).innerHTML = objString;
+    // Grab the template script
+    let theTemplateScript = $("#provider-tiles-template").html();
+    // Compile the template
+    let theTemplate = Handlebars.compile(theTemplateScript);
+    // Pass our data to the template
+    let compiledHtml = theTemplate({places : nbc.availablePlaces});
+    // Add the compiled html to the page
+    $('#provider-tiles').empty().append(compiledHtml);
 }
