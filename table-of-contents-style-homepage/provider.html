@@ -106,8 +106,11 @@
 
         </header>
 
-        <main id="main" class="provider-page">
+        <section class="provider-page">
 
+            <section class="map">
+                <div id="mapid"></div>
+            </section>
 
             <section id="provider-info"></section>
             <script id="provider-template" type="text/x-handlebars-template">
@@ -138,11 +141,7 @@
                 <div class="provider-info">Area served: {{city}}</div>
                 <div class="provider-info">Notes:</div>
                 {{/place}}
-            </script>
-
-            <section class="map">
-                <div id="mapid"></div>
-            </section>
+            </script>        
 
             <section class="bottom-container">
                 <div class="left-button">
@@ -154,7 +153,9 @@
                 </div>
             </section>
 
-        </main>
+        </section>
+
+        
     </div>
 
     <div class="mobile-container" id="mobile-container">
