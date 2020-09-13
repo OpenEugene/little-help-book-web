@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
         integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
         crossorigin="" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="stylesheet" type="text/css" href="provider.css">
 </head>
@@ -136,10 +137,10 @@
                 <div class="provider-description">{{description}}</div>
                 <div class="provider-info">Hours: {{hours}}</div>
                 <div class="provider-info">Local contact: </div>
-                <div class="provider-info">Languages: {{languageHelp}}</div>
-                <div class="provider-info">Wheelchair accessible: {{wheelchair}}</div>
+                <div class="provider-info">Languages: </div>
+                <div class="provider-info">Wheelchair accessible: {{#if wheelchair}}<i class='ri-wheelchair-fill'></i>{{/if}}</div>
                 <div class="provider-info">Area served: </div>
-                <div class="provider-info">Notes:</div>
+                <div class="provider-info">Notes: </div>
                 {{/place}}
             </script>        
 
