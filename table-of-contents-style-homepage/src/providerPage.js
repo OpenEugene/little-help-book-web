@@ -1,16 +1,12 @@
-// Copied from categoryPage.js
-// Must be trimmed and adapted to Provider Page:
-// 1. Get URL params for Place/Provider ID
-// 2. Get only that row from the placeTable
-
 const cityboxId = "citySelect";
 const catboxId = "catSelect";
 const subcatboxId = "subcatSelect";
-var cityTable;
-var categoryTable;
-var subcatTable;
-var placeTable;
-var nbc;
+let cityTable;
+let categoryTable;
+let subcatTable;
+let placeTable;
+let nbc;
+let placeId;
 "use strict"
 $(document).ready(function () {
     // await has to be inside async function, anonymous in this case
@@ -29,7 +25,7 @@ $(document).ready(function () {
         categoryTable.splice(0, 0, { id: "NA", name: "All" });
         subcatTable.splice(0, 0, { id: "NA", name: "All" });
 
-        nbc = new NavBreadcrumb(cityTable, categoryTable, subcatTable, placeTable);
+        nbc = new NavBreadcrumb(cityTable, categoryTable, subcatTable, placeTable, mymap);
 
         /*
         Generate and place option element HTML to place into each appropriate
@@ -47,14 +43,16 @@ $(document).ready(function () {
         catSubcatTable = await dalGetCatSubcatTable();
 
         let urlParams = new URLSearchParams(window.location.search);
-        cityValue = (urlParams.has('city') ? urlParams.get('city') : 'NA')
-        categoryValue = (urlParams.has('category') ? urlParams.get('category') : 'NA')
+        let cityValue = (urlParams.has('city') ? urlParams.get('city') : 'NA')
+        let categoryValue = (urlParams.has('category') ? urlParams.get('category') : 'NA')
+        
+        // Get query params from category page for place ID; not sure if the 'NA' placeholder will do anything
+        placeId = (urlParams.has('place') ? urlParams.get('place') : 'NA')
+
         document.getElementById(cityboxId).value = cityValue;
         citySelectEvent();
         document.getElementById(catboxId).value = categoryValue;
         categorySelectEvent();
-
-        // updateDom();
     })()
 });
 
@@ -165,14 +163,16 @@ function updateDom() {
         }
     });
 
-    let providerData = 
+    // Pasted from Airtable API for retrieving one provider record
+    let providerData = placeTable.find(x => x.id === placeId);
 
     // Handlebars boilerplate
     // Grab the template script
-    let theTemplateScript = $("#provider-list-template").html();
+    let theTemplateScript = $("#provider-template").html();
     // Compile the template
     let theTemplate = Handlebars.compile(theTemplateScript);
     // Pass our data to the template
-    let compiledHtml = theTemplate({ subcategories: categoryData.subcategories });
+    let compiledHtml = theTemplate({ place: providerData });
     // Add the compiled html to the page
-    $('#provider-list').empty().append(compiledHtml);
+    $('#provider-info').empty().append(compiledHtml);
+}

@@ -12,11 +12,11 @@
     <link rel="icon"
         href="https://i2.wp.com/whitebirdclinic.org/wp-content/uploads/2014/03/cropped-White-Bird-Logo-No-Text-1.jpg?fit=32%2C32&amp;ssl=1"
         sizes="32x32">
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <link rel="stylesheet" type="text/css" href="provider.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
         integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
         crossorigin="" />
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="provider.css">
 </head>
 
 <body>
@@ -106,25 +106,43 @@
 
         </header>
 
-        <section class="provider-page">
+        <main id="main" class="provider-page">
+
+
+            <section id="provider-info"></section>
+            <script id="provider-template" type="text/x-handlebars-template">
+                {{#place}}
+                <div class="provider-name">{{name}}</div>
+                <div class="provider-address">
+                    {{#if address}}
+                        {{address}}
+                    {{else}}
+                        No address provided
+                    {{/if}}
+                </div>
+                <div class="provider-phone">{{phone}}</div>
+                <div class="provider-website">
+                    <a href={{url}}>
+                        {{#if url}}
+                            {{url}}
+                        {{else}}
+                            No website provided
+                        {{/if}}
+                    </a>
+                </div>
+                <div class="provider-description">{{description}}</div>
+                <div class="provider-info">Hours: {{hours}}</div>
+                <div class="provider-info">Local contact: </div>
+                <div class="provider-info">Languages: {{languageHelp}}</div>
+                <div class="provider-info">Wheelchair accessible: {{wheelchair}}</div>
+                <div class="provider-info">Area served: {{city}}</div>
+                <div class="provider-info">Notes:</div>
+                {{/place}}
+            </script>
 
             <section class="map">
                 <div id="mapid"></div>
             </section>
-
-            <div class="provider-name">G-Street Oasis</div>
-            <div class="provider-address">1175 G St. Springfield</div>
-            <div class="provider-phone">541-214-0260</div>
-            <div class="provider-website"><a href="https://www.ccslc.org/">ccslc.org</a></div>
-            <div class="provider-description">Provides day shelter and other services for homeless families with
-                children. Laundry, hygiene supplies, bathrooms, kitchen facilities and showers available. Also provides
-                limited transitional housing and referrals for families. To obtain services one must be registered in
-                the program.</div>
-            <div class="provider-info">Hours: Monday–Friday 7am–6pm</div>
-            <div class="provider-info">Local contact: Gail, 541-214-0206, gstreet@ccslc.org</div>
-            <div class="provider-info">Languages:</div>
-            <div class="provider-info">Area served:</div>
-            <div class="provider-info">Notes:</div>
 
             <section class="bottom-container">
                 <div class="left-button">
@@ -136,7 +154,7 @@
                 </div>
             </section>
 
-        </section>
+        </main>
     </div>
 
     <div class="mobile-container" id="mobile-container">
@@ -170,15 +188,7 @@
         <div class="footer-item"><a href="terms-of-use.html" class="terms-of-use">Terms of Use</a></div>
     </footer>
 
-    <script>
-        $(function () {
-            $('[data-target]').on('click', function () {
-                var target = $(this).data('target');
-                $(target).siblings().hide().end().show();
-                mymap.invalidateSize();
-            });
-        });
-    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
         integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
         crossorigin=""></script>
@@ -186,7 +196,6 @@
     <script rel="text/javascript" src="src/airtable.browser.js"></script>
     <script rel="text/javascript" src="src/dal.js"></script>
     <script type="text/javascript" src="src/map.js"></script>
-    <script type="text/javascript" src="src/generateSelectOptions.js"></script>
     <script type="text/javascript" src="src/NavBreadcrumb.js"></script>
     <script type="text/javascript" src="src/providerPage.js"></script>
 </body>
