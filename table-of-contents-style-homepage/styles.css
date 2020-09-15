@@ -199,6 +199,11 @@ main {
   background-color: rgb(226, 226, 226);
 }
 
+.subcategory>a {
+  text-decoration: none;
+  color: rgb(88, 88, 88);
+}
+
 .are-you-in-crisis {
   font-style: normal;
   font-weight: bold;
