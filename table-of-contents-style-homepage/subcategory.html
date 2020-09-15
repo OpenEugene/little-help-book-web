@@ -94,7 +94,7 @@
             <script id="provider-tiles-template" type="text/x-handlebars-template">
             {{#places}}
             <div class="tile" id={{id}}>
-                <div class="provider-name">{{name}}</div>
+                <div class="provider-name"><a href="provider.html?place={{id}}">{{name}}</a></div>
                 <div class="provider-address">{{#if address}}{{address}}{{else}}No address provided{{/if}}</div>
                 <div class="provider-phone">{{#if phone}}{{phone}}{{else}}No phone number provided{{/if}}</div>
                 <div class="provider-website">
@@ -114,17 +114,6 @@
                 </div>
             </div>
             {{/places}}
-
-            <!-- {{#subcategories}}
-            {{#if places}}
-                <h2 class="subcategory-name"><a href="subcategory.html?category={{categoryId}}&subcategory={{subcategoryId}}">{{#if name}}{{name}}{{else}}Providers{{/if}}</a></h2>
-                    <ul class="provider">
-                        {{#places}}
-                            <li><a href="provider.html?place={{id}}"">{{name}}</a></li>
-                        {{/places}}
-                    </ul>
-            {{/if}} 
-            {{/subcategories}} -->
             </script>
         </main>
 
