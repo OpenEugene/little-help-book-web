@@ -195,8 +195,17 @@ main {
 }
 
 .subcategory li:hover {
-  color: #0077ff;
+  color: #4A9AF8;
   background-color: rgb(226, 226, 226);
+}
+
+.subcategory a {
+  text-decoration: none;
+  color: rgb(88, 88, 88);
+}
+
+.subcategory a:hover {
+  color: #4A9AF8;
 }
 
 .are-you-in-crisis {
