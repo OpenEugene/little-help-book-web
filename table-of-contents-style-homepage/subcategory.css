@@ -131,7 +131,8 @@ option {
   margin: 0 2rem 3rem 0;
 }
 
-.provider-name {
+.provider-name>a {
+  display: block;
   font-size: 1.5rem;
   font-weight: bold;
   padding: .5rem 0 .7rem;
