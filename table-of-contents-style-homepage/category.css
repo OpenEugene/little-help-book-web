@@ -183,7 +183,7 @@ input {
   display: none;
 }
 
-.subcategory-name {
+.subcategory-name>a {
   display: block;
   text-decoration: none;
   color: black;
@@ -191,11 +191,11 @@ input {
   font-weight: bold;
   padding: .5rem 0 .7rem;
   font-size: 1.5rem;
+  transition: 0.3s color ease-in-out;
   margin-right: 1rem;
 }
 
 .subcategory-name>a:hover {
-  transition: 0.3s color ease-in-out;
   color: #4A9AF8;
 }
 
