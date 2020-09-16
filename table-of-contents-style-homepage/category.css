@@ -207,7 +207,11 @@ input {
 }
 
 .provider li:hover {
-  color: #0077ff;
+  background-color: rgb(226, 226, 226);
+}
+
+.provider li a:hover {
+  color: #4A9AF8;
   background-color: rgb(226, 226, 226);
 }
 

@@ -51,11 +51,6 @@ option {
   width: 48.5%;
 }
 
-.provider-name:hover {
-  transition: 0.3s color ease-in-out;
-  color: #4A9AF8;
-}
-
 .provider-address {
   font-size: 1.15rem;
   padding-top: 1rem;
