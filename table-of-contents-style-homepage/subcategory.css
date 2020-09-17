@@ -170,6 +170,11 @@ option {
   padding-bottom: 1rem;
 }
 
+.read-more {
+  color: #4A9AF8;
+  font-weight: bold;
+}
+
 .last-line {
   display: flex;
   justify-content: space-between;
