@@ -13,6 +13,12 @@ $(document).ready(function() {
   // await has to be inside async function, anonymous in this case
     (async () => {
         /*
+        Save the hard-coded stuff to prepend later
+        */
+        savedHtml = $('#hardcoded-epilogue').html();
+        $('#hardcoded-epilogue').empty();
+
+        /*
         Pull data from Airtable using the dal.js functions.
         Also, populate additional elements at the top of each list to
         represent an option to not filter on that item.
@@ -26,11 +32,6 @@ $(document).ready(function() {
         subcatTable = await dalGetSubcategoryTable();
         placeTable = await dalGetPlaceTable();
         nbc = new NavBreadcrumb(cityTable, categoryTable, subcatTable, placeTable);
-
-        /*
-        Save the hard-coded stuff to prepend later
-        */
-        savedHtml = $('#table-of-contents').html();
 
         /*
         Generate and place option element HTML to place into each appropriate
@@ -104,6 +105,7 @@ function updateDomToc() {
     let compiledHtml = theTemplate({categories : categoryTree});
     // Add the compiled html to the page
     $('#table-of-contents').empty().append(compiledHtml);
+
     // Add the saved bits to the end
     $('#table-of-contents').append(savedHtml);
 }
