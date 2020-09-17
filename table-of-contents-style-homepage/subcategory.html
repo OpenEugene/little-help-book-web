@@ -104,7 +104,10 @@
                         No website provided
                     {{/if}}
                 </div>
-                <div class="provider-description">{{#if description}}{{description}}{{else}}No description provided{{/if}}</div>
+                <div class="provider-description">
+                    {{#if description}}{{trimString description}}{{else}}No description provided{{/if}}
+                    <a href="provider.html?place={{id}}">. . . read more.</a>
+                </div>
                 <div class="last-line">
                     <div class="provider-hours">Hours: {{#if hours}}{{hours}}{{else}}No hours provided{{/if}}</div>
                     <div class="legend-icons">
