@@ -1,9 +1,15 @@
-﻿
-@inject NavigationManager navigationManager
+﻿@inject NavigationManager navigationManager
 
-    <RadzenCard>
+<RadzenFieldset>
+    <HeaderTemplate>
+        <span>
+            <RadzenIcon Icon="new_releases" /><b style="font-size:1.2rem">@Alert.Name</b>
+        </span>
+    </HeaderTemplate>
+    <ChildContent>
         <MarkdownView Content="@Alert.Notes"/>
-    </RadzenCard>
+    </ChildContent>
+</RadzenFieldset>
 
 @code {
 

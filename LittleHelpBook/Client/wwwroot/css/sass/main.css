@@ -108,7 +108,8 @@
 .header .ui-panel-content {
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  margin: 0; }
   .header .ui-panel-content .textbox {
     width: 50%;
     margin: 2rem 0;

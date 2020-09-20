@@ -8,9 +8,6 @@
 @inject ClientCache cache
 
 <RadzenFieldset Text="Map">
-    <RadzenCard>
-        <RadzenIcon Icon="feedback" />This Map is very simple. Searchable Map coming soon.
-    </RadzenCard>
     <GoogleMap @ref="@map1" Id="map1"
                Options="@mapOptions"
                OnAfterInit="@(async () => await OnAfterMapInitAsync())">
