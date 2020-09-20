@@ -1,21 +1,27 @@
 ﻿@inherits ResizableCachedComponent
 
-@if (Cache?.Infos?.Count()>0)
+@if (infoList !=null)
 {
-   
-    <RadzenDataList WrapItems="true" Data="@Cache.Infos" TItem="Info" >
+    <RadzenDataList WrapItems="true" Data="@infoList" TItem="Info" >
         <Template Context="info">
             <InfoCard Info="info" />
         </Template>
     </RadzenDataList>
-
 }
 
 @code {
 
+    [Parameter]
+    public string CatId { get; set; }
+
+    private IEnumerable<Info> infoList { get; set; }
+
     protected override async Task OnInitializedAsync()
     {
-        await Cache.GetInfos();
+        if (CatId != null)
+        {
+            infoList = await Cache.GetInfosByCat(CatId);
+        }
     }
 
 }

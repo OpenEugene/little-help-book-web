@@ -230,7 +230,7 @@ namespace LittleHelpBook.Client.Services
         public async Task<List<Info>> GetInfosByCat(string id)
         {
             await GetInfos();
-            var list = Infos.Where(p => p.CategoryList.Any(sc => sc.Id == id)).ToList();
+            var list = Infos.Where(p => p.CategoryList.Any(c => c.Id == id)).ToList();
             return list;
         }
 
