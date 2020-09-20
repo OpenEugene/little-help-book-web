@@ -17,10 +17,16 @@
 @code{
 
     [Parameter]
+    public string FileName {get; set; }
+    [Parameter]
     public string Content {get; set; }
 
     protected override async Task OnParametersSetAsync()
     {
+        if (FileName !=null)
+        {
+            Content = await GetStringFromFileAsync(FileName);
+        }
         HtmlContent = await ConvertStringToMarkupString(Content);
     }
 
@@ -30,11 +36,9 @@
     {
         if (!string.IsNullOrWhiteSpace(value))
         {
-            string fileName = $"/markdown/{value}";
-            string readValue = await http.GetStringAsync(fileName);
 
             // Convert markdown string to HTML
-            var html = Markdig.Markdown.ToHtml(readValue,
+            var html = Markdig.Markdown.ToHtml(value,
                 new MarkdownPipelineBuilder().UseAdvancedExtensions().Build());
 
             // Sanitize HTML before rendering
@@ -45,5 +49,18 @@
         }
 
         return new MarkupString();
+    }
+
+    private async Task<String> GetStringFromFileAsync(string file)
+    {
+        if (!string.IsNullOrWhiteSpace(file))
+        {
+            string fileName = $"/markdown/{file}";
+            string readValue = await http.GetStringAsync(fileName);
+
+            return readValue;
+        }
+
+        return null;
     }
 }

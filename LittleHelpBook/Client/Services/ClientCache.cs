@@ -19,6 +19,7 @@ namespace LittleHelpBook.Client.Services
         //places data
         private IEnumerable<Place> _allPlaces;
         private IEnumerable<Place> _foundPlaces;
+        private IEnumerable<Alert> _alerts;
 
         //lookups
         private IEnumerable<Category> _categories;
@@ -55,6 +56,12 @@ namespace LittleHelpBook.Client.Services
             set => SetField(ref _categories, value);
         }
 
+        public IEnumerable<Alert> Alerts
+        {
+            get => _alerts;
+            set => SetField(ref _alerts, value);
+        }
+
         public IEnumerable<Subcategory> Subcategories
         {
             get => _subcategories;
@@ -64,6 +71,11 @@ namespace LittleHelpBook.Client.Services
         public async Task<IEnumerable<Place>> GetAllPlaces()
         {
             return _allPlaces ??= await Http.GetFromJsonAsync<IEnumerable<Place>>("Place");
+        }
+
+        public async Task<IEnumerable<Alert>> GetAlerts()
+        {
+            return _alerts ??= await Http.GetFromJsonAsync<IEnumerable<Alert>>("Alert");
         }
 
 
@@ -197,5 +209,7 @@ namespace LittleHelpBook.Client.Services
             var list = AllPlaces.Where(p => p.CategoryList.Any(sc => sc.Id == id)).ToList();
             return list;
         }
+
+      
     }
 }

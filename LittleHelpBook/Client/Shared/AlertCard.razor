@@ -1,0 +1,13 @@
+﻿
+@inject NavigationManager navigationManager
+
+    <RadzenCard>
+        <MarkdownView Content="@Alert.Notes"/>
+    </RadzenCard>
+
+@code {
+
+    [Parameter]
+    public Alert Alert { get; set; }
+
+}

@@ -18,6 +18,7 @@ namespace LittleHelpBook.Server.Services
         private IEnumerable<Place> _places;  
         private IEnumerable<Category> _categories;
         private IEnumerable<Subcategory> _subcategories;
+        private IEnumerable<Alert> _alerts;
 
         public AirTableService(IConfiguration configuration) : base(configuration) {}
 
@@ -109,5 +110,9 @@ namespace LittleHelpBook.Server.Services
 
         }
 
+        public async Task<IEnumerable<Alert>> GetAlertsAsync()
+        {
+            return _alerts ??= await GetTableAsync<Alert>("Alerts");
+        }
     }
 }

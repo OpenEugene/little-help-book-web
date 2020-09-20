@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -57,6 +58,7 @@ namespace LittleHelpBook.Shared.Data
         public string Name { get; set; }
         [JsonProperty("Name-ES")]
         public string NameSpanish { get; set; }
+        public int Order { get; set; }
 
         [JsonProperty("Subcategories")]
         public List<string> Subcategories { get; set; } = new List<string>();
@@ -72,4 +74,18 @@ namespace LittleHelpBook.Shared.Data
         public string NameSpanish { get; set; }
 
     }
+
+    public class Alert : IAirtable
+    {
+        public string Id { get; set; }
+        public string Name { get; set; }
+       
+        public string Notes { get; set; }
+
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+
+    }
+
+
 }

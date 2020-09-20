@@ -15,25 +15,26 @@ namespace LittleHelpBook.Server.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class CategoryController : ControllerBase
+    public class AlertController : ControllerBase
     {
      
         private readonly ILogger<PlaceController> logger;
         private readonly AirTableService _airTableService;
 
-        public CategoryController(ILogger<PlaceController> logger, AirTableService airTableService)
+        public AlertController(ILogger<PlaceController> logger, AirTableService airTableService)
         {
             this.logger = logger;
             _airTableService = airTableService;
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Category>> Get()
+        public async Task<IEnumerable<Alert>> Get()
         {
 
-            var data = await _airTableService.GetCategoriesPopulatedAsync();
+            var data = await _airTableService.GetAlertsAsync();
+            var alerts = data.Where(a => DateTime.Now > a.StartDate && DateTime.Now < a.EndDate);
 
-            return data.OrderBy(o=>o.Order).ToArray();
+            return alerts.ToArray();
 
         }
 

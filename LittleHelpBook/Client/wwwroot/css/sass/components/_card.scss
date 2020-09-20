@@ -10,9 +10,9 @@
   border-radius: 10px;
   background-color: $color-secondary--light;
   color: white;
-  font-size: 2rem;
+  font-size: 1rem;
   margin-bottom: 1.5rem;
-  transition: all .2s ease;
+/*  transition: all .2s ease;*/
 
   b {
     display: block;
@@ -43,9 +43,9 @@
 
   &:hover {
     cursor: pointer;
-    transform: translateY(-1rem);
-    box-shadow: $shadow;
-    border: 2px solid $color-white;
+    /*transform: translateY(-1rem);*/
+   /* box-shadow: $shadow;
+    border: 2px solid $color-white;*/
   }
 
   @media screen and (max-width: 992px) {
