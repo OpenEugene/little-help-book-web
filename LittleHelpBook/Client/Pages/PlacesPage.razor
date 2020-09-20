@@ -5,6 +5,8 @@
 @inject ClientCache cache
 @inject IJSRuntime JSRuntime;
 
+<Infos/>
+
 @if (places == null)
 {
     <RadzenCard style="width: 100%">
@@ -35,13 +37,15 @@ else
     public string Words { get; set; }
 
     private IEnumerable<Place> places;
-
+    private IEnumerable<Info> infos;
 
     protected override async Task OnInitializedAsync()
     {
         if (CatId?.Length > 0)
         {
             places = await cache.GetPlacesByCat(CatId);
+            infos = await cache.GetInfosByCat(CatId);
+
             return;
         }
         if (SubId?.Length > 0)

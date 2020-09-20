@@ -20,6 +20,7 @@ namespace LittleHelpBook.Client.Services
         private IEnumerable<Place> _allPlaces;
         private IEnumerable<Place> _foundPlaces;
         private IEnumerable<Alert> _alerts;
+        private IEnumerable<Info> _infos;
 
         //lookups
         private IEnumerable<Category> _categories;
@@ -68,6 +69,12 @@ namespace LittleHelpBook.Client.Services
             set => SetField(ref _subcategories, value);
         }
 
+        public IEnumerable<Info> Infos
+        {
+            get => _infos;
+            set => SetField(ref _infos, value);
+        }
+
         public async Task<IEnumerable<Place>> GetAllPlaces()
         {
             return _allPlaces ??= await Http.GetFromJsonAsync<IEnumerable<Place>>("Place");
@@ -78,6 +85,10 @@ namespace LittleHelpBook.Client.Services
             return _alerts ??= await Http.GetFromJsonAsync<IEnumerable<Alert>>("Alert");
         }
 
+        public async Task<IEnumerable<Info>> GetInfos()
+        {
+            return _infos ??= await Http.GetFromJsonAsync<IEnumerable<Info>>("Info");
+        }
 
         public async Task<IEnumerable<Place>> GetFoundPlaces()
         {
@@ -99,12 +110,18 @@ namespace LittleHelpBook.Client.Services
             _categories = null;
             _subcategories = null;
             _searchWords = null;
+            _infos = null;
+            _alerts = null;
+            _allPlaces = null;
+            _foundPlaces = null;
         }
         public async Task Reset()
         {
             await Clear();
             await GetCategories();
             await GetSubcategories();
+            await GetAlerts();
+            await GetInfos();
         }
 
         public async Task<Place> GetPlace(string Id)
@@ -207,6 +224,13 @@ namespace LittleHelpBook.Client.Services
         {
             await GetAllPlaces();
             var list = AllPlaces.Where(p => p.CategoryList.Any(sc => sc.Id == id)).ToList();
+            return list;
+        }
+
+        public async Task<List<Info>> GetInfosByCat(string id)
+        {
+            await GetInfos();
+            var list = Infos.Where(p => p.CategoryList.Any(sc => sc.Id == id)).ToList();
             return list;
         }
 

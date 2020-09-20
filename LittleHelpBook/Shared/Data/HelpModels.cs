@@ -87,5 +87,21 @@ namespace LittleHelpBook.Shared.Data
 
     }
 
+    public class Info : IAirtable
+    {
+        public string Id { get; set; }
+        public string Name { get; set; }
+       
+        public string Content { get; set; }
+
+        [JsonProperty("Category")] public IEnumerable<string> Categories { get; set; }
+        public string CategoryName => CategoryList?.FirstOrDefault()?.Name;
+        public List<Category> CategoryList { get; set; } = new List<Category>();
+
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+
+    }
+
 
 }

@@ -19,6 +19,7 @@ namespace LittleHelpBook.Server.Services
         private IEnumerable<Category> _categories;
         private IEnumerable<Subcategory> _subcategories;
         private IEnumerable<Alert> _alerts;
+        private IEnumerable<Info> _infos;
 
         public AirTableService(IConfiguration configuration) : base(configuration) {}
 
@@ -113,6 +114,35 @@ namespace LittleHelpBook.Server.Services
         public async Task<IEnumerable<Alert>> GetAlertsAsync()
         {
             return _alerts ??= await GetTableAsync<Alert>("Alerts");
+        }
+
+        public async Task<IEnumerable<Info>> GetInfosAsync()
+        {
+            return _infos ??= await GetTableAsync<Info>("Infos");
+        }
+
+        public async Task<IEnumerable<Info>> GetInfosPopulatedAsync()
+        {
+            if (_infos != null)
+            {
+                return _infos;
+            }
+
+            _infos = await GetInfosAsync();
+            foreach (var info in _infos)
+            {
+                if (info.Categories != null)
+                {
+                    foreach (var id in info.Categories)
+                    {
+                        info.CategoryList.Add(await GetCategoryAsync(id));
+                    }
+
+                    info.CategoryList.OrderBy(sc => sc.Name);
+                }
+            }
+
+            return _infos;
         }
     }
 }

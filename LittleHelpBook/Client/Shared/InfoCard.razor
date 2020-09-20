@@ -3,17 +3,17 @@
 <RadzenFieldset>
     <HeaderTemplate>
         <span style="font-size: 1.5rem;" >
-            <RadzenIcon Icon="new_releases" /><b style="margin-left: 5px;vertical-align: top;" >@Alert.Name</b>
+            <RadzenIcon Icon="info" /><b style="margin-left: 5px;vertical-align: top;">@Info.Name</b>
         </span>
     </HeaderTemplate>
     <ChildContent>
-        <MarkdownView Content="@Alert.Notes"/>
+        <MarkdownView Content="@Info.Content"/>
     </ChildContent>
 </RadzenFieldset>
 
 @code {
 
     [Parameter]
-    public Alert Alert { get; set; }
+    public Info Info { get; set; }
 
 }

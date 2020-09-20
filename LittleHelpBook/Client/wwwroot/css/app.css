@@ -349,9 +349,16 @@ app {
         margin: 0;
     }
 
-        ul li {
-            list-style: none;
-        }
+    ul li {
+        list-style: none;
+    }
+
+    .fieldset-header-title {
+        font-size: 1.5rem;
+    }
+    .fieldset-header-title b {
+        margin-left: 5px
+    }
 
     /* tablet */
     @media only screen and (max-width: 1195px) {
@@ -359,7 +366,6 @@ app {
             display: flex;
             flex-direction: column;
         } */
-
         .search {
             order: 1;
         }
