@@ -11,11 +11,12 @@ function mapInit() {
 
 function setMarkers(placesArray) {
 	removeMarkers();
-	for (let i = 0; i < placesArray.length; i++) {
-		createMarker(placesArray[i]);
+	pa = placesArray.filter(x => isValidCoord(x["latitude"], x["longitude"]))
+	for (let i = 0; i < pa.length; i++) {
+		createMarker(pa[i]);
 	}
 	for (let i = 0; i < markers.length; i++) {
-		markers[i].addTo(mymap).bindPopup(generatePopUpHtml(placesArray[i]));
+		markers[i].m.addTo(mymap).bindPopup(markers[i].text);
 	}
 }
 
@@ -38,14 +39,8 @@ function isValidCoord(lat, long) {
 function createMarker(placeInfo) {
 	let la = placeInfo.latitude;
 	let lo = placeInfo.longitude;
-	if (isValidCoord(la, lo)) {
-		let marker = L.marker([placeInfo.latitude,placeInfo.longitude], {draggable: false})
-		markers.push(marker);
-	}
-	else {
-		invalidMarkers = [];
-		invalidMarkers.push(placeInfo.id);
-	}
+	let marker = L.marker([la,lo], {draggable: false})
+	markers.push({m: marker, text: generatePopUpHtml(placeInfo)});
 }
 
 function generatePopUpHtml(placeInfo) {
@@ -57,9 +52,10 @@ function generatePopUpHtml(placeInfo) {
 
 function removeMarkers() {
 	markers.forEach(m => {
-		mymap.removeLayer(m);
+		mymap.removeLayer(m.m);
 	});
 	markers = [];
+	invalidMarkers = [];
 }
 
 function setView(coordArray, zoom) {
