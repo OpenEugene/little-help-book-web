@@ -1,6 +1,6 @@
 /*
 This line will find a div element with an id of "mapid" to initialize in to and
-set the starting view coordinates to Eugene, Oregon. It also set the map data
+set the starting view coordinates to Eugene, Oregon. It also sets the map data
 to a variable called "mymap".
 */
 const mymap = L.map('mapid').setView([44.0521,-123.0868], 7);
