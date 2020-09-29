@@ -23,7 +23,8 @@ function mapInit() {
 // This is the parent function that handles setting markers.
 function setMarkers(placesArray) {
 	removeMarkers();
-	pa = placesArray.filter(x => isValidCoord(x["latitude"], x["longitude"]))
+	pa = placesArray.filter(x => isValidCoord(x["latitude"], x["longitude"]));
+	invalidMarkers = placesArray.filter(x => !isValidCoord(x["latitude"], x["longitude"]));
 	for (let i = 0; i < pa.length; i++) {
 		createMarker(pa[i]);
 	}
