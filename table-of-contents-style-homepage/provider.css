@@ -162,6 +162,10 @@ option {
     flex-direction: column;
   }
 
+  .provider-name {
+    width: 100%;
+  }
+
   .map {
     padding-bottom: 1.25rem;
     padding-left: 0;
