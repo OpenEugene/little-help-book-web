@@ -141,7 +141,7 @@ option {
 
 .provider-name>a:hover {
   transition: 0.3s color ease-in-out;
-  color: #4A9AF8;
+  color: #308DF8;
 }
 
 .provider-address {
@@ -162,7 +162,7 @@ option {
 
 .provider-website>a:hover {
   transition: 0.3s color ease-in-out;
-  color: #4A9AF8;
+  color: #086CDD;
 }
 
 .provider-description {
@@ -171,7 +171,7 @@ option {
 }
 
 .read-more {
-  color: #4A9AF8;
+  color: #086CDD;
   font-weight: bold;
 }
 

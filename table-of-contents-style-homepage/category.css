@@ -196,7 +196,7 @@ input {
 }
 
 .subcategory-name>a:hover {
-  color: #4A9AF8;
+  color: #308DF8;
 }
 
 .provider {
@@ -211,7 +211,7 @@ input {
 }
 
 .provider li a:hover {
-  color: #4A9AF8;
+  color: #086CDD;
   background-color: rgb(226, 226, 226);
 }
 

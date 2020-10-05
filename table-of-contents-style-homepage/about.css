@@ -52,7 +52,7 @@ header .search input {
 }
 
 .blue-link {
-	color: #4A9AF8;
+	color: #086CDD;
 }
 
 .ri-wheelchair-fill {
@@ -114,13 +114,13 @@ textarea, input {
 	color: white;
 	font-weight: bold;
 	text-transform: uppercase;
-	background-color: #4A9AF8;
+	background-color: #086CDD;
   box-shadow: .5rem .5rem .75rem #8888;
 }
 
 .clear:hover {
   color: white;
-  background-color: #4A9AF8;
+  background-color: #086CDD;
 }
 
 .clear {
