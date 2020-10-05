@@ -26,7 +26,7 @@ li {
 
 a {
   text-decoration: none;
-  color: #4A9AF8;
+  color: #086CDD;
 }
 
 .desktop-header {
@@ -179,7 +179,7 @@ main {
 }
 
 .category-name>a:hover {
-  color: #4A9AF8;
+  color: #086CDD;
 }
 
 .category-name {
@@ -194,7 +194,7 @@ main {
 }
 
 .subcategory li:hover {
-  color: #4A9AF8;
+  color: #086CDD;
   background-color: rgb(226, 226, 226);
 }
 
@@ -204,7 +204,7 @@ main {
 }
 
 .subcategory a:hover {
-  color: #4A9AF8;
+  color: #086CDD;
 }
 
 .are-you-in-crisis {
@@ -216,13 +216,13 @@ main {
 }
 
 .blue-text {
-  color: #4A9AF8;
+  color: #086CDD;
   font-weight: bold;
   transition: 0.3s color ease-in-out; 
 }
 
 .blue-text:hover {
-  color: #0077ff;
+  color: #308DF8;
 }
 
 /* popup container */
@@ -277,7 +277,7 @@ main {
   font-style: normal;
   font-weight: light;
   font-size: 1em;
-  color: gray;
+  color: #716F6F;
   line-height: 1.5em;
   margin: 1.95em 0 2.25rem 0;
 }
@@ -302,7 +302,7 @@ main {
   font-style: normal;
   font-weight: light;
   font-size: 1rem;
-  color: gray;
+  color: #716F6F;
   margin: 3rem 0 1rem;
   padding: 1rem;
 }
@@ -312,16 +312,16 @@ main {
 }
 
 .footer-url {
-  color: #4A9AF8;
+  color: #086CDD;
   font-weight: bold;
 }
 
 .terms-of-use {
-  color: gray;
+  color: #716F6F;
 }
 
 .terms-of-use:hover {
-  color: #4A9AF8;
+  color: #086CDD;
 }
 
 /* replace menu items with icon */
@@ -440,12 +440,12 @@ main {
   }
 
   .help-button:hover {
-    background-color: #4A9AF8;
+    background-color: #308DF8;
     box-shadow: .5rem .5rem .75rem #8888;
   }
 
   .spanish-button:hover {
-    background-color: #4A9AF8;
+    background-color: #308DF8;
     box-shadow: .5rem .5rem .75rem #8888;
   }
 
@@ -577,7 +577,7 @@ main {
   } 
 
   .blue-text {
-    color: #4A9AF8;
+    color: #086CDD;
   }
   
   /* pop-up container */
