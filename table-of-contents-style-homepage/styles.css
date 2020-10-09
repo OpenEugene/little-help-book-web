@@ -77,6 +77,8 @@ a .little-help-book {
   margin-left: -4.5rem;
 }
 
+/* We're in the process of adding a caret/down-arrow to the dropdown menu box. */
+
 .breadcrumb-box select {
   /* hide default arrow */
   background: transparent;
@@ -117,12 +119,7 @@ a .little-help-book {
   font-weight: bold;
   height: 2.7rem;
   width: 14.5rem;
-  /* border-top: none;
-  border-left: none;
-  border-right: none;
-  border-bottom: none; */
   border-bottom-width: 0.1rem;
-  border-bottom-color: rgb(126, 126, 126);
   margin: 2.6rem 0 0 -0.5rem;
   margin-right: 0.75rem;
 }
@@ -134,7 +131,7 @@ select:hover {
 
 .description {
   white-space: nowrap;
-  margin: 3.14rem -25.9rem 0 0;
+  margin: 3.14rem -26.5rem 0 0;
 }
 
 .find-help {
@@ -432,10 +429,10 @@ main {
   .little-help-book {
     position: absolute;
     color: white;
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: bold;
     font-family: sans-serif;
-    margin: 2.4rem 0 0 5.8rem;
+    margin: 2.45rem 0 0 5.8rem;
   }
 
   .people-care {
