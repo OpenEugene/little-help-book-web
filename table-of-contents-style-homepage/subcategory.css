@@ -22,11 +22,7 @@ main {
 option {
   background-color: white;
   color: black;
-  font-size: 1.4rem;
-}
-
-.city {
-  margin-left: 8rem;
+  font-size: 1rem;
 }
 
 .search {
@@ -34,8 +30,9 @@ option {
 }
 
 .menu-lines {
-  margin-left: -2rem;
+  margin-left: -0.5rem;
   margin-right: 1rem;
+  margin-top: -0.1rem;
 }
 
 .hamburger {
