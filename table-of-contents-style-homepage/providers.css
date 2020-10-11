@@ -40,7 +40,13 @@
   .a-z-desktop {
     flex-direction: column;
     align-items: flex-end;
+    justify-content: normal;
     font-size: 1.3rem;
+    margin-top: 1.1rem;
+  }
+
+  .alphabet-heading {
+    margin-top: 1.1rem;
   }
 
   .select-numbers {
@@ -56,7 +62,9 @@
   }
 
   .alphabetical-listing {
-  
+    flex-direction: row-reverse;
+    display: flex;
+    justify-content: space-between;
   }
 }
 

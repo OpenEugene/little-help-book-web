@@ -56,6 +56,7 @@
         </header>
 
         <main id="main">
+        <div class="alphabetical-listing">
 
             <div class="a-z-desktop">
                 <div class="alphabet select-numbers">0–9</div>
@@ -113,66 +114,73 @@
                 <div class="alphabet">Z</div>
             </div>
 
-        <div class="alphabetical-listing">
-            <section class="alphabet-heading">0–9</section>
-            <section class="alphabet-heading">A</section>
-            <section class="alphabet-heading">B</section>
-            <section class="alphabet-heading">C</section>
-            <section class="alphabet-heading">D</section>
-            <section class="alphabet-heading">E</section>
-            <section class="alphabet-heading">F</section>
-            <section class="alphabet-heading">G</section>
-            <section class="alphabet-heading">H</section>
-            <section class="alphabet-heading">I</section>
-            <section class="alphabet-heading">J</section>
-            <section class="alphabet-heading">K</section>
-            <section class="alphabet-heading">L</section>
-            <section class="alphabet-heading">M</section>
-            <section class="alphabet-heading">N</section>
-            <section class="alphabet-heading">O</section>
-            <section class="alphabet-heading">P</section>
-            <section class="alphabet-heading">Q</section>
-            <section class="alphabet-heading">R</section>
-            <section class="alphabet-heading">S</section>
-            <section class="alphabet-heading">T</section>
-            <section class="alphabet-heading">U</section>
-            <section class="alphabet-heading">V</section>
-            <section class="alphabet-heading">W</section>
-            <section class="alphabet-heading">X</section>
-            <section class="alphabet-heading">Y</section>
-            <section class="alphabet-heading">Z</section>
-        </div>
-            
-            <section id="provider-tiles" class="providers">
-                <h3><em>Loading...</em><h3>
-            </section>
-            <script id="provider-tiles-template" type="text/x-handlebars-template">
-            {{#places}}
-            <div class="tile" id={{id}}>
-                <div class="provider-name"><a href="provider.html?place={{id}}">{{name}}</a></div>
-                <div class="provider-address">{{#if address}}{{address}}{{else}}No address provided{{/if}}</div>
-                <div class="provider-phone">{{#if phone}}{{phone}}{{else}}No phone number provided{{/if}}</div>
-                <div class="provider-website">
-                    {{#if url}}
-                        <a target="_blank" href="{{url}}">{{url}}</a>
-                    {{else}}
-                        No website provided
-                    {{/if}}
-                </div>
-                <div class="provider-description">
-                    {{#if description}}{{trimString description}}{{else}}No description provided{{/if}}
-                    <a href="provider.html?place={{id}}" class="read-more">. . . Read more</a>
-                </div>
-                <div class="last-line">
-                    <div class="provider-hours">Hours: {{#if hours}}{{hours}}{{else}}No hours provided{{/if}}</div>
-                    <div class="legend-icons">
-                        {{#if languageHelp}}<i class='ri-earth-fill'></i>{{/if}}
-                        {{#if wheelchair}}<i class='ri-wheelchair-fill'></i>{{/if}}
+            <div>
+                <section class="alphabet-heading">0–9</section>
+                
+
+                <section id="provider-tiles" class="providers">
+                    <h3><em>Loading...</em><h3>
+                </section>
+                <script id="provider-tiles-template" type="text/x-handlebars-template">
+                {{#places}}
+                <div class="tile" id={{id}}>
+                    <div class="provider-name"><a href="provider.html?place={{id}}">{{name}}</a></div>
+                    <div class="provider-address">{{#if address}}{{address}}{{else}}No address provided{{/if}}</div>
+                    <div class="provider-phone">{{#if phone}}{{phone}}{{else}}No phone number provided{{/if}}</div>
+                    <div class="provider-website">
+                        {{#if url}}
+                            <a target="_blank" href="{{url}}">{{url}}</a>
+                        {{else}}
+                            No website provided
+                        {{/if}}
+                    </div>
+                    <div class="provider-description">
+                        {{#if description}}{{trimString description}}{{else}}No description provided{{/if}}
+                        <a href="provider.html?place={{id}}" class="read-more">. . . Read more</a>
+                    </div>
+                    <div class="last-line">
+                        <div class="provider-hours">Hours: {{#if hours}}{{hours}}{{else}}No hours provided{{/if}}</div>
+                        <div class="legend-icons">
+                            {{#if languageHelp}}<i class='ri-earth-fill'></i>{{/if}}
+                            {{#if wheelchair}}<i class='ri-wheelchair-fill'></i>{{/if}}
+                        </div>
                     </div>
                 </div>
+                {{/places}}
+                </script>
+
+
+                <section class="alphabet-heading">A</section>
+                <section class="alphabet-heading">B</section>
+                <section class="alphabet-heading">C</section>
+                <section class="alphabet-heading">D</section>
+                <section class="alphabet-heading">E</section>
+                <section class="alphabet-heading">F</section>
+                <section class="alphabet-heading">G</section>
+                <section class="alphabet-heading">H</section>
+                <section class="alphabet-heading">I</section>
+                <section class="alphabet-heading">J</section>
+                <section class="alphabet-heading">K</section>
+                <section class="alphabet-heading">L</section>
+                <section class="alphabet-heading">M</section>
+                <section class="alphabet-heading">N</section>
+                <section class="alphabet-heading">O</section>
+                <section class="alphabet-heading">P</section>
+                <section class="alphabet-heading">Q</section>
+                <section class="alphabet-heading">R</section>
+                <section class="alphabet-heading">S</section>
+                <section class="alphabet-heading">T</section>
+                <section class="alphabet-heading">U</section>
+                <section class="alphabet-heading">V</section>
+                <section class="alphabet-heading">W</section>
+                <section class="alphabet-heading">X</section>
+                <section class="alphabet-heading">Y</section>
+                <section class="alphabet-heading">Z</section>
             </div>
-            {{/places}}
-            </script>
+            
+
+
+        </div>
         </main>
 
         <footer class="footer">
