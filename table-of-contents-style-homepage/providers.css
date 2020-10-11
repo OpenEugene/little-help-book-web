@@ -16,3 +16,35 @@
   color: #a0a0a0;
   font-weight: lighter;
 }
+
+.container {
+  display: inline;
+}
+
+/* begin tablet styles */
+
+@media screen and (max-width: 770px) {
+  .a-z-desktop {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .select-numbers {
+    margin-right: -.5rem;
+  }
+
+  .desktop-alphabet {
+    font-size: 1.3rem;
+    padding-bottom: .5rem;
+  }
+
+  .alphabet-divider {
+    display: none;
+  }
+}
+
+/* begin mobile styles */
+  
+@media screen and (max-width: 640px) {
+
+}
