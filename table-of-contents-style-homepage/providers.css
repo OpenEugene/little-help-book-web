@@ -1,0 +1,8 @@
+.a-z-desktop {
+  display: flex;
+  justify-content: space-around;
+  margin-right: 3.5rem;
+  margin-left: 3.5rem;
+  margin-top: 1.1rem;
+	font-size: 1.4rem;
+}
