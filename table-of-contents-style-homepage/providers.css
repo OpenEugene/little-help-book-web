@@ -6,3 +6,13 @@
   margin-top: 1.1rem;
 	font-size: 1.4rem;
 }
+
+.desktop-alphabet {
+  color: #086CDD;
+  text-decoration: underline;
+}
+
+.alphabet-divider {
+  color: #a0a0a0;
+  font-weight: lighter;
+}
