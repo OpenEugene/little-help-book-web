@@ -7,6 +7,10 @@
 	font-size: 1.4rem;
 }
 
+.a-z-mobile {
+  display: none;
+}
+
 .desktop-alphabet {
   color: #086CDD;
   text-decoration: underline;
