@@ -208,119 +208,119 @@
 
         <div class="alphabetical-listing-mobile">
 
-            <div>
-            <section class="alphabet-heading">0–9</section>
-            
-                <section id="provider-tiles" class="providers">
-                    <h3><em>Loading...</em><h3>
-                </section>
-    
-                <script id="provider-tiles-template" type="text/x-handlebars-template">
-                {{#places}}
-                <div class="tile" id={{id}}>
-                    <div class="provider-name"><a href="provider.html?place={{id}}">{{name}}</a></div>
-                    <div class="provider-address">{{#if address}}{{address}}{{else}}No address provided{{/if}}</div>
-                    <div class="provider-website">
-                        {{#if url}}
-                            <a target="_blank" href="{{url}}">{{url}}</a>
-                        {{else}}
-                            No website provided
-                        {{/if}}
+            <div class="mobile-providers">
+                <section class="alphabet-heading">0–9</section>
+                
+                    <section id="provider-tiles" class="providers">
+                        <h3><em>Loading...</em><h3>
+                    </section>
+        
+                    <script id="provider-tiles-template" type="text/x-handlebars-template">
+                    {{#places}}
+                    <div class="tile" id={{id}}>
+                        <div class="provider-name"><a href="provider.html?place={{id}}">{{name}}</a></div>
+                        <div class="provider-address">{{#if address}}{{address}}{{else}}No address provided{{/if}}</div>
+                        <div class="provider-website">
+                            {{#if url}}
+                                <a target="_blank" href="{{url}}">{{url}}</a>
+                            {{else}}
+                                No website provided
+                            {{/if}}
+                        </div>
+                    </div>
+                    {{/places}}
+                    </script>
+
+                <section class="alphabet-heading">A</section>
+                <section class="alphabet-heading">B</section>
+                <section class="alphabet-heading">C</section>
+                <section class="alphabet-heading">D</section>
+                <section class="alphabet-heading">E</section>
+                <section class="alphabet-heading">F</section>
+                <section class="alphabet-heading">G</section>
+                <section class="alphabet-heading">H</section>
+                <section class="alphabet-heading">I</section>
+                <section class="alphabet-heading">J</section>
+                <section class="alphabet-heading">K</section>
+                <section class="alphabet-heading">L</section>
+                <section class="alphabet-heading">M</section>
+                <section class="alphabet-heading">N</section>
+                <section class="alphabet-heading">O</section>
+                <section class="alphabet-heading">P</section>
+                <section class="alphabet-heading">Q</section>
+                <section class="alphabet-heading">R</section>
+                <section class="alphabet-heading">S</section>
+                <section class="alphabet-heading">T</section>
+                <section class="alphabet-heading">U</section>
+                <section class="alphabet-heading">V</section>
+                <section class="alphabet-heading">W</section>
+                <section class="alphabet-heading">X</section>
+                <section class="alphabet-heading">Y</section>
+                <section class="alphabet-heading">Z</section>
+
+            </div>  
+             
+                <div class="a-z-mobile">
+                    <div class="mobile-alphabet-1">
+                        <div class="alphabet select-numbers">0–9</div>
+                        <div class="alphabet-divider">|</div>
+                        <div class="alphabet">A</div> 
+                        <div class="alphabet-divider">|</div>
+                        <div class="alphabet">B</div>
+                        <div class="alphabet-divider">|</div>
+                        <div class="alphabet">C</div>
+                        <div class="alphabet-divider">|</div>
+                        <div class="alphabet">D</div>
+                        <div class="alphabet-divider">|</div>
+                        <div class="alphabet">E</div>
+                        <div class="alphabet-divider">|</div>
+                        <div class="alphabet">F</div>
+                        <div class="alphabet-divider">|</div>
+                        <div class="alphabet">G</div>
+                        <div class="alphabet-divider">|</div>
+                        <div class="alphabet">H</div>
+                        <div class="alphabet-divider">|</div>
+                        <div class="alphabet">I</div>
+                        <div class="alphabet-divider">|</div>
+                        <div class="alphabet">J</div>
+                        <div class="alphabet-divider">|</div>
+                        <div class="alphabet">K</div>
+                        <div class="alphabet-divider">|</div>
+                        <div class="alphabet">L</div>
+                        <div class="alphabet-divider">|</div>
+                        <div class="alphabet">M</div>
+                        <div class="alphabet-divider">|</div>
+                    </div>
+                    <div class="mobile-alphabet-2">
+                        <div class="alphabet">N</div>
+                        <div class="alphabet-divider">|</div>
+                        <div class="alphabet">O</div>
+                        <div class="alphabet-divider">|</div>
+                        <div class="alphabet">P</div>
+                        <div class="alphabet-divider">|</div>
+                        <div class="alphabet">Q</div>
+                        <div class="alphabet-divider">|</div>
+                        <div class="alphabet">R</div>
+                        <div class="alphabet-divider">|</div>
+                        <div class="alphabet">S</div>
+                        <div class="alphabet-divider">|</div>
+                        <div class="alphabet">T</div>
+                        <div class="alphabet-divider">|</div>
+                        <div class="alphabet">U</div>
+                        <div class="alphabet-divider">|</div>
+                        <div class="alphabet">V</div>
+                        <div class="alphabet-divider">|</div>
+                        <div class="alphabet">W</div>
+                        <div class="alphabet-divider">|</div>
+                        <div class="alphabet">X</div>
+                        <div class="alphabet-divider">|</div>
+                        <div class="alphabet">Y</div>
+                        <div class="alphabet-divider">|</div>
+                        <div class="alphabet">Z</div>
                     </div>
                 </div>
-                {{/places}}
-                </script>
-
-            <section class="alphabet-heading">A</section>
-            <section class="alphabet-heading">B</section>
-            <section class="alphabet-heading">C</section>
-            <section class="alphabet-heading">D</section>
-            <section class="alphabet-heading">E</section>
-            <section class="alphabet-heading">F</section>
-            <section class="alphabet-heading">G</section>
-            <section class="alphabet-heading">H</section>
-            <section class="alphabet-heading">I</section>
-            <section class="alphabet-heading">J</section>
-            <section class="alphabet-heading">K</section>
-            <section class="alphabet-heading">L</section>
-            <section class="alphabet-heading">M</section>
-            <section class="alphabet-heading">N</section>
-            <section class="alphabet-heading">O</section>
-            <section class="alphabet-heading">P</section>
-            <section class="alphabet-heading">Q</section>
-            <section class="alphabet-heading">R</section>
-            <section class="alphabet-heading">S</section>
-            <section class="alphabet-heading">T</section>
-            <section class="alphabet-heading">U</section>
-            <section class="alphabet-heading">V</section>
-            <section class="alphabet-heading">W</section>
-            <section class="alphabet-heading">X</section>
-            <section class="alphabet-heading">Y</section>
-            <section class="alphabet-heading">Z</section>
-            </div>
             
-            <div class="a-z-mobile">
-                <div class="mobile-alphabet-1">
-                    <div class="alphabet select-numbers">0–9</div>
-                    <div class="alphabet-divider">|</div>
-                    <div class="alphabet">A</div> 
-                    <div class="alphabet-divider">|</div>
-                    <div class="alphabet">B</div>
-                    <div class="alphabet-divider">|</div>
-                    <div class="alphabet">C</div>
-                    <div class="alphabet-divider">|</div>
-                    <div class="alphabet">D</div>
-                    <div class="alphabet-divider">|</div>
-                    <div class="alphabet">E</div>
-                    <div class="alphabet-divider">|</div>
-                    <div class="alphabet">F</div>
-                    <div class="alphabet-divider">|</div>
-                    <div class="alphabet">G</div>
-                    <div class="alphabet-divider">|</div>
-                    <div class="alphabet">H</div>
-                    <div class="alphabet-divider">|</div>
-                    <div class="alphabet">I</div>
-                    <div class="alphabet-divider">|</div>
-                    <div class="alphabet">J</div>
-                    <div class="alphabet-divider">|</div>
-                    <div class="alphabet">K</div>
-                    <div class="alphabet-divider">|</div>
-                    <div class="alphabet">L</div>
-                    <div class="alphabet-divider">|</div>
-                    <div class="alphabet">M</div>
-                    <div class="alphabet-divider">|</div>
-                </div>
-                <div class="mobile-alphabet-2">
-                    <div class="alphabet">N</div>
-                    <div class="alphabet-divider">|</div>
-                    <div class="alphabet">O</div>
-                    <div class="alphabet-divider">|</div>
-                    <div class="alphabet">P</div>
-                    <div class="alphabet-divider">|</div>
-                    <div class="alphabet">Q</div>
-                    <div class="alphabet-divider">|</div>
-                    <div class="alphabet">R</div>
-                    <div class="alphabet-divider">|</div>
-                    <div class="alphabet">S</div>
-                    <div class="alphabet-divider">|</div>
-                    <div class="alphabet">T</div>
-                    <div class="alphabet-divider">|</div>
-                    <div class="alphabet">U</div>
-                    <div class="alphabet-divider">|</div>
-                    <div class="alphabet">V</div>
-                    <div class="alphabet-divider">|</div>
-                    <div class="alphabet">W</div>
-                    <div class="alphabet-divider">|</div>
-                    <div class="alphabet">X</div>
-                    <div class="alphabet-divider">|</div>
-                    <div class="alphabet">Y</div>
-                    <div class="alphabet-divider">|</div>
-                    <div class="alphabet">Z</div>
-                </div>
-            </div>
         </div>
-
-
             <!-- <main class="content-container">
                 <div class="people-care">People care.</div>
                 <h3 class="find-help-in-lane">Find help in Lane County, Oregon. Available by phone or in person.</h3>

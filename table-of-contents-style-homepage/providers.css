@@ -89,11 +89,20 @@
     justify-content: space-between;
   }
 
+  .mobile-providers {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .alphabet-heading {
+    font-size: 1rem;
+    margin-left: 2rem;
+  }
+
   .a-z-mobile {
     display: flex;
     justify-content: right;
     margin-top: 1.1rem;
-    margin-left: 2rem;
     margin-right: .5rem;
     font-size: .95rem;
   }
