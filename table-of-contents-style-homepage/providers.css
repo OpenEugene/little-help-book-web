@@ -85,7 +85,8 @@
   }
 
   .alphabetical-listing-mobile {
-    display: inline;
+    display:flex;
+    justify-content: space-between;
   }
 
   .a-z-mobile {
