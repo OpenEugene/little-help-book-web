@@ -33,6 +33,10 @@
   display: inline;
 }
 
+.alphabetical-listing-mobile {
+  display: none;
+}
+
 /* begin tablet styles */
 
 @media screen and (max-width: 770px) {
@@ -74,6 +78,14 @@
 
   .a-z-desktop {
     display: none;
+  }
+
+  .alphabetical-listing {
+    display: none;
+  }
+
+  .alphabetical-listing-mobile {
+    display: inline;
   }
 
   .a-z-mobile {
