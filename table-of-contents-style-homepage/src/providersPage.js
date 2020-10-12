@@ -24,7 +24,7 @@ $(document).ready(function() {
         categoryTable.splice(0, 0, {id: "NA", name: "All"});
         subcatTable.splice(0, 0, {id: "NA", name: "All"});
 
-        nbc = new NavBreadcrumb(cityTable, categoryTable, subcatTable, placeTable, mymap);
+        nbc = new NavBreadcrumb(cityTable, categoryTable, subcatTable, placeTable);
 
         /*
         Generate and place option element HTML to place into each appropriate
@@ -57,6 +57,8 @@ $(document).ready(function() {
         categorySelectEvent();
         document.getElementById(subcatboxId).value = subcatValue;
         subcatSelectEvent();
+
+        $('#loading-placeholder').empty();
     })()
 });
 
@@ -119,22 +121,29 @@ function subcatSelectEvent() {
 }
 
 function updateDom() {
-    // Change the subcategory focused in the body
-    document.getElementsByClassName("category-page-name")[0].innerHTML = nbc.subcats.find(x => x.id === nbc.focused.subcat).name;
-
-    // If a map is passed into the navigation class, update the markers
-    if (nbc.mymap != null) {
-        setMarkers(nbc.availablePlaces);
-    }
-
     // Grab the template script
     let theTemplateScript = $("#provider-tiles-template").html();
     // Compile the template
     let theTemplate = Handlebars.compile(theTemplateScript);
+
+    let filteredPlaces = nbc.availablePlaces.filter(record => record.name[0].toLowerCase() >= '0' && record.name[0].toLowerCase() <= '9')
     // Pass our data to the template
-    let compiledHtml = theTemplate({places : nbc.availablePlaces});
+    let compiledHtml = theTemplate({places : filteredPlaces});
     // Add the compiled html to the page
-    $('#provider-tiles').empty().append(compiledHtml);
+    $('#num-providers').empty().append(compiledHtml);
+
+    for(let i = 'a'.charCodeAt(); i <= 'z'.charCodeAt(); i += 1) {
+        let theLetter = String.fromCharCode(i);
+        console.log(theLetter)
+        filteredPlaces = nbc.availablePlaces.filter(record => record.name[0].toLowerCase() === theLetter);
+        // Pass our data to the template
+        compiledHtml = theTemplate({places : filteredPlaces});
+        // Add the compiled html to the page
+        $('#'+theLetter+'-providers').empty().append(compiledHtml);
+    }
+    // for(let theLetter = 'a'; theLetter <= 'z'; theLetter += 1) {
+    //     console.log(theLetter)
+    // }
 }
 
 Handlebars.registerHelper('trimString', function(passedString) {
