@@ -51,6 +51,7 @@
     justify-content: normal;
     font-size: 1.3rem;
     margin-top: 1.1rem;
+    margin-left: 0rem;
   }
 
   .alphabet-heading {
@@ -73,6 +74,10 @@
     flex-direction: row-reverse;
     display: flex;
     justify-content: space-between;
+  }
+
+  .providers {
+    margin-right: 0rem;
   }
 }
 
