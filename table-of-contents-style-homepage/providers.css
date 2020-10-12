@@ -11,6 +11,10 @@
   display: none;
 }
 
+.blue {
+  color: #086CDD;
+}
+
 .alphabet {
   color: #086CDD;
   text-decoration: underline;
