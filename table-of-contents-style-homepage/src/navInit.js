@@ -7,7 +7,7 @@ var subcatTable;
 var placeTable;
 var nbc;
 "use strict"
-initData(hasSubcat) {
+function initData(hasSubcat, hasMap) {
   // await has to be inside async function, anonymous in this case
     (async () => {
         /*
@@ -28,7 +28,9 @@ initData(hasSubcat) {
         	subcatTable.splice(0, 0, {id: "NA", name: "All"});
         }
 
-        nbc = new NavBreadcrumb(cityTable, categoryTable, subcatTable, placeTable, mymap);
+        nbc = (hasMap) ?
+            new NavBreadcrumb(cityTable, categoryTable, subcatTable, placeTable, mymap) :
+            new NavBreadcrumb(cityTable, categoryTable, subcatTable, placeTable);
 
         /*
         Generate and place option element HTML to place into each appropriate
@@ -110,7 +112,7 @@ function categorySelectEvent() {
 
 function subcatSelectEvent() {
     //find the subcategory by id, and set the focused subcatgory to it.
-    nbc.focused.subcat = nbc.subcats.find(x => x.id === this.value).id;
+    nbc.focused.subcat = nbc.subcats.find(x => x.id === document.getElementById(subcatboxId).value).id;
 
     //Update the category when chosing a subcategory - primarily for when category is "All"
     if (nbc.focused.subcat != "NA") {
