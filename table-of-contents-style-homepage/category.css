@@ -56,18 +56,8 @@ option {
   white-space: nowrap;
 }
 
-.subcategory-checkboxes {
-  margin: 1rem 0;
-}
-
 input {
   margin: 0 .2rem 0 0;
-}
-
-.subcategory-list {
-  font-size: 1rem;
-  line-height: 1.4rem;
-  white-space: nowrap;
 }
 
 .subcategory-buttons {
@@ -78,21 +68,6 @@ input {
   min-width: 6.5rem;
   border-radius: 10px;
   border-style: solid;
-}
-
-.whats-available {
-  display: flex;
-  margin-bottom: .3rem;
-}
-
-.new-subcategory-search {
-  display: flex;
-}
-
-.checkbox-search-notes {
-  font-size: 1rem;
-  margin-left: .8rem;
-  margin-top: 1rem;
 }
 
 .right-column {
@@ -188,6 +163,18 @@ input {
   z-index: 1;
 }
 
+.hours-available {
+
+}
+
+.available-toggle {
+
+}
+
+.available-now {
+
+}
+
 .subcategory-name>a {
   display: block;
   text-decoration: none;
@@ -240,7 +227,7 @@ input {
     display: inline;
   }
 
-  .desktop-header, .breadcrumb-box, .subcategory-checkboxes, .nav-buttons, .whats-available, .new-subcategory-search {
+  .desktop-header, .breadcrumb-box, .nav-buttons, .whats-available, .new-subcategory-search {
     display: none;
   }
 
