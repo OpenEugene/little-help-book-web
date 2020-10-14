@@ -279,6 +279,10 @@ input {
     justify-content: right;
     margin-right: 2.5rem;
   }
+
+  #mapid {
+    margin-top: 1rem;
+  }
 }
 
   /* begin mobile styles */
