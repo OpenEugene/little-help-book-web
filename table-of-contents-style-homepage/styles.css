@@ -280,17 +280,11 @@ main {
 }
 
 .emergency-button {
-  font-family: sans-serif;
-  font-size: 1.5rem;
-  font-style: normal;
-  font-weight: bold;
-  padding: .5rem;
-  color: black;
-  border: none;
-  background-color: rgb(226, 226, 226);
-  padding: .7rem .7rem .9rem 0;
-  line-height: 2.25rem;
-  margin: 1.2rem 0 .2rem 0;
+  margin: 1.2rem 0 0 0;
+}
+
+.emergency-button>a {
+  padding: 1rem 0 1.2rem 0;
 }
 
 .a-z-list {
@@ -299,7 +293,7 @@ main {
   font-size: 1em;
   color: #716F6F;
   line-height: 1.5em;
-  margin: 1.95em 0 2.25rem 0;
+  margin: 1.25em 0 2.25rem 0;
 }
 
 .community-sponsors {
@@ -676,6 +670,10 @@ main {
     max-width: 36rem;
   }
 
+  .emergency-lines-button {
+    width: 36rem;
+  }
+
 } /* end tablet styles for screen that appears after pressing Find Help */
 
 /* begin styles for the Find Help mobile screen */
@@ -748,6 +746,10 @@ main {
     margin-bottom: 1.5rem;
     padding-left: 5.8%; 
     max-width: 20.2rem;
+  }
+
+  .emergency-lines-button {
+    width: 20.2rem;
   }
 }
 

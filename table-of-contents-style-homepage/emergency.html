@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little Help Book - White Bird Clinic</title>
+    <meta name="description" content="Resource directory for people seeking help with health, housing, financial assistance, shelter, food pantries and meal sites. This helps people navigate the system.">
+    <meta name="keywords" content="white bird, cahoots, crisis, counseling, mobile mental health, substance abuse treatment, free medical care, free dental, sliding scale health care, services for the homeless, shelter, emergency mental health, acute medical care, education, prevention, intervention, oreong, eugene, eugene oregon, springfield, springfield oregon, lane county, kahoots, cahoot, cahootz, unhoused, homelessness, mental health, counseling, mail, benfits, ohp, wellness, whitebird, white bird clinic, day access center, help resources, houseless, opiod treatment, dui, ssi, ssdi, free birth certificate, end of life counseling, acupuncture, hotline, suicide prevention, open 24/7">
+<!-- begin social media image and content description -->
+    <meta property="og:title" content="Little Help Book — Human service resource guide powered by White Bird Clinic" />
+    <meta property="og:description" content="Resource directory for people seeking help with health, housing, financial assistance, shelter, food pantries and meal sites. This helps people navigate the system." />
+    <meta property="og:site_name" content="Little Help Book" />
+    <meta property="og:image" content="https://github.com/OpenEugene/little-help-book-web/blob/develop/table-of-contents-style-homepage/socialmedia-head.jpg" />
+    <meta property="og:image:width" content="800" />
+    <meta property="og:image:height" content="800" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:creator" content="@open_eugene" />
+    <meta name="twitter:site" content="@open_eugene" />
+    <meta name="twitter:image" content="https://github.com/OpenEugene/little-help-book-web/blob/develop/table-of-contents-style-homepage/socialmedia-head.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+<!-- end social media image and content description -->
+    <link rel="icon" href="https://i2.wp.com/whitebirdclinic.org/wp-content/uploads/2014/03/cropped-White-Bird-Logo-No-Text-1.jpg?fit=32%2C32&amp;ssl=1" sizes="32x32">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="category.css">
+    <link rel="stylesheet" type="text/css" href="emergency.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="category.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+    <script rel="text/javascript" src="src/airtable.browser.js"></script>
+    <script rel="text/javascript" src="src/dal.js"></script>
+</head >
+<body>
+    <div class="page-container">
+        <header class="desktop-header">
+            <div> <a href="index.html">
+                <img class="desktop-logo" src="white-bird-on-black.png" alt="White Bird Clinic" width="66px" height="66px">
+                <h1 class="little-help-book">Little Help Book</h1> </a>
+            </div>
+            <div class="breadcrumb-box">
+                <select class="breadcrumb city" id="citySelect">
+                    <option value=""><em>Loading...</em></option>
+                </select>
+                <select class="breadcrumb category" id="catSelect">
+                    <option value=""><em>Loading...</em></option>
+                </select>
+                <select class="breadcrumb subcategory-menu" id="subcatSelect">
+                    <option value=""><em>Loading...</em></option>
+                </select>
+            </div>
+    
+            <div class="search">
+                <a href="about.html">
+                <div class="menu-lines">
+                  <div class="hamburger"></div>
+                  <div class="hamburger"></div>
+                  <div class="hamburger"></div>
+                </div>
+                </a>
+                <input type="image" src="search-line.png" class="search-input" type="search">
+            </div>
+        </header>
+
+        <main>
+
+
+        </main>
+
+        <div class="mobile-container" id="mobile-container">
+            <header class="logo-title black-top">
+                <img src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
+                <h1 class="little-help-book">Little Help Book</h1>
+                <div id="search">
+                    <div class="search">
+                        <a href="about.html">
+                        <div class="menu-lines">
+                        <div class="hamburger"></div>
+                        <div class="hamburger"></div>
+                        <div class="hamburger"></div>        
+                        </div>
+                        </a>
+                        <input type="image" src="search-line.png" class="search-input" type="search">
+                    </div>
+                </div>
+            </header>
+            <main class="content-container">
+                <p class="how-to-call">Touch blue text to call.</p>
+                <div class="emergency-container">
+                  <div class="emergency-line">
+                    <h2 class="emergency-number h123-reset"><a href="tel:911">911</a></h2>
+                  </div>
+                  <div class="emergency-line">
+                    <h2 class="emergency-number h123-reset"><a href="tel:541-682-5111">CAHOOTS – Eugene only – 541-682-5111</a></h2>
+                    <div class="divider-line"></div>
+                    <h2 class="emergency-number h123-reset"><a href="tel:541-726-3714">CAHOOTS – Springfield only – 541-726-3714</a></h2>
+                    <p class="emergency-description">Provides on-site care for mental health or substance abuse emergencies, conflict resolution/mediation, transport to other agencies, deals with housing crises and first aid. Dispatched by police non-emergency line. Hours: all day, every day.</p>
+                  </div>
+                  <div class="emergency-line">
+                    <h2 class="emergency-number h123-reset"><a href="tel:1-800-422-4453">National Child Abuse Hotline – 1-800-422-4453</a></h2>
+                    <p class="emergency-description">Available all day, every day.</p>
+                  </div>
+                  <div class="emergency-line">
+                    <h2 class="emergency-number h123-reset"><a href="tel:541-485-6513">Womenspace – 541-485-6513</a></h2>
+                    <p class="emergency-description">For all victims and survivors of domestic violence, intimate partner violence, sexual assault and stalking in Lane County. Available all day, every day.</p>
+                  </div>
+                  <div class="emergency-line">
+                    <h2 class="emergency-number h123-reset"><a href="tel:1-888-989-9990">Looking Glass – 1-888-989-9990</a></h2>
+                    <p class="emergency-description">Crisis prevention helpline for families with children or homeless youth ages 17 and under. Available all day, every day.</p>
+                  </div>
+                  <div class="emergency-line">
+                    <h2 class="emergency-number h123-reset"><a href="tel:1-800-273-8255">Thoughts of Suicide – 1-800-273-8255</a></h2>
+                    <p class="emergency-description">National Suicide Prevention Lifeline. Available all day, every day.</p>
+                  </div>
+                  <div class="emergency-line">
+                    <h2 class="emergency-number h123-reset"><a href="tel:1-877-565-8860">Trans Lifeline – 1-877-565-8860</a></h2>
+                    <p class="emergency-description">Provides peer counseling for transgender individuals in crisis. Available every day, beginning 7:00am and through the day to past midnight, closing at 1:00am.</p>
+                  </div>
+                  <div class="emergency-line">
+                    <h2 class="emergency-number h123-reset"><a href="tel:1-866-488-7386">Trevor Lifeline – 1-866-488-7386</a></h2>
+                    <p class="emergency-description">A crisis intervention and suicide prevention phone service for LGBTQIA. Or, text “START” to 678678 (standard text messaging rates apply). Available all day, every day.</p>
+                  </div>
+                  <div class="emergency-line">
+                    <h2 class="emergency-number h123-reset"><a href="tel:541-687-4000">White Bird 24/7 Crisis Line – 541-687-4000</a></h2>
+                    <div class="divider-line"></div>
+                    <h2 class="emergency-number h123-reset"><a href="tel:1-800-422-7558">White Bird 24/7 Crisis Line – 1-800-422-7558</a></h2>
+                    <p class="emergency-description">Crisis intervention, mental health referral and transportation assistance for people with mental health needs in Eugene or Springfield without homes. Available all day, every day.</p>
+                  </div>
+                </div>
+            </main>
+        </div>
+        <footer class="footer">
+            <div class="footer-item">CC <script language="javascript" type="text/javascript">
+                var today = new Date()
+                var year = today.getFullYear()
+                document.write(year)
+                </script> White Bird Clinic</div>
+            <div class="footer-item"> <a href="https://whitebirdclinic.org/" class="footer-url">whitebirdclinic.org</a></div>
+            <div class="footer-item"><a href="terms-of-use.html" class="terms-of-use">Terms of Use</a></div>
+        </footer>
+    </div>
+<script type="text/javascript" src="src/NavBreadcrumb.js"></script>
+<script type="text/javascript" src="src/mockData.js"></script>
+<script type="text/javascript" src="src/categoryPage.js"></script>
+<script type="text/javascript" src="src/toc.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+a {
+    color: #308DF8;
+  }
+ 
+.content-container {
+    margin-left: 3.5rem;
+    margin-right: 3.5rem;
+  }
+
+.category-name {
+    padding: 0;
+}
+ 
+/* responsive transition to tablet */
+
+@media screen and (max-width: 1056px) {
+
+  .mobile-container {
+    display: inline;
+  }
+
+  .how-to-call {
+    margin: 1.5rem 0 0 1rem;
+    }
+}  
+
+/* begin tablet styles */
+
+@media screen and (max-width: 770px) {
+
+}  
+  
+/* begin mobile styles */
+    
+@media screen and (max-width: 640px) {
+
+  .content-container {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .emergency-lines-button {
+    width: 20.2rem;
+  }
+}
