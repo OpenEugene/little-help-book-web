@@ -10,16 +10,25 @@ a {
 .category-name {
     padding: 0;
 }
+
+.how-to-call {
+  display: none;
+}
  
 /* responsive transition to tablet */
 
 @media screen and (max-width: 1056px) {
+
+  .desktop-header {
+    display: none;
+  }
 
   .mobile-container {
     display: inline;
   }
 
   .how-to-call {
+    display: inline;
     margin: 1.5rem 0 0 1rem;
     }
 }  
