@@ -17,16 +17,12 @@ function initData(hasSubcat, hasMap) {
         */
         cityTable = await dalGetCityTable();
         categoryTable = await dalGetCategoryTable();
+        subcatTable = await dalGetSubcategoryTable();
         placeTable = await dalGetPlaceTable();
 
         cityTable.splice(0, 0, {id: "NA", name: "All"})
         categoryTable.splice(0, 0, {id: "NA", name: "All"});
-
-
-        if (hasSubcat) {
-        	subcatTable = await dalGetSubcategoryTable();
-        	subcatTable.splice(0, 0, {id: "NA", name: "All"});
-        }
+        subcatTable.splice(0, 0, {id: "NA", name: "All"});
 
         nbc = (hasMap) ?
             new NavBreadcrumb(cityTable, categoryTable, subcatTable, placeTable, mymap) :

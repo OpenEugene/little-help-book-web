@@ -1,16 +1,17 @@
 class NavBreadcrumb {
-	cities;
-	categories;
-	subcats;
-	places;
-	mymap;
+	cities; // Stores an array of city objects
+	categories; // Stores an array of category objects
+	subcats; // Stores an array of subcategory objects
+	places; // Stores an array of place objects
+	mymap; // Stores a Leaflet map object
 	// This object contains the selected options in the breadcrumb navigation.
 	// NOTE: these will contain the id of the fields, not the whole object.
 	focused = {city: null, category: null, subcat: null};
-	availableCategories;
-	availableSubcats;
-	availablePlaces;
+	availableCategories; // Stores the filtered categories
+	availableSubcats; // Stores the filtered subcategories
+	availablePlaces; // Stores the filtered providers based on the focused items
 
+	// This constructor gives the option for a user to pass in a leaflet map.
 	constructor(cities, categories, subcats, places, mymap = null) {
 		this.cities = cities;
 		this.categories = categories;
