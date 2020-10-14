@@ -24,7 +24,7 @@ $(document).ready(function() {
         categoryTable.splice(0, 0, {id: "NA", name: "All"});
         subcatTable.splice(0, 0, {id: "NA", name: "All"});
 
-        nbc = new NavBreadcrumb(cityTable, categoryTable, subcatTable, placeTable);
+        nbc = new NavBreadcrumb(cityTable, categoryTable, subcatTable, placeTable, mymap);
 
         /*
         Generate and place option element HTML to place into each appropriate

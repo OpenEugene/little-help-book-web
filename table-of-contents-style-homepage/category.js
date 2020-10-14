@@ -29,6 +29,7 @@ $(function(){
     $('[data-target]').on('click', function(){
       var target = $(this).data('target');
       $(target).siblings().hide().end().show();
+      mymap.invalidateSize();
     });
-  });
+});
   

@@ -180,9 +180,6 @@ option {
 #map {
   margin-left: 3.5rem;
   width: 100%;
-}
-
-#map {
   display: none;
 }
 
@@ -191,12 +188,6 @@ option {
   width: 100%;
   min-width: 90vh;
   z-index: 1;
-}
-
-/* this style is for the placeholder map image, and it can be removed when the OpenStreetMap has been installed. */
-.placeholder-map-jpg {
-  width: 95.3%;
-  margin-top: .6rem;
 }
 
 /* end desktop styles */
