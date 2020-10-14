@@ -184,8 +184,7 @@ input {
 
 #mapid {
   height: 90vh;
-  width: 100%;
-  min-width: 75vw;
+  width: 125%;
   z-index: 1;
 }
 
