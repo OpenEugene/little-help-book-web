@@ -165,7 +165,7 @@ input {
 
 /* The text AVAILABLE NOW is black when the toggle is off. And turns gray when switched on. The toggle is blue when turned on. Gray when off. */
 .hours-available {
-  padding-top: 2rem;
+  padding-top: 1.95rem;
   font-size: 1.3rem;
   font-weight: bold;
 }
