@@ -13,14 +13,14 @@ at the Progress Bar & Grill http://progressbarandgrill.com
 
 #### Technologies Used
 
-HTML, CSS, JavaScript
+HTML, CSS, JavaScript /
 Airtable - easy-to-use relational database
 
 ##### JavaScript Libraries
-Airtable JS
-Handlebars - a templating language
-Leaflet - JavaScript map software
-Carto - the tile set
+Airtable JS /
+Handlebars - a templating language /
+Leaflet - JavaScript map software /
+Carto - the tile set /
 jQuery
 
 ## Roadmap
