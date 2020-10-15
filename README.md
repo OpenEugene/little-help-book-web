@@ -11,6 +11,18 @@ If any Issue interests you and our description alone doesn't contain all you'd n
 Find us in the Creative Corner https://discord.gg/7X7vVcX
 at the Progress Bar & Grill http://progressbarandgrill.com
 
+#### Technologies Used
+
+HTML, CSS, JavaScript
+Airtable - easy-to-use relational database
+
+##### JavaScript Libraries
+Airtable JS
+Handlebars - a templating language
+Leaflet - JavaScript map software
+- Carto - the tile set
+jQuery
+
 ## Roadmap
 
 We are beginning with a database of human services and a public website. When the site has been tested and we've had time to build in any improvements from insights gained through qualitative research [https://info.codeforamerica.org/qualitative-research], it's possible to consider how we might add a content management system. Simultaneous to our development of tools is the ongoing conversation with the human and social service providers in Lane County, Oregon to better understand how organizations maintaining information can exchange data. And so, four big pieces to the Little Help Book:
