@@ -20,7 +20,7 @@ Airtable - easy-to-use relational database
 Airtable JS
 Handlebars - a templating language
 Leaflet - JavaScript map software
-- Carto - the tile set
+Carto - the tile set
 jQuery
 
 ## Roadmap
