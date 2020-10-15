@@ -14,7 +14,8 @@ at the Progress Bar & Grill http://progressbarandgrill.com
 #### Technologies Used
 
 HTML, CSS, JavaScript <br>
-Airtable - easy-to-use relational database
+Airtable - an easy-to-use relational database
+Human Services Data Specification - a format for writing and publishing data as CSVs and a JSON datapackage
 
 ##### JavaScript Libraries
 Airtable JS <br>
