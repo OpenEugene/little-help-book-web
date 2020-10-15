@@ -159,20 +159,26 @@ input {
 
 #mapid {
   height: 90vh;
-  width: 125%;
+  width: 125%; 
   z-index: 1;
 }
 
+/* The text AVAILABLE NOW is black when the toggle is off. And turns gray when switched on. The toggle is blue when turned on. Gray when off. */
 .hours-available {
-
+  padding-top: 2rem;
+  font-size: 1.3rem;
+  font-weight: bold;
 }
 
 .available-toggle {
-
+  display: flex;
+  padding-top: 1rem;
 }
 
 .available-now {
-
+  color: #716F6F;
+  padding-right: 0.6rem;
+  padding-top: 0.1rem;
 }
 
 .subcategory-name>a {
