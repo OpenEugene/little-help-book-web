@@ -246,6 +246,20 @@ input {
     flex-direction: column;
   }
 
+  /* Temporaryily hiding the Available Now filter while the navigation menus for tablet and mobile are being written. */
+
+  .hours-available {
+    display: none;
+  }
+
+  .available-toggle {
+    display: none;
+  }
+
+  .available-toggle {
+    display: none;
+  }
+
   .right-column {
     width: auto;
     margin-left: 3.5rem;
