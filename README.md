@@ -17,7 +17,7 @@ HTML, CSS, JavaScript /
 Airtable - easy-to-use relational database
 
 ##### JavaScript Libraries
-Airtable JS /
+Airtable JS <br>
 Handlebars - a templating language /
 Leaflet - JavaScript map software /
 Carto - the tile set /
