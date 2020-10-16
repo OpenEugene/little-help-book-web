@@ -125,7 +125,10 @@ select:hover {
   height: 6px;
   background-color: rgb(126, 126, 126);
   border-radius: 2.5px;
-  margin: 5px;
+}
+
+.hamburger + .hamburger {
+  margin-top: 5px;
 }
 
 .header-nav {
@@ -135,11 +138,8 @@ select:hover {
 }
 
 .header-nav-item {
+  display: flex;
   margin-left: 1rem;
-}
-
-.header-nav-item:first-child {
-  margin-left: 0;
 }
 
 .homepage-link {
@@ -168,6 +168,16 @@ select:hover {
   border: none;
   white-space: nowrap;
   transition: 0.3s color ease-in-out;
+}
+
+.menu-lines {
+  flex-direction: column;
+}
+
+@media screen and (min-width: 1175px) {
+  .menu-lines {
+    display: none;
+  }
 }
 
 header .search input {
@@ -430,7 +440,6 @@ main {
 /* replace menu items with icon */
 
 @media screen and (max-width: 1175px) {
-
   .menu-icon {
     display: none;
   }
