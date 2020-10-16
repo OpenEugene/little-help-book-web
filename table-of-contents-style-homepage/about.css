@@ -6,10 +6,6 @@ main {
   columns: auto;
 }
 
-.find-my-city:hover {
-  color: white;
-}
-
 .about-container {
 	display: flex;
 	margin: 2.25rem 3.5rem 0 3.5rem;
@@ -165,15 +161,6 @@ textarea {
 /* begin mobile styles */
   
 @media screen and (max-width: 640px) {
-
-  #search {
-    margin-right: 1.5rem;
-  }
-
-  .search {
-    margin: 1.5rem 0 0;
-    right: 1.5rem;
-  }
 
   .about-container {
     margin: 1.75rem 2rem 0 2rem;

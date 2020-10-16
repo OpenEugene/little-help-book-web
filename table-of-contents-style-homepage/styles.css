@@ -425,8 +425,6 @@ main {
 
   .search {
     display: flex;
-    position: absolute;
-    right: 2.5rem;
   }
 
   .menu-icon {
@@ -470,10 +468,11 @@ main {
     flex-direction: column;
   }
 
-  .logo-title {
+  .mobile-header {
     align-items: center;
     background-color: black;
     display: flex;
+    justify-content: space-between;
     padding: 0.5rem 1.5rem;
   }
 
