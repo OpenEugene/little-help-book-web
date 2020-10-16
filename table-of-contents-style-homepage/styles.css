@@ -470,30 +470,16 @@ main {
     flex-direction: column;
   }
 
-  header {
-    padding-top: 0;
-  }
-
-  header .logo-title {
-    display: flex;
-  }
-
-  header {
+  .logo-title {
+    align-items: center;
     background-color: black;
-    height: 6.6rem;
-    overflow-x: hidden; 
-    margin: 0 -0.5rem;
-    overflow-y: hidden;
-    margin-top: -1rem;
+    display: flex;
+    padding: 0.5rem 1.5rem;
   }
 
   .little-help-book {
-    position: absolute;
     color: white;
     font-size: 2rem;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin: 2.45rem 0 0 5.8rem;
   }
 
   .people-care {
@@ -569,11 +555,7 @@ main {
     display: none;
   }
 
-  header {
-    padding-top: 0;
-  }
-
-  header .logo-title {
+  .logo-title {
     display: flex;
   }
 }
@@ -582,13 +564,8 @@ main {
 
 @media screen and (max-width: 640px) {
 
-  header {
-    height: 5rem;
-  }
-
   .little-help-book {
     font-size: 1.2rem;
-    margin: 2.1rem 0 0 3.7rem;
   }
 
   .people-care {
