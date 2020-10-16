@@ -21,20 +21,6 @@ option {
   font-size: 1rem;
 }
 
-.menu-lines {
-  margin-left: -0.5rem;
-  margin-right: 1rem;
-  margin-top: -0.1rem;
-}
-
-.hamburger {
-  width: 35px;
-  height: 6px;
-  background-color: rgb(126, 126, 126);
-  border-radius: 2.5px;
-  margin: 5.5px 0 0 10.5px;
-}
-
 .inner-container {
   display: flex;
   background-color: #f5f5f5;
@@ -50,10 +36,6 @@ option {
   font-size: 2rem;
   font-weight: bold;
   white-space: nowrap;
-}
-
-input {
-  margin: 0 .2rem 0 0;
 }
 
 .subcategory-buttons {

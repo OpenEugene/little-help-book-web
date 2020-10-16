@@ -52,7 +52,7 @@ select:hover {
   display: flex;
 }
 
-.breadcrumb-box:after {
+.breadcrumb:after {
   position: absolute; 
 	right: 0;
 	top: 0;
@@ -118,6 +118,14 @@ select:hover {
 
 .find-my-city:hover {
   color: white;
+}
+
+.hamburger {
+  width: 35px;
+  height: 6px;
+  background-color: rgb(126, 126, 126);
+  border-radius: 2.5px;
+  margin: 5px;
 }
 
 .header-nav {
@@ -423,25 +431,8 @@ main {
 
 @media screen and (max-width: 1175px) {
 
-  .search {
-    display: flex;
-  }
-
   .menu-icon {
     display: none;
-  }
-
-  .menu-lines {
-    margin-left: -2rem;
-    margin-right: 1rem;
-  }
-
-  .hamburger {
-    width: 35px;
-    height: 6px;
-    background-color: rgb(126, 126, 126);
-    border-radius: 2.5px;
-    margin: 5.5px 0 0 10.5px;
   }
 }
 
