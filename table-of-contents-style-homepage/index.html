@@ -24,37 +24,38 @@
 </head>
 <body>
     <div class="container">
+        <!-- It would help to refactor this into a reusable header include -->
         <header class="desktop-header">
-            <div class="homepage-link">
-                <a href="index.html">
-                    <img class="desktop-logo" src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
-                    <h1 class="little-help-book">Little Help Book</h1>
-                </a>
-            </div>
+            <a class="homepage-link">
+                <img class="desktop-logo" src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
+                <h1 class="little-help-book">Little Help Book</h1>
+            </a>
 
             <div class="description menu-icon">Human Services Resource Directory</div>
-            <div class="find-help menu-icon">Find help in</div>
 
             <!-- Gets filled dynamically -->
             <div class="breadcrumb-box">
+                <div class="find-help menu-icon">Find help in</div>
                 <select class="breadcrumb city menu-icon" id="citySelect">
                     <option value=""><em>Loading...</em></option>
                     <option value="">Lane County, Oregon</option>
                 </select>
             </div>
 
-            <button class="spanish menu-button menu-icon">Español</button>
-            <button class="about menu-button menu-icon"><a class="about" href="about.html">About</a></button>
-            <div class="search">
-                <a href="about.html">
-                    <div class="menu-lines">
-                        <div class="hamburger"></div>
-                        <div class="hamburger"></div>
-                        <div class="hamburger"></div>
-                    </div>
-                </a>
-                <input type="image" src="search-line.png" class="search-input" type="search">
-            </div>
+            <nav class="header-nav">
+                <button class="header-nav-item spanish menu-button menu-icon">Español</button>
+                <button class="header-nav-item about menu-button menu-icon"><a class="about" href="about.html">About</a></button>
+                <div class="header-nav-item search">
+                    <a href="about.html">
+                        <div class="menu-lines">
+                            <div class="hamburger"></div>
+                            <div class="hamburger"></div>
+                            <div class="hamburger"></div>
+                        </div>
+                    </a>
+                    <input type="image" src="search-line.png" class="search-input" type="search">
+                </div>
+            </nav>
         </header>
 
         <!-- Main will be filled with data from the database, formatted as specified in the handlebars template below. -->
