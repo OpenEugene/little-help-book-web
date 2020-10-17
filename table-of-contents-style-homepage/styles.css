@@ -19,21 +19,21 @@ a {
 }
 
 .desktop-header {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  flex-wrap: nowrap;
   background-color: black;
   color: #f5f5f5;
-  display: flex;
-  flex-wrap: nowrap;
   font-size: 1.25rem;
   font-weight: bold;
-  justify-content: space-between;
   margin: 0 0 2.25rem;
   padding: 0.5rem 1.5rem;
 }
 
 .desktop-logo {
-  height: 42px;
-  width: 42px;
+  height: 66px;
+  width: 66px;
   margin-right: 1em;
 }
 
@@ -349,118 +349,16 @@ main {
   }
 }
 
-/* end desktop styles */
-
-.mobile-container {
-  display: none;
-}
-
-/* responsive transition to tablet */
+/* end desktop styles, begin responsive transition to tablet */
 
 @media screen and (max-width: 1056px) {
 
-  .mobile-container {
-    display: inline;
-  }
-
-  .container {
-    display: none;
-  }
-
-  .content-container {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .mobile-header {
-    align-items: center;
-    background-color: black;
-    display: flex;
-    justify-content: space-between;
-    padding: 0.5rem 1.5rem;
-  }
-
-  .little-help-book {
-    color: white;
-    font-size: 2rem;
-  }
-
-  .people-care {
-    font-size: 5.2rem;
-    font-weight: bold;
-    margin: 5.5rem 0 0 3.5rem;
-  }
-
-  .find-help-in-lane {
-    font-size: 2.3rem;
-    font-weight: bold;
-    line-height: 3.3rem;
-    margin: 1.5rem 5rem 0 3.5rem;
-  }
-
-  .buttons {
-    display: flex;
-    flex-direction: column;
-    margin: 8.8rem 0 2rem 3.5rem;
-  }
-
-  .help-button, .spanish-button {
-    background-color: black;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    width: 13rem;
-    height: 7rem;
-    font-size: 2rem;
-    font-weight: bold;
-    margin-right: 2.5rem;
-  }
-
-  .help-button:hover {
-    background-color: #308DF8;
-    box-shadow: .5rem .5rem .75rem #8888;
-  }
-
-  .spanish-button:hover {
-    background-color: #308DF8;
-    box-shadow: .5rem .5rem .75rem #8888;
-  }
-
-  .spanish-button {
-    margin-top: 3rem;
-}
-
-  footer {
-    font-family: sans-serif;
-    font-size: 1.45rem;
-    font-weight: lighter;
-    line-height: 1.7rem;
-    margin: 3rem 0 2rem 3.5rem;
-    padding-bottom: 2rem;
-  }
-
-  footer .bold-inline {
-    display: inline;
-    font-size: 1.45rem;
-    font-weight: bold;
-  }
 }
 
 /* begin tablet styles */
 
 @media screen and (max-width: 770px) {
 
-  .mobile-container {
-    display: inline;
-  }
-
-  .container {
-    display: none;
-  }
-
-  .logo-title {
-    display: flex;
-  }
 }
 
 /* begin mobile styles */
@@ -468,50 +366,37 @@ main {
 @media screen and (max-width: 640px) {
 
   .desktop-logo {
-    height: 66px;
-    width: 66px;
+    height: 42px;
+    width: 42px;
+    margin: 0.55rem 0 .4rem 0.65rem;
   }
-
+  
+  .desktop-header {
+    height: 3rem;
+    padding: 0.5rem 0.6rem;
+  }
+  
   .little-help-book {
     font-size: 1.2rem;
+    margin: 0.35rem 0 0 0.7rem;
+  }
+  
+  .breadcrumb-box {
+    display: none;
+  }
+  
+  .header-nav, .header-nav-item, .find-help, .search-input {
+    padding: 0 0rem 0.1rem 0.8rem;
   }
 
-  .people-care {
-    font-size: 2.4rem;
-    margin: 3.5rem 0 0 2rem;
+  .search {
+    display: none;
   }
-
-  .find-help-in-lane {
-    font-size: 1.125rem;
-    line-height: 1.7rem;
-    margin: 1rem 0.5rem 0 2rem;
-  }
-
-  .buttons {
-    position: absolute;
-    bottom: 18.6%;
-    margin: 7.2rem 0 0 2rem;
-  }
-
-  .help-button, .spanish-button {
-    width: 10rem;
-    height: 5rem;
-    font-size: 1.5rem;
-  }
-
-  .spanish-button {
-    margin-top: 1.8rem;
-  }
-
-  footer {
-    position: absolute;
-    bottom: 1%;
-    font-size: 1.2rem;
-    width: 20rem;
-    margin: 3rem 0 0 2rem;
-  }
-
-  footer .bold-inline {
-    font-size: 1.2rem;
+  
+  .menu-button {
+    font-size: 0.8rem;
+    font-weight: normal;
+    text-transform: uppercase;
+    margin: 2.375rem .5rem 1.5rem -0.5rem;
   }
 }
