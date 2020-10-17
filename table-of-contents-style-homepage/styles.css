@@ -78,7 +78,7 @@ select:hover {
   white-space: nowrap;
 }
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1340px) {
   .description {
     display: none;
   }
