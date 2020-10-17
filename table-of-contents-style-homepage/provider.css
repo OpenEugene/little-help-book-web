@@ -3,10 +3,6 @@ a {
   color: black;
 }
 
-.breadcrumb-box {
-  margin-left: 20rem;
-}
-
 .breadcrumb {
   width: 16.8rem;
 }
@@ -15,24 +11,6 @@ option {
   background-color: white;
   color: black;
   font-size: 1rem;
-}
-
-.search {
-  display: flex;
-}
-
-.menu-lines {
-  margin-left: -0.5rem;
-  margin-right: 1rem;
-  margin-top: -0.1rem;
-}
-
-.hamburger {
-  width: 35px;
-  height: 6px;
-  background-color: rgb(126, 126, 126);
-  border-radius: 2.5px;
-  margin: 5.5px 0 0 10.5px;
 }
 
 .provider-page {
@@ -133,6 +111,12 @@ option {
 
 /* responsive transition to tablet */
 
+@media screen and (min-width: 1175px) {
+  .menu-lines {
+    display: block;
+  }
+}
+
 @media screen and (max-width: 1056px) {
 
   .mobile-container {
@@ -146,12 +130,6 @@ option {
   body {
     display: flex;
     flex-direction: column-reverse;
-  }
-
-  #search {
-    display: flex;
-    justify-content: right;
-    margin-right: 2.5rem;
   }
 
   .provider-page {
@@ -179,18 +157,9 @@ option {
   }
 }
   
-  /* begin mobile styles */
+/* begin mobile styles */
   
-  @media screen and (max-width: 640px) {
-
-  #search {
-    margin-right: 1.5rem;
-  }
-
-  .search {
-    margin: 1.5rem 0 0;
-    right: 1.5rem;
-  }
+@media screen and (max-width: 640px) {
 
   .provider-page {
     padding: 0 2rem;

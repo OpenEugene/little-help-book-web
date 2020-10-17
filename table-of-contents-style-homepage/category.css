@@ -11,10 +11,6 @@ main {
   margin-bottom: 0;
 }
 
-.breadcrumb-box {
-  margin-left: 20rem;
-}
-
 .breadcrumb {
   width: 16.8rem;
 }
@@ -23,20 +19,6 @@ option {
   background-color: white;
   color: black;
   font-size: 1rem;
-}
-
-.menu-lines {
-  margin-left: -0.5rem;
-  margin-right: 1rem;
-  margin-top: -0.1rem;
-}
-
-.hamburger {
-  width: 35px;
-  height: 6px;
-  background-color: rgb(126, 126, 126);
-  border-radius: 2.5px;
-  margin: 5.5px 0 0 10.5px;
 }
 
 .inner-container {
@@ -54,10 +36,6 @@ option {
   font-size: 2rem;
   font-weight: bold;
   white-space: nowrap;
-}
-
-input {
-  margin: 0 .2rem 0 0;
 }
 
 .subcategory-buttons {
@@ -80,10 +58,6 @@ input {
   font-size: 2rem;
   font-family: serif;
   margin: .3rem .5rem 0 -1.7rem;
-}
-
-.search {
-  display: flex;
 }
 
 .nav-buttons {
@@ -227,6 +201,12 @@ input {
 
 /* responsive transition to tablet */
 
+@media screen and (min-width: 1175px) {
+  .menu-lines {
+    display: block;
+  }
+}
+
 @media screen and (max-width: 1056px) {
 
   .mobile-container {
@@ -295,15 +275,6 @@ input {
   /* begin mobile styles */
   
 @media screen and (max-width: 640px) {
-
-  #search {
-    margin-right: 1.5rem;
-  }
-
-  .search {
-    margin: 1.5rem 0 0;
-    right: 1.5rem;
-  }
 
   .left-column, .right-column {
     margin-left: 2rem;

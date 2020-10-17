@@ -2,11 +2,6 @@ header, main, body {
   font-family: sans-serif;
 }
 
-.h123-reset {
-  margin: 0;
-  padding: 0;
-}
-
 ul,
 li {
   list-style: none;
@@ -23,38 +18,141 @@ a {
   color: #086CDD;
 }
 
-.desktop-header {
+select:hover {
+  color: white;
+  transition: 0.3s color ease-in-out;
+}
+
+/* ************** */
+/* *** HEADER *** */
+
+.about {
+  color: rgb(226, 226, 226);
+}
+
+.about:hover {
+  color: white;
+}
+
+.breadcrumb {
+  background: black;
+  border-bottom-width: 0.1rem;
+  border-color: rgb(126, 126, 126);
+  color: rgb(226, 226, 226);
+  font-family: sans-serif;
+  font-size: 1rem;
+  font-style: none;
+  font-weight: bold;
+  margin-left: 0.5rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.breadcrumb-box {
+  align-items: center;
   display: flex;
-  justify-content: right;
+}
+
+.breadcrumb:after {
+  position: absolute; 
+	right: 0;
+	top: 0;
+	width: 50px;
+	height: 100%;
+	line-height: 38px;
+	content: '\2228';
+	text-align: center;
+	color: white;
+	font-size: 1rem;
+	border-left: 1px solid #3C1C78;
+  z-index: -1;
+}
+
+.breadcrumb-box select {
+  background: transparent;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.description {
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 1400px) {
+  .description {
+    display: none;
+  }
+}
+
+.desktop-header {
+  align-items: center;
+  background-color: black;
   color: #f5f5f5;
+  display: flex;
+  flex-wrap: nowrap;
   font-size: 1.25rem;
   font-weight: bold;
-  background-color: black;
-  height: 6.6rem;
-  overflow-x: hidden; 
-  margin: 0 -0.5rem;
-  overflow-y: hidden;
-  margin-top: -1rem;
-  margin-bottom: 2.25rem;
+  justify-content: space-between;
+  margin: 0 0 2.25rem;
+  padding: 0.5rem 1.5rem;
 }
 
 .desktop-logo {
-  position: absolute;
-  left: .5rem;
-  width: 66px;
-  height: 66px;
-  margin: 1.6rem 0 .4rem 1.25rem;
+  height: 42px;
+  margin-right: 1em;
+  width: 42px;
 }
 
-.little-help-book {
-  position: absolute;
-  left: 1.7rem;
-  font-size: 2rem;
+@media screen and (min-width: 640px) {
+  .desktop-logo {
+    height: 66px;
+    width: 66px;
+  }
+}
+
+.find-help {
+  color: rgb(226, 226, 226);
   white-space: nowrap;
-  margin: 2.45rem 0 0 5.8rem;
+  font-size: 1rem;
 }
 
-a .little-help-book {
+.find-my-city:hover {
+  color: white;
+}
+
+.hamburger {
+  width: 35px;
+  height: 6px;
+  background-color: rgb(126, 126, 126);
+  border-radius: 2.5px;
+}
+
+.hamburger + .hamburger {
+  margin-top: 5px;
+}
+
+.header-nav {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-nav-item {
+  display: flex;
+  margin-left: 1rem;
+}
+
+.homepage-link {
+  align-items: center;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.homepage-link:hover {
+  cursor: pointer;
+}
+
+.homepage-link .little-help-book {
   color: white;
 }
 
@@ -70,97 +168,16 @@ a .little-help-book {
   border: none;
   white-space: nowrap;
   transition: 0.3s color ease-in-out;
-  margin: 2.8rem .5rem 1.5rem 0;
 }
 
-.breadcrumb-box {
-  margin-left: -4.5rem;
+.menu-lines {
+  flex-direction: column;
 }
 
-/* We're in the process of adding a caret/down-arrow to the dropdown menu box. */
-
-.breadcrumb-box select {
-  /* hide default arrow */
-  background: transparent;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  /* appearance: button-arrow-down;
-  -webkit-appearance: button-arrow-down;
-  -moz-appearance: button-arrow-down; */
-  /* background-image:
-    linear-gradient(135deg, transparent 80%, black 80%),
-    linear-gradient(45deg, black 80%, transparent 80%),
-    linear-gradient(to right, white, white); */
-}
-
-/* .breadcrumb-box:after {
-  position: absolute; 
-	right: 0;
-	top: 0;
-	width: 50px;
-	height: 100%;
-	line-height: 38px;
-	content: '\2228';
-	text-align: center;
-	color: white;
-	font-size: 1rem;
-	border-left: 1px solid #3C1C78;
-  z-index: -1;
-}  */
-
-.breadcrumb {
-  background: black;
-  border-color: rgb(126, 126, 126);
-  color: rgb(226, 226, 226);
-  font-family: sans-serif;
-  font-size: 1rem;
-  font-style: none;
-  font-weight: bold;
-  height: 2.7rem;
-  width: 14.5rem;
-  border-bottom-width: 0.1rem;
-  margin: 2.6rem 0 0 -0.5rem;
-  margin-right: 0.75rem;
-}
-
-select:hover {
-  color: white;
-  transition: 0.3s color ease-in-out;
-}
-
-.description {
-  white-space: nowrap;
-  margin: 3.14rem -26.5rem 0 0;
-}
-
-.find-help {
-  color: rgb(226, 226, 226);
-  margin: 3.35rem 5.3rem 0 30rem;
-  white-space: nowrap;
-  font-size: 1rem;
-}
-
-.find-my-city:hover {
-  color: white;
-}
-  
-.spanish:hover {
-  color: white;
-}
-
-.about:hover {
-  color: white;
-}
-
-.about {
-  color: rgb(226, 226, 226);
-}
-
-.search {
-  width: 3%;
-  margin: 2.8rem 0 0;
-  padding-right: 4.5rem;
+@media screen and (min-width: 1175px) {
+  .menu-lines {
+    display: none;
+  }
 }
 
 header .search input {
@@ -174,12 +191,94 @@ header .search input {
   border: none;
 }
 
+
+.spanish:hover {
+  color: white;
+}
+
+/* The following styles below are redundant now - flexbox does all the work!
+
+.desktop-header {
+  justify-content: right;
+  height: 6.6rem;
+  overflow-x: hidden; 
+  margin: 0 -0.5rem;
+  overflow-y: hidden;
+  margin-top: -1rem;
+  margin-bottom: 2.25rem;
+}
+
+.desktop-logo {
+  position: absolute;
+  left: .5rem;
+  margin: 1.6rem 0 .4rem 1.25rem;
+}
+
+.little-help-book {
+  position: absolute;
+  left: 1.7rem;
+  margin: 2.45rem 0 0 5.8rem;
+}
+
+a .little-help-book {
+  color: white;
+}
+
+.description {
+  margin: 3.14rem -26.5rem 0 0;
+}
+
+.menu-button {
+  margin: 2.8rem .5rem 1.5rem 0;
+}
+
+.breadcrumb-box {
+  margin-left: -4.5rem;
+}
+
+.breadcrumb {
+  height: 2.7rem;
+  width: 14.5rem;
+  margin: 2.6rem 0 0 -0.5rem;
+  margin-right: 0.75rem;
+}
+
+.find-help {
+  margin: 3.35rem 5.3rem 0 30rem;
+}
+
+.spanish:hover {
+  color: white;
+}
+
+.search {
+  width: 3%;
+  margin: 2.8rem 0 0;
+  padding-right: 4.5rem;
+}
+*/
+
+/* *** END HEADER *** */
+/* ****************** */
+
 body {
   background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
 }
 
 main {
   columns: 4;
+}
+
+.little-help-book {
+  font-size: 2rem;
+  white-space: nowrap;
+}
+
+.h123-reset {
+  margin: 0;
+  padding: 0;
 }
   
 .table-of-contents {
@@ -338,38 +437,11 @@ main {
   color: #086CDD;
 }
 
-@media screen and (max-width: 1400px) {
-
-  .description {
-    display: none;
-  }
-}
-
 /* replace menu items with icon */
 
 @media screen and (max-width: 1175px) {
-
-  .search {
-    display: flex;
-    position: absolute;
-    right: 2.5rem;
-  }
-
   .menu-icon {
     display: none;
-  }
-
-  .menu-lines {
-    margin-left: -2rem;
-    margin-right: 1rem;
-  }
-
-  .hamburger {
-    width: 35px;
-    height: 6px;
-    background-color: rgb(126, 126, 126);
-    border-radius: 2.5px;
-    margin: 5.5px 0 0 10.5px;
   }
 }
 
@@ -396,37 +468,17 @@ main {
     flex-direction: column;
   }
 
-  header {
-    padding-top: 0;
-  }
-
-  header .logo-title {
-    display: flex;
-  }
-
-  header {
+  .mobile-header {
+    align-items: center;
     background-color: black;
-    height: 6.6rem;
-    overflow-x: hidden; 
-    margin: 0 -0.5rem;
-    overflow-y: hidden;
-    margin-top: -1rem;
-  }
-
-  img {
-    position: absolute;
-    width: 66px;
-    height: 66px;
-    margin: 1.6rem 0 .4rem 1.75rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 1.5rem;
   }
 
   .little-help-book {
-    position: absolute;
     color: white;
     font-size: 2rem;
-    font-weight: bold;
-    font-family: sans-serif;
-    margin: 2.45rem 0 0 5.8rem;
   }
 
   .people-care {
@@ -502,11 +554,7 @@ main {
     display: none;
   }
 
-  header {
-    padding-top: 0;
-  }
-
-  header .logo-title {
+  .logo-title {
     display: flex;
   }
 }
@@ -515,19 +563,8 @@ main {
 
 @media screen and (max-width: 640px) {
 
-  header {
-    height: 5rem;
-  }
-
-  img {
-    width: 42px;
-    height: 42px;
-    margin: 1.49rem 0 .4rem 1.35rem;
-  }
-
   .little-help-book {
     font-size: 1.2rem;
-    margin: 2.1rem 0 0 3.7rem;
   }
 
   .people-care {

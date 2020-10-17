@@ -36,10 +36,13 @@
 <body>
     <div class="page-container">
         <header class="desktop-header">
-            <div> <a href="index.html">
-                <img class="desktop-logo" src="white-bird-on-black.png" alt="White Bird Clinic" width="66px" height="66px">
-                <h1 class="little-help-book">Little Help Book</h1> </a>
-            </div>
+        	<div class="branding">
+				<a class="homepage-link" href="index.html">
+					<img class="desktop-logo" src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
+					<h1 class="little-help-book">Little Help Book</h1>    
+				</a>
+			</div>
+
             <div class="breadcrumb-box">
                 <select class="breadcrumb city" id="citySelect">
                     <option value=""><em>Loading...</em></option>
@@ -52,16 +55,18 @@
                 </select>
             </div>
     
-            <div class="search">
-                <a href="about.html">
-                <div class="menu-lines">
-                  <div class="hamburger"></div>
-                  <div class="hamburger"></div>
-                  <div class="hamburger"></div>
-                </div>
+            <nav class="header-nav">
+                <a class="header-nav-item">
+                    <div class="menu-lines">
+                        <div class="hamburger"></div>
+                        <div class="hamburger"></div>
+                        <div class="hamburger"></div>
+                    </div>
                 </a>
-                <input type="image" src="search-line.png" class="search-input" type="search">
-            </div>
+                <div class="header-nav-item search">
+                    <input type="image" src="search-line.png" class="search-input" type="search">
+                </div>
+            </nav>
         </header>
 
             <div class="inner-container">
@@ -135,21 +140,23 @@
     </div>
 
     <div class="mobile-container" id="mobile-container">
-        <header class="logo-title black-top">
-            <img src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
-            <h1 class="little-help-book">Little Help Book</h1>
-            <div id="search">
-                <div class="search">
-                    <a href="about.html">
-                    <div class="menu-lines">
+        <header class="mobile-header">
+            <div class="branding">
+                <a class="homepage-link" href="index.html">
+                    <img class="desktop-logo" src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
+                    <h1 class="little-help-book">Little Help Book</h1>
+                </a>
+            </div>
+            <nav class="header-nav">
+                <div class="header-nav-item menu-lines">
                     <div class="hamburger"></div>
                     <div class="hamburger"></div>
-                    <div class="hamburger"></div>        
-                    </div>
-                    </a>
+                    <div class="hamburger"></div>
+                </div>
+                <div class="header-nav-item search">
                     <input type="image" src="search-line.png" class="search-input" type="search">
                 </div>
-            </div>
+            </nav>
         </header>
     </div>
 <script type="text/javascript" src="src/map.js"></script>
