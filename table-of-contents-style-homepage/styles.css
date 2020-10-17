@@ -440,9 +440,9 @@ main {
 /* replace menu items with icon */
 
 @media screen and (max-width: 1175px) {
-  .menu-icon {
+  /* .menu-icon {
     display: none;
-  }
+  } */
 }
 
 /* end desktop styles */
