@@ -27,35 +27,34 @@
 <body>
 	<div class="container">
 		<header class="desktop-header">
-				<div class="branding">
-					<a class="homepage-link" href="index.html">
-						<img class="desktop-logo" src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
-						<h1 class="little-help-book">Little Help Book</h1>    
-					</a>
+			<a class="homepage-link" href="index.html">
+				<img class="desktop-logo" src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
+				<h1 class="little-help-book">Little Help Book</h1>    
+			</a>
+
+			<div class="description menu-icon">Human Services Resource Directory</div>
+
+			<!-- the new Find my City element is here but the script needed for it to work isn't hooked up -->
+			<div class="breadcrumb-box">
+				<div class="find-help menu-icon">Find help in</div>
+				<select class="breadcrumb city menu-icon" id="citySelect">
+					<option value=""><em>Loading...</em></option>
+					<option value="">Lane County, Oregon</option>
+				</select>
+			</div>
+
+			<nav class="header-nav">
+				<button class="header-nav-item spanish menu-button menu-icon">Español</button>
+				<button class="header-nav-item about menu-button menu-icon">About</button>
+				<div class="header-nav-item menu-lines">
+					<div class="hamburger"></div>
+					<div class="hamburger"></div>
+					<div class="hamburger"></div>        
 				</div>
-
-				<div class="description menu-icon">Human Services Resource Directory</div>
-
-				<!-- the new Find my City element is here but the script needed for it to work isn't hooked up -->
-				<div class="breadcrumb-box">
-						<div class="find-help menu-icon">Find help in</div>
-						<select class="breadcrumb city menu-icon" id="citySelect">
-								<option value="">Lane County, Oregon</option>
-						</select>
+				<div class="header-nav-item search">
+					<input type="image" src="search-line.png" class="search-input" type="search">
 				</div>
-
-				<nav class="header-nav">
-						<button class="header-nav-item spanish menu-button menu-icon">Español</button>
-						<button class="header-nav-item about menu-button menu-icon">About</button>
-						<div class="header-nav-item menu-lines">
-								<div class="hamburger"></div>
-								<div class="hamburger"></div>
-								<div class="hamburger"></div>        
-						</div>
-						<div class="header-nav-item search">
-								<input type="image" src="search-line.png" class="search-input" type="search">
-						</div>
-				</nav>
+			</nav>
 		</header>
 
 		<main class="about-container">
