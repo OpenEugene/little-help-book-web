@@ -242,12 +242,6 @@ option {
     color: black;
   }
 
-  /* .provider {
-    font-size: 1.1rem;
-    line-height: 1.5rem;
-    margin: 0.3rem 0 2.7rem 0;
-  } */
-
   .content-container {
     display: flex;
     flex-direction: column;
@@ -299,11 +293,16 @@ option {
   }
 
   .subcategory-name > a {
-    font-size: 1.4rem
+    font-size: 1.4rem;
   }
 
   .provider {
     font-size: 0.9rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: rgb(88, 88, 88);
   }
 
   footer {
