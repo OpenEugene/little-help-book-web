@@ -113,9 +113,9 @@
     display: none;
   }
 
-  .alphabetical-listing {
+  /* .alphabetical-listing {
     display: none;
-  }
+  } */
 
   .alphabetical-listing-mobile {
     display:flex;
