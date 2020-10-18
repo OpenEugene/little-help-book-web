@@ -35,6 +35,10 @@ option {
   margin-top: 1.1rem;
 }
 
+.hide-arrow {
+  display: none;
+}
+
 .nav-buttons {
   display: flex;
   justify-content: space-between;
@@ -147,12 +151,15 @@ option {
 
 .read-more {
   color: #086CDD;
-  font-weight: bold;
 }
 
 .last-line {
   display: flex;
   justify-content: space-between;
+}
+
+.provider-hours {
+  line-height: 1.5rem;
 }
 
 #map {
@@ -169,10 +176,6 @@ option {
 }
 
 /* end desktop styles, begin responsive transition to tablet */
-
-@media screen and (min-width: 1175px) {
-
-}
 
 @media screen and (max-width: 1056px) {
 
@@ -207,6 +210,10 @@ option {
   .tile {
     width: 100%;
   }
+
+  .provider-website > a {
+    color: #086CDD; 
+  }
 }
   
 /* begin mobile styles */
@@ -218,14 +225,43 @@ option {
     margin-right: 2rem;
   }
 
-  .print {
+  .category-page-name {
+    font-size: 1.5rem;
+  }
+
+  .show-hide {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .hide-arrow {
+    display: inline;
+  }
+
+  .print, .dropdown {
     display: none;
   }
 
   .providers {
-    margin-top: 0.4rem;
+    margin-top: 1.1rem;
     margin-left: 2rem;
     margin-right: 0.5rem;
+  }
+
+  .provider-name > a {
+    font-size: 1.4rem;
+  }
+
+  .provider-address {
+    padding-top: 0.7rem;
+  }
+
+  .provider-address, .provider-phone {
+    font-size: 1.05rem;
+  }
+
+  .provider-description, .provider-hours {
+    font-size: 0.9rem;
   }
 
   footer {
