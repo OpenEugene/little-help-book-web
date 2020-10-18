@@ -177,7 +177,17 @@ option {
 
 /* end desktop styles, begin responsive transition to tablet */
 
+@media screen and (max-width: 1640px) {
+  .spanish, .about {
+    display: none;
+  }
+}  
+
 @media screen and (max-width: 1056px) {
+
+  .spanish, .about {
+    display: inline;
+  }
 
   body {
     display: flex;
@@ -185,21 +195,21 @@ option {
   }
 
   .bottom-of-menu {
-    margin-right: 4.5rem;
+    margin-right: 3.5rem;
   }
 
   .nav-buttons {
-    margin: .7rem 0;
+    margin: .7rem .4rem .7rem 0;
   }
 
   .providers {
     display: flex;
     flex-wrap: wrap;
-    margin-right: 2.5rem;
+    margin-right: 2rem;
   }
 
   .tile {
-    width: 43%;
+    width: 45.1%;
   }
 }
 
@@ -245,7 +255,7 @@ option {
   .providers {
     margin-top: 1.1rem;
     margin-left: 2rem;
-    margin-right: 0.5rem;
+    margin-right: 0rem;
   }
 
   .provider-name > a {

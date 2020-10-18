@@ -191,13 +191,17 @@ option {
 
 /* end desktop styles, begin responsive transition to tablet */
 
-@media screen and (max-width: 1175px) {
-  .header-nav {
-    margin-right: 2rem;
+@media screen and (max-width: 1640px) {
+  .spanish, .about {
+    display: none;
   }
-}
+}  
 
 @media screen and (max-width: 1056px) {
+
+  .spanish, .about {
+    display: inline;
+  }
 
   .left-column {
     display: flex;
@@ -235,6 +239,11 @@ option {
   .right-column {
     width: auto;
     margin-left: 3.5rem;
+    margin-top: -0.5rem;
+  }
+
+  .subcategory-name > a {
+    margin-right: 0.5rem;
   }
 
   ul, li {
@@ -266,10 +275,6 @@ option {
   
 @media screen and (max-width: 640px) {
 
-  .header-nav {
-    margin-right: 0;
-  }
-
   .left-column, .right-column {
     margin-left: 2rem;
   }
@@ -280,11 +285,15 @@ option {
 
   .right-column {
     margin-right: 1rem;
-    margin-top: -.5rem;
+    margin-top: -.55rem;
   }
 
   .category-page-name {
     font-size: 1.5rem;
+  }
+
+  .nav-buttons {
+    margin: .4rem 0 0 0;
   }
 
   .available-toggle {

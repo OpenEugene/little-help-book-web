@@ -344,6 +344,10 @@ main {
 
 @media screen and (max-width: 1175px) {
 
+  .header-nav {
+    margin-right: 2rem;
+  }
+
   main {
     columns: auto;
   }
@@ -360,7 +364,6 @@ main {
   .search {
     display: none;
   }
-
 }
 
 /* begin tablet styles */
@@ -391,6 +394,10 @@ main {
 
   .header-nav, .header-nav-item, .find-help, .search-input {
     padding: 0 0rem 0.1rem 0.8rem;
+  }
+
+  .header-nav {
+    margin-right: 0;
   }
 
   .menu-button {
