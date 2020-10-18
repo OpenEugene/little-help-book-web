@@ -261,6 +261,208 @@
                 </div>
                 {{/places}}
             </script>
+
+            <div class="mobile-container" id="mobile-container">
+                <!-- <header class="mobile-header">
+                    <div class="branding">
+                        <a class="homepage-link" href="index.html">
+                            <img class="desktop-logo" src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
+                            <h1 class="little-help-book">Little Help Book</h1>
+                        </a>
+                    </div>
+                    <nav class="header-nav">
+                        <div class="header-nav-item menu-lines">
+                            <div class="hamburger"></div>
+                            <div class="hamburger"></div>
+                            <div class="hamburger"></div>
+                        </div>
+                        <div class="header-nav-item search">
+                            <input type="image" src="search-line.png" class="search-input" type="search">
+                        </div>
+                    </nav>
+                </header> -->
+        
+                <!-- <div class="alphabetical-listing-mobile">
+        
+                    <div class="mobile-providers">
+        
+                        <div>
+                            <section id="loading-placeholder" class="providers">
+                                <h3><em>Loading...</em><h3>
+                            </section>
+        
+                            <a name="num-anchor"></a>
+                            <section class="alphabet-heading">0–9</section>
+                            <section id="num-providers" class="providers">
+                            </section>
+                            <a name="a-anchor"></a>
+                            <section class="alphabet-heading">A</section>
+                            <section id="a-providers" class="providers">
+                            </section>
+                            <a name="b-anchor"></a>
+                            <section class="alphabet-heading">B</section>
+                            <section id="b-providers" class="providers">
+                            </section>
+                            <a name="c-anchor"></a>
+                            <section class="alphabet-heading">C</section>
+                            <section id="c-providers" class="providers">
+                            </section>
+                            <a name="d-anchor"></a>
+                            <section class="alphabet-heading">D</section>
+                            <section id="d-providers" class="providers">
+                            </section>
+                            <a name="e-anchor"></a>
+                            <section class="alphabet-heading">E</section>
+                            <section id="e-providers" class="providers">
+                            </section>
+                            <a name="f-anchor"></a>
+                            <section class="alphabet-heading">F</section>
+                            <section id="f-providers" class="providers">
+                            </section>
+                            <a name="g-anchor"></a>
+                            <section class="alphabet-heading">G</section>
+                            <section id="g-providers" class="providers">
+                            </section>
+                            <a name="h-anchor"></a>
+                            <section class="alphabet-heading">H</section>
+                            <section id="h-providers" class="providers">
+                            </section>
+                            <a name="i-anchor"></a>
+                            <section class="alphabet-heading">I</section>
+                            <section id="i-providers" class="providers">
+                            </section>
+                            <a name="j-anchor"></a>
+                            <section class="alphabet-heading">J</section>
+                            <section id="j-providers" class="providers">
+                            </section>
+                            <a name="k-anchor"></a>
+                            <section class="alphabet-heading">K</section>
+                            <section id="k-providers" class="providers">
+                            </section>
+                            <a name="l-anchor"></a>
+                            <section class="alphabet-heading">L</section>
+                            <section id="l-providers" class="providers">
+                            </section>
+                            <a name="m-anchor"></a>
+                            <section class="alphabet-heading">M</section>
+                            <section id="m-providers" class="providers">
+                            </section>
+                            <a name="n-anchor"></a>
+                            <section class="alphabet-heading">N</section>
+                            <section id="n-providers" class="providers">
+                            </section>
+                            <a name="o-anchor"></a>
+                            <section class="alphabet-heading">O</section>
+                            <section id="o-providers" class="providers">
+                            </section>
+                            <a name="p-anchor"></a>
+                            <section class="alphabet-heading">P</section>
+                            <section id="p-providers" class="providers">
+                            </section>
+                            <a name="q-anchor"></a>
+                            <section class="alphabet-heading">Q</section>
+                            <section id="q-providers" class="providers">
+                            </section>
+                            <a name="r-anchor"></a>
+                            <section class="alphabet-heading">R</section>
+                            <section id="r-providers" class="providers">
+                            </section>
+                            <a name="s-anchor"></a>
+                            <section class="alphabet-heading">S</section>
+                            <section id="s-providers" class="providers">
+                            </section>
+                            <a name="t-anchor"></a>
+                            <section class="alphabet-heading">T</section>
+                            <section id="t-providers" class="providers">
+                            </section>
+                            <a name="u-anchor"></a>
+                            <section class="alphabet-heading">U</section>
+                            <section id="u-providers" class="providers">
+                            </section>
+                            <a name="v-anchor"></a>
+                            <section class="alphabet-heading">V</section>
+                            <section id="v-providers" class="providers">
+                            </section>
+                            <a name="w-anchor"></a>
+                            <section class="alphabet-heading">W</section>
+                            <section id="w-providers" class="providers">
+                            </section>
+                            <a name="x-anchor"></a>
+                            <section class="alphabet-heading">X</section>
+                            <section id="x-providers" class="providers">
+                            </section>
+                            <a name="y-anchor"></a>
+                            <section class="alphabet-heading">Y</section>
+                            <section id="y-providers" class="providers">
+                            </section>
+                            <a name="z-anchor"></a>
+                            <section class="alphabet-heading">Z</section>
+                            <section id="z-providers" class="providers">
+                            </section>
+                        </div>
+                
+                        <script id="provider-tiles-template" type="text/x-handlebars-template">
+                            {{#places}}
+                            <div class="tile" id={{id}}>
+                                <div class="provider-name"><a href="provider.html?place={{id}}">{{name}}</a></div>
+                                <div class="provider-address">{{#if address}}{{address}}{{else}}No address provided{{/if}}</div>
+                                <div class="provider-website">
+                                    {{#if url}}
+                                        <a target="_blank" href="{{url}}">{{url}}</a>
+                                    {{else}}
+                                        No website provided
+                                    {{/if}}
+                                </div>
+                            </div>
+                            {{/places}}
+                        </script>
+        
+                    </div>   -->
+                     
+                        <div class="a-z-mobile">
+                            <div class="mobile-alphabet-1">
+                                <div class="alphabet blue select-numbers">0–9</div>
+                                <div class="alphabet"><a class="blue" href="#a-anchor">A</a></div> 
+                                <div class="alphabet"><a class="blue" href="#b-anchor">B</a></div>
+                                <div class="alphabet"><a class="blue" href="#c-anchor">C</a></div>
+                                <div class="alphabet"><a class="blue" href="#d-anchor">D</a></div>
+                                <div class="alphabet"><a class="blue" href="#e-anchor">E</a></div>
+                                <div class="alphabet"><a class="blue" href="#f-anchor">F</a></div>
+                                <div class="alphabet"><a class="blue" href="#g-anchor">G</a></div>
+                                <div class="alphabet"><a class="blue" href="#h-anchor">H</a></div>
+                                <div class="alphabet"><a class="blue" href="#i-anchor">I</a></div>
+                                <div class="alphabet"><a class="blue" href="#j-anchor">J</a></div>
+                                <div class="alphabet"><a class="blue" href="#k-anchor">K</a></div>
+                                <div class="alphabet"><a class="blue" href="#l-anchor">L</a></div>
+                                <div class="alphabet"><a class="blue" href="#m-anchor">M</a></div>
+                            </div>
+                            <div class="mobile-alphabet-2">
+                                <div class="alphabet"><a class="blue" href="#n-anchor">N</a></div>
+                                <div class="alphabet"><a class="blue" href="#o-anchor">O</a></div>
+                                <div class="alphabet"><a class="blue" href="#p-anchor">P</a></div>
+                                <div class="alphabet"><a class="blue" href="#q-anchor">Q</a></div>
+                                <div class="alphabet"><a class="blue" href="#r-anchor">R</a></div>
+                                <div class="alphabet"><a class="blue" href="#s-anchor">S</a></div>
+                                <div class="alphabet"><a class="blue" href="#t-anchor">T</a></div>
+                                <div class="alphabet"><a class="blue" href="#u-anchor">U</a></div>
+                                <div class="alphabet"><a class="blue" href="#v-anchor">V</a></div>
+                                <div class="alphabet"><a class="blue" href="#w-anchor">W</a></div>
+                                <div class="alphabet"><a class="blue" href="#y-anchor">Y</a></div>
+                                <div class="alphabet"><a class="blue" href="#z-anchor">Z</a></div>
+                            </div>
+                        </div>
+                    
+                <!-- </div> -->
+                <!-- <main class="content-container">
+                    <div class="people-care">People care.</div>
+                    <h3 class="find-help-in-lane">Find help in Lane County, Oregon. Available by phone or in person.</h3>
+                    <div class="buttons">
+                        <button class="help-button" id="help-button">Find Help</button>
+                        <button class="spanish-button">Español</button>
+                    </div>
+                </main>
+                <footer>Human service resource guide powered by <h2 class="bold-inline h123-reset">White Bird Clinic</h2></footer> -->
+            </div>
         </main>
 
         <footer class="footer">
@@ -279,208 +481,7 @@
         </footer>
     </div>
 
-    <div class="mobile-container" id="mobile-container">
-        <!-- <header class="mobile-header">
-            <div class="branding">
-                <a class="homepage-link" href="index.html">
-                    <img class="desktop-logo" src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
-                    <h1 class="little-help-book">Little Help Book</h1>
-                </a>
-            </div>
-            <nav class="header-nav">
-                <div class="header-nav-item menu-lines">
-                    <div class="hamburger"></div>
-                    <div class="hamburger"></div>
-                    <div class="hamburger"></div>
-                </div>
-                <div class="header-nav-item search">
-                    <input type="image" src="search-line.png" class="search-input" type="search">
-                </div>
-            </nav>
-        </header> -->
 
-        <div class="alphabetical-listing-mobile">
-
-            <div class="mobile-providers">
-
-                <div>
-                    <section id="loading-placeholder" class="providers">
-                        <h3><em>Loading...</em><h3>
-                    </section>
-
-                    <a name="num-anchor"></a>
-                    <section class="alphabet-heading">0–9</section>
-                    <section id="num-providers" class="providers">
-                    </section>
-                    <a name="a-anchor"></a>
-                    <!-- <section class="alphabet-heading">A <a href='#top'>jump to top</a></section> -->
-                    <section class="alphabet-heading">A</section>
-                    <section id="a-providers" class="providers">
-                    </section>
-                    <a name="b-anchor"></a>
-                    <section class="alphabet-heading">B</section>
-                    <section id="b-providers" class="providers">
-                    </section>
-                    <a name="c-anchor"></a>
-                    <section class="alphabet-heading">C</section>
-                    <section id="c-providers" class="providers">
-                    </section>
-                    <a name="d-anchor"></a>
-                    <section class="alphabet-heading">D</section>
-                    <section id="d-providers" class="providers">
-                    </section>
-                    <a name="e-anchor"></a>
-                    <section class="alphabet-heading">E</section>
-                    <section id="e-providers" class="providers">
-                    </section>
-                    <a name="f-anchor"></a>
-                    <section class="alphabet-heading">F</section>
-                    <section id="f-providers" class="providers">
-                    </section>
-                    <a name="g-anchor"></a>
-                    <section class="alphabet-heading">G</section>
-                    <section id="g-providers" class="providers">
-                    </section>
-                    <a name="h-anchor"></a>
-                    <section class="alphabet-heading">H</section>
-                    <section id="h-providers" class="providers">
-                    </section>
-                    <a name="i-anchor"></a>
-                    <section class="alphabet-heading">I</section>
-                    <section id="i-providers" class="providers">
-                    </section>
-                    <a name="j-anchor"></a>
-                    <section class="alphabet-heading">J</section>
-                    <section id="j-providers" class="providers">
-                    </section>
-                    <a name="k-anchor"></a>
-                    <section class="alphabet-heading">K</section>
-                    <section id="k-providers" class="providers">
-                    </section>
-                    <a name="l-anchor"></a>
-                    <section class="alphabet-heading">L</section>
-                    <section id="l-providers" class="providers">
-                    </section>
-                    <a name="m-anchor"></a>
-                    <section class="alphabet-heading">M</section>
-                    <section id="m-providers" class="providers">
-                    </section>
-                    <a name="n-anchor"></a>
-                    <section class="alphabet-heading">N</section>
-                    <section id="n-providers" class="providers">
-                    </section>
-                    <a name="o-anchor"></a>
-                    <section class="alphabet-heading">O</section>
-                    <section id="o-providers" class="providers">
-                    </section>
-                    <a name="p-anchor"></a>
-                    <section class="alphabet-heading">P</section>
-                    <section id="p-providers" class="providers">
-                    </section>
-                    <a name="q-anchor"></a>
-                    <section class="alphabet-heading">Q</section>
-                    <section id="q-providers" class="providers">
-                    </section>
-                    <a name="r-anchor"></a>
-                    <section class="alphabet-heading">R</section>
-                    <section id="r-providers" class="providers">
-                    </section>
-                    <a name="s-anchor"></a>
-                    <section class="alphabet-heading">S</section>
-                    <section id="s-providers" class="providers">
-                    </section>
-                    <a name="t-anchor"></a>
-                    <section class="alphabet-heading">T</section>
-                    <section id="t-providers" class="providers">
-                    </section>
-                    <a name="u-anchor"></a>
-                    <section class="alphabet-heading">U</section>
-                    <section id="u-providers" class="providers">
-                    </section>
-                    <a name="v-anchor"></a>
-                    <section class="alphabet-heading">V</section>
-                    <section id="v-providers" class="providers">
-                    </section>
-                    <a name="w-anchor"></a>
-                    <section class="alphabet-heading">W</section>
-                    <section id="w-providers" class="providers">
-                    </section>
-                    <a name="x-anchor"></a>
-                    <section class="alphabet-heading">X</section>
-                    <section id="x-providers" class="providers">
-                    </section>
-                    <a name="y-anchor"></a>
-                    <section class="alphabet-heading">Y</section>
-                    <section id="y-providers" class="providers">
-                    </section>
-                    <a name="z-anchor"></a>
-                    <section class="alphabet-heading">Z</section>
-                    <section id="z-providers" class="providers">
-                    </section>
-                </div>
-        
-                <script id="provider-tiles-template" type="text/x-handlebars-template">
-                    {{#places}}
-                    <div class="tile" id={{id}}>
-                        <div class="provider-name"><a href="provider.html?place={{id}}">{{name}}</a></div>
-                        <div class="provider-address">{{#if address}}{{address}}{{else}}No address provided{{/if}}</div>
-                        <div class="provider-website">
-                            {{#if url}}
-                                <a target="_blank" href="{{url}}">{{url}}</a>
-                            {{else}}
-                                No website provided
-                            {{/if}}
-                        </div>
-                    </div>
-                    {{/places}}
-                </script>
-
-            </div>  
-             
-                <div class="a-z-mobile">
-                    <div class="mobile-alphabet-1">
-                        <div class="alphabet blue select-numbers">0–9</div>
-                        <div class="alphabet"><a class="blue" href="#a-anchor">A</a></div> 
-                        <div class="alphabet"><a class="blue" href="#b-anchor">B</a></div>
-                        <div class="alphabet"><a class="blue" href="#c-anchor">C</a></div>
-                        <div class="alphabet"><a class="blue" href="#d-anchor">D</a></div>
-                        <div class="alphabet"><a class="blue" href="#e-anchor">E</a></div>
-                        <div class="alphabet"><a class="blue" href="#f-anchor">F</a></div>
-                        <div class="alphabet"><a class="blue" href="#g-anchor">G</a></div>
-                        <div class="alphabet"><a class="blue" href="#h-anchor">H</a></div>
-                        <div class="alphabet"><a class="blue" href="#i-anchor">I</a></div>
-                        <div class="alphabet"><a class="blue" href="#j-anchor">J</a></div>
-                        <div class="alphabet"><a class="blue" href="#k-anchor">K</a></div>
-                        <div class="alphabet"><a class="blue" href="#l-anchor">L</a></div>
-                        <div class="alphabet"><a class="blue" href="#m-anchor">M</a></div>
-                    </div>
-                    <div class="mobile-alphabet-2">
-                        <div class="alphabet"><a class="blue" href="#n-anchor">N</a></div>
-                        <div class="alphabet"><a class="blue" href="#o-anchor">O</a></div>
-                        <div class="alphabet"><a class="blue" href="#p-anchor">P</a></div>
-                        <div class="alphabet"><a class="blue" href="#q-anchor">Q</a></div>
-                        <div class="alphabet"><a class="blue" href="#r-anchor">R</a></div>
-                        <div class="alphabet"><a class="blue" href="#s-anchor">S</a></div>
-                        <div class="alphabet"><a class="blue" href="#t-anchor">T</a></div>
-                        <div class="alphabet"><a class="blue" href="#u-anchor">U</a></div>
-                        <div class="alphabet"><a class="blue" href="#v-anchor">V</a></div>
-                        <div class="alphabet"><a class="blue" href="#w-anchor">W</a></div>
-                        <div class="alphabet"><a class="blue" href="#y-anchor">Y</a></div>
-                        <div class="alphabet"><a class="blue" href="#z-anchor">Z</a></div>
-                    </div>
-                </div>
-            
-        </div>
-        <!-- <main class="content-container">
-            <div class="people-care">People care.</div>
-            <h3 class="find-help-in-lane">Find help in Lane County, Oregon. Available by phone or in person.</h3>
-            <div class="buttons">
-                <button class="help-button" id="help-button">Find Help</button>
-                <button class="spanish-button">Español</button>
-            </div>
-        </main>
-        <footer>Human service resource guide powered by <h2 class="bold-inline h123-reset">White Bird Clinic</h2></footer> -->
-    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 

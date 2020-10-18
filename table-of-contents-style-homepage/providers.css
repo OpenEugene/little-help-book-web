@@ -41,6 +41,10 @@
   display: none;
 }
 
+.mobile-container {
+  display: none;
+}
+
 /* end desktop styles, begin responsive transition to tablet */
 
 @media screen and (max-width: 1640px) {
