@@ -135,6 +135,11 @@
     flex-direction: column;
   }
 
+  .providers {
+    margin-right: -2rem;
+    width: 95%;
+}
+
   .alphabet-heading {
     font-size: 1rem;
     margin-left: 2rem;
