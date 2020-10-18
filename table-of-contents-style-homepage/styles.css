@@ -353,6 +353,14 @@ main {
 
 @media screen and (max-width: 1056px) {
 
+  .breadcrumb-box {
+    display: none;
+  }
+
+  .search {
+    display: none;
+  }
+
 }
 
 /* begin tablet styles */
@@ -380,19 +388,11 @@ main {
     font-size: 1.2rem;
     margin: 0.35rem 0 0 0.7rem;
   }
-  
-  .breadcrumb-box {
-    display: none;
-  }
-  
+
   .header-nav, .header-nav-item, .find-help, .search-input {
     padding: 0 0rem 0.1rem 0.8rem;
   }
 
-  .search {
-    display: none;
-  }
-  
   .menu-button {
     font-size: 0.8rem;
     font-weight: normal;

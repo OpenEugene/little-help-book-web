@@ -121,10 +121,6 @@ option {
 #map {
   width: 85%; 
   height: 100%;
-  /*
-  width: 888.9px;
-  height: 80vh;
-  */
 }
 
 #map {
@@ -193,28 +189,20 @@ option {
   margin-top: .3rem;
 }
 
-/* end desktop styles */
+/* end desktop styles, begin responsive transition to tablet */
 
-.mobile-container {
-  display: none;
-}
-
-/* responsive transition to tablet */
-
-@media screen and (min-width: 1175px) {
-  .menu-lines {
-    display: block;
+@media screen and (max-width: 1175px) {
+  .header-nav {
+    margin-right: 2rem;
   }
 }
 
 @media screen and (max-width: 1056px) {
 
-  .mobile-container {
-    display: inline;
-  }
-
-  .desktop-header, .breadcrumb-box, .nav-buttons, .whats-available, .new-subcategory-search {
-    display: none;
+  .left-column {
+    display: flex;
+    margin-right: 3.5rem;
+    justify-content: space-between;
   }
 
   body {
@@ -226,18 +214,22 @@ option {
     flex-direction: column;
   }
 
-  /* Temporaryily hiding the Available Now filter while the navigation menus for tablet and mobile are being written. */
+  .dropdown, .print {
+    display: none;
+  } 
 
   .hours-available {
     display: none;
+    padding-top: 0.66rem;
   }
 
   .available-toggle {
-    display: none;
+    padding-top: 0.05rem;
   }
 
-  .available-toggle {
-    display: none;
+  .available-now {
+    flex-wrap: nowrap;
+    padding-top: 0.6rem
   }
 
   .right-column {
@@ -246,15 +238,15 @@ option {
   }
 
   ul, li {
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem; 
     color: black;
   }
 
-  .provider {
+  /* .provider {
     font-size: 1.1rem;
     line-height: 1.5rem;
     margin: 0.3rem 0 2.7rem 0;
-  }
+  } */
 
   .content-container {
     display: flex;
@@ -276,16 +268,42 @@ option {
   
 @media screen and (max-width: 640px) {
 
+  .header-nav {
+    margin-right: 0;
+  }
+
   .left-column, .right-column {
     margin-left: 2rem;
   }
 
+  .left-column {
+    margin-right: 1.2rem;
+  }
+
   .right-column {
     margin-right: 1rem;
+    margin-top: -.5rem;
+  }
+
+  .category-page-name {
+    font-size: 1.5rem;
+  }
+
+  .available-toggle {
+    padding-top: 0;
+  }
+
+  .available-now {
+    font-size: .9rem;
+    padding-top: 0.4rem;
+  }
+
+  .subcategory-name > a {
+    font-size: 1.4rem
   }
 
   .provider {
-    margin: 0.3rem 0.7rem 2.7rem 0;
+    font-size: 0.9rem;
   }
 
   footer {

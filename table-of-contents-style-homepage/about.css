@@ -100,51 +100,15 @@ textarea {
   margin-right: 1.5rem;
 }
 
-/* end desktop styles */
-
-.mobile-container {
-  display: none;
-}
-
-/* responsive transition to tablet */
+/* end desktop styles, begin responsive transition to tablet */
 
 @media screen and (max-width: 1056px) {
-
-  .container {
-    display: inline;
-  }
-
-  .mobile-container {
-      display: inline;
-  }
-
-  .desktop-header, .breadcrumb-box {
-      display: none;
-	}
 	
   body {
     display: flex;
     flex-direction: column-reverse;
   }
 
-  header {
-    padding-top: 0;
-  }
-
-  header .logo-title {
-    display: flex;
-  }
-
-  header {
-      padding-top: 0;
-  }
-
-  #search {
-    display: flex;
-    justify-content: right;
-    margin-right: 2.5rem;
-  }
-  
   .about-container {
     flex-direction: column;
   }
@@ -162,6 +126,10 @@ textarea {
   
 @media screen and (max-width: 640px) {
 
+  .desktop-header {
+    margin: 0;
+  }
+  
   .about-container {
     margin: 1.75rem 2rem 0 2rem;
   }
