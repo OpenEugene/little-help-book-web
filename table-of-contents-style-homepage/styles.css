@@ -349,6 +349,14 @@ main {
 /* end desktop styles, begin responsive transition to tablet */
 @media screen and (max-width: 1056px) {
 
+  .breadcrumb-box {
+    display: none;
+  }
+
+  .search {
+    display: none;
+  }
+
   .desktop-header {
     margin: 0 0 0.95rem;
   }
@@ -404,20 +412,21 @@ main {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    margin-left: 2rem;
+    margin-right: 0.45rem;
+  }
+
+  .mobile-header-nav-item {
+    display: flex;
+    margin-left: 0;
+  }
+
+  .menu-item {
+    margin-top: .25rem;
   }
 
   .search-input {
     background-color: #f5f5f5;
-  }
-  
-
-
-  .breadcrumb-box {
-    display: none;
-  }
-
-  .search {
-    display: none;
   }
 }
 
