@@ -121,10 +121,6 @@
     display: flex;
   }
 
-  /* .alphabetical-listing {
-    display: none;
-  } */
-
   .alphabetical-listing-mobile {
     display:flex;
     justify-content: space-between;
@@ -138,7 +134,7 @@
   .providers {
     margin-right: -2rem;
     width: 95%;
-}
+  }
 
   .alphabet-heading {
     font-size: 1rem;
@@ -164,5 +160,4 @@
   .mobile-alphabet-2 {
     padding-top: 2rem;
   }
-
 }
