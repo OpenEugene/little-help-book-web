@@ -1,14 +1,22 @@
 a {
-    color: #308DF8;
-  }
+  color: #308DF8;
+}
+
+.desktop-header { 
+  margin-bottom: 0.5rem;
+}
  
 .content-container {
-    margin-left: 3.5rem;
-    margin-right: 3.5rem;
-  }
+  margin-left: 3.5rem;
+  margin-right: 3.5rem;
+}
+
+main {
+  columns: auto;
+}
 
 .category-name {
-    padding: 0;
+  padding: 0;
 }
 
 .how-to-call {
@@ -53,18 +61,14 @@ a {
 
 @media screen and (max-width: 1056px) {
 
-  /* .desktop-header {
-    display: none;
-  } */
-
-  /* .mobile-container {
-    display: inline;
-  } */
-
   .how-to-call {
     display: inline;
     margin: 1.5rem 0 0 1rem;
     }
+
+  .desktop-header { 
+    margin-bottom: 1.5rem;
+  }
 }  
 
   
