@@ -351,6 +351,10 @@ main {
   main {
     columns: auto;
   }
+
+  .subcategory a {
+    color: black;
+  }
 }
 
 /* end desktop styles, begin responsive transition to tablet */
@@ -370,6 +374,9 @@ main {
 
 @media screen and (max-width: 770px) {
 
+  .category-name a {
+    margin-right: .5rem;
+  }
 }
 
 /* begin mobile styles */
@@ -405,5 +412,13 @@ main {
     font-weight: normal;
     text-transform: uppercase;
     margin: 2.375rem .5rem 1.5rem -0.5rem;
+  }
+
+  .table-of-contents {
+    padding: 0 2rem 0 2rem;
+  }
+
+  .category-name > a {
+    margin-right: 0;
   }
 }
