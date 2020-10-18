@@ -103,29 +103,27 @@ option {
   min-width: 440px;
 }
 
-/* end desktop styles */
+/* end desktop styles, begin responsive transition to tablet */
 
-.mobile-container {
-  display: none;
-}
-
-/* responsive transition to tablet */
+@media screen and (max-width: 1640px) {
+  .spanish, .about {
+    display: none;
+  }
+}  
 
 @media screen and (min-width: 1175px) {
-  .menu-lines {
-    display: block;
-  }
+
 }
 
 @media screen and (max-width: 1056px) {
 
-  .mobile-container {
-      display: inline;
+  .spanish, .about {
+    display: inline;
   }
 
-  .desktop-header, .breadcrumb-box {
+  /* .desktop-header, .breadcrumb-box {
       display: none;
-  }
+  } */
 
   body {
     display: flex;
