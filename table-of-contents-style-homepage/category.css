@@ -256,6 +256,10 @@ option {
   #mapid {
     margin-top: 1rem;
   }
+
+  .provider {
+    line-height: 1.5em;
+  }
 }
 
   /* begin mobile styles */
@@ -300,10 +304,10 @@ option {
     font-size: 0.9rem;
   }
 
-  a {
+  /* a {
     text-decoration: none;
     color: rgb(88, 88, 88);
-  }
+  } */
 
   footer {
     flex-direction: column;
