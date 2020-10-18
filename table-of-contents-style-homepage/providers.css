@@ -113,6 +113,14 @@
     display: none;
   }
 
+  .mobile-container {
+    display: inline;
+  }
+
+  .mobile-flexbox {
+    display: flex;
+  }
+
   /* .alphabetical-listing {
     display: none;
   } */
