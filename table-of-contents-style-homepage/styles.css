@@ -377,6 +377,7 @@ main {
     display: flex;
     justify-content: space-between;
     margin: 0 3.5rem;
+    margin-bottom: 1rem;
   }
 
   .find-help {
@@ -427,6 +428,10 @@ main {
 
   .search-input {
     background-color: #f5f5f5;
+  }
+
+  .menu-underline {
+    color: #d8d6d6;
   }
 }
 
