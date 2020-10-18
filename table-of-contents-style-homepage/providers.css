@@ -41,6 +41,21 @@
   display: none;
 }
 
+/* end desktop styles, begin responsive transition to tablet */
+
+@media screen and (max-width: 1640px) {
+  .spanish, .about {
+    display: none;
+  }
+}  
+
+@media screen and (max-width: 1056px) {
+
+  .spanish, .about {
+    display: inline;
+  }
+}
+
 /* begin tablet styles */
 
 @media screen and (max-width: 770px) {
@@ -50,12 +65,13 @@
     align-items: flex-end;
     justify-content: normal;
     font-size: 1.3rem;
-    margin-top: 1.1rem;
+    margin-top: 1.2rem;
     margin-left: 0rem;
   }
 
   .alphabet-heading {
     margin-top: 1.1rem;
+    margin-bottom: 1.4rem;
   }
 
   .select-numbers {
@@ -74,6 +90,10 @@
     flex-direction: row-reverse;
     display: flex;
     justify-content: space-between;
+  }
+
+  .alphabet-heading {
+    margin-top: 0.5rem;
   }
 
   .providers {
