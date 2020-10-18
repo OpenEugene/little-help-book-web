@@ -409,11 +409,18 @@ main {
     -moz-appearance: none;
   }
 
+  .menu-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-right: .5rem;
+    margin-left: 1rem;
+  }
+
   .menu-options {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    margin-left: 2rem;
     margin-right: 0.45rem;
   }
 
