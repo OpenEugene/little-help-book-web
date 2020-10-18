@@ -168,29 +168,13 @@ option {
   z-index: 1;
 }
 
-/* end desktop styles */
-
-.mobile-container {
-  display: none;
-}
-
-/* responsive transition to tablet */
+/* end desktop styles, begin responsive transition to tablet */
 
 @media screen and (min-width: 1175px) {
-  .menu-lines {
-    display: block;
-  }
+
 }
 
 @media screen and (max-width: 1056px) {
-
-  .mobile-container {
-    display: inline;
-  }
-
-  .desktop-header, .breadcrumb-box {
-    display: none;
-  }
 
   body {
     display: flex;
