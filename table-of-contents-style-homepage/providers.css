@@ -28,9 +28,10 @@
 .alphabet-heading {
   font-size: 2rem;
   font-weight: bold;
-  margin-top: 1.5rem;
+  margin-top: .8rem;
   margin-right: 1rem;
   margin-left: 3.5rem;
+  margin-bottom: 1.4rem;
 }
 
 .container {
@@ -51,12 +52,30 @@
   .spanish, .about {
     display: none;
   }
-}  
+}
 
-@media screen and (max-width: 1056px) {
+@media screen and (max-width: 1240px) {
+  .breadcrumb-box {
+    display: none;
+  }
+
+  .search {
+    display: none;
+  } /* search on navigation bar with city / category / subcategory filters */
 
   .spanish, .about {
     display: inline;
+  }
+
+  .header-nav {
+    margin-right: 2rem;
+}
+}
+
+@media screen and (max-width: 1056px) {
+
+  .desktop-header {
+    margin-bottom: 0.95rem;
   }
 }
 
@@ -75,7 +94,6 @@
 
   .alphabet-heading {
     margin-top: 1.1rem;
-    margin-bottom: 1.4rem;
   }
 
   .select-numbers {
@@ -97,7 +115,7 @@
   }
 
   .alphabet-heading {
-    margin-top: 0.5rem;
+    margin-top: 0;
   }
 
   .providers {
@@ -132,6 +150,7 @@
   }
 
   .providers {
+    margin-top: 0;
     margin-right: -2rem;
     width: 95%;
   }
@@ -139,6 +158,7 @@
   .alphabet-heading {
     font-size: 1rem;
     margin-left: 2rem;
+    margin-top: 0.5rem;
   }
 
   .a-z-mobile {
