@@ -111,19 +111,17 @@ option {
   }
 }  
 
-@media screen and (min-width: 1175px) {
-
-}
-
-@media screen and (max-width: 1056px) {
+@media screen and (max-width: 1240px) {
+  .breadcrumb-box {
+    display: none;
+  }
 
   .spanish, .about {
     display: inline;
   }
+}
 
-  /* .desktop-header, .breadcrumb-box {
-      display: none;
-  } */
+@media screen and (max-width: 1056px) {
 
   body {
     display: flex;

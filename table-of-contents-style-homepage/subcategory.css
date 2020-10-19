@@ -181,13 +181,19 @@ option {
   .spanish, .about {
     display: none;
   }
-}  
+}
 
-@media screen and (max-width: 1056px) {
+@media screen and (max-width: 1240px) {
+  .breadcrumb-box {
+    display: none;
+  }
 
   .spanish, .about {
     display: inline;
   }
+}
+
+@media screen and (max-width: 1056px) {
 
   body {
     display: flex;
