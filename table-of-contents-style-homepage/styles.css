@@ -300,12 +300,34 @@ main {
   margin: 1.25em 0 2.25rem 0;
 }
 
-.community-sponsors {
-  text-transform: uppercase;
+.alert-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #E5F3FF;
+  padding: .5rem .5rem .75rem .5rem;
+
+}
+
+.alert-heading {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: .75rem;
+}
+
+.alert-title {
   font-style: normal;
   font-weight: bold;
-  font-size: 1em;
-  margin: 0.8rem 0;
+  font-size: 1rem;
+
+}
+
+.alert-date {
+  color: #716F6F;
+  font-size: .9rem;
+}
+
+.alert-statement {
+  line-height: 1.5rem;
 }
 
 .footer {
@@ -351,11 +373,15 @@ main {
 
   .breadcrumb-box {
     display: none;
-  }
+  } /* city-selector on desktop */
 
   .search {
     display: none;
-  }
+  } /* desktop header*/
+
+  .a-z-list {
+    display: none; 
+  } /* sentence about the A-Z list on desktop */
 
   .desktop-header {
     margin: 0 0 0.95rem;
