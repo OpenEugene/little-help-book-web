@@ -217,6 +217,11 @@ option {
   .tile {
     width: 45.1%;
   }
+
+  #mapid {
+    min-width: 0;
+    width: 90%;
+  }
 }
 
 /* begin tablet styles */
@@ -229,6 +234,12 @@ option {
 
   .provider-website > a {
     color: #086CDD; 
+  }
+
+  #mapid {
+    width: 94%;
+    margin-left: -2rem;
+    margin-top: .5rem;
   }
 }
   
@@ -286,5 +297,9 @@ option {
     line-height: 2rem;
     position: static;
     width: auto;
+  }
+
+  #mapid {
+    width: 97%;
   }
 }
