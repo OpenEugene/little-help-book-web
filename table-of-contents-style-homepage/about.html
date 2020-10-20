@@ -27,34 +27,37 @@
 <body>
 	<div class="container">
 		<header class="desktop-header">
-			<div class="homepage-link">
-				<a href="index.html">
+			<a class="homepage-link" href="index.html">
 				<img class="desktop-logo" src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
 				<h1 class="little-help-book">Little Help Book</h1>    
-				</a>
-			</div>
-			<div class="lane-county menu-icon">Lane County, Oregon</div>
+			</a>
+
+			<div class="description">Human Services Resource Directory</div>
 
 			<!-- the new Find my City element is here but the script needed for it to work isn't hooked up -->
-            <div class="breadcrumb-box">
-                <select class="breadcrumb city menu-icon" id="citySelect">
-                    <option value="">Find my City</option>
-                </select>
-            </div>
-
-				<button class="spanish menu-button menu-icon">Español</button>
-				<button class="about menu-button menu-icon">About</button>
-			<div class="search">
-					<div class="menu-lines">
-					<div class="hamburger"></div>
-					<div class="hamburger"></div>
-					<div class="hamburger"></div>        
-					</div>
-					<input type="image" src="search-line.png" class="search-input" type="search">
+			<div class="breadcrumb-box">
+				<div class="find-help">Find help in</div>
+				<select class="breadcrumb city" id="citySelect">
+					<option value=""><em>Loading...</em></option>
+					<option value="">Lane County, Oregon</option>
+				</select>
 			</div>
+
+			<nav class="header-nav">
+				<button class="header-nav-item spanish menu-button">Español</button>
+				<button class="header-nav-item about menu-button">About</button>
+				<div class="header-nav-item search">
+					<input type="image" src="search-line.png" class="search-input" type="search">
+				</div>
+			</nav>
 		</header>
+
 		<main class="about-container">
 		<section class="left-side">
+			<div class="about-content">
+				<p>The Little Help Book is a collaborative led by White Bird Clinic with the goal of networking multiple resource directories so that when information in one database is updated by a provider, the updates go to all the members of the network. This is a public information network for human and social services in Lane County, Oregon.
+				</p>
+			</div>
 			<div class="about-content">
 				<h2 class="about-heading h123-reset">Legend</h2>
 				<div><i class="ri-wheelchair-fill"></i> = ADA accessible</div>
@@ -69,7 +72,7 @@
 			</div>
 			<div class="about-content">
 				<h2 class="about-heading h123-reset">Thank yous</h2>
-				<p>For the first version of the print Little Help Book, every service included there contributed their information thanks to the following folks and organizations: Steve Kimes, Eric Luuvas, Brynn Grossman, Eugene Mennonite Church, Diane Kimes, Heather Sielicki, Lane County Human Services, Community Supported Shelters, City of Eugene, Sponsors, Inc., and HIV Alliance. Special thank you to Alicia Jones at The Child Center, and for our partners in the creation of the online directory: White Bird Clinic, New Avenues for Youth, Open Eugene, MVP Studio, Dark Matter Consulting.<br><br>
+				<p>For the first version of the print Little Help Book, every service included there contributed their information thanks to the following folks and organizations: Steve Kimes, Eric Luuvas, Brynn Grossman, Eugene Mennonite Church, Diane Kimes, Heather Sielicki, Lane County Human Services, Community Supported Shelters, City of Eugene, Sponsors, Inc., Eugene Mennonite, and HIV Alliance. Special thank you to Alicia Jones at The Child Center, and for our partners in the creation of the online directory: White Bird Clinic, New Avenues for Youth, Open Eugene, MVP Studio, Dark Matter Consulting, and Open Referral.<br><br>
 				This site is a work in progress collaboration. Please share with us any errors or omissions as well as ideas for making this better. <i>Thank you!</i>
 				</p>
 		  </div>
@@ -127,22 +130,6 @@
 		</footer>
 	</div>
 
-	<div class="mobile-container" id="mobile-container">
-		<header class="logo-title black-top">
-				<img src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
-				<h1 class="little-help-book">Little Help Book</h1>
-				<div id="search">
-						<div class="search">
-								<div class="menu-lines">
-								<div class="hamburger"></div>
-								<div class="hamburger"></div>
-								<div class="hamburger"></div>        
-								</div>
-								<input type="image" src="search-line.png" class="search-input" type="search">
-						</div>
-				</div>
-		</header>
-</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript" src="homepage.js"></script>
 <script type="text/javascript" src="src/NavBreadcrumb.js"></script>

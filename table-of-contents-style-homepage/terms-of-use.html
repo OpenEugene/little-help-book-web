@@ -26,32 +26,33 @@
 </head>
 <body>
 	<div class="container">
-		<header class="desktop-header">
-			<div class="homepage-link">
-				<a href="index.html">
-				<img class="desktop-logo" src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
-				<h1 class="little-help-book">Little Help Book</h1>    
-				</a>
-			</div>
-				<div class="lane-county menu-icon">Lane County, Oregon</div>
 
+		<header class="desktop-header">
+				<a class="homepage-link" href="index.html">
+						<img class="desktop-logo" src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
+						<h1 class="little-help-book">Little Help Book</h1>
+				</a>
+
+				<div class="description">Human Services Resource Directory</div>
+
+				<!-- Gets filled dynamically -->
 				<div class="breadcrumb-box">
-					<select class="breadcrumb city menu-icon" id="citySelect">
-						<option value="">Find my City</option>
-					</select>
+						<div class="find-help">Find help in</div>
+						<select class="breadcrumb city" id="citySelect">
+								<option value=""><em>Loading...</em></option>
+								<option value="">Lane County, Oregon</option>
+						</select>
 				</div>
 
-				<button class="spanish menu-button menu-icon">Español</button>
-				<button class="about menu-button menu-icon"><a class="about" href="about.html">About</a></button>
-			<div class="search">
-					<div class="menu-lines">
-					<div class="hamburger"></div>
-					<div class="hamburger"></div>
-					<div class="hamburger"></div>        
-					</div>
-					<input type="image" src="search-line.png" class="search-input" type="search">
-			</div>
+				<nav class="header-nav">
+						<button class="header-nav-item spanish menu-button">Español</button>
+						<button class="header-nav-item about menu-button"><a class="about" href="about.html">About</a></button>
+						<div class="header-nav-item search">
+								<input type="image" src="search-line.png" class="search-input" type="search">
+						</div>
+				</nav>
 		</header>
+
 		<main class="about-container">
 		<section class="left-side">
             <div class="about-content">
@@ -107,22 +108,6 @@
 		</footer>
 	</div>
 
-	<div class="mobile-container" id="mobile-container">
-		<header class="logo-title black-top">
-				<img src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
-				<h1 class="little-help-book">Little Help Book</h1>
-				<div id="search">
-						<div class="search">
-								<div class="menu-lines">
-								<div class="hamburger"></div>
-								<div class="hamburger"></div>
-								<div class="hamburger"></div>        
-								</div>
-								<input type="image" src="search-line.png" class="search-input" type="search">
-						</div>
-				</div>
-		</header>
-</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript" src="homepage.js"></script>
 <script type="text/javascript" src="src/NavBreadcrumb.js"></script>

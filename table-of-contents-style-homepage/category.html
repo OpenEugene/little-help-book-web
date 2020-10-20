@@ -24,96 +24,65 @@
     <link rel="stylesheet" type="text/css" href="category.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="category.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script><link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
     <script rel="text/javascript" src="src/airtable.browser.js"></script>
     <script rel="text/javascript" src="src/dal.js"></script>
 </head >
 <body>
-    <div>
+    <div class="page-container">
         <header class="desktop-header">
-        <div> <a href="index.html">
-            <img class="desktop-logo" src="white-bird-on-black.png" alt="White Bird Clinic" width="66px" height="66px">
-            <h1 class="little-help-book">Little Help Book</h1> </a>
-        </div>
-        <div class="breadcrumb-box">
-            <select class="breadcrumb city" id="citySelect">
-                <option value=""><em>Loading...</em></option>
-            </select>
-            <select class="breadcrumb category" id="catSelect">
-                <option value=""><em>Loading...</em></option>
-            </select>
-            <select class="breadcrumb subcategory-menu" id="subcatSelect">
-                <option value=""><em>Loading...</em></option>
-            </select>
-        </div>
+        	<div class="branding">
+				<a class="homepage-link" href="index.html">
+					<img class="desktop-logo" src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
+					<h1 class="little-help-book">Little Help Book</h1>    
+				</a>
+			</div>
 
-        <div class="search">
-            <a href="about.html">
-            <div class="menu-lines">
-              <div class="hamburger"></div>
-              <div class="hamburger"></div>
-              <div class="hamburger"></div>        
+            <div class="breadcrumb-box">
+                <select class="breadcrumb city" id="citySelect">
+                    <option value=""><em>Loading...</em></option>
+                </select>
+                <select class="breadcrumb category" id="catSelect">
+                    <option value=""><em>Loading...</em></option>
+                </select>
+                <select class="breadcrumb subcategory-menu" id="subcatSelect">
+                    <option value=""><em>Loading...</em></option>
+                </select>
             </div>
-            </a>
-            <input type="image" src="search-line.png" class="search-input" type="search">
-        </div>
-        
+    
+            <nav class="header-nav">
+                <button class="header-nav-item spanish menu-button">Español</button>
+                <button class="header-nav-item about menu-button">
+                    <a class="about" href="about.html">About</a>
+                </button>
+                <div class="header-nav-item search">
+                    <input type="image" src="search-line.png" class="search-input" type="search">
+                </div>
+            </nav>
         </header>
 
             <div class="inner-container">
 
-                <!-- this left column contains the checkbox filters and we decided to defer this feature until after the MVP -->
+                <!-- This left column includes a toggle to filter the hours of operation to show services available at the moment when the individual uses the navigation tools. And it's a work in progress, the JavaScript to filter and how to filter hours in Airtable has yet to be figured out. The svg is a placeholder and a working toggle needs to be created.-->
                 <section class="left-column">
                     <div class="category-page-name">
                     </div>
-                    <!-- <section class="subcategory-checkboxes">
-                        <div class="subcategory-list">
-                            <ul>
-                                <input type="checkbox" name="Bathrooms" value="Bathrooms">
-                                <label for="Bathrooms">Bathrooms</label><br>
-                                <input type="checkbox" name="Bedding" value="Bedding">
-                                <label for="Bedding">Bedding</label><br>
-                                <input type="checkbox" name="Clothing" value="Clothing">
-                                <label for="Clothing">Clothing</label><br>
-                                <input type="checkbox" name="Day Shelters" value="Day Shelters">
-                                <label for="Day Shelters">Day Shelters</label><br>
-                                <input type="checkbox" name="Day Storage" value="Day Storage">
-                                <label for="Day Storage">Day Storage</label><br>
-                                <input type="checkbox" name="Haircuts" value="Haircuts">
-                                <label for="Haircuts">Haircuts</label><br>
-                                <input type="checkbox" name="Household Goods" value="Household Goods">
-                                <label for="Household Goods">Household Goods</label><br>
-                                <input type="checkbox" name="Hygiene Items" value="Hygiene Items">
-                                <label for="Hygiene Items">Hygiene Items</label><br>
-                                <input type="checkbox" name="iD / Birth Certificate Replacement" value="iD / Birth Certificate Replacement">
-                                <label for="iD / Birth Certificate Replacement">iD / Birth Certificate Replacement</label><br>
-                                <input type="checkbox" name="Internet Access & Library Services" value="Internet Access & Library Services">
-                                <label for="Internet Access & Library Services">Internet Access & Library Services</label><br>
-                                <input type="checkbox" name="Laundry" value="Laundry">
-                                <label for="Laundry">Laundry</label><br>
-                                <input type="checkbox" name="Mail and Messages" value="Mail and Messages">
-                                <label for="Mail and Messages">Mail and Messages</label><br>
-                                <input type="checkbox" name="Phone" value="Phone">
-                                <label for="Phone">Phone</label><br>
-                                <input type="checkbox" name="Propane" value="Propane">
-                                <label for="Propane">Propane</label><br>
-                                <input type="checkbox" name="Showers" value="Showers">
-                                <label for="Showers">Showers</label><br>
-                            </ul>
-                        </div>
-                    </section>
-                    <section class="whats-available"> <button class="subcategory-buttons">What's<br>available?</button>
-                        <div class="checkbox-search-notes">Check boxes, then click to update search result</div>
-                    </section>
-                    <section class="new-subcategory-search"> <button class="subcategory-buttons">New<br>search</button>
-                        <div class="checkbox-search-notes">Clear selected boxes<br>and reset the search</div>
-                    </section> -->
+                    <div class="hours-available">Hours Available</div>
+                    <div class="available-toggle">
+                    <div class="available-now">AVAILABLE NOW</div>
+                        <img src="toggle.svg"/>
+                    </div>
                 </section>
                 
                 <section class="right-column">
 
                     <section class="nav-buttons">
-                        <!-- this show and hide arrow is part of the left column checkbox filter, on hold till the MVP -->
+                        <!-- This show and hide arrow is an option for the available now filter, creating more space for the map view. -->
                         <!-- <div class="show-arrow"> > </div>
                         <div class="hide-arrow"> < </div> -->
 
@@ -134,7 +103,7 @@
                     <main>
 
                         <section id="map"> 
-                            <img src="full-screen-map.jpg" class="placeholder-map-jpg" alt="This is a placeholder for the OpenStreetMap">
+                            <div id="mapid" class="mapid"></div>
                         </section>
 
                         <section id="provider-list">
@@ -167,26 +136,8 @@
 		    </footer>
     </div>
 
-    <div class="mobile-container" id="mobile-container">
-        <header class="logo-title black-top">
-            <img src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
-            <h1 class="little-help-book">Little Help Book</h1>
-            <div id="search">
-                <div class="search">
-                    <a href="about.html">
-                    <div class="menu-lines">
-                    <div class="hamburger"></div>
-                    <div class="hamburger"></div>
-                    <div class="hamburger"></div>        
-                    </div>
-                    </a>
-                    <input type="image" src="search-line.png" class="search-input" type="search">
-                </div>
-            </div>
-        </header>
-    </div>
+<script type="text/javascript" src="src/map.js"></script>
 <script type="text/javascript" src="src/NavBreadcrumb.js"></script>
-<script type="text/javascript" src="src/mockData.js"></script>
 <script type="text/javascript" src="src/categoryPage.js"></script>
 <script type="text/javascript" src="src/toc.js"></script>
 </body>

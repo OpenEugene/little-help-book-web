@@ -25,40 +25,59 @@
 <body>
     <div class="container">
         <header class="desktop-header">
-            <div class="homepage-link">
-                <a href="index.html">
-                    <img class="desktop-logo" src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
-                    <h1 class="little-help-book">Little Help Book</h1>
-                </a>
-            </div>
-            <div class="lane-county menu-icon">Lane County, Oregon</div>
+            <a class="homepage-link" href="index.html">
+                <img class="desktop-logo" src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
+                <h1 class="little-help-book">Little Help Book</h1>
+            </a>
 
-            <!-- Preserving original code to preserve the classes in case I broke some css. -->
-            <!-- <button onclick="cityMenu()" class="find-my-city menu-button menu-icon" class="dropdown-button">Find my City</button>
-            <div id="cityList" class="list-of-cities">
-            </div> -->
+            <div class="description">Human Services Resource Directory</div>
+
             <!-- Gets filled dynamically -->
             <div class="breadcrumb-box">
-                <select class="breadcrumb city menu-icon" id="citySelect">
+                <div class="find-help">Find help in</div>
+                <select class="breadcrumb city" id="citySelect">
                     <option value=""><em>Loading...</em></option>
-                    <option value="">Find my City</option>
+                    <option value="">Lane County, Oregon</option>
                 </select>
             </div>
 
-            <button class="spanish menu-button menu-icon">Español</button>
-            <button class="about menu-button menu-icon"><a class="about" href="about.html">About</a></button>
-            <div class="search">
-                <a href="about.html">
-                    <div class="menu-lines">
-                        <div class="hamburger"></div>
-                        <div class="hamburger"></div>
-                        <div class="hamburger"></div>
-                    </div>
-                </a>
-                <input type="image" src="search-line.png" class="search-input" type="search">
-            </div>
-        </header>
+            <nav class="header-nav">
+                <button class="header-nav-item spanish menu-button">Español</button>
+                <button class="header-nav-item about menu-button">
+                    <a class="about" href="about.html">About</a>
+                </button>
 
+                <div class="header-nav-item search">
+                    <input type="image" src="search-line.png" class="search-input" type="search">
+                </div>
+            </nav>
+        </header>
+        <div class="nav-container">
+            <div class="city-selection">
+                <div class="mobile-breadcrumb-box">
+                    <div class="find-help">Find help in</div>
+                    <select class="mobile-breadcrumb city" id="citySelect">
+                        <option value=""><em>Loading...</em></option>
+                        <option value="">Lane County, Oregon</option>
+                    </select>
+                </div>
+            </div>
+            <div class="menu-container">
+                <div class="menu-options">
+                    <div class="menu-item">SERVICES</div>
+                    <div class="menu-item"><a href="providers.html">PROVIDERS</a></div>
+                    <div class="menu-item"><a href="map.html">MAP</a></div>
+                    <div>
+                        <div class="mobile-header-nav-item mobile-search">
+                            <input type="image" src="search-line.png" class="search-input" type="search">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <hr>
+                </div>
+            </div>
+        </div>
         <!-- Main will be filled with data from the database, formatted as specified in the handlebars template below. -->
         <main id="table-of-contents" class="table-of-contents">
             <h3><em>Loading...</em><h3>
@@ -68,21 +87,20 @@
                 <div class="popup" onclick="crisisPopup()">
                     <span class="blue-text">crisis</span>?<span class="popuptext" id="myPopup">A crisis is defined personally by each individual who reaches out to White Bird Clinic. It can be a difficult or dangerous time, but it is also an opportunity for change. Anxiety, depression, grief, trauma, identity issues, abuse, interpersonal conflict, and other external or internal factors can contribute to a time of crisis. If you find your ability to access your own resources is compromised by a crisis event, please reach out to us on our 24/7 crisis line at 541-687-4000 or 1-800-422-7558 or click the Emergency Crisis Lines button for a complete listing of phone numbers.</span>
                 </div>
-                <button onclick="emergencyCrisis()" class="emergency-button"> <span class="emergency-text">Emergency Crisis Lines</span></button>
             </div>
-            <div class="a-z-list">To browse service providers by name, see our <a href="#" class="blue-text">A to Z list.</a></div>
-            <div class="community-sponsors">Community Sponsors</div>
-            <div class="subcategory">
-                <ul>
-                    <li><a href="https://lanecounty.org/">Lane County, Oregon</a></li>
-                    <li>Lane County Human Services</li>
-                    <li>City of Eugene</li>
-                    <li>Sponsors, Justice Reimagined</li>
-                    <li>Eugene Mennonite</li>
-                    <li>HIVAlliance</li>
-                    <li>Community Supported Shelters</li>
-                </ul>
+            <div class="emergency-button category-name"><a href="emergency.html">Emergency Crisis Lines</a></div>
+            <div class="a-z-list">To browse service providers by name, see our <a href="providers.html" class="blue-text">A to Z list.</a></div>
+            
+            <div class="alert-container">
+                <div class="alert-heading">
+                    <div class="alert-title">Wildfire Support</div>
+                    <div class="alert-date">SUNDAY, SEPT 20, 2020</div>
+                </div>
+                <div class="alert-statement">
+                    Info changing moment by moment, please visit the Lane County website for official information updates, and this link for evacuation maps. For statewide info, go to Wildfire.Oregon.gov. Oregon Department of Forestry (ODF) and the Oregon State Fire Marshal's Office are the lead fire-fighting agencies currently assigned to the Holiday Farm Fire. Follow ODF on Facebook, Twitter, and Instagram for additional updates. *¿Está buscando información de Holiday Farm Fire en español? Visite nuestra página de información en español.* 
+                </div>
             </div>
+            
         </div>
         <!-- Handlebars template -->
         <script id="table-of-contents-template" type="text/x-handlebars-template">
@@ -116,22 +134,6 @@
         </footer>
     </div>
 
-    <div class="mobile-container" id="mobile-container">
-        <header class="logo-title">
-            <img src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
-            <h1 class="little-help-book">Little Help Book</h1>
-            <div class="black-top"></div>
-        </header>
-            <main class="content-container">
-                <div class="people-care">People care.</div>
-                <h3 class="find-help-in-lane">Find help in Lane County, Oregon. Available by phone or in person.</h3>
-                <div class="buttons">
-                    <button class="help-button" id="help-button">Find Help</button>
-                    <button class="spanish-button">Español</button>
-                </div>
-            </main>
-        <footer>Human service resource guide powered by <h2 class="bold-inline h123-reset">White Bird Clinic</h2></footer>
-    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="homepage.js"></script>
     <script type="text/javascript" src="src/NavBreadcrumb.js"></script>

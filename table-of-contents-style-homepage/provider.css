@@ -3,10 +3,6 @@ a {
   color: black;
 }
 
-.breadcrumb-box {
-  margin-left: 20rem;
-}
-
 .breadcrumb {
   width: 16.8rem;
 }
@@ -14,28 +10,7 @@ a {
 option {
   background-color: white;
   color: black;
-  font-size: 1.4rem;
-}
-
-.city {
-  margin-left: 8rem;
-}
-
-.search {
-  display: flex;
-}
-
-.menu-lines {
-  margin-left: -2rem;
-  margin-right: 1rem;
-}
-
-.hamburger {
-  width: 35px;
-  height: 6px;
-  background-color: rgb(126, 126, 126);
-  border-radius: 2.5px;
-  margin: 5.5px 0 0 10.5px;
+  font-size: 1rem;
 }
 
 .provider-page {
@@ -69,7 +44,7 @@ option {
 
 .provider-website>a:hover {
   transition: 0.3s color ease-in-out;
-  color: #4A9AF8;
+  color: #086CDD;
 }
 
 .provider-description {
@@ -128,38 +103,38 @@ option {
   min-width: 440px;
 }
 
-/* end desktop styles */
+/* end desktop styles, begin responsive transition to tablet */
 
-.mobile-container {
-  display: none;
+@media screen and (max-width: 1640px) {
+  .spanish, .about {
+    display: none;
+  }
+}  
+
+@media screen and (max-width: 1240px) {
+  .breadcrumb-box {
+    display: none;
+  }
+
+  .spanish, .about {
+    display: inline;
+  }
 }
 
-/* responsive transition to tablet */
-
 @media screen and (max-width: 1056px) {
-
-  .mobile-container {
-      display: inline;
-  }
-
-  .desktop-header, .breadcrumb-box {
-      display: none;
-  }
 
   body {
     display: flex;
     flex-direction: column-reverse;
   }
 
-  #search {
-    display: flex;
-    justify-content: right;
-    margin-right: 2.5rem;
-  }
-
   .provider-page {
     display: flex;
     flex-direction: column;
+  }
+
+  .provider-name {
+    width: 100%;
   }
 
   .map {
@@ -178,18 +153,9 @@ option {
   }
 }
   
-  /* begin mobile styles */
+/* begin mobile styles */
   
-  @media screen and (max-width: 640px) {
-
-  #search {
-    margin-right: 1.5rem;
-  }
-
-  .search {
-    margin: 1.5rem 0 0;
-    right: 1.5rem;
-  }
+@media screen and (max-width: 640px) {
 
   .provider-page {
     padding: 0 2rem;

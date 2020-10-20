@@ -26,7 +26,7 @@ $(document).ready(function() {
         cityTable = await dalGetCityTable();
         cityValue = cityTable[0].id;
         // cityValue = "";
-        cityTable.splice(0, 0, {id: "NA", name: "Find my City"})
+        cityTable.splice(0, 0, {id: "NA", name: "Lane County, Oregon"})
 
         categoryTable = await dalGetCategoryTable();
         subcatTable = await dalGetSubcategoryTable();

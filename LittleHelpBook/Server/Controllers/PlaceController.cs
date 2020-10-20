@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using AirtableApiClient;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -27,6 +28,14 @@ namespace LittleHelpBook.Server.Controllers
             this.logger = logger;
             _airTableService = airTableService;
         }
+
+        [HttpPost("Clear")]
+        public async Task<IActionResult> Clear(string data)
+        { 
+            await _airTableService.Clear();
+            return  Ok();
+        }
+
 
         [HttpGet]
         public async Task<IEnumerable<Place>> Get()

@@ -24,7 +24,7 @@ $(document).ready(function() {
         categoryTable.splice(0, 0, {id: "NA", name: "All"});
         subcatTable.splice(0, 0, {id: "NA", name: "All"});
 
-        nbc = new NavBreadcrumb(cityTable, categoryTable, subcatTable, placeTable, mymap);
+        nbc = new NavBreadcrumb(cityTable, categoryTable, subcatTable, placeTable);
 
         /*
         Generate and place option element HTML to place into each appropriate
@@ -46,13 +46,19 @@ $(document).ready(function() {
         them to inform the initial data on the page.
         */
         let urlParams = new URLSearchParams(window.location.search);
-        let cityValue = (urlParams.has('city') ? urlParams.get('city') : 'NA')
-        let categoryValue = (urlParams.has('category') ? urlParams.get('category') : 'NA')
+        let cityValue = (urlParams.has('city') ? urlParams.get('city') : 'NA');
+        let categoryValue = (urlParams.has('category') ? urlParams.get('category') : 'NA');
+        let subcatValue = (urlParams.has('subcategory') ? urlParams.get('subcategory') : 'NA');
 
+        // Show the city-category-subcategory from the query in the navigation
         document.getElementById(cityboxId).value = cityValue;
         citySelectEvent();
         document.getElementById(catboxId).value = categoryValue;
         categorySelectEvent();
+        document.getElementById(subcatboxId).value = subcatValue;
+        subcatSelectEvent();
+
+        $('#loading-placeholder').empty();
     })()
 });
 
@@ -60,8 +66,8 @@ $(document).ready(function() {
 function citySelectEvent() {
     // find the city by id, and set the focused city to it.
     nbc.focused.city = nbc.cities.find(x => x.id === document.getElementById(cityboxId).value).id;
-
     // Reset the category selection back to "Select Category" when new city is selected.
+
     nbc.focused.category = "NA";
     // Reset the subcat selection back to all when city is changed.
     nbc.focused.subcat = "NA";
@@ -94,8 +100,8 @@ function categorySelectEvent() {
 }
 
 function subcatSelectEvent() {
-    //find the subcategory by id, and set the focused subcatgory to it.
-    nbc.focused.subcat = nbc.subcats.find(x => x.id === this.value).id;
+    //find the subcategory by id, and set the focused subcategory to it.
+    nbc.focused.subcat = nbc.subcats.find(x => x.id === document.getElementById(subcatboxId).value).id;
 
     //Update the category when chosing a subcategory - primarily for when category is "All"
     if (nbc.focused.subcat != "NA") {
@@ -115,64 +121,32 @@ function subcatSelectEvent() {
 }
 
 function updateDom() {
-    let availableCatSubcatIds = [];
-    let catSubcatPlaces = []
-    nbc.availablePlaces.forEach(record => {
-        record.catSubcatId.forEach(id => {
-            if (!availableCatSubcatIds.includes(id)) {
-                availableCatSubcatIds.push(id);
-                catSubcatPlaces.push([record]);
-            } else {
-                let index = availableCatSubcatIds.findIndex(value => value == id);
-                catSubcatPlaces[index].push(record);
-            }
-        })
-    });
-    let availableCatSubcats = [];
-    catSubcatTable.forEach(record => {
-        let proceed = true;
-        if (nbc.focused.category != 'NA') {
-            proceed = false;
-            if (record.categoryId == nbc.focused.category) {
-                proceed = true;
-            }
-            if (proceed) {
-                if (nbc.focused.subcat != 'NA') {
-                    proceed = false;
-                    if (record.subcategoryId == nbc.focused.subcat) {
-                        proceed = true;
-                    }
-                }
-            }
-        } else {
-            // This else clause is for the case where category is set to "All", and subcategory isn't, i.e. 
-            // is set to something specific. 
-            if (nbc.focused.subcat != 'NA') {
-                proceed = false;
-                if (record.subcategoryId == nbc.focused.subcat) {
-                    proceed = true;
-                }
-            }
-        }
-        if (proceed) {
-            if (availableCatSubcatIds.includes(record.catSubcatId)) {
-                let index = availableCatSubcatIds.findIndex(value => value == record.catSubcatId);
-                record.places = catSubcatPlaces[index];
-                availableCatSubcats.push(record);
-            }
-        }
-    });
-    let categoryData =  {subcategories : availableCatSubcats};
-    document.getElementsByClassName("category-page-name")[0].innerHTML = nbc.categories.find(x => x.id === nbc.focused.category).name;
-    if (nbc.mymap != null) {
-        setMarkers(nbc.availablePlaces);
-    }
     // Grab the template script
-    let theTemplateScript = $("#provider-list-template").html();
+    let theTemplateScript = $("#provider-tiles-template").html();
     // Compile the template
     let theTemplate = Handlebars.compile(theTemplateScript);
+
+    let filteredPlaces = nbc.availablePlaces.filter(record => record.name[0].toLowerCase() >= '0' && record.name[0].toLowerCase() <= '9')
     // Pass our data to the template
-    let compiledHtml = theTemplate({subcategories : categoryData.subcategories});
+    let compiledHtml = theTemplate({places : filteredPlaces});
     // Add the compiled html to the page
-    $('#provider-list').empty().append(compiledHtml);
+    $('#num-providers').empty().append(compiledHtml);
+
+    for(let i = 'a'.charCodeAt(); i <= 'z'.charCodeAt(); i += 1) {
+        let theLetter = String.fromCharCode(i);
+        console.log(theLetter)
+        filteredPlaces = nbc.availablePlaces.filter(record => record.name[0].toLowerCase() === theLetter);
+        // Pass our data to the template
+        compiledHtml = theTemplate({places : filteredPlaces});
+        // Add the compiled html to the page
+        $('#'+theLetter+'-providers').empty().append(compiledHtml);
+    }
+    // for(let theLetter = 'a'; theLetter <= 'z'; theLetter += 1) {
+    //     console.log(theLetter)
+    // }
 }
+
+Handlebars.registerHelper('trimString', function(passedString) {
+    var theString = passedString.substring(0,550);
+    return new Handlebars.SafeString(theString)
+});

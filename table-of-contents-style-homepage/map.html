@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little Help Book - White Bird Clinic</title>
+    <meta name="description" content="Resource directory for people seeking help with health, housing, financial assistance, shelter, food pantries and meal sites. This helps people navigate the system.">
+    <meta name="keywords" content="white bird, cahoots, crisis, counseling, mobile mental health, substance abuse treatment, free medical care, free dental, sliding scale health care, services for the homeless, shelter, emergency mental health, acute medical care, education, prevention, intervention, oreong, eugene, eugene oregon, springfield, springfield oregon, lane county, kahoots, cahoot, cahootz, unhoused, homelessness, mental health, counseling, mail, benfits, ohp, wellness, whitebird, white bird clinic, day access center, help resources, houseless, opiod treatment, dui, ssi, ssdi, free birth certificate, end of life counseling, acupuncture, hotline, suicide prevention, open 24/7">
+<!-- begin social media image and content description -->
+    <meta property="og:title" content="Little Help Book — Human service resource guide powered by White Bird Clinic" />
+    <meta property="og:description" content="Resource directory for people seeking help with health, housing, financial assistance, shelter, food pantries and meal sites. This helps people navigate the system." />
+    <meta property="og:site_name" content="Little Help Book" />
+    <meta property="og:image" content="https://github.com/OpenEugene/little-help-book-web/blob/develop/table-of-contents-style-homepage/socialmedia-head.jpg" />
+    <meta property="og:image:width" content="800" />
+    <meta property="og:image:height" content="800" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:creator" content="@open_eugene" />
+    <meta name="twitter:site" content="@open_eugene" />
+    <meta name="twitter:image" content="https://github.com/OpenEugene/little-help-book-web/blob/develop/table-of-contents-style-homepage/socialmedia-head.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+<!-- end social media image and content description -->
+    <link rel="icon" href="https://i2.wp.com/whitebirdclinic.org/wp-content/uploads/2014/03/cropped-White-Bird-Logo-No-Text-1.jpg?fit=32%2C32&amp;ssl=1" sizes="32x32">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="category.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="category.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script><link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+    <script rel="text/javascript" src="src/airtable.browser.js"></script>
+    <script rel="text/javascript" src="src/dal.js"></script>
+</head >
+
+<style>
+
+@media screen and (max-width: 1056px) {
+  .desktop-header {
+  margin: 0 0 0.95rem;
+  }
+}
+
+.fullscreen-map {
+  height: 90vh;
+  width: 100%;
+  margin-top: 0;
+}
+</style>
+
+<div class="page-container">
+  <header class="desktop-header">
+    <div class="branding">
+      <a class="homepage-link" href="index.html">
+        <img class="desktop-logo" src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
+        <h1 class="little-help-book">Little Help Book</h1>    
+      </a>
+    </div>
+    <div class="breadcrumb-box">
+        <select class="breadcrumb city" id="citySelect">
+            <option value=""><em>Loading...</em></option>
+        </select>
+        <select class="breadcrumb category" id="catSelect">
+            <option value=""><em>Loading...</em></option>
+        </select>
+        <select class="breadcrumb subcategory-menu" id="subcatSelect">
+            <option value=""><em>Loading...</em></option>
+        </select>
+    </div>
+      <nav class="header-nav">
+          <button class="header-nav-item spanish menu-button">Español</button>
+          <button class="header-nav-item about menu-button">
+              <a class="about" href="about.html">About</a>
+          </button>
+          <div class="header-nav-item search">
+              <input type="image" src="search-line.png" class="search-input" type="search">
+          </div>
+      </nav>
+  </header>
+  <body>
+    <div class="nav-container">
+        <div class="city-selection">
+          <div class="mobile-breadcrumb-box">
+            <div class="find-help">Find help in</div>
+            <select class="mobile-breadcrumb city" id="citySelect">
+                <option value=""><em>Loading...</em></option>
+                <option value="">Lane County, Oregon</option>
+            </select>
+          </div>
+        </div>
+        <div class="menu-container">
+            <div class="menu-options">
+                <div class="menu-item"><a href="index.html">SERVICES</a></div>
+                <div class="menu-item"><a href="providers.html">PROVIDERS</a></div>
+                <div class="menu-item">MAP</div>
+                <div>
+                    <div class="mobile-header-nav-item mobile-search">
+                        <input type="image" src="search-line.png" class="search-input" type="search">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <section class="map"> 
+        <div id="mapid" class="mapid fullscreen-map"></div>
+    </section>
+    <footer class="footer">
+        <div class="footer-item">CC <script language="javascript" type="text/javascript">
+            var today = new Date()
+            var year = today.getFullYear()
+            document.write(year)
+            </script> White Bird Clinic</div>
+        <div class="footer-item"> <a href="https://whitebirdclinic.org/" class="footer-url">whitebirdclinic.org</a></div>
+        <div class="footer-item"><a href="terms-of-use.html" class="terms-of-use">Terms of Use</a></div>
+    </footer>
+    <script type="text/javascript" src="src/map.js"></script>
+    <script type="text/javascript" src="src/NavBreadcrumb.js"></script>
+    <script type="text/javascript" src="src/categoryPage.js"></script>
+    <script type="text/javascript" src="src/toc.js"></script>
+  </body>
+</div>
+</html>

@@ -144,5 +144,15 @@ namespace LittleHelpBook.Server.Services
 
             return _infos;
         }
+
+        public async Task Clear()
+        {
+         _placesPop = null;  
+         _places = null;  
+         _categories = null;
+         _subcategories = null;
+         _alerts = null;
+         _infos = null;
+        }
     }
 }

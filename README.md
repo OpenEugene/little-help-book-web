@@ -11,6 +11,19 @@ If any Issue interests you and our description alone doesn't contain all you'd n
 Find us in the Creative Corner https://discord.gg/7X7vVcX
 at the Progress Bar & Grill http://progressbarandgrill.com
 
+#### Technologies Used
+
+HTML, CSS, JavaScript <br>
+Airtable - an easy-to-use relational database <br>
+Human Services Data Specification - a format for writing and publishing data as CSVs and a JSON datapackage
+
+##### JavaScript Libraries
+Airtable JS <br>
+Handlebars - a templating language <br>
+Leaflet - JavaScript map software <br>
+Carto - the tile set <br>
+jQuery
+
 ## Roadmap
 
 We are beginning with a database of human services and a public website. When the site has been tested and we've had time to build in any improvements from insights gained through qualitative research [https://info.codeforamerica.org/qualitative-research], it's possible to consider how we might add a content management system. Simultaneous to our development of tools is the ongoing conversation with the human and social service providers in Lane County, Oregon to better understand how organizations maintaining information can exchange data. And so, four big pieces to the Little Help Book:
@@ -31,10 +44,6 @@ Subcategory: https://little-help-book.netlify.app/table-of-contents-style-homepa
 
 Provider: https://little-help-book.netlify.app/table-of-contents-style-homepage/provider.html
 
-### Back office
-
-A content management system for social workers in Lane County to interact with their data and to communicate among themselves, possibly building from the Laravel-based open source code created by Sarapis: https://openreferral.org/presenting-orservices-3-0-a-complete-laravel-based-open-referral-directory-solution/ Another option for an open source CMS is Umbraco: https://umbraco.com/
-
 ### Interoperability 
 
 Lane County social service providers need a strong public information network. In building a network, the regional social service providers are looking at how to make multiple systems effective and functional. The goal: a **universal data source**, so that providers **in a multi-system network** can update their information in one place and it's updated everywhere. Please see the Open Referral Initiative: Executive Summary: https://docs.google.com/document/d/1xjXYN0zzUVWK3GdINP3erO-Jm0LUz75962SyRF0ggIA/edit
@@ -42,6 +51,10 @@ Lane County social service providers need a strong public information network. I
 Code for America fellows in 2013 developed an application programming interface for a database that had previously only been used to print a resource directory. A member of the team, Greg Bloom, published Towards a Community Data Commons [https://beyondtransparency.org/chapters/part-5/towards-a-community-data-commons/]. Then in 2014, with the co-sponsorship of Code for America, Bloom initiated Open Referral [https://openreferral.org/]. 
 
 The Human Services Data Specification is a format for writing and publishing information about social services that can be read and used by other providers. In 2017, Open Referral developed protocols for real-time human resource data exchange. Both the Human Services Data Specification and the API have been formally recommended by the Alliance of Information and Referral Systems for resource directory data exchange. A regional council for referral networks in Lane County with different working groups may begin convening, and one of those groups could deal with technology and interoperability of platforms, both technical and legal issues.
+
+### Back office
+
+This would be much further along, and it's currently not scheduled for development. It's aspirational and worth placing on the map. A content management system for social workers in Lane County to interact with their data and to communicate among themselves, possibly building from the Laravel-based open source code created by Sarapis: https://openreferral.org/presenting-orservices-3-0-a-complete-laravel-based-open-referral-directory-solution/ Another option for an open source CMS is Umbraco: https://umbraco.com/
 
 **White Bird** created a short video to introduce their work and how we can help: https://whitebirdclinic.org/white-birds-help-book-has-been-hacked/ 
 

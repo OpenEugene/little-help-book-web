@@ -76,7 +76,7 @@ function getMobilePageTwo() {
               </span>
             </h3>
             <div class="outline-buttons">
-              <button class="emergency-lines-button" onclick="emergencyPage()">Emergency Crisis Lines</button>
+              <a href="emergency.html"><button class="emergency-lines-button">Emergency Crisis Lines</button></a>
               <button class="find-my-city-button" onclick="mobileCity()">Find my City</button>
               <button class="find-a-service-button" onclick="mostSought()">Find a Service</button>
             </div>

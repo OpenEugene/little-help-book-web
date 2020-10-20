@@ -38,11 +38,14 @@
 
     <div class="page-container">
 
-        <header class="desktop-header">
-            <div> <a href="index.html">
-                <img class="desktop-logo" src="white-bird-on-black.png" alt="White Bird Clinic" width="66px" height="66px">
-                <h1 class="little-help-book">Little Help Book</h1> </a>
-            </div>
+         <header class="desktop-header">
+        	<div class="branding">
+				<a class="homepage-link" href="index.html">
+					<img class="desktop-logo" src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
+					<h1 class="little-help-book">Little Help Book</h1>    
+				</a>
+			</div>
+
             <div class="breadcrumb-box">
                 <select class="breadcrumb city" id="citySelect">
                     <option value=""><em>Loading...</em></option>
@@ -55,22 +58,23 @@
                 </select>
             </div>
     
-            <div class="search">
-                <a href="about.html">
-                <div class="menu-lines">
-                  <div class="hamburger"></div>
-                  <div class="hamburger"></div>
-                  <div class="hamburger"></div>        
+            <nav class="header-nav">
+                <button class="header-nav-item spanish menu-button">Español</button>
+                <button class="header-nav-item about menu-button">
+                    <a class="about" href="about.html">About</a>
+                </button>
+                <div class="header-nav-item search">
+                    <input type="image" src="search-line.png" class="search-input" type="search">
                 </div>
-                </a>
-                <input type="image" src="search-line.png" class="search-input" type="search" height="24" width="24">
-            </div>
+            </nav>
         </header>
-
+<!-- The arrow is a work in progress, challenging to get the flexbox to display the arrow to the right of the page name. -->
         <div class="bottom-of-menu">
-            <div class="category-page-name">
-                
-            </div>
+            <!-- <div class="show-hide"> -->
+                <div class="category-page-name">
+                    <!-- <div class="hide-arrow"> < </div> -->
+                </div>
+            <!-- </div> -->
             <section class="nav-buttons">
 
                 <div class="dropdown">
@@ -86,7 +90,7 @@
         </div>
 
         <main id="main">
-            <section id="map"><div class="placeholder-map-jpg" id="mapid"></section>
+            <section id="map"><div id="mapid"></section>
             
             <section id="provider-tiles" class="providers">
                 <h3><em>Loading...</em><h3>
@@ -106,7 +110,7 @@
                 </div>
                 <div class="provider-description">
                     {{#if description}}{{trimString description}}{{else}}No description provided{{/if}}
-                    <a href="provider.html?place={{id}}" class="read-more">. . . read more</a>
+                    <a href="provider.html?place={{id}}" class="read-more">. . . Read more</a>
                 </div>
                 <div class="last-line">
                     <div class="provider-hours">Hours: {{#if hours}}{{hours}}{{else}}No hours provided{{/if}}</div>
@@ -130,25 +134,6 @@
             <div class="footer-item"><a href="terms-of-use.html" class="terms-of-use">Terms of Use</a></div>
         </footer>
 
-    </div>
-
-    <div class="mobile-container" id="mobile-container">
-        <header class="logo-title black-top">
-            <img src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
-            <h1 class="little-help-book">Little Help Book</h1>
-            <div id="search">
-                <div class="search">
-                    <a href="about.html">
-                    <div class="menu-lines">
-                    <div class="hamburger"></div>
-                    <div class="hamburger"></div>
-                    <div class="hamburger"></div>        
-                    </div>
-                    </a>
-                    <input type="image" src="search-line.png" class="search-input" type="search">
-                </div>
-            </div>
-        </header>
     </div>
 
 <script>

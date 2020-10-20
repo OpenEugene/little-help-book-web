@@ -6,29 +6,6 @@ main {
   columns: auto;
 }
 
-.search {
-  display: flex;
-  width: 3%;
-  margin: 2.3rem 0 0;
-  padding-right: 4.5rem;
-}
-
-header .search input {
-  width: 100%;
-  height: 2.4rem;
-}
-
-.search-input {
-  background-color: #e2e2e2;
-  border-radius: 8px;
-  padding-left: 40px;
-  border: none;
-}
-
-.find-my-city:hover {
-  color: white;
-}
-
 .about-container {
 	display: flex;
 	margin: 2.25rem 3.5rem 0 3.5rem;
@@ -52,7 +29,7 @@ header .search input {
 }
 
 .blue-link {
-	color: #4A9AF8;
+	color: #086CDD;
 }
 
 .ri-wheelchair-fill {
@@ -92,10 +69,6 @@ textarea {
   height: 3.4rem;
 }
 
-textarea, input {
-  width: 100%;
-}
-
 .form, .submit-button {
 	border: none;
 	padding: 1rem 34%;
@@ -114,64 +87,28 @@ textarea, input {
 	color: white;
 	font-weight: bold;
 	text-transform: uppercase;
-	background-color: #4A9AF8;
+	background-color: #086CDD;
   box-shadow: .5rem .5rem .75rem #8888;
 }
 
 .clear:hover {
   color: white;
-  background-color: #4A9AF8;
+  background-color: #086CDD;
 }
 
 .clear {
   margin-right: 1.5rem;
 }
 
-/* end desktop styles */
-
-.mobile-container {
-  display: none;
-}
-
-/* responsive transition to tablet */
+/* end desktop styles, begin responsive transition to tablet */
 
 @media screen and (max-width: 1056px) {
-
-  .container {
-    display: inline;
-  }
-
-  .mobile-container {
-      display: inline;
-  }
-
-  .desktop-header, .breadcrumb-box {
-      display: none;
-	}
 	
   body {
     display: flex;
     flex-direction: column-reverse;
   }
 
-  header {
-    padding-top: 0;
-  }
-
-  header .logo-title {
-    display: flex;
-  }
-
-  header {
-      padding-top: 0;
-  }
-
-  #search {
-    display: flex;
-    justify-content: right;
-    margin-right: 2.5rem;
-  }
-  
   .about-container {
     flex-direction: column;
   }
@@ -189,15 +126,10 @@ textarea, input {
   
 @media screen and (max-width: 640px) {
 
-  #search {
-    margin-right: 1.5rem;
+  .desktop-header {
+    margin: 0;
   }
-
-  .search {
-    margin: 1.5rem 0 0;
-    right: 1.5rem;
-  }
-
+  
   .about-container {
     margin: 1.75rem 2rem 0 2rem;
   }

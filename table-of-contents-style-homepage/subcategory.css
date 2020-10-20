@@ -11,10 +11,6 @@ main {
   margin-bottom: 0;
 }
 
-.breadcrumb-box {
-  margin-left: 20rem;
-}
-
 .breadcrumb {
   width: 16.8rem;
 }
@@ -22,28 +18,7 @@ main {
 option {
   background-color: white;
   color: black;
-  font-size: 1.4rem;
-}
-
-.city {
-  margin-left: 8rem;
-}
-
-.search {
-  display: flex;
-}
-
-.menu-lines {
-  margin-left: -2rem;
-  margin-right: 1rem;
-}
-
-.hamburger {
-  width: 35px;
-  height: 6px;
-  background-color: rgb(126, 126, 126);
-  border-radius: 2.5px;
-  margin: 5.5px 0 0 10.5px;
+  font-size: 1rem;
 }
 
 .bottom-of-menu {
@@ -58,6 +33,10 @@ option {
   white-space: nowrap;
   margin-right: 1rem;
   margin-top: 1.1rem;
+}
+
+.hide-arrow {
+  display: none;
 }
 
 .nav-buttons {
@@ -141,7 +120,7 @@ option {
 
 .provider-name>a:hover {
   transition: 0.3s color ease-in-out;
-  color: #4A9AF8;
+  color: #308DF8;
 }
 
 .provider-address {
@@ -162,7 +141,7 @@ option {
 
 .provider-website>a:hover {
   transition: 0.3s color ease-in-out;
-  color: #4A9AF8;
+  color: #086CDD;
 }
 
 .provider-description {
@@ -171,8 +150,7 @@ option {
 }
 
 .read-more {
-  color: #4A9AF8;
-  font-weight: bold;
+  color: #086CDD;
 }
 
 .last-line {
@@ -180,12 +158,13 @@ option {
   justify-content: space-between;
 }
 
-#map {
-  margin-left: 3.5rem;
-  width: 100%;
+.provider-hours {
+  line-height: 1.5rem;
 }
 
 #map {
+  margin-left: 3.5rem;
+  width: 92%;
   display: none;
 }
 
@@ -196,57 +175,52 @@ option {
   z-index: 1;
 }
 
-/* this style is for the placeholder map image, and it can be removed when the OpenStreetMap has been installed. */
-.placeholder-map-jpg {
-  width: 95.3%;
-  margin-top: .6rem;
-}
+/* end desktop styles, begin responsive transition to tablet */
 
-/* end desktop styles */
-
-.mobile-container {
-  display: none;
-}
-
-/* responsive transition to tablet */
-
-@media screen and (max-width: 1056px) {
-
-  .mobile-container {
-    display: inline;
-  }
-
-  .desktop-header, .breadcrumb-box {
+@media screen and (max-width: 1640px) {
+  .spanish, .about {
     display: none;
   }
+}
+
+@media screen and (max-width: 1240px) {
+  .breadcrumb-box {
+    display: none;
+  }
+
+  .spanish, .about {
+    display: inline;
+  }
+}
+
+@media screen and (max-width: 1056px) {
 
   body {
     display: flex;
     flex-direction: column-reverse;
   }
 
-  #search {
-    display: flex;
-    justify-content: right;
-    margin-right: 2.5rem;
-  }
-
   .bottom-of-menu {
-    margin-right: 4.5rem;
+    margin-right: 3.5rem;
   }
 
   .nav-buttons {
-    margin: .7rem 0;
+    margin: .7rem .4rem .7rem 0;
   }
 
   .providers {
     display: flex;
     flex-wrap: wrap;
-    margin-right: 2.5rem;
+    margin-right: 2rem;
   }
 
   .tile {
-    width: 43%;
+    width: 45.1%;
+  }
+
+  #mapid {
+    min-width: 0;
+    width: 90%;
   }
 }
 
@@ -257,34 +231,64 @@ option {
   .tile {
     width: 100%;
   }
+
+  .provider-website > a {
+    color: #086CDD; 
+  }
+
+  #mapid {
+    width: 94%;
+    margin-left: -2rem;
+    margin-top: .5rem;
+  }
 }
   
-  /* begin mobile styles */
+/* begin mobile styles */
   
-  @media screen and (max-width: 640px) {
-
-  #search {
-    margin-right: 1.5rem;
-  }
-
-  .search {
-    margin: 1.5rem 0 0;
-    right: 1.5rem;
-  }
+@media screen and (max-width: 640px) {
 
   .bottom-of-menu {
     margin-left: 2rem;
     margin-right: 2rem;
   }
 
-  .print {
+  .category-page-name {
+    font-size: 1.5rem;
+  }
+
+  .show-hide {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .hide-arrow {
+    display: inline;
+  }
+
+  .print, .dropdown {
     display: none;
   }
 
   .providers {
-    margin-top: 0.4rem;
+    margin-top: 1.1rem;
     margin-left: 2rem;
-    margin-right: 0.5rem;
+    margin-right: 0rem;
+  }
+
+  .provider-name > a {
+    font-size: 1.4rem;
+  }
+
+  .provider-address {
+    padding-top: 0.7rem;
+  }
+
+  .provider-address, .provider-phone {
+    font-size: 1.05rem;
+  }
+
+  .provider-description, .provider-hours {
+    font-size: 0.9rem;
   }
 
   footer {
@@ -293,5 +297,9 @@ option {
     line-height: 2rem;
     position: static;
     width: auto;
+  }
+
+  #mapid {
+    width: 97%;
   }
 }

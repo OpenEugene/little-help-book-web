@@ -11,10 +11,6 @@ main {
   margin-bottom: 0;
 }
 
-.breadcrumb-box {
-  margin-left: 20rem;
-}
-
 .breadcrumb {
   width: 16.8rem;
 }
@@ -22,24 +18,7 @@ main {
 option {
   background-color: white;
   color: black;
-  font-size: 1.4rem;
-}
-
-.city {
-  margin-left: 8rem;
-}
-
-.menu-lines {
-  margin-left: -2rem;
-  margin-right: 1rem;
-}
-
-.hamburger {
-  width: 35px;
-  height: 6px;
-  background-color: rgb(126, 126, 126);
-  border-radius: 2.5px;
-  margin: 5.5px 0 0 10.5px;
+  font-size: 1rem;
 }
 
 .inner-container {
@@ -59,20 +38,6 @@ option {
   white-space: nowrap;
 }
 
-.subcategory-checkboxes {
-  margin: 1rem 0;
-}
-
-input {
-  margin: 0 .2rem 0 0;
-}
-
-.subcategory-list {
-  font-size: 1rem;
-  line-height: 1.4rem;
-  white-space: nowrap;
-}
-
 .subcategory-buttons {
   background-color: white;
   font-size: 1rem;
@@ -81,21 +46,6 @@ input {
   min-width: 6.5rem;
   border-radius: 10px;
   border-style: solid;
-}
-
-.whats-available {
-  display: flex;
-  margin-bottom: .3rem;
-}
-
-.new-subcategory-search {
-  display: flex;
-}
-
-.checkbox-search-notes {
-  font-size: 1rem;
-  margin-left: .8rem;
-  margin-top: 1rem;
 }
 
 .right-column {
@@ -108,10 +58,6 @@ input {
   font-size: 2rem;
   font-family: serif;
   margin: .3rem .5rem 0 -1.7rem;
-}
-
-.search {
-  display: flex;
 }
 
 .nav-buttons {
@@ -152,7 +98,7 @@ input {
   background-color: #f9f9f9;
   min-width: 2rem;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+  z-index: 2;
 }
 
 .dropdown-content span {
@@ -173,14 +119,36 @@ input {
 }
 
 #map {
-  width: 85%; 
+  width: 82%; 
   height: 100%;
-  width: 888.9px;
-  height: 80vh;
 }
 
 #map {
   display: none;
+}
+
+.mapid {
+  height: 90vh;
+  width: 125%; 
+  z-index: 1;
+}
+
+/* The text AVAILABLE NOW is black when the toggle is off. And turns gray when switched on. The toggle is blue when turned on. Gray when off. */
+.hours-available {
+  padding-top: 1.95rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.available-toggle {
+  display: flex;
+  padding-top: 1rem;
+}
+
+.available-now {
+  color: #716F6F;
+  padding-right: 0.6rem;
+  padding-top: 0.1rem;
 }
 
 .subcategory-name>a {
@@ -196,7 +164,7 @@ input {
 }
 
 .subcategory-name>a:hover {
-  color: #4A9AF8;
+  color: #308DF8;
 }
 
 .provider {
@@ -211,7 +179,7 @@ input {
 }
 
 .provider li a:hover {
-  color: #4A9AF8;
+  color: #086CDD;
   background-color: rgb(226, 226, 226);
 }
 
@@ -221,22 +189,30 @@ input {
   margin-top: .3rem;
 }
 
-/* end desktop styles */
+/* end desktop styles, begin responsive transition to tablet */
 
-.mobile-container {
-  display: none;
+@media screen and (max-width: 1640px) {
+  .spanish, .about {
+    display: none;
+  }
+}  
+
+@media screen and (max-width: 1240px) {
+  .breadcrumb-box {
+    display: none;
+  }
+
+  .spanish, .about {
+    display: inline;
+  }
 }
-
-/* responsive transition to tablet */
 
 @media screen and (max-width: 1056px) {
 
-  .mobile-container {
-    display: inline;
-  }
-
-  .desktop-header, .breadcrumb-box, .subcategory-checkboxes, .nav-buttons, .whats-available, .new-subcategory-search {
-    display: none;
+  .left-column {
+    display: flex;
+    margin-right: 3.5rem;
+    justify-content: space-between;
   }
 
   body {
@@ -248,20 +224,37 @@ input {
     flex-direction: column;
   }
 
+  .dropdown, .print {
+    display: none;
+  } 
+
+  .hours-available {
+    display: none;
+    padding-top: 0.66rem;
+  }
+
+  .available-toggle {
+    padding-top: 0.05rem;
+  }
+
+  .available-now {
+    flex-wrap: nowrap;
+    padding-top: 0.6rem
+  }
+
   .right-column {
     width: auto;
     margin-left: 3.5rem;
+    margin-top: -0.5rem;
+  }
+
+  .subcategory-name > a {
+    margin-right: 0.5rem;
   }
 
   ul, li {
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem; 
     color: black;
-  }
-
-  .provider {
-    font-size: 1.1rem;
-    line-height: 1.5rem;
-    margin: 0.3rem 0 2.7rem 0;
   }
 
   .content-container {
@@ -274,32 +267,63 @@ input {
     justify-content: right;
     margin-right: 2.5rem;
   }
+
+  .mapid {
+    margin-top: 1rem;
+  }
+
+  .provider {
+    line-height: 1.5em;
+  }
 }
 
   /* begin mobile styles */
   
 @media screen and (max-width: 640px) {
 
-  #search {
-    margin-right: 1.5rem;
-  }
-
-  .search {
-    margin: 1.5rem 0 0;
-    right: 1.5rem;
-  }
-
   .left-column, .right-column {
     margin-left: 2rem;
   }
 
+  .left-column {
+    margin-right: 1.2rem;
+  }
+
   .right-column {
+    margin-right: 1rem;
+    margin-top: -.55rem;
+  }
+
+  .category-page-name {
+    font-size: 1.5rem;
+  }
+
+  .nav-buttons {
+    margin: .4rem 0 0 0;
+  }
+
+  .available-toggle {
+    padding-top: 0;
+  }
+
+  .available-now {
+    font-size: .9rem;
+    padding-top: 0.4rem;
+  }
+
+  .subcategory-name > a {
+    font-size: 1.4rem;
     margin-right: 1rem;
   }
 
   .provider {
-    margin: 0.3rem 0.7rem 2.7rem 0;
+    font-size: 0.9rem;
   }
+
+  /* a {
+    text-decoration: none;
+    color: rgb(88, 88, 88);
+  } */
 
   footer {
     flex-direction: column;
