@@ -367,6 +367,10 @@ main {
   display: none;
 }
 
+.mobile-emergency-container {
+  display: none;
+}
+
 /* end desktop styles, begin responsive transition to tablet */
 @media screen and (max-width: 1056px) {
 
@@ -546,6 +550,45 @@ main {
   .category-name > a {
     margin-right: 0;
   }
+
+  .emergency-button, .are-you-in-crisis {
+    display: none;
+  }
+
+  .mobile-emergency-container {
+    display: flex;
+    background-color: black;
+    border-radius: .5rem;
+    justify-content: space-between;
+    height: 3.8rem;
+  }
+
+  .mobile-crisis-question-container {
+    display: flex;
+    flex-direction: column;
+    margin: .5rem;
+  }
+
+  .mobile-emergency-lines {
+    font-size: .8rem;
+    color: white;
+  }
+
+  .mobile-crisis-question {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+  }
+
+  .mobile-call-now {
+    background-color: #4A9AF8;
+    border-radius: .5rem;
+    margin: .5rem;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
 
   footer {
     flex-direction: column;
