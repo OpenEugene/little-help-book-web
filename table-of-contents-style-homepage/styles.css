@@ -566,6 +566,7 @@ main {
   .mobile-crisis-question-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     margin: .5rem;
   }
 
@@ -578,15 +579,19 @@ main {
     font-size: 1.1rem;
     font-weight: bold;
     color: white;
+    margin: .25rem 0;
   }
 
   .mobile-call-now {
     background-color: #4A9AF8;
     border-radius: .5rem;
     margin: .5rem;
+    display: flex;
+    align-items: center;
     color: white;
     font-size: 1rem;
     font-weight: bold;
+    padding: 0 .5rem;
   }
 
 
