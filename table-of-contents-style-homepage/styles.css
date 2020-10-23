@@ -363,6 +363,10 @@ main {
   color: #086CDD;
 }
 
+.mobile-footer {
+  display: none;
+}
+
 .nav-container {
   display: none;
 }
@@ -594,12 +598,20 @@ main {
     padding: 0 .5rem;
   }
 
-
-  footer {
-    flex-direction: column;
-    align-items: center;
-    line-height: 2rem;
-    position: static;
-    width: auto;
+  .footer {
+    display: none;
   }
+
+  .mobile-footer {
+    display: flex;
+    justify-content: center;
+    font-size: .95rem;
+    margin: 4rem 0 3rem 0;
+
+  }
+
+  .terms-of-use {
+    color: #086CDD;
+  }
+
 }
