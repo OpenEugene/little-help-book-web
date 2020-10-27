@@ -1,0 +1,10 @@
+.search-form {
+  margin-top: 2.25rem;
+}
+
+@media screen and (max-width: 1056px) {
+
+  .search-form {
+    margin-top: 0rem;
+  }
+}
