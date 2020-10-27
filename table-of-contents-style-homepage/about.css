@@ -1,7 +1,3 @@
-a {
-	color: white;
-}
-
 main {
   columns: auto;
 }
@@ -71,9 +67,10 @@ textarea {
 
 .form, .submit-button {
 	border: none;
-	padding: 1rem 34%;
+	padding: 1rem 0;
 	margin-top: 0.4rem;
-	margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
 }
 
 .submit-button {
@@ -128,10 +125,6 @@ textarea {
   
   .about-container {
     margin: 1.75rem 2rem 0 2rem;
-  }
-
-  .form {
-    padding: 1rem 26%;
   }
   
   .form-buttons {
