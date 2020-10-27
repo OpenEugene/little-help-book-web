@@ -131,6 +131,7 @@ option {
   .provider-page {
     display: flex;
     flex-direction: column;
+    margin-top: 0.75rem;
   }
 
   .provider-name {
