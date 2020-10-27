@@ -73,7 +73,7 @@
                     <div class="menu-item"><a href="map.html">MAP</a></div>
                     <div>
                         <div class="mobile-header-nav-item mobile-search">
-                            <input type="image" src="search-line.png" class="search-input" type="search">
+                            <input type="image" src="images/search-24px.svg" class="search-toggle" type="search">
                         </div>
                     </div>
                 </div>
@@ -81,6 +81,19 @@
                     <hr>
                 </div>
             </div>
+        </div>
+        <div class="search-wrapper hidden" id="searchWrapper">
+            <form class="search-form">
+                <div class="search-flexbox" role="search">
+                    <div class="search-text-and-button-container">
+                        <label class="search-label" for="search">Type keywords and press Search
+                            <p id="error" role="alert"></p>
+                        </label>
+                        <input class="search-button" type="button" value="Search">
+                     </div>
+                    <input id="searchInput" class="search-input" type="text">
+                </div>
+            </form>
         </div>
 
         <main id="main">
@@ -351,5 +364,6 @@
 
     <script type="text/javascript" src="src/NavBreadcrumb.js"></script>
     <script type="text/javascript" src="src/providersPage.js"></script>
+    <script type="text/javascript" src="src/search.js"></script>
 </body>
 </html>

@@ -11,6 +11,10 @@
   display: none;
 }
 
+.search-form {
+  margin-top: 2.25rem;
+}
+
 .blue {
   color: #086CDD;
 }
@@ -49,12 +53,14 @@
 /* end desktop styles, begin responsive transition to tablet */
 
 @media screen and (max-width: 1640px) {
+
   .spanish, .about {
     display: none;
   }
 }
 
 @media screen and (max-width: 1240px) {
+
   .breadcrumb-box {
     display: none;
   }
@@ -69,7 +75,11 @@
 
   .header-nav {
     margin-right: 2rem;
-}
+  }
+
+  .search-form {
+    margin-top: 0;
+  }
 }
 
 @media screen and (max-width: 1056px) {
