@@ -41,7 +41,7 @@ function initData(hasSubcat, hasMap) {
 
 		if (hasSubcat) {
 	        nbc.placeOptionElements(subcatboxId, nbc.generateOptionElements(nbc.subcats));
-	        nbc.assignSubcatSelectEvent(subcatboxId, subcatSelectEvent);	
+	        nbc.assignSubcatSelectEvent(subcatboxId, subcatSelectEvent);
 		}
 
         catSubcatTable = await dalGetCatSubcatTable();
@@ -64,7 +64,7 @@ function initData(hasSubcat, hasMap) {
         if (hasSubcat) {
             subcatValue = (urlParams.has('subcategory') ? urlParams.get('subcategory') : 'NA');
         	document.getElementById(subcatboxId).value = subcatValue;
-        	subcatSelectEvent();	
+        	subcatSelectEvent();
         }
     })()
 }

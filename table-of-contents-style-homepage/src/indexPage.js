@@ -71,12 +71,12 @@ function citySelectEvent() {
     // nbc.placeOptionElements(catboxId, nbc.generateOptionElements(nbc.availableCategories));
     // nbc.availableSubcats = nbc.filterSubcatOptions();
     // nbc.placeOptionElements(subcatboxId, nbc.generateOptionElements(nbc.availableSubcats));
-    updateDomToc();
+    updateDom();
 }
 
 // function updateDomToc(categoryTree, savedHtml) {
 // function updateDomToc(categoryTree) {
-function updateDomToc() {
+function updateDom() {
     let availableCatSubcatIds = [];
     nbc.availablePlaces.forEach(record => {
         record.catSubcatId.forEach(id => {
