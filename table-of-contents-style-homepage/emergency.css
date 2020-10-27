@@ -57,6 +57,10 @@ main {
   margin: 0.5rem 0;
 }
 
+.search-flexbox {
+  margin-top: 1.75rem;
+}
+
 /* responsive transition to tablet */
 
 @media screen and (max-width: 1056px) {
@@ -66,8 +70,22 @@ main {
     margin: 1.5rem 0 0 1rem;
     }
 
-  .desktop-header { 
-    margin-bottom: 1.5rem;
+  .desktop-header {
+    margin-bottom: .95rem;
+  }
+
+  .content-container {
+    margin-left: 2.4rem;
+    margin-right: 2.8rem;
+    margin-top: .6rem;
+  }
+
+  /* .nav-container {
+    margin-bottom: 0.6rem;
+  } */
+
+  .search-flexbox {
+    margin-top: 0;
   }
 }  
 
@@ -77,8 +95,9 @@ main {
 @media screen and (max-width: 640px) {
 
   .content-container {
-    margin-left: 0;
-    margin-right: 0;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: .5rem;
   }
 
   .emergency-lines-button {
