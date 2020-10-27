@@ -21,6 +21,10 @@ option {
   font-size: 1rem;
 }
 
+.search-form {
+  margin-top: 2.25rem;
+}
+
 .inner-container {
   display: flex;
   background-color: #f5f5f5;
@@ -211,6 +215,10 @@ option {
 
   .desktop-header {
     margin-bottom: 0.95rem;
+  }
+
+  .search-form {
+    margin-top: 0;
   }
 
   .left-column {

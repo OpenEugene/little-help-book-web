@@ -21,6 +21,10 @@ option {
   font-size: 1rem;
 }
 
+.search-form {
+  margin-top: 2.25rem;
+}
+
 .bottom-of-menu {
   display: flex;
   justify-content: space-between;
@@ -197,6 +201,10 @@ option {
 
   .desktop-header {
     margin-bottom: 0.95rem;
+  }
+
+  .search-form {
+    margin-top: 0;
   }
   
   body {
