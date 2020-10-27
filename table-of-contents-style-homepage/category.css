@@ -209,6 +209,10 @@ option {
 
 @media screen and (max-width: 1056px) {
 
+  .desktop-header {
+    margin-bottom: 0.95rem;
+  }
+
   .left-column {
     display: flex;
     margin-right: 3.5rem;
