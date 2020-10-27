@@ -125,10 +125,6 @@ textarea {
 /* begin mobile styles */
   
 @media screen and (max-width: 640px) {
-
-  .desktop-header {
-    margin: 0;
-  }
   
   .about-container {
     margin: 1.75rem 2rem 0 2rem;
