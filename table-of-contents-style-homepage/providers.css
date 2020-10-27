@@ -65,16 +65,8 @@
     display: none;
   }
 
-  .search {
-    display: none;
-  } /* search on navigation bar with city / category / subcategory filters */
-
   .spanish, .about {
     display: inline;
-  }
-
-  .search-form {
-    margin-top: 0;
   }
 }
 
@@ -82,6 +74,10 @@
 
   .desktop-header {
     margin-bottom: 0.95rem;
+  }
+
+  .search-form {
+    margin-top: 0;
   }
 }
 
