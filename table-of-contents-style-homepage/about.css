@@ -148,4 +148,8 @@ textarea {
     position: static;
     width: auto;
   }
+
+  .footer-url {
+    font-weight: normal;
+  }
 }

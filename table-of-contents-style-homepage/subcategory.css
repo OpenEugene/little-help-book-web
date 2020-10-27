@@ -311,6 +311,10 @@ option {
     width: auto;
   }
 
+  .footer-url {
+    font-weight: normal;
+  }
+
   #mapid {
     width: 97%;
   }
