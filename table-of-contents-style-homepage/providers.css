@@ -186,4 +186,9 @@
   .mobile-alphabet-2 {
     padding-top: 2rem;
   }
+
+  .footer-url {
+    font-weight: normal;
+    color: #086CDD
+  }
 }
