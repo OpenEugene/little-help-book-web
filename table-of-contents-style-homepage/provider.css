@@ -97,6 +97,10 @@ option {
   font-size: 1rem;
 }
 
+.mapid {
+  z-index: 1;
+}
+
 #mapid {
   height: 50vh;
   width: 100%;
