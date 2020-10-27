@@ -150,7 +150,7 @@ a {
 
 header .search input {
   height: 1.3rem;
-  padding: 0.5rem;
+  padding: 0.22rem;
 }
 
 .search-toggle {
@@ -692,11 +692,20 @@ main {
   outline: 0;
 }
 
-/* .search-toggle {
-  height:48px !important;
-  width:48px !important;
-  font-size:48px !important;
-} */
+.search-toggle {
+  height: 30px !important;
+  width: 30px !important;
+  font-size: 30px !important;
+}
+
+@media screen and (max-width: 1056px) {
+
+  .search-toggle {
+    height: 24px !important;
+    width: 24px !important;
+    font-size: 24px !important;
+  }
+}
 
 @media screen and (max-width: 770px) {
 
