@@ -99,4 +99,8 @@ main {
   .emergency-lines-button {
     width: 20.2rem;
   }
+
+  .emergency-container {
+    padding: 1.1rem 1rem 0 1rem;
+  }
 }
