@@ -195,6 +195,10 @@ option {
 
 @media screen and (max-width: 1056px) {
 
+  .desktop-header {
+    margin-bottom: 0.95rem;
+  }
+  
   body {
     display: flex;
     flex-direction: column-reverse;
