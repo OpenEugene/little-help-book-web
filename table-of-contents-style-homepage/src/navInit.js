@@ -5,9 +5,11 @@ var cityTable;
 var categoryTable;
 var subcatTable;
 var placeTable;
+var catSubcatTable;
 var nbc;
+var availData = {cat: false, subcat: false};
 "use strict"
-function initData(hasSubcat, hasMap) {
+function initData(hasCat, hasSubcat, hasMap) {
   // await has to be inside async function, anonymous in this case
     (async () => {
         /*
@@ -15,12 +17,14 @@ function initData(hasSubcat, hasMap) {
         Also, populate additional elements at the top of each list to
         represent an option to not filter on that item.
         */
+        availData.cat = hasCat;
+        availData.subcat = hasSubcat;
         cityTable = await dalGetCityTable();
         categoryTable = await dalGetCategoryTable();
         subcatTable = await dalGetSubcategoryTable();
         placeTable = await dalGetPlaceTable();
 
-        cityTable.splice(0, 0, {id: "NA", name: "All"})
+        cityTable.splice(0, 0, {id: "NA", name: "Lane County, Oregon"});
         categoryTable.splice(0, 0, {id: "NA", name: "All"});
         subcatTable.splice(0, 0, {id: "NA", name: "All"});
 
@@ -33,11 +37,14 @@ function initData(hasSubcat, hasMap) {
         select box, based on the data that was passed into our NavBreadcrumb object.
         */
         nbc.placeOptionElements(cityboxId, nbc.generateOptionElements(nbc.cities));
-        nbc.placeOptionElements(catboxId, nbc.generateOptionElements(nbc.categories));
 
         // Assign the appropriate events handlers to the select elements
         nbc.assignCitySelectEvent(cityboxId, citySelectEvent);
-        nbc.assignCategorySelectEvent(catboxId, categorySelectEvent);
+
+        if (hasCat) {
+            nbc.placeOptionElements(catboxId, nbc.generateOptionElements(nbc.categories));
+            nbc.assignCategorySelectEvent(catboxId, categorySelectEvent);
+        }
 
 		if (hasSubcat) {
 	        nbc.placeOptionElements(subcatboxId, nbc.generateOptionElements(nbc.subcats));
@@ -52,14 +59,18 @@ function initData(hasSubcat, hasMap) {
         */
         let urlParams = new URLSearchParams(window.location.search);
         let cityValue = (urlParams.has('city') ? urlParams.get('city') : 'NA');
-        let categoryValue = (urlParams.has('category') ? urlParams.get('category') : 'NA');
+        let categoryValue;
         let subcatValue;
 
         // Show the city-category-subcategory from the query in the navigation
         document.getElementById(cityboxId).value = cityValue;
         citySelectEvent();
-        document.getElementById(catboxId).value = categoryValue;
-        categorySelectEvent();
+
+        if (hasCat) {
+            categoryValue = (urlParams.has('category') ? urlParams.get('category') : 'NA')
+            document.getElementById(catboxId).value = categoryValue;
+            categorySelectEvent();
+        }
 
         if (hasSubcat) {
             subcatValue = (urlParams.has('subcategory') ? urlParams.get('subcategory') : 'NA');
@@ -83,11 +94,15 @@ function citySelectEvent() {
     It then will filter the list of places on the selected items.
     */
     nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
-    // Change available categories to select from when city changes
     nbc.availableCategories = nbc.filterCategoryOptions();
-    nbc.placeOptionElements(catboxId, nbc.generateOptionElements(nbc.availableCategories));
+    // Change available categories to select from when city changes
+    if (availData.cat) {
+        nbc.placeOptionElements(catboxId, nbc.generateOptionElements(nbc.availableCategories));   
+    }
     nbc.availableSubcats = nbc.filterSubcatOptions();
-    nbc.placeOptionElements(subcatboxId, nbc.generateOptionElements(nbc.availableSubcats));
+    if (availData.subcat) {
+        nbc.placeOptionElements(subcatboxId, nbc.generateOptionElements(nbc.availableSubcats));   
+    }
     updateDom();
 }
 
@@ -96,13 +111,15 @@ function categorySelectEvent() {
     nbc.focused.category = nbc.categories.find(x => x.id === document.getElementById(catboxId).value).id;
     // Reset the subcat selection back to all when category is changed.
     nbc.focused.subcat = "NA";
-    nbc.availableSubcats = nbc.filterSubcatOptions();
     /*
     This function chain checks for a selected city, category and subcategory.
     It then will filter the list of places on the selected items.
     */
     nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
-    nbc.placeOptionElements(subcatboxId, nbc.generateOptionElements(nbc.availableSubcats));
+    nbc.availableSubcats = nbc.filterSubcatOptions();
+    if (availData.subcat) {
+        nbc.placeOptionElements(subcatboxId, nbc.generateOptionElements(nbc.availableSubcats));
+    }
     updateDom();
 }
 

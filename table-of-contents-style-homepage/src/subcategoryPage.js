@@ -1,5 +1,5 @@
 "use strict"
-$(document).ready(initData(true, true));
+$(document).ready(initData(true, true, true));
 
 function updateDom() {
     // Change the subcategory focused in the body

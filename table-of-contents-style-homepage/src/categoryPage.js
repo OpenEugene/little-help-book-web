@@ -1,5 +1,5 @@
 "use strict"
-$(document).ready(initData(false, false));
+$(document).ready(initData(true, true, false));
 
 function updateDom() {
     let availableCatSubcatIds = [];
