@@ -225,6 +225,9 @@ main {
 .subcategory a {
   text-decoration: none;
   color: rgb(88, 88, 88);
+  display: block;
+  line-height: 1.4;
+  padding: 0.2rem 0 0.4rem;
 }
 
 .subcategory a:hover {
