@@ -11,6 +11,7 @@ let cityValue;
 "use strict"
 $(document).ready(function() {
   // await has to be inside async function, anonymous in this case
+    // console.log(placesTableCached)
     (async () => {
         /*
         Save the hard-coded stuff to prepend later

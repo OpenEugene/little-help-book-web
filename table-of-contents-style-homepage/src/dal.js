@@ -1,14 +1,16 @@
 "use strict"
 
 const Airtable = require('airtable');
+const useCache = true
 // Read-only key
 const apiKey = "keyMmAL4mVBSORkGc";
-// Experimental table
-// const base = new Airtable({apiKey: apiKey}).base('appLwxkByQzFlBeVo');
 // Production table
 const base = new Airtable({apiKey: apiKey}).base('appj3UWymNh6FgtGR');
 
 async function dalGetPlaceTable() {
+  if (useCache) { console.log('CACHE'); return placesTableCached; }
+  console.log('NO CACHE')
+
   const placeTableRaw = await dalGetTable('Help Services', base);
   placeTableRaw.sort((a, b) => { compareNames(a,b); });
   let placeTable = placeTableRaw.map(function(record) {
@@ -36,6 +38,9 @@ async function dalGetPlaceTable() {
 }
 
 async function dalGetCategoryTable() {
+  if (useCache) { console.log('CACHE'); return categoryTableCached; }
+  console.log('NO CACHE')
+
   const categoryTableRaw = await dalGetTable('Categories', base);
   categoryTableRaw.sort((a, b) => { compareNames(a,b); });
   let categoryTable = categoryTableRaw.map(function(record) {
@@ -54,12 +59,15 @@ async function dalGetCategoryTable() {
 }
 
 async function dalGetSubcategoryTable() {
+  if (useCache) { console.log('CACHE'); return subcategoryTableCached; }
+  console.log('NO CACHE')
+
   const subcategoryTableRaw = await dalGetTable('Subcategories', base);
   subcategoryTableRaw.sort((a, b) => { compareNames(a,b); });
   let subcategoryTable = subcategoryTableRaw.map(function(record) {
     return {
       'id' : record.id,
-      'categoryId' : record.get('Catagory'),
+      'categoryId' : record.get('Category'),
       'name' : record.get('Name'),
       'nameSpanish' : record.get('Name-ES'),
     };
@@ -68,19 +76,16 @@ async function dalGetSubcategoryTable() {
 }
 
 async function dalGetCatSubcatTable() {
+  if (useCache) { console.log('CACHE'); return catSubcatTableCached; }
+  console.log('NO CACHE')
+
   const catSubcatTableRaw = await dalGetTable('CatSubcats', base);
   let catSubcatTable = catSubcatTableRaw.map(function(record) {
     let catSubcatName = record.get('Name');
     let catSubcatId = record.id;
 
-    // !!!NOTE misspelling. Correct in table?
-    // let categoryId = record.get('Catagory');
     let categoryId = record.get('Category');
-    if (categoryId) {
-      categoryId = categoryId[0];
-    } else  {
-      console.log('Subcategory', subcategory, 'has no category.', "THIS SHOULDN'T OCCUR");
-    }
+    categoryId = categoryId[0];
 
     let subcategoryId = record.get('Subcategory');
     let subcategoryName;
@@ -107,6 +112,9 @@ async function dalGetCatSubcatTable() {
 }
 
 async function dalGetCityTable() {
+  if (useCache) { console.log('CACHE'); return cityTableCached; }
+  console.log('NO CACHE')
+
   const cityTableRaw = await dalGetTable('Cities', base);
   let cityTable = cityTableRaw.map(function(record) {
     return {
