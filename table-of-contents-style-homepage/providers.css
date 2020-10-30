@@ -93,12 +93,6 @@
 
 @media screen and (max-width: 770px) {
 
-  .a-z-fixed {
-    position: fixed;
-    right: 0;
-    width: 5%;
-  }
-
   .a-z-desktop {
     flex-direction: column;
     align-items: flex-end;
@@ -106,6 +100,14 @@
     font-size: 1.3rem;
     margin-top: 1.2rem;
     margin-left: 0rem;
+    line-height: 1.4rem;
+  }
+
+  .a-z-fixed {
+    position: fixed;
+    right: 0;
+    width: 5%;
+    line-height: 1.8rem !important;
   }
 
   .alphabet-heading {
