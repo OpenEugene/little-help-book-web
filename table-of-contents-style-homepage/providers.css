@@ -136,6 +136,10 @@
     margin-top: 0;
   }
 
+  html:not([data-scroll='0']) .providers {
+    margin-right: 2rem;
+  }
+
   .providers {
     margin-right: 0rem;
   }
