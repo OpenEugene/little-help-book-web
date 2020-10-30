@@ -25,8 +25,16 @@ function initData(hasCat, hasSubcat, hasMap) {
         placeTable = await dalGetPlaceTable();
 
         cityTable.splice(0, 0, {id: "NA", name: "Lane County, Oregon"});
-        categoryTable.splice(0, 0, {id: "NA", name: "All"});
-        subcatTable.splice(0, 0, {id: "NA", name: "All"});
+
+        if (hasCat) {
+            categoryTable.splice(0, 0, {id: "NA", name: "All Categories"});
+        }
+        if (hasSubcat) {
+            subcatTable.splice(0, 0, {id: "NA", name: "All Services"});
+        }
+
+        // remove the Wildfire Support element from categories
+        categoryTable = categoryTable.filter(x => x.id != "recxvFI6Cc7hpuYBi");
 
         nbc = (hasMap) ?
             new NavBreadcrumb(cityTable, categoryTable, subcatTable, placeTable, mymap) :
