@@ -150,3 +150,15 @@ Handlebars.registerHelper('trimString', function(passedString) {
     var theString = passedString.substring(0,550);
     return new Handlebars.SafeString(theString)
 });
+
+// this is to fix the alphabet to the screen 
+
+window.onscroll = function() {classChange()};
+
+function classChange() {
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+    document.getElementById("alphabet").className = "a-z-fixed";
+  } else {
+    document.getElementById("alphabet").className = "";
+  }
+}
