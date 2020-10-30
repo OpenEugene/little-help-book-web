@@ -150,10 +150,10 @@ a {
 
 header .search input {
   height: 1.3rem;
-  padding: 0.5rem;
+  padding: 0.22rem;
 }
 
-.search-input {
+.search-toggle {
   background-color: #e2e2e2;
   border-radius: 8px;
   border: none;
@@ -225,6 +225,9 @@ main {
 .subcategory a {
   text-decoration: none;
   color: rgb(88, 88, 88);
+  display: block;
+  line-height: 1.4;
+  padding: 0.2rem 0 0.4rem;
 }
 
 .subcategory a:hover {
@@ -269,8 +272,8 @@ main {
   padding: .85rem .85rem 1rem 1.15rem;
   position: absolute;
   z-index: 1;
-  bottom: 158%;
-  right: -142%;
+  bottom: -606%;
+  right: 277%;  
   margin-left: -80px;
   font-family: sans-serif;
   font-weight: normal;
@@ -326,6 +329,7 @@ main {
 
 .alert-statement {
   line-height: 1.5rem;
+  font-size: .9rem;
 }
 
 .footer {
@@ -362,7 +366,15 @@ main {
   color: #086CDD;
 }
 
+.mobile-footer {
+  display: none;
+}
+
 .nav-container {
+  display: none;
+}
+
+.mobile-emergency-container {
   display: none;
 }
 
@@ -465,7 +477,7 @@ main {
     color: #716F6F;
   }
 
-  .search-input {
+  .search-toggle {
     background-color: #f5f5f5;
   }
 
@@ -481,6 +493,11 @@ main {
   .alert-container {
     margin-top: 1rem;
   }
+
+  .popup .popuptext {
+    bottom: 177%;
+    right: -200%;
+  }  
 }
 
 /* begin tablet styles */
@@ -546,11 +563,178 @@ main {
     margin-right: 0;
   }
 
-  footer {
+  .emergency-button, .are-you-in-crisis {
+    display: none;
+  }
+
+  .mobile-emergency-container {
+    display: flex;
+    background-color: black;
+    border-radius: .5rem;
+    justify-content: space-between;
+    height: 3.8rem;
+  }
+
+  .mobile-crisis-question-container {
+    display: flex;
     flex-direction: column;
+    justify-content: center;
+    margin: .5rem;
+  }
+
+  .mobile-emergency-lines {
+    font-size: .8rem;
+    color: white;
+  }
+
+  .mobile-crisis-question {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+    margin: .25rem 0;
+  }
+
+  .mobile-call-now {
+    background-color: #4A9AF8;
+    border-radius: .5rem;
+    margin: .5rem;
+    display: flex;
     align-items: center;
-    line-height: 2rem;
-    position: static;
-    width: auto;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0 .5rem;
+  }
+
+  .footer {
+    display: none;
+  }
+
+  .mobile-footer {
+    display: flex;
+    justify-content: center;
+    font-size: .95rem;
+    margin: 4rem 0 3rem 0;
+  }
+
+  .terms-of-use {
+    color: #086CDD;
+  }
+}
+
+/* end mobile styles, begin search styles */
+
+.search-flexbox {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.search-text-and-button-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0 2.5rem 0;
+}
+
+.search-form {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  padding: 0 3.5rem 1rem 3.5rem;
+  text-align: left;
+}
+
+.search-wrapper {
+  background-color: #f5f5f5;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  z-index: 10;
+}
+
+.search-wrapper:active {
+  display: block;
+}
+
+.search-button {
+  background: #4A9AF8;
+  color: #fff;
+  border: 0;
+  appearance: none;
+  cursor: pointer;;
+  font-size: 1.15rem;
+  font-weight: bold;
+  padding: 0.65rem;
+  margin-top: 0.1rem;
+}
+
+.search-label {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+  color: #716F6F;
+}
+
+.search-input {
+  display: block;
+  width: 100%;
+  font-size: 1rem;
+  border: none;
+  background-color: white;
+  -webkit-appearance: none;
+  padding: 1rem 0.5rem;
+  margin-bottom: .5rem;
+  box-sizing: border-box;
+}
+
+[aria-hidden="true"],
+.hidden {
+  display: none;
+}
+
+[aria-hidden="false"] {
+  display: block;
+}
+
+[aria-invalid] {
+  border: 2px solid #cc3535;
+  outline: 0;
+}
+
+.search-toggle {
+  height: 30px !important;
+  width: 30px !important;
+  font-size: 30px !important;
+}
+
+@media screen and (max-width: 1056px) {
+
+  .search-toggle {
+    height: 24px !important;
+    width: 24px !important;
+    font-size: 24px !important;
+  }
+}
+
+@media screen and (max-width: 770px) {
+
+  .search-text-and-button-container {
+    margin: 0;
+  }
+
+  .search-label {
+    font-size: 1rem;
+  }
+
+  .search-button {
+    font-size: 1rem;
+    padding: .6rem;
+    font-weight: normal;
+  }
+}
+
+@media screen and (max-width: 640px) {
+
+  .search-form {
+    padding: 0 1.9rem 1rem 1.9rem;
   }
 }

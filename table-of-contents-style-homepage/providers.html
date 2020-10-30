@@ -19,7 +19,7 @@
     <meta name="twitter:image" content="https://github.com/OpenEugene/little-help-book-web/blob/develop/table-of-contents-style-homepage/socialmedia-head.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <!-- end social media image and content description -->
-    <link rel="icon" href="https://i2.wp.com/whitebirdclinic.org/wp-content/uploads/2014/03/cropped-White-Bird-Logo-No-Text-1.jpg?fit=32%2C32&amp;ssl=1" sizes="32x32">
+    <link rel="icon" href="images/white-bird-logo.svg" sizes="32x32">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="stylesheet" type="text/css" href="subcategory.css">
     <link rel="stylesheet" type="text/css" href="providers.css">
@@ -52,7 +52,7 @@
                     <a class="about" href="about.html">About</a>
                 </button>
                 <div class="header-nav-item search">
-                    <input type="image" src="search-line.png" class="search-input" type="search">
+                    <input type="image" src="images/search-24px.svg" class="search-toggle" type="search">
                 </div>
             </nav>
         </header>
@@ -73,7 +73,7 @@
                     <div class="menu-item"><a href="map.html">MAP</a></div>
                     <div>
                         <div class="mobile-header-nav-item mobile-search">
-                            <input type="image" src="search-line.png" class="search-input" type="search">
+                            <input type="image" src="images/search-24px.svg" class="search-toggle" type="search">
                         </div>
                     </div>
                 </div>
@@ -81,6 +81,19 @@
                     <hr>
                 </div>
             </div>
+        </div>
+        <div class="search-wrapper hidden" id="searchWrapper">
+            <form class="search-form">
+                <div class="search-flexbox" role="search">
+                    <div class="search-text-and-button-container">
+                        <label class="search-label" for="search">Type keywords and press Search
+                            <p id="error" role="alert"></p>
+                        </label>
+                        <input class="search-button" type="button" value="Search">
+                     </div>
+                    <input id="searchInput" class="search-input" type="text">
+                </div>
+            </form>
         </div>
 
         <main id="main">
@@ -326,7 +339,6 @@
                 </div>
             </div>
         </main>
-
         <footer class="footer">
             <div class="footer-item">CC 
                 <script language="javascript" type="text/javascript">
@@ -341,15 +353,17 @@
                 <a href="terms-of-use.html" class="terms-of-use">Terms of Use</a>
             </div>
         </footer>
+        <footer class="mobile-footer">
+            <div>Powered by <a href="https://whitebirdclinic.org/" class="footer-url">White Bird Clinic</a> | <a href="terms-of-use.html" class="terms-of-use">Terms of Use</a></div> 
+        </footer>
     </div>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
     <script rel="text/javascript" src="src/airtable.browser.js"></script>
+    <script rel="text/javascript" src="src/cachedInlineTables.js"></script>
     <script rel="text/javascript" src="src/dal.js"></script>
-
     <script type="text/javascript" src="src/NavBreadcrumb.js"></script>
     <script type="text/javascript" src="src/providersPage.js"></script>
+    <script type="text/javascript" src="src/search.js"></script>
 </body>
 </html>

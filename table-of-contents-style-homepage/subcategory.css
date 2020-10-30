@@ -21,6 +21,10 @@ option {
   font-size: 1rem;
 }
 
+.search-form {
+  margin-top: 2.25rem;
+}
+
 .bottom-of-menu {
   display: flex;
   justify-content: space-between;
@@ -195,6 +199,14 @@ option {
 
 @media screen and (max-width: 1056px) {
 
+  .desktop-header {
+    margin-bottom: 0.95rem;
+  }
+
+  .search-form {
+    margin-top: 0;
+  }
+  
   body {
     display: flex;
     flex-direction: column-reverse;
@@ -297,6 +309,10 @@ option {
     line-height: 2rem;
     position: static;
     width: auto;
+  }
+
+  .footer-url {
+    font-weight: normal;
   }
 
   #mapid {

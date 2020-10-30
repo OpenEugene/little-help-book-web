@@ -21,6 +21,10 @@ option {
   font-size: 1rem;
 }
 
+.search-form {
+  margin-top: 2.25rem;
+}
+
 .inner-container {
   display: flex;
   background-color: #f5f5f5;
@@ -209,6 +213,14 @@ option {
 
 @media screen and (max-width: 1056px) {
 
+  .desktop-header {
+    margin-bottom: 0.95rem;
+  }
+
+  .search-form {
+    margin-top: 0;
+  }
+
   .left-column {
     display: flex;
     margin-right: 3.5rem;
@@ -331,5 +343,9 @@ option {
     line-height: 2rem;
     position: static;
     width: auto;
+  }
+
+  .footer-url {
+    font-weight: normal;
   }
 }

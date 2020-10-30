@@ -13,7 +13,7 @@ at the Progress Bar & Grill http://progressbarandgrill.com
 
 #### Technologies Used
 
-HTML, CSS, JavaScript <br>
+HTML, CSS, JavaScript, Python (with requests package) <br>
 Airtable - an easy-to-use relational database <br>
 Human Services Data Specification - a format for writing and publishing data as CSVs and a JSON datapackage
 
@@ -77,6 +77,35 @@ Here are steps to follow when making changes in the base in order to not interru
 * Back up the table by [taking a snapshot](https://support.airtable.com/hc/en-us/articles/202584799-Taking-and-Restoring-Base-Snapshots) in case changes need to be rolled back/undone
 * Make your changes in the base
 * Test the changes and check compatibility with existing code
+
+### Data Access Layer (DAL)
+
+Todo: Document DAL
+
+### Caching
+
+There are two options for accessing the Airtable data: with and without caching. 
+
+Without caching, the data is accessed from Airtable everytime you go to a page. The advantage is that you get the most up-to-date version of the data. The disadvantage is that it takes longer for the page to load. 
+
+With caching, you get the version of the data from the last time the cache was created. Pro: faster load. Con: out-of-date data. 
+
+To switch between options, edit the `useCache` variable at the top of `src/dal.js` (`true` uses cache, `false` doesn't). 
+
+To be able to update the cache, first make sure you can run python:
+- Make sure you have python installed.
+- Add the requests package (run `pip install requests`).
+
+Then each time you want to update the cache, run the `src/getTable.py` python script: 
+- Open a terminal. 
+- Change directory (`cd`) to the `src` folder. 
+- Run the command `./getTable`. 
+
+**Technical details:** The cache is stored in a javascript file called `cachedInlineTables.js`. This contains one json variable for each table (Help Services, Cities, and so on). The `getTable.py` script uses http requests to pull the tables from Airtable, and then creates the `cachedInlineTables.js` file. 
+
+**The cache and the repo:** 
+- Let's keep `useCache` set to `true`. In other words, if you change it to `false` while doing work (probably because you want to get immediate feedback about changes to Airtable) then set it back to `true` before merging your branch into develop. 
+- Note that  `cachedInlineTables.js` is a file that is part of the repo. If you run `getTable.py` to update it, then, assuming you are happy with its update, `git add` it to your repo, and push it to the repo. Ideally, an update to the cache (i.e. `cachedInlineTables.js`) should be done as a separate commit from other work. 
 
 ### Data Verification
 

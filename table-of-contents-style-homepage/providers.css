@@ -11,6 +11,10 @@
   display: none;
 }
 
+.search-form {
+  margin-top: 2.25rem;
+}
+
 .blue {
   color: #086CDD;
 }
@@ -49,33 +53,31 @@
 /* end desktop styles, begin responsive transition to tablet */
 
 @media screen and (max-width: 1640px) {
+
   .spanish, .about {
     display: none;
   }
 }
 
 @media screen and (max-width: 1240px) {
+
   .breadcrumb-box {
     display: none;
   }
 
-  .search {
-    display: none;
-  } /* search on navigation bar with city / category / subcategory filters */
-
   .spanish, .about {
     display: inline;
   }
-
-  .header-nav {
-    margin-right: 2rem;
-}
 }
 
 @media screen and (max-width: 1056px) {
 
   .desktop-header {
     margin-bottom: 0.95rem;
+  }
+
+  .search-form {
+    margin-top: 0;
   }
 }
 
@@ -179,5 +181,10 @@
 
   .mobile-alphabet-2 {
     padding-top: 2rem;
+  }
+
+  .footer-url {
+    font-weight: normal;
+    color: #086CDD
   }
 }

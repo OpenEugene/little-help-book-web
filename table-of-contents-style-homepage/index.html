@@ -19,7 +19,7 @@
     <meta name="twitter:image" content="https://github.com/OpenEugene/little-help-book-web/blob/develop/table-of-contents-style-homepage/socialmedia-head.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <!-- end social media image and content description -->
-    <link rel="icon" href="https://i2.wp.com/whitebirdclinic.org/wp-content/uploads/2014/03/cropped-White-Bird-Logo-No-Text-1.jpg?fit=32%2C32&amp;ssl=1" sizes="32x32">
+    <link rel="icon" href="images/white-bird-logo.svg" sizes="32x32">
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
@@ -48,7 +48,7 @@
                 </button>
 
                 <div class="header-nav-item search">
-                    <input type="image" src="search-line.png" class="search-input" type="search">
+                    <input type="image" src="images/search-24px.svg" class="search-toggle" type="search">
                 </div>
             </nav>
         </header>
@@ -69,7 +69,7 @@
                     <div class="menu-item"><a href="map.html">MAP</a></div>
                     <div>
                         <div class="mobile-header-nav-item mobile-search">
-                            <input type="image" src="search-line.png" class="search-input" type="search">
+                            <input type="image" src="images/search-24px.svg" class="search-toggle" type="search">
                         </div>
                     </div>
                 </div>
@@ -77,6 +77,19 @@
                     <hr>
                 </div>
             </div>
+        </div>
+        <div class="search-wrapper hidden" id="searchWrapper">
+            <form class="search-form">
+                <div class="search-flexbox" role="search">
+                    <div class="search-text-and-button-container">
+                        <label class="search-label" for="search">Type keywords and press Search
+                            <p id="error" role="alert"></p>
+                        </label>
+                        <input class="search-button" type="button" value="Search">
+                     </div>
+                    <input id="searchInput" class="search-input" type="text">
+                </div>
+            </form>
         </div>
         <!-- Main will be filled with data from the database, formatted as specified in the handlebars template below. -->
         <main id="table-of-contents" class="table-of-contents">
@@ -90,7 +103,15 @@
             </div>
             <div class="emergency-button category-name"><a href="emergency.html">Emergency Crisis Lines</a></div>
             <div class="a-z-list">To browse service providers by name, see our <a href="providers.html" class="blue-text">A to Z list.</a></div>
-            
+            <a href="emergency.html">  
+                <div class="mobile-emergency-container">
+                    <div class="mobile-crisis-question-container">
+                        <div class="mobile-emergency-lines">EMERGENCY CRISIS LINES</div>
+                        <div class="mobile-crisis-question">Are you in crisis?</div>
+                    </div>
+                    <div class="mobile-call-now">Call Now</div>
+                </div>
+            </a>
             <div class="alert-container">
                 <div class="alert-heading">
                     <div class="alert-title">Wildfire Support</div>
@@ -132,6 +153,10 @@
                 <a href="terms-of-use.html" class="terms-of-use">Terms of Use</a>
             </div>
         </footer>
+
+        <footer class="mobile-footer">
+            <div>Powered by <a href="https://whitebirdclinic.org/">White Bird Clinic</a> | <a href="terms-of-use.html" class="terms-of-use">Terms of Use</a></div> 
+        </footer>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -141,7 +166,9 @@
     <script type="text/javascript" src="src/indexPage.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
     <script rel="text/javascript" src="src/airtable.browser.js"></script>
+    <script rel="text/javascript" src="src/cachedInlineTables.js"></script>
     <script rel="text/javascript" src="src/dal.js"></script>
     <script type="text/javascript" src="src/toc.js"></script>
+    <script type="text/javascript" src="src/search.js"></script>
 </body>
 </html>
