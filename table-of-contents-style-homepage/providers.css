@@ -94,9 +94,11 @@
 @media screen and (max-width: 770px) {
 
   .a-z-fixed {
-    display: none;
+    position: fixed;
+    right: 0;
+    width: 5%;
   }
-  
+
   .a-z-desktop {
     flex-direction: column;
     align-items: flex-end;
