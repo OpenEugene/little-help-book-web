@@ -99,6 +99,7 @@
     justify-content: normal;
     font-size: 1.3rem;
     margin-top: 1.2rem;
+    margin-right: 1.75rem;
     margin-left: 0rem;
     line-height: 1.4rem;
   }
@@ -107,6 +108,7 @@
     position: fixed;
     right: 0;
     width: 5%;
+    margin-right: 0rem;
     line-height: 1.8rem !important; /* this detail isn't working yet: the line height when the header rolls up, the spacing between letters, is the same as when the header is there, it could be nice if it spread vertically a little bit to better fill the vertical of the tablet */
   }
 
@@ -134,10 +136,6 @@
 
   .alphabet-heading {
     margin-top: 0;
-  }
-
-  html:not([data-scroll='0']) .providers {
-    margin-right: 2rem;
   }
 
   .providers {
