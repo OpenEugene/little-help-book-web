@@ -213,6 +213,11 @@
     padding-top: 2rem;
   }
 
+  .scrolling-providers {
+    margin-left: -0.24rem;
+    margin-right: 2.9rem;
+  }
+
   .footer-url {
     font-weight: normal;
     color: #086CDD

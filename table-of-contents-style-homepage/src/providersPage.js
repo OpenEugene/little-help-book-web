@@ -151,7 +151,7 @@ Handlebars.registerHelper('trimString', function(passedString) {
     return new Handlebars.SafeString(theString)
 });
 
-// this is to fix the alphabet to the screen 
+// This is to fix the alphabet selector on-screen when scrolling down the page:
 
 window.onscroll = function() {classChange()};
 
