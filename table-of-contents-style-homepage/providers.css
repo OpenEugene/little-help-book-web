@@ -141,6 +141,10 @@
   .providers {
     margin-right: 0rem;
   }
+
+  .scrolling-providers {
+    margin-right: 2rem;
+  }
 }
 
 /* begin mobile styles */
