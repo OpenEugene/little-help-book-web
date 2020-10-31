@@ -175,7 +175,7 @@
 
   .providers {
     margin-top: 0;
-    margin-right: -2rem;
+    margin-right: -2.5rem;
     width: 95%;
   }
 
@@ -195,6 +195,14 @@
 
   .alphabet {
     padding-bottom: .9rem;
+  }
+
+  .alphabet-fixed {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 5%;
+    margin-right: 0rem;
   }
 
   .mobile-alphabet-1 {

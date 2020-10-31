@@ -159,8 +159,10 @@ function classChange() {
   if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 145) {
     document.getElementById("alphabet").className = "a-z-fixed";
     document.getElementById("scrolling").className = "scrolling-providers";
+    document.getElementById("mobile").className = "alphabet-fixed";
   } else {
     document.getElementById("alphabet").className = "";
     document.getElementById("scrolling").className = "";
+    document.getElementById("mobile").className = "";
   }
 }
