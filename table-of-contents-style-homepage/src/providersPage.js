@@ -156,7 +156,7 @@ Handlebars.registerHelper('trimString', function(passedString) {
 window.onscroll = function() {classChange()};
 
 function classChange() {
-  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 145) {
     document.getElementById("alphabet").className = "a-z-fixed";
     document.getElementById("scrolling").className = "scrolling-providers";
   } else {
