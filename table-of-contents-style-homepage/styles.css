@@ -200,10 +200,12 @@ main {
   color: black;
   background-color: rgb(226, 226, 226);
   font-weight: bold;
-  padding: .5rem 0 .7rem;
+  padding: .5rem 0 .6rem;
   font-size: 1.5rem;
   transition: 0.3s color ease-in-out;
   margin-right: 1rem;
+  padding-left: .2rem;
+  margin-left: -.2rem;
 }
 
 .category-name>a:hover {
@@ -292,6 +294,8 @@ main {
 
 .emergency-button>a {
   padding: 1rem 0 1.2rem 0;
+  padding-left: .2rem;
+  margin-left: -.2rem;
 }
 
 .a-z-list {

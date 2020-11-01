@@ -118,8 +118,10 @@ option {
   display: block;
   font-size: 1.5rem;
   font-weight: bold;
-  padding: .5rem 0 .7rem;
+  padding: .5rem 0 .6rem;
   background-color: rgb(226, 226, 226);
+  padding-left: .2rem;
+  margin-left: -.2rem;
 }
 
 .provider-name>a:hover {

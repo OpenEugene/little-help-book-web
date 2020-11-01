@@ -21,9 +21,11 @@ option {
 .provider-name {
   font-size: 1.5rem;
   font-weight: bold;
-  padding: .5rem 0 .7rem;
+  padding: .5rem 0 .6rem;
   background-color: rgb(226, 226, 226);
   width: 48.5%;
+  padding-left: .2rem;
+  margin-left: -.2rem;
 }
 
 .provider-address {
