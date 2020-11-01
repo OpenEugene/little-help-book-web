@@ -204,19 +204,33 @@ option {
 }  
 
 @media screen and (max-width: 1240px) {
-  .breadcrumb-box {
+
+  .little-help-book {
     display: none;
   }
 
-  .spanish, .about {
-    display: inline;
+  .desktop-header {
+    padding: 1rem 1.5rem;
   }
 }
 
 @media screen and (max-width: 1056px) {
 
+  .little-help-book {
+    display: inline;
+  }
+
   .desktop-header {
+    padding: 0.5rem 1.5rem;
     margin-bottom: 0.95rem;
+  }
+
+  .breadcrumb-box {
+  display: none;
+  }
+
+  .spanish, .about {
+    display: inline;
   }
 
   .search-form {
@@ -294,6 +308,10 @@ option {
   /* begin mobile styles */
   
 @media screen and (max-width: 640px) {
+
+  .desktop-header {
+    padding: 0.5rem 0.6rem;
+  }
 
   .left-column, .right-column {
     margin-left: 2rem;
