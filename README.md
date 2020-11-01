@@ -87,9 +87,9 @@ Todo: Document DAL
 A static asset. This compiles data for including in the project when deployed. It's a build-time static asset. It's like JAM-Stack that way.
 There are two options for accessing the Airtable data: with and without the static data. 
 
-Without the static data, the data is accessed from Airtable everytime you go to a page. The advantage is that you get the most up-to-date version of the data. The disadvantage is that it takes longer for the page to load. 
+Without the static asset, the data is accessed from Airtable everytime you go to a page. The advantage is that you get the most up-to-date version of the data. The disadvantage is that it takes longer for the page to load. 
 
-With static data, you get the version of the data from the last time the compiled data was created. Pro: faster load. Con: out-of-date data. 
+With the static asset, you get the version of the data from the last time the compiled data was created. Pro: faster load. Con: out-of-date data. 
 
 To switch between options, edit the `useCache` variable at the top of `src/dal.js` (`true` uses cache, `false` doesn't). 
 
