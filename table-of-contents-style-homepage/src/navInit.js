@@ -35,6 +35,9 @@ function initData(hasCat, hasSubcat, hasMap) {
 
         // remove the Wildfire Support element from categories
         categoryTable = categoryTable.filter(x => x.id != "recxvFI6Cc7hpuYBi");
+        // remove the Essential Crisis Lines element from categories
+        categoryTable = categoryTable.filter(x => x.id !=  "recRckNwH09CWFAys");
+       
 
         nbc = (hasMap) ?
             new NavBreadcrumb(cityTable, categoryTable, subcatTable, placeTable, mymap) :
