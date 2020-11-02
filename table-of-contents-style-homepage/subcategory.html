@@ -20,13 +20,13 @@
     <meta name="twitter:card" content="summary_large_image" />
     <!-- end social media image and content description -->
     <link rel="icon" href="images/white-bird-logo.svg" sizes="32x32">
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <link rel="stylesheet" type="text/css" href="subcategory.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
         integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
         crossorigin=""/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- This script has to be in head for the map to work. -->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="subcategory.css">
 </head>
 <body>
 
@@ -174,28 +174,28 @@
         </footer>
     </div>
 
-<script>
+    <script>
 
-$(function(){
-  $('[data-target]').on('click', function(){
-    var target = $(this).data('target');
-    $(target).siblings().hide().end().show();
-    mymap.invalidateSize();
-  });
-});
+    $(function(){
+    $('[data-target]').on('click', function(){
+        var target = $(this).data('target');
+        $(target).siblings().hide().end().show();
+        mymap.invalidateSize();
+    });
+    });
 
-</script>
-<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-crossorigin=""></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
-<script rel="text/javascript" src="src/airtable.browser.js"></script>
-<script rel="text/javascript" src="src/cachedInlineTables.js"></script>
-<script rel="text/javascript" src="src/dal.js"></script>
-<script type="text/javascript" src="src/map.js"></script>
-<script type="text/javascript" src="src/NavBreadcrumb.js"></script>
-<script type="text/javascript" src="src/navInit.js"></script>
-<script type="text/javascript" src="src/subcategoryPage.js"></script>
-<script type="text/javascript" src="src/search.js"></script>
+    </script>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+            crossorigin=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+    <script rel="text/javascript" src="src/airtable.browser.js"></script>
+    <script rel="text/javascript" src="src/cachedInlineTables.js"></script>
+    <script rel="text/javascript" src="src/dal.js"></script>
+    <script type="text/javascript" src="src/map.js"></script>
+    <script type="text/javascript" src="src/NavBreadcrumb.js"></script>
+    <script type="text/javascript" src="src/navInit.js"></script>
+    <script type="text/javascript" src="src/subcategoryPage.js"></script>
+    <script type="text/javascript" src="src/search.js"></script>
 </body>
 </html>
