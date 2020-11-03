@@ -35,6 +35,8 @@ header {
   height: 4rem;
   width: 4rem;
   margin-right: 1em;
+  margin-top: .4rem;
+  margin-bottom: .2rem;
 }
 
 .little-help-book {
