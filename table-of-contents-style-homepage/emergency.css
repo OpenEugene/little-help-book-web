@@ -2,10 +2,10 @@ a {
   color: #308DF8;
 }
 
-.desktop-header { 
+header {
   margin-bottom: 0.5rem;
 }
- 
+
 .content-container {
   margin-left: 3.5rem;
   margin-right: 3.5rem;
@@ -22,7 +22,7 @@ main {
 .how-to-call {
   display: none;
 }
- 
+
 .how-to-call {
   margin: 1.5rem 0 0 1.5rem;
   font-weight: bold;
@@ -70,7 +70,7 @@ main {
     margin: 1.5rem 0 0 1rem;
     }
 
-  .desktop-header {
+  header {
     margin-bottom: .95rem;
   }
 
@@ -83,10 +83,10 @@ main {
   .search-flexbox {
     margin-top: 0;
   }
-}  
-  
+}
+
 /* begin mobile styles */
-    
+
 @media screen and (max-width: 640px) {
 
   .content-container {

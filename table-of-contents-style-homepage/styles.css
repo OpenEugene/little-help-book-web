@@ -18,7 +18,7 @@ a {
   color: #086CDD;
 }
 
-.desktop-header {
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -90,7 +90,7 @@ a {
 }
 
 .breadcrumb:after {
-  position: absolute; 
+  position: absolute;
 	right: 0;
 	top: 0;
 	width: 50px;
@@ -247,7 +247,7 @@ main {
 .blue-text {
   color: #086CDD;
   font-weight: bold;
-  transition: 0.3s color ease-in-out; 
+  transition: 0.3s color ease-in-out;
 }
 
 .blue-text:hover {
@@ -275,7 +275,7 @@ main {
   position: absolute;
   z-index: 1;
   bottom: -606%;
-  right: 277%;  
+  right: 277%;
   margin-left: -80px;
   font-family: sans-serif;
   font-weight: normal;
@@ -394,10 +394,10 @@ main {
   } /* search on homepage desktop navigation bar*/
 
   .a-z-list {
-    display: none; 
+    display: none;
   } /* sentence about the A-Z list on desktop */
 
-  .desktop-header {
+  header {
     margin: 0 0 0.95rem;
   }
 
@@ -431,7 +431,7 @@ main {
   .mobile-breadcrumb-box {
     align-items: center;
     display: flex;
-  } 
+  }
 
   .mobile-breadcrumb {
     background: #f5f5f5;
@@ -501,7 +501,7 @@ main {
   .popup .popuptext {
     bottom: 177%;
     right: -200%;
-  }  
+  }
 }
 
 /* begin tablet styles */
@@ -522,12 +522,12 @@ main {
     width: 42px;
     margin: 0.55rem 0 .4rem 0.65rem;
   }
-  
-  .desktop-header {
+
+  header {
     height: 3rem;
     padding: 0.5rem 0.6rem;
   }
-  
+
   .little-help-book {
     font-size: 1.2rem;
     margin: 0.35rem 0 0 0.7rem;

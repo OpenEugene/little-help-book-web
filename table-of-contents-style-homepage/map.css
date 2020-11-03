@@ -1,8 +1,15 @@
+
 .search-form {
   margin-top: 2.25rem;
 }
 
 @media screen and (max-width: 1056px) {
+
+  .fullscreen-map {
+    height: 90vh;
+    width: 100%;
+    margin-top: 0;
+  }
 
   .search-form {
     margin-top: 0rem;

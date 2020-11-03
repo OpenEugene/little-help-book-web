@@ -73,7 +73,7 @@
     display: none;
   }
 
-  .desktop-header {
+  header {
     padding: 1rem 1.5rem;
   }
 }
@@ -84,7 +84,7 @@
     display: inline;
   }
 
-  .desktop-header {
+  header {
     padding: 0.5rem 1.5rem;
     margin-bottom: 0.95rem;
   }
@@ -161,13 +161,13 @@
 }
 
 /* begin mobile styles */
-  
+
 @media screen and (max-width: 640px) {
 
-  .desktop-header {
+  header {
     padding: 0.5rem 0.6rem;
   }
-  
+
   .a-z-desktop {
     display: none;
   }

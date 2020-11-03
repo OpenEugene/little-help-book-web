@@ -7,7 +7,7 @@ main {
   columns: auto;
 }
 
-.desktop-header {
+header {
   margin-bottom: 0;
 }
 
@@ -196,8 +196,8 @@ option {
     display: none;
   }
 
-  .desktop-header {
-    padding: 1rem 1.5rem;
+  header {
+    padding: 0.875rem 1.5rem;
   }
 
 }
@@ -208,7 +208,7 @@ option {
     display: inline;
   }
 
-  .desktop-header {
+  header {
     padding: 0.5rem 1.5rem;
     margin-bottom: 0.95rem;
   }
@@ -224,7 +224,7 @@ option {
   .search-form {
     margin-top: 0;
   }
-  
+
   body {
     display: flex;
     flex-direction: column-reverse;
@@ -263,7 +263,7 @@ option {
   }
 
   .provider-website > a {
-    color: #086CDD; 
+    color: #086CDD;
   }
 
   #mapid {
@@ -272,15 +272,15 @@ option {
     margin-top: .5rem;
   }
 }
-  
+
 /* begin mobile styles */
-  
+
 @media screen and (max-width: 640px) {
 
-  .desktop-header {
+  header {
     padding: 0.5rem 0.6rem;
   }
-  
+
   .bottom-of-menu {
     margin-left: 2rem;
     margin-right: 2rem;

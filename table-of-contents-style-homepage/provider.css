@@ -115,7 +115,7 @@ option {
   .spanish, .about {
     display: none;
   }
-}  
+}
 
 @media screen and (max-width: 1240px) {
 
@@ -123,10 +123,10 @@ option {
     display: none;
   }
 
-  .desktop-header {
+  header {
     padding: 1rem 1.5rem;
   }
-  
+
 }
 
 @media screen and (max-width: 1056px) {
@@ -135,7 +135,7 @@ option {
     display: inline;
   }
 
-  .desktop-header {
+  header {
     padding: 0.5rem 1.5rem;
     margin-bottom: 0.95rem;
   }
@@ -178,12 +178,12 @@ option {
     min-width: 0;
   }
 }
-  
+
 /* begin mobile styles */
-  
+
 @media screen and (max-width: 640px) {
 
-  .desktop-header {
+  header {
     padding: 0.5rem 0.6rem;
   }
 

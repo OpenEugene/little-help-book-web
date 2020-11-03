@@ -25,29 +25,12 @@
     <link rel="stylesheet" type="text/css" href="map.css">
 </head >
 
-<style>
-
-@media screen and (max-width: 1056px) {
-  .desktop-header {
-  margin: 0 0 0.95rem;
-  }
-}
-
-.fullscreen-map {
-  height: 90vh;
-  width: 100%;
-  margin-top: 0;
-}
-</style>
-
 <div class="page-container">
-  <header class="desktop-header">
-    <div class="branding">
+  <header>
       <a class="homepage-link" href="index.html">
         <img class="desktop-logo" src="white-bird-on-black.png" alt="White Bird Clinic" width="42" height="42">
-        <h1 class="little-help-book">Little Help Book</h1>    
+        <h1 class="little-help-book">Little Help Book</h1>
       </a>
-    </div>
     <div class="breadcrumb-box">
         <select class="breadcrumb city" id="citySelect">
             <option value=""><em>Loading...</em></option>
@@ -109,7 +92,7 @@
             </div>
         </form>
     </div>
-    <section class="map"> 
+    <section class="map">
         <div id="mapid" class="mapid fullscreen-map"></div>
     </section>
     <footer class="footer">
@@ -130,10 +113,9 @@
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
         integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
         crossorigin=""></script>
-    <script rel="text/javascript" src="src/airtable.browser.js"></script>
-    <script rel="text/javascript" src="src/cachedInlineTables.js"></script>
-    <script rel="text/javascript" src="src/dal.js"></script>
-    
+    <script type="text/javascript" src="src/airtable.browser.js"></script>
+    <script type="text/javascript" src="src/cachedInlineTables.js"></script>
+    <script type="text/javascript" src="src/dal.js"></script>
     <script type="text/javascript" src="src/map.js"></script>
     <script type="text/javascript" src="src/NavBreadcrumb.js"></script>
     <script type="text/javascript" src="src/categoryPage.js"></script>

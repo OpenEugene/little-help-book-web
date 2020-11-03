@@ -7,7 +7,7 @@ main {
   columns: auto;
 }
 
-.desktop-header {
+header {
   margin-bottom: 0;
 }
 
@@ -123,7 +123,7 @@ option {
 }
 
 #map {
-  width: 82%; 
+  width: 82%;
   height: 100%;
 }
 
@@ -133,7 +133,7 @@ option {
 
 .mapid {
   height: 90vh;
-  width: 125%; 
+  width: 125%;
   z-index: 1;
 }
 
@@ -201,7 +201,7 @@ option {
   .spanish, .about {
     display: none;
   }
-}  
+}
 
 @media screen and (max-width: 1240px) {
 
@@ -209,8 +209,8 @@ option {
     display: none;
   }
 
-  .desktop-header {
-    padding: 1rem 1.5rem;
+  header {
+    padding: 0.875rem 1.5rem;
   }
 }
 
@@ -220,7 +220,7 @@ option {
     display: inline;
   }
 
-  .desktop-header {
+  header {
     padding: 0.5rem 1.5rem;
     margin-bottom: 0.95rem;
   }
@@ -254,7 +254,7 @@ option {
 
   .dropdown, .print {
     display: none;
-  } 
+  }
 
   .hours-available {
     display: none;
@@ -281,7 +281,7 @@ option {
   }
 
   ul, li {
-    margin-bottom: 0.5rem; 
+    margin-bottom: 0.5rem;
     color: black;
   }
 
@@ -306,10 +306,10 @@ option {
 }
 
   /* begin mobile styles */
-  
+
 @media screen and (max-width: 640px) {
 
-  .desktop-header {
+  header {
     padding: 0.5rem 0.6rem;
   }
 
