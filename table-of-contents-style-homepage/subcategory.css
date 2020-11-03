@@ -195,11 +195,6 @@ option {
   .little-help-book {
     display: none;
   }
-
-  header {
-    padding: 0.875rem 1.5rem;
-  }
-
 }
 
 @media screen and (max-width: 1056px) {

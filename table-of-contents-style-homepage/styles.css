@@ -40,6 +40,7 @@ header {
 .little-help-book {
   font-size: 2rem;
   white-space: nowrap;
+  margin: 0;
 }
 
 .h123-reset {
