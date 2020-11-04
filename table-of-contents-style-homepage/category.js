@@ -32,4 +32,14 @@ $(function(){
       mymap.invalidateSize();
     });
 });
-  
+
+// first attempt at changing the text inside the toggle from list to map on click
+// but it disables the previous function of the button, now it no longer displays the map
+
+const listButton = document.getElementById("toggle").innerHTML;
+
+listButton.addEventListener("click", changeText);
+
+function changeText {
+    listButton = "map";
+}
