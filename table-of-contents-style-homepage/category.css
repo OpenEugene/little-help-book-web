@@ -155,7 +155,7 @@ option {
 .switch {
  position: relative;
  display: inline-block;
- width: 3.8rem;
+ width: 3.75rem;
  height: 2rem;
 }
 
@@ -184,7 +184,7 @@ option {
  content: "";
  height: 1.65rem;
  width: 1.65rem;
- left: 0.275rem;
+ left: 0.25rem;
  bottom: 0.2rem;
  background-color: white;
  -webkit-transition: .4s;
@@ -317,6 +317,10 @@ input:checked + .slider:before {
     padding-top: 0.66rem;
   }
 
+  .switch {
+    margin-right: .7rem;
+  }
+
   .available-toggle {
     padding-top: 0.05rem;
   }
@@ -395,8 +399,29 @@ input:checked + .slider:before {
   }
 
   .available-now {
-    font-size: .9rem;
-    padding-top: 0.4rem;
+    font-size: .8rem;
+    padding-top: 0.3rem;
+    padding-right: 0.35rem;
+  }
+
+  .switch {
+    width: 1.5rem;
+    height: 1rem;
+    margin-top: 0.15rem;
+    margin-right: 0.8rem;
+  }
+
+  .slider::before {
+    height: .75rem;
+    width: .75rem;
+    left: 0.15rem;
+    bottom: 0.135rem;
+  }
+
+  input:checked + .slider::before {
+    -webkit-transform: translateX(.5rem);
+    -ms-transform: translateX(.5rem);
+    transform: translateX(.5rem);
   }
 
   .subcategory-name > a {
