@@ -133,7 +133,7 @@ option {
   z-index: 1;
 }
 
-/* The text AVAILABLE NOW is black when the toggle is off. And turns gray when switched on. The toggle is blue when turned on. Gray when off. */
+/* Potentially, the text AVAILABLE NOW could become blue when switched on. Gray when off */
 .hours-available {
   padding-top: 1.95rem;
   font-size: 1.3rem;
@@ -155,8 +155,8 @@ option {
 .switch {
  position: relative;
  display: inline-block;
- width: 60px;
- height: 34px;
+ width: 3.8rem;
+ height: 2rem;
 }
 
 /* Hide default HTML checkbox */
@@ -182,10 +182,10 @@ option {
 .slider:before {
  position: absolute;
  content: "";
- height: 26px;
- width: 26px;
- left: 4px;
- bottom: 4px;
+ height: 1.65rem;
+ width: 1.65rem;
+ left: 0.275rem;
+ bottom: 0.2rem;
  background-color: white;
  -webkit-transition: .4s;
  transition: .4s;
@@ -200,14 +200,14 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
- -webkit-transform: translateX(26px);
- -ms-transform: translateX(26px);
- transform: translateX(26px);
+ -webkit-transform: translateX(1.6rem);
+ -ms-transform: translateX(1.6rem);
+ transform: translateX(1.6rem);
 }
 
 /* Rounded sliders */
 .slider.round {
- border-radius: 34px;
+ border-radius: 1rem;
 }
 
 .slider.round:before {
