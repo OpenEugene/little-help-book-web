@@ -33,13 +33,18 @@ $(function(){
     });
 });
 
-// first attempt at changing the text inside the toggle from list to map on click
-// but it disables the previous function of the button, now it no longer displays the map
+// changing the text inside the toggle from list to map on click
 
-const listButton = document.getElementById("toggle").innerHTML;
+let listButton = document.getElementById("toggle");
+let mapOption = document.getElementById("map-text");
+let listOption =document.getElementById("list-text");
 
-listButton.addEventListener("click", changeText);
+mapOption.addEventListener("click", changeTextToMap);
+listOption.addEventListener("click", changeTextToList)
 
-function changeText {
-    listButton = "map";
+function changeTextToMap() {
+    listButton.innerHTML = "map";
+}
+function changeTextToList() {
+    listButton.innerHTML = "list";
 }
