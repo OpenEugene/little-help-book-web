@@ -1,3 +1,20 @@
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  padding-bottom: 7rem;
+  min-height: 100%;
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -255,6 +272,14 @@ input:checked + .slider:before {
 .placeholder-map-jpg {
   width: 98.5%;
   margin-top: .3rem;
+}
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
 }
 
 /* end desktop styles, begin responsive transition to tablet */
