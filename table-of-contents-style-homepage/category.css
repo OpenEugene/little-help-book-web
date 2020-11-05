@@ -155,8 +155,9 @@ option {
 .switch {
  position: relative;
  display: inline-block;
- width: 3.75rem;
- height: 2rem;
+ width: 3rem;
+ height: 1.75rem;
+ margin-top: -0.25rem;
 }
 
 /* Hide default HTML checkbox */
@@ -182,10 +183,10 @@ option {
 .slider:before {
  position: absolute;
  content: "";
- height: 1.65rem;
- width: 1.65rem;
- left: 0.25rem;
- bottom: 0.2rem;
+ height: 1.45rem;
+ width: 1.45rem;
+ left: 0.175rem;
+ bottom: 0.165rem;
  background-color: white;
  -webkit-transition: .4s;
  transition: .4s;
@@ -200,9 +201,9 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
- -webkit-transform: translateX(1.6rem);
- -ms-transform: translateX(1.6rem);
- transform: translateX(1.6rem);
+ -webkit-transform: translateX(1.15rem);
+ -ms-transform: translateX(1.15rem);
+ transform: translateX(1.15rem);
 }
 
 /* Rounded sliders */
@@ -319,6 +320,7 @@ input:checked + .slider:before {
 
   .switch {
     margin-right: .7rem;
+    margin-top: 0.25rem;
   }
 
   .available-toggle {
@@ -327,7 +329,7 @@ input:checked + .slider:before {
 
   .available-now {
     flex-wrap: nowrap;
-    padding-top: 0.6rem
+    padding-top: 0.55rem
   }
 
   .right-column {
@@ -400,14 +402,14 @@ input:checked + .slider:before {
 
   .available-now {
     font-size: .8rem;
-    padding-top: 0.3rem;
+    padding-top: 0.5rem;
     padding-right: 0.35rem;
   }
 
   .switch {
-    width: 1.5rem;
+    width: 1.65rem;
     height: 1rem;
-    margin-top: 0.15rem;
+    margin-top: 0.45rem;
     margin-right: 0.8rem;
   }
 
@@ -415,13 +417,13 @@ input:checked + .slider:before {
     height: .75rem;
     width: .75rem;
     left: 0.15rem;
-    bottom: 0.135rem;
+    bottom: 0.125rem;
   }
 
   input:checked + .slider::before {
-    -webkit-transform: translateX(.5rem);
-    -ms-transform: translateX(.5rem);
-    transform: translateX(.5rem);
+    -webkit-transform: translateX(.6rem);
+    -ms-transform: translateX(.6rem);
+    transform: translateX(.6rem);
   }
 
   .subcategory-name > a {
