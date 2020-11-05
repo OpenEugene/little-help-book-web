@@ -24,3 +24,29 @@ Handlebars.registerHelper('trimString', function(passedString) {
     var theString = passedString.substring(0,550);
     return new Handlebars.SafeString(theString)
 });
+
+// list or map view options button
+
+$(function(){
+    $('[data-target]').on('click', function(){
+      var target = $(this).data('target');
+      $(target).siblings().hide().end().show();
+      mymap.invalidateSize();
+    });
+});
+
+// changing the text inside the toggle from list to map on click
+
+let listButton = document.getElementById("toggle");
+let mapOption = document.getElementById("map-text");
+let listOption =document.getElementById("list-text");
+
+mapOption.addEventListener("click", changeTextToMap);
+listOption.addEventListener("click", changeTextToList)
+
+function changeTextToMap() {
+    listButton.innerHTML = "map";
+}
+function changeTextToList() {
+    listButton.innerHTML = "list";
+}

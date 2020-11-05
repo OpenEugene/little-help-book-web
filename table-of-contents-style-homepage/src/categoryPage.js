@@ -32,8 +32,8 @@ function updateDom() {
                 }
             }
         } else {
-            // This else clause is for the case where category is set to "All", and subcategory isn't, i.e. 
-            // is set to something specific. 
+            // This else clause is for the case where category is set to "All", and subcategory isn't, i.e.
+            // is set to something specific.
             if (nbc.focused.subcat != 'NA') {
                 proceed = false;
                 if (record.subcategoryId == nbc.focused.subcat) {
@@ -62,4 +62,30 @@ function updateDom() {
     let compiledHtml = theTemplate({subcategories : categoryData.subcategories});
     // Add the compiled html to the page
     $('#provider-list').empty().append(compiledHtml);
+}
+
+// list or map view options button
+
+$(function(){
+    $('[data-target]').on('click', function(){
+      var target = $(this).data('target');
+      $(target).siblings().hide().end().show();
+      mymap.invalidateSize();
+    });
+});
+
+// changing the text inside the toggle from list to map on click
+
+let listButton = document.getElementById("toggle");
+let mapOption = document.getElementById("map-text");
+let listOption =document.getElementById("list-text");
+
+mapOption.addEventListener("click", changeTextToMap);
+listOption.addEventListener("click", changeTextToList)
+
+function changeTextToMap() {
+    listButton.innerHTML = "map";
+}
+function changeTextToList() {
+    listButton.innerHTML = "list";
 }
