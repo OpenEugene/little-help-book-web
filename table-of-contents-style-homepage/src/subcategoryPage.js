@@ -50,3 +50,13 @@ function changeTextToMap() {
 function changeTextToList() {
     listButton.innerHTML = "list";
 }
+
+// upon pressing print create a PDF and open the printer dialog box
+
+let printButton = document.querySelector("#print");
+
+printButton.addEventListener("click", display);
+
+  function display() {
+    window.print();
+  }
