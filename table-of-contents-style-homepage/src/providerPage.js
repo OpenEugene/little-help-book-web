@@ -5,7 +5,44 @@ $(document).ready(() => {initData(true, true, true); loadProviderInfo();});
 function loadProviderInfo() {
     let urlParams = new URLSearchParams(window.location.search);
     placeId = (urlParams.has('place') ? urlParams.get('place') : 'NA');
+    replaceEvents();
     updateDom();
+}
+
+function replaceEvents() {
+    let citybox = document.getElementById(cityboxId);
+    let catbox = document.getElementById(catboxId);
+    let subcatbox = document.getElementById(subcatboxId);
+
+    citybox.removeEventListener("change", citySelectEvent);
+    catbox.removeEventListener("change", categorySelectEvent);
+    subcatbox.removeEventListener("change", subcatSelectEvent);
+
+    citybox.addEventListener("change", redirect);
+    catbox.addEventListener("change", redirect);
+    subcatbox.addEventListener("change", redirect);
+}
+
+function redirect() {
+    let cityValue = document.getElementById(cityboxId).value;
+    let catValue = document.getElementById(catboxId).value;
+    let subcatValue = document.getElementById(subcatboxId).value;
+    let proto = window.location.protocol;
+    let host;
+    let filepath;
+    let params = "?city=" + cityValue + "&category=" + catValue + "&subcategory=" + subcatValue;
+
+    if (proto == "file:") {
+        host = window.location.pathname.replace("/provider.html", "");
+    } else {
+        host = window.location.hostname;
+    }
+    if (this.id == cityboxId || this.id == catboxId) {
+        filepath = "/category.html";
+    } else {
+        filepath = "/subcategory.html";
+    }
+    window.location.replace(proto + host + filepath + params);
 }
 
 function updateDom() {
