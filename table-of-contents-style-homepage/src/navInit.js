@@ -76,6 +76,7 @@ function initData(hasCat, hasSubcat, hasMap) {
         // Show the city-category-subcategory from the query in the navigation
         document.getElementById(cityboxId).value = cityValue;
         citySelectEvent();
+        
 
         if (hasCat) {
             categoryValue = (urlParams.has('category') ? urlParams.get('category') : 'NA')
