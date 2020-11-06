@@ -1,17 +1,103 @@
+header {
+    margin-bottom: 0;
+}
+
+.breadcrumb {
+  width: 16.8rem;
+}
+
+.dropdown-button {
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 2rem;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+
+.dropdown-content span {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content span:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
 
 .search-form {
   margin-top: 2.25rem;
 }
 
+#map {
+  width: 82%;
+  height: 100%;
+}
+
+#map {
+  display: none;
+}
+
+.mapid {
+  height: 90vh;
+  width: 125%;
+  z-index: 1;
+}
+
+@media screen and (max-width: 1640px) {
+  .spanish, .about {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1240px) {
+
+  .little-help-book {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 1056px) {
+
+  .little-help-book {
+    display: inline;
+  }
+
+  header {
+    margin-bottom: 0.95rem;
+  }
+
+  .breadcrumb-box {
+    display: none;
+  }
+
+  .spanish, .about {
+    display: inline;
+  }
+
+  .search-form {
+    margin-top: 0rem;
+  }
 
   .fullscreen-map {
     height: 90vh;
     width: 100%;
     margin-top: 0;
-  }
-
-  .search-form {
-    margin-top: 0rem;
   }
 }
