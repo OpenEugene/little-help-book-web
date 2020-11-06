@@ -76,8 +76,8 @@ function updateDom() {
                 }
             }
         } else {
-            // This else clause is for the case where category is set to "All", and subcategory isn't, i.e. 
-            // is set to something specific. 
+            // This else clause is for the case where category is set to "All", and subcategory isn't, i.e.
+            // is set to something specific.
             if (nbc.focused.subcat != 'NA') {
                 proceed = false;
                 if (record.subcategoryId == nbc.focused.subcat) {
@@ -107,3 +107,12 @@ function updateDom() {
     // Add the compiled html to the page
     $('#provider-info').empty().append(compiledHtml);
 }
+
+// upon pressing print create a PDF and open the printer dialog box
+let printButton = document.querySelector("#print");
+
+printButton.addEventListener("click", display);
+
+  function display() {
+    window.print();
+  }
