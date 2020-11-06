@@ -81,7 +81,7 @@ let mapOption = document.getElementById("map-text");
 let listOption =document.getElementById("list-text");
 
 mapOption.addEventListener("click", changeTextToMap);
-listOption.addEventListener("click", changeTextToList)
+listOption.addEventListener("click", changeTextToList);
 
 function changeTextToMap() {
     listButton.innerHTML = "map";
@@ -89,3 +89,13 @@ function changeTextToMap() {
 function changeTextToList() {
     listButton.innerHTML = "list";
 }
+
+// upon pressing print create a PDF and open the printer dialog box
+
+let printButton = document.querySelector("#print");
+
+printButton.addEventListener("click", display);
+
+  function display() {
+    window.print();
+  }
