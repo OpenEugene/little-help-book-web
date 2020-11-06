@@ -396,10 +396,10 @@ input:checked + .slider:before {
 
 @media screen and (max-width: 640px) {
 
-  header {
-    padding: 0.5rem 0.6rem;
+  html {
+    box-sizing: initial;
   }
-
+  
   .left-column, .right-column {
     margin-left: 2rem;
   }
