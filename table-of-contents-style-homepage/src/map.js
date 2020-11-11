@@ -95,7 +95,7 @@ function removeMarkers() {
 }
 
 // This function is used to set the centered view of the map.
-function setView(coordArray, zoom) {
+function setView(coordArray, zoom = 12) {
 	mymap.setView(coordArray, zoom);
 }
 

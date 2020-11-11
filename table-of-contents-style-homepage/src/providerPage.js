@@ -28,24 +28,31 @@ function redirect() {
     let catValue = document.getElementById(catboxId).value;
     let subcatValue = document.getElementById(subcatboxId).value;
     let proto = window.location.protocol;
-    let host;
-    let filepath;
+    let host = "";
+    let filepath = "";
     let params = "?city=" + cityValue + "&category=" + catValue + "&subcategory=" + subcatValue;
+    let isFile = proto == "file:";
 
-    if (proto == "file:") {
+    if (isFile) {
         host = window.location.pathname.replace("/provider.html", "");
     } else {
+        filepath = "/table-of-contents-style-homepage";
         host = window.location.hostname;
     }
     if (this.id == cityboxId || this.id == catboxId) {
-        filepath = "/category.html";
+        filepath += "/category.html";
     } else {
-        filepath = "/subcategory.html";
+        filepath += "/subcategory.html";
     }
-    window.location.replace(proto + host + filepath + params);
+    if (isFile) {
+        window.location.replace(proto + "//" + host + filepath + params);
+    } else {
+        window.location.replace(filepath + params);
+    }
 }
 
 function updateDom() {
+    /*
     let availableCatSubcatIds = [];
     let catSubcatPlaces = []
     nbc.availablePlaces.forEach(record => {
@@ -93,6 +100,7 @@ function updateDom() {
             }
         }
     });
+    */
 
     // Pasted from Airtable API for retrieving one provider record
     let providerData = placeTable.find(x => x.id === placeId);
@@ -106,6 +114,11 @@ function updateDom() {
     let compiledHtml = theTemplate({ place: providerData });
     // Add the compiled html to the page
     $('#provider-info').empty().append(compiledHtml);
+
+    if (nbc.mymap != null) {
+        setMarkers([providerData]);
+        setView([providerData.latitude, providerData.longitude]);
+    }
 }
 
 // upon pressing print create a PDF and open the printer dialog box
@@ -113,6 +126,6 @@ let printButton = document.querySelector("#print");
 
 printButton.addEventListener("click", display);
 
-  function display() {
+function display() {
     window.print();
-  }
+}
