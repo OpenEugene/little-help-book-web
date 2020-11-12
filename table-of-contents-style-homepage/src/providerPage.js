@@ -1,10 +1,16 @@
 let placeId;
+let cityId;
+let catId;
+let subcatId;
 "use strict"
 $(document).ready(() => {initData(true, true, true); loadProviderInfo();});
 
 function loadProviderInfo() {
     let urlParams = new URLSearchParams(window.location.search);
     placeId = (urlParams.has('place') ? urlParams.get('place') : 'NA');
+    cityId = (urlParams.has('city') ? urlParams.get('city') : 'NA');
+    catId = (urlParams.has('category') ? urlParams.get('category') : 'NA');
+    subcatId = (urlParams.has('subcategory') ? urlParams.get('subcategory') : 'NA');
     replaceEvents();
     updateDom();
 }

@@ -8,6 +8,11 @@ function updateDom() {
     // If a map is passed into the navigation class, update the markers
     if (nbc.mymap != null) {
         setMarkers(nbc.availablePlaces);
+        if (nbc.focused.city == "NA") {
+            setView(nbc.viewCoordinates, 10);            
+        } else {
+            setView(nbc.viewCoordinates);            
+        }
     }
 
     // Grab the template script
