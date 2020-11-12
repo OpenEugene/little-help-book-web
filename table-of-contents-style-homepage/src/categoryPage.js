@@ -53,6 +53,11 @@ function updateDom() {
     document.getElementsByClassName("category-page-name")[0].innerHTML = nbc.categories.find(x => x.id === nbc.focused.category).name;
     if (nbc.mymap != null) {
         setMarkers(nbc.availablePlaces);
+        if (nbc.focused.city == "NA") {
+            setView(nbc.viewCoordinates, 10);
+        } else {
+            setView(nbc.viewCoordinates);
+        }
     }
     // Grab the template script
     let theTemplateScript = $("#provider-list-template").html();

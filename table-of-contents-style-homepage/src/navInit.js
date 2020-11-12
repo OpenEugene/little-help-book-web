@@ -48,9 +48,11 @@ function initData(hasCat, hasSubcat, hasMap) {
         select box, based on the data that was passed into our NavBreadcrumb object.
         */
         nbc.placeOptionElements(cityboxId, nbc.generateOptionElements(nbc.cities));
+        nbc.placeOptionElements(cityboxId + "-mobile", nbc.generateOptionElements(nbc.cities));
 
         // Assign the appropriate events handlers to the select elements
         nbc.assignCitySelectEvent(cityboxId, citySelectEvent);
+        nbc.assignCitySelectEvent(cityboxId + "-mobile", citySelectEvent);
 
         if (hasCat) {
             nbc.placeOptionElements(catboxId, nbc.generateOptionElements(nbc.categories));

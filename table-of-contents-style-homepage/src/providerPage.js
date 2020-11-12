@@ -123,7 +123,9 @@ function updateDom() {
 
     if (nbc.mymap != null) {
         setMarkers([providerData]);
-        setView([providerData.latitude, providerData.longitude]);
+        if (providerData.latitude != 0 || providerData.latitude != null) {
+            setView([providerData.latitude, providerData.longitude], 14);
+        }
     }
 }
 
