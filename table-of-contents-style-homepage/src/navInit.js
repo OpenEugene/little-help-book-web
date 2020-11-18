@@ -69,6 +69,9 @@ function initData(hasCat, hasSubcat, hasMap) {
 
         catSubcatTable = await dalGetCatSubcatTable();
 
+        initLanguage();
+        console.log(placeTable);
+
         /*
         Look at the URL search parameters. If they exist, pull them in and use
         them to inform the initial data on the page.
@@ -95,6 +98,56 @@ function initData(hasCat, hasSubcat, hasMap) {
         	subcatSelectEvent();
         }
     })()
+}
+
+function initLanguage() {
+    placeTable.forEach(function(record) {
+        record["hours_en"] = record["hours"];
+        record["name_en"] = record["name"];
+    });
+    categoryTable.forEach(function(record) {
+        record["name_en"] = record["name"];
+    });
+    subcatTable.forEach(function(record) {
+        record["name_en"] = record["name"];
+    });
+    catSubcatTable.forEach(function(record) {
+        record["name_en"] = record["name"];
+    });
+}
+
+function toggleLanguage() {
+    console.log("toggleLanguage");
+    let spanishStr = "Español";
+    let englishStr = "English";
+    let spanishCode = "es";
+    let englishCode = "en";
+    let theButton = document.querySelector('#languageToggle');
+    let buttonStr = theButton.innerHTML;
+
+    let newLanguageCode = englishCode;
+    let newLanguageStr = spanishStr;
+    if (buttonStr == "Español") {
+        newLanguageCode = spanishCode;
+        newLanguageStr = englishStr;
+    }
+    theButton.innerHTML = newLanguageStr;
+
+    placeTable.forEach(function(record) {
+        record["hours"] = record["hours"+"_"+newLanguageCode];
+        // record["name"] = record["name"+"_"+newLanguageCode];
+    });
+    categoryTable.forEach(function(record) {
+        record["name"] = record["name"+"_"+newLanguageCode];
+    });
+    subcatTable.forEach(function(record) {
+        record["name"] = record["name"+"_"+newLanguageCode];
+    });
+    catSubcatTable.forEach(function(record) {
+        record["name"] = record["name"+"_"+newLanguageCode];
+    });
+
+    updateDom();
 }
 
 // Create the appropriate event handlers for the select elements.
