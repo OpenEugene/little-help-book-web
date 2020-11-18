@@ -87,8 +87,8 @@ function updateDom() {
 
 //  The popup description appears when someone clicks the blue crisis text 
 
-let crisis = document.getElementById("crisis");
-crisis.addEventListener("click", crisisPopup);
+// let crisis = document.getElementById("crisis");
+// crisis.addEventListener("click", crisisPopup);
 
 function crisisPopup() {
     var popup = document.getElementById("myPopup");
