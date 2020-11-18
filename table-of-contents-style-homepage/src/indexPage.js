@@ -84,3 +84,13 @@ function updateDom() {
     // Add the saved bits to the end
     $('#table-of-contents').append(savedHtml);
 }
+
+//  The popup description appears when someone clicks the blue crisis text 
+
+let crisis = document.getElementById("crisis");
+crisis.addEventListener("click", crisisPopup);
+
+function crisisPopup() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+  }
