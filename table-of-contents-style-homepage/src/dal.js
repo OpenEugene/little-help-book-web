@@ -17,7 +17,7 @@ async function dalGetPlaceTable() {
     return {
       'id' : record.id,
       'name' : record.get('Name'),
-      'nameSpanish' : record.get('Name-ES'),
+      'name_es' : record.get('Name-ES'),
       'catSubcatId' : record.get('CatSubcat'),
       'city' : record.get('City'),
       'category' : record.get('Category'),
@@ -29,6 +29,7 @@ async function dalGetPlaceTable() {
       'url' : record.get('Web address'),
       'email' : record.get('Email Address'),
       'hours' : record.get('Hours of operation'),
+      'hours_es' : record.get('Hours of operation-es'),
       'description' : record.get('Description'),
       'wheelchair' : record.get('Wheelchair access (y)'),
       'languageHelp' : record.get('Language Help (y)')
@@ -51,7 +52,7 @@ async function dalGetCategoryTable() {
     return {
       'id' : record.id,
       'name' : record.get('Name'),
-      'nameSpanish' : record.get('Name-ES'),
+      'name_es' : record.get('Name-ES'),
       'subcategories' : subcategories,
     };
   });
@@ -69,7 +70,7 @@ async function dalGetSubcategoryTable() {
       'id' : record.id,
       'categoryId' : record.get('Category'),
       'name' : record.get('Name'),
-      'nameSpanish' : record.get('Name-ES'),
+      'name_es' : record.get('Name-ES'),
     };
   });
   return subcategoryTable;
@@ -104,7 +105,7 @@ async function dalGetCatSubcatTable() {
       'categoryId' : categoryId,
       'subcategoryId' : subcategoryId,
       'name' : subcategoryName,
-      'nameSpanish' : subcategoryNameSpanish,
+      'name_es' : subcategoryNameSpanish,
       'places' : []
     };
   });
