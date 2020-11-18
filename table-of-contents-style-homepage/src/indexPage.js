@@ -85,7 +85,8 @@ function updateDom() {
     $('#table-of-contents').append(savedHtml);
 }
 
-//  The popup description appears when someone clicks the blue crisis text 
+// The popup description appears when someone clicks the blue crisis text 
+// Not sure why the listener function didn't work, but using the onclick in the html does work 
 
 // let crisis = document.getElementById("crisis");
 // crisis.addEventListener("click", crisisPopup);
