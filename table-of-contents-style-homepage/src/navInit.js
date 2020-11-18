@@ -116,17 +116,21 @@ function initLanguage() {
     });
 }
 
+let theButton = document.querySelector('#languageToggle');
+theButton.addEventListener("click", toggleLanguage);
+
 function toggleLanguage() {
     console.log("toggleLanguage");
     let spanishStr = "Español";
     let englishStr = "English";
     let spanishCode = "es";
     let englishCode = "en";
-    let theButton = document.querySelector('#languageToggle');
     let buttonStr = theButton.innerHTML;
 
     let newLanguageCode = englishCode;
     let newLanguageStr = spanishStr;
+
+    
     if (buttonStr == "Español") {
         newLanguageCode = spanishCode;
         newLanguageStr = englishStr;
