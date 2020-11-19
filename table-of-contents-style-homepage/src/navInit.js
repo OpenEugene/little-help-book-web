@@ -104,6 +104,7 @@ function initLanguage() {
     placeTable.forEach(function(record) {
         record["hours_en"] = record["hours"];
         record["name_en"] = record["name"];
+        record["description_en"] = record["description"];
     });
     categoryTable.forEach(function(record) {
         record["name_en"] = record["name"];
@@ -120,17 +121,15 @@ let theButton = document.querySelector('#languageToggle');
 theButton.addEventListener("click", toggleLanguage);
 
 function toggleLanguage() {
-    console.log("toggleLanguage");
-    let spanishStr = "Español";
-    let englishStr = "English";
-    let spanishCode = "es";
-    let englishCode = "en";
+    // console.log("toggleLanguage");
+    const spanishStr = "Español";
+    const englishStr = "English";
+    const spanishCode = "es";
+    const englishCode = "en";
     let buttonStr = theButton.innerHTML;
 
     let newLanguageCode = englishCode;
     let newLanguageStr = spanishStr;
-
-    
     if (buttonStr == "Español") {
         newLanguageCode = spanishCode;
         newLanguageStr = englishStr;
@@ -140,6 +139,7 @@ function toggleLanguage() {
     placeTable.forEach(function(record) {
         record["hours"] = record["hours"+"_"+newLanguageCode];
         // record["name"] = record["name"+"_"+newLanguageCode];
+        record["description"] = record["description"+"_"+newLanguageCode];
     });
     categoryTable.forEach(function(record) {
         record["name"] = record["name"+"_"+newLanguageCode];

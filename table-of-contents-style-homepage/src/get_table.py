@@ -22,6 +22,7 @@ PLACE_TABLE_MAP = {
     'hours' : 'Hours of operation',
     'hours_es' : 'Hours of operation-ES',
     'description' : 'Description',
+    'description_es' : 'Description-ES',
     'wheelchair' : 'Wheelchair access (y)',
     'languageHelp' : 'Language Help (y)'
 }

@@ -8,7 +8,10 @@ const apiKey = "keyMmAL4mVBSORkGc";
 const base = new Airtable({apiKey: apiKey}).base('appj3UWymNh6FgtGR');
 
 async function dalGetPlaceTable() {
-  if (useCache) { console.log('CACHE'); return placesTableCached; }
+  if (useCache) {
+    // console.log('CACHE');
+    return placesTableCached;
+  }
   console.log('NO CACHE')
 
   const placeTableRaw = await dalGetTable('Help Services', base);
@@ -31,6 +34,7 @@ async function dalGetPlaceTable() {
       'hours' : record.get('Hours of operation'),
       'hours_es' : record.get('Hours of operation-es'),
       'description' : record.get('Description'),
+      'description_es' : record.get('Description-ES'),
       'wheelchair' : record.get('Wheelchair access (y)'),
       'languageHelp' : record.get('Language Help (y)')
     };
@@ -39,8 +43,11 @@ async function dalGetPlaceTable() {
 }
 
 async function dalGetCategoryTable() {
-  if (useCache) { console.log('CACHE'); return categoryTableCached; }
-  console.log('NO CACHE')
+  if (useCache) {
+    // console.log('CACHE');
+    return categoryTableCached;
+  }
+  // console.log('NO CACHE')
 
   const categoryTableRaw = await dalGetTable('Categories', base);
   categoryTableRaw.sort((a, b) => { compareNames(a,b); });
@@ -60,8 +67,11 @@ async function dalGetCategoryTable() {
 }
 
 async function dalGetSubcategoryTable() {
-  if (useCache) { console.log('CACHE'); return subcategoryTableCached; }
-  console.log('NO CACHE')
+  if (useCache) {
+    // console.log('CACHE');
+    return subcategoryTableCached;
+  }
+  // console.log('NO CACHE')
 
   const subcategoryTableRaw = await dalGetTable('Subcategories', base);
   subcategoryTableRaw.sort((a, b) => { compareNames(a,b); });
@@ -77,8 +87,11 @@ async function dalGetSubcategoryTable() {
 }
 
 async function dalGetCatSubcatTable() {
-  if (useCache) { console.log('CACHE'); return catSubcatTableCached; }
-  console.log('NO CACHE')
+  if (useCache) {
+    // console.log('CACHE');
+    return catSubcatTableCached;
+  }
+  // console.log('NO CACHE')
 
   const catSubcatTableRaw = await dalGetTable('CatSubcats', base);
   let catSubcatTable = catSubcatTableRaw.map(function(record) {
@@ -113,8 +126,11 @@ async function dalGetCatSubcatTable() {
 }
 
 async function dalGetCityTable() {
-  if (useCache) { console.log('CACHE'); return cityTableCached; }
-  console.log('NO CACHE')
+  if (useCache) {
+    // console.log('CACHE');
+    return cityTableCached;
+  }
+  // console.log('NO CACHE')
 
   const cityTableRaw = await dalGetTable('Cities', base);
   let cityTable = cityTableRaw.map(function(record) {
