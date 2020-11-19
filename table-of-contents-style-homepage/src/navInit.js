@@ -70,6 +70,9 @@ function initData(hasCat, hasSubcat, hasMap) {
 
         catSubcatTable = await dalGetCatSubcatTable();
 
+        initLanguage();
+        console.log(placeTable);
+
         /*
         Look at the URL search parameters. If they exist, pull them in and use
         them to inform the initial data on the page.
@@ -96,6 +99,60 @@ function initData(hasCat, hasSubcat, hasMap) {
         	subcatSelectEvent();
         }
     })()
+}
+
+function initLanguage() {
+    placeTable.forEach(function(record) {
+        record["hours_en"] = record["hours"];
+        record["name_en"] = record["name"];
+        record["description_en"] = record["description"];
+    });
+    categoryTable.forEach(function(record) {
+        record["name_en"] = record["name"];
+    });
+    subcatTable.forEach(function(record) {
+        record["name_en"] = record["name"];
+    });
+    catSubcatTable.forEach(function(record) {
+        record["name_en"] = record["name"];
+    });
+}
+
+let theButton = document.querySelector('#languageToggle');
+theButton.addEventListener("click", toggleLanguage);
+
+function toggleLanguage() {
+    // console.log("toggleLanguage");
+    const spanishStr = "Español";
+    const englishStr = "English";
+    const spanishCode = "es";
+    const englishCode = "en";
+    let buttonStr = theButton.innerHTML;
+
+    let newLanguageCode = englishCode;
+    let newLanguageStr = spanishStr;
+    if (buttonStr == "Español") {
+        newLanguageCode = spanishCode;
+        newLanguageStr = englishStr;
+    }
+    theButton.innerHTML = newLanguageStr;
+
+    placeTable.forEach(function(record) {
+        record["hours"] = record["hours"+"_"+newLanguageCode];
+        // record["name"] = record["name"+"_"+newLanguageCode];
+        record["description"] = record["description"+"_"+newLanguageCode];
+    });
+    categoryTable.forEach(function(record) {
+        record["name"] = record["name"+"_"+newLanguageCode];
+    });
+    subcatTable.forEach(function(record) {
+        record["name"] = record["name"+"_"+newLanguageCode];
+    });
+    catSubcatTable.forEach(function(record) {
+        record["name"] = record["name"+"_"+newLanguageCode];
+    });
+
+    updateDom();
 }
 
 // Create the appropriate event handlers for the select elements.

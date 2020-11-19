@@ -8,7 +8,7 @@ PLACE_TABLE_NAME = 'Help%20Services'
 PLACE_TABLE_VAR = 'placesTableCached'
 PLACE_TABLE_MAP = {
     'name' : 'Name',
-    'nameSpanish' : 'Name-ES',
+    'name_es' : 'Name-ES',
     'catSubcatId' : 'CatSubcat',
     'city' : 'City',
     'category' : 'Category',
@@ -20,7 +20,9 @@ PLACE_TABLE_MAP = {
     'url' : 'Web address',
     'email' : 'Email Address',
     'hours' : 'Hours of operation',
+    'hours_es' : 'Hours of operation-ES',
     'description' : 'Description',
+    'description_es' : 'Description-ES',
     'wheelchair' : 'Wheelchair access (y)',
     'languageHelp' : 'Language Help (y)'
 }
@@ -29,7 +31,7 @@ CATEGORY_TABLE_NAME = 'Categories'
 CATEGORY_TABLE_VAR = 'categoryTableCached'
 CATEGORY_TABLE_MAP = {
       'name' : 'Name',
-      'nameSpanish' : 'Name-ES',
+      'name_es' : 'Name-ES',
       'subcategories' : 'Subcategories',
 }
 
@@ -38,7 +40,7 @@ SUBCATEGORY_TABLE_VAR = 'subcategoryTableCached'
 SUBCATEGORY_TABLE_MAP = {
       'categoryId' : 'Category',
       'name' : 'Name',
-      'nameSpanish' : 'Name-ES',
+      'name_es' : 'Name-ES',
 }
 
 CATSUBCAT_TABLE_NAME = 'CatSubcats'
@@ -82,32 +84,10 @@ def make_record_catsubcat(record_in):
       'categoryId' : categoryId,
       'subcategoryId' : subcategoryId,
       'name' : subcategoryName,
-      'nameSpanish' : subcategoryNameSpanish,
+      'name_es' : subcategoryNameSpanish,
       'places' : []
     }
     return record_out
-
-#     let subcategoryId = record.get('Subcategory');
-#     let subcategoryName;
-#     let subcategoryNameSpanish;
-#     if (subcategoryId) {
-#       subcategoryId = subcategoryId[0];
-#       subcategoryName = record.get('SubcategoryString')[0];
-#       subcategoryNameSpanish = record.get('Subcategory-ES')[0];
-#     } else {
-#       subcategoryName = '';
-#       subcategoryNameSpanish = '';
-#     }
-#     return {
-#       'catSubcatId': catSubcatId,
-#       'catSubcatName': catSubcatName,
-#       'categoryId' : categoryId,
-#       'subcategoryId' : subcategoryId,
-#       'name' : subcategoryName,
-#       'nameSpanish' : subcategoryNameSpanish,
-#       'places' : []
-#     };
-#   });
 
 def table_map(table_name, table_raw, key_pairs):
     if table_name == CATSUBCAT_TABLE_NAME:

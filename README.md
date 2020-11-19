@@ -100,7 +100,7 @@ To be able to update the static asset, first make sure you can run python:
 Then each time you want to update the data, run the `src/getTable.py` python script: 
 - Open a terminal. 
 - Change directory (`cd`) to the `src` folder. 
-- Run the command `./getTable`. 
+- Run the command `./getTable.py`. 
 
 **Technical details:** The compiled data is stored in a javascript file called `cachedInlineTables.js`. This contains one json variable for each table (Help Services, Cities, and so on). The `getTable.py` script uses http requests to pull the tables from Airtable, and then creates the `cachedInlineTables.js` file. 
 

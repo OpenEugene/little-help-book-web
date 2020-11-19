@@ -59,6 +59,11 @@ option {
   margin: 0.3rem 0 0 0;
 }
 
+.spanish-button {
+  width: 5rem;
+  margin: 0.3rem 0.4rem 0 0.4rem;
+}
+
 .list-map-toggle  {
   margin: .3rem .3rem 0 0;
 }
@@ -231,6 +236,10 @@ option {
 
   .nav-buttons {
     margin: .7rem .4rem .7rem 0;
+  }
+
+  .spanish-button {
+    display: none;
   }
 
   .providers {
