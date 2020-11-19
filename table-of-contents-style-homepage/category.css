@@ -97,8 +97,7 @@ option {
 }
 
 .spanish-button {
-  width: 5rem;
-  margin: 0.3rem 0.4rem 0 0;
+  display: none;
 }
 
 .print {
@@ -293,6 +292,12 @@ input:checked + .slider:before {
   .spanish, .about {
     display: none;
   }
+
+  .spanish-button {
+    display: inline;
+    width: 5rem;
+    margin: 0.3rem 0.4rem 0 0;
+  }
 }
 
 @media screen and (max-width: 1240px) {
@@ -408,7 +413,7 @@ input:checked + .slider:before {
   body {
     padding-bottom: 0rem;
   }
-  
+
   .left-column, .right-column {
     margin-left: 2rem;
   }
