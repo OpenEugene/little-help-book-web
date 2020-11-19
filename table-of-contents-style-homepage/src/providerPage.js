@@ -3,7 +3,7 @@ let cityId;
 let catId;
 let subcatId;
 "use strict"
-$(document).ready(() => {initData(true, true, true); loadProviderInfo();});
+$(document).ready(() => {initData(true, true, true); loadProviderInfo(); replaceEvents();});
 
 function loadProviderInfo() {
     let urlParams = new URLSearchParams(window.location.search);
@@ -11,21 +11,20 @@ function loadProviderInfo() {
     cityId = (urlParams.has('city') ? urlParams.get('city') : 'NA');
     catId = (urlParams.has('category') ? urlParams.get('category') : 'NA');
     subcatId = (urlParams.has('subcategory') ? urlParams.get('subcategory') : 'NA');
-    replaceEvents();
     updateDom();
 }
 
 function replaceEvents() {
     let citybox = document.getElementById(cityboxId);
-    let catbox = document.getElementById(catboxId);
-    let subcatbox = document.getElementById(subcatboxId);
-
     citybox.removeEventListener("change", citySelectEvent);
-    catbox.removeEventListener("change", categorySelectEvent);
-    subcatbox.removeEventListener("change", subcatSelectEvent);
-
     citybox.addEventListener("change", redirect);
+
+    let catbox = document.getElementById(catboxId);
+    catbox.removeEventListener("change", categorySelectEvent);
     catbox.addEventListener("change", redirect);
+
+    let subcatbox = document.getElementById(subcatboxId);
+    subcatbox.removeEventListener("change", subcatSelectEvent);
     subcatbox.addEventListener("change", redirect);
 }
 
@@ -58,56 +57,6 @@ function redirect() {
 }
 
 function updateDom() {
-    /*
-    let availableCatSubcatIds = [];
-    let catSubcatPlaces = []
-    nbc.availablePlaces.forEach(record => {
-        record.catSubcatId.forEach(id => {
-            if (!availableCatSubcatIds.includes(id)) {
-                availableCatSubcatIds.push(id);
-                catSubcatPlaces.push([record]);
-            } else {
-                let index = availableCatSubcatIds.findIndex(value => value == id);
-                catSubcatPlaces[index].push(record);
-            }
-        })
-    });
-    let availableCatSubcats = [];
-    catSubcatTable.forEach(record => {
-        let proceed = true;
-        if (nbc.focused.category != 'NA') {
-            proceed = false;
-            if (record.categoryId == nbc.focused.category) {
-                proceed = true;
-            }
-            if (proceed) {
-                if (nbc.focused.subcat != 'NA') {
-                    proceed = false;
-                    if (record.subcategoryId == nbc.focused.subcat) {
-                        proceed = true;
-                    }
-                }
-            }
-        } else {
-            // This else clause is for the case where category is set to "All", and subcategory isn't, i.e.
-            // is set to something specific.
-            if (nbc.focused.subcat != 'NA') {
-                proceed = false;
-                if (record.subcategoryId == nbc.focused.subcat) {
-                    proceed = true;
-                }
-            }
-        }
-        if (proceed) {
-            if (availableCatSubcatIds.includes(record.catSubcatId)) {
-                let index = availableCatSubcatIds.findIndex(value => value == record.catSubcatId);
-                record.places = catSubcatPlaces[index];
-                availableCatSubcats.push(record);
-            }
-        }
-    });
-    */
-
     // Pasted from Airtable API for retrieving one provider record
     let providerData = placeTable.find(x => x.id === placeId);
 

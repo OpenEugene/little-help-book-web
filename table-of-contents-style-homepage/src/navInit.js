@@ -1,6 +1,7 @@
 const cityboxId = "citySelect";
 const catboxId = "catSelect";
 const subcatboxId = "subcatSelect";
+const cityboxMobId = "citySelect-mobile";
 var cityTable;
 var categoryTable;
 var subcatTable;
@@ -52,9 +53,9 @@ function initData(hasCat, hasSubcat, hasMap) {
         // Assign the appropriate events handlers to the select elements
         nbc.assignCitySelectEvent(cityboxId, citySelectEvent);
 
-        if (document.getElementById(cityboxId + "-mobile") != null) {
-            nbc.placeOptionElements(cityboxId + "-mobile", nbc.generateOptionElements(nbc.cities));
-            nbc.assignCitySelectEvent(cityboxId + "-mobile", citySelectEvent);    
+        if (document.getElementById(cityboxMobId) != null) {
+            nbc.placeOptionElements(cityboxMobId, nbc.generateOptionElements(nbc.cities));
+            nbc.assignCitySelectEvent(cityboxMobId, citySelectEvent);
         }
 
         if (hasCat) {
@@ -100,7 +101,12 @@ function initData(hasCat, hasSubcat, hasMap) {
 // Create the appropriate event handlers for the select elements.
 function citySelectEvent() {
     // find the city by id, and set the focused city to it.
-    nbc.focused.city = nbc.cities.find(x => x.id === document.getElementById(cityboxId).value).id;
+    if (this.id == cityboxId) {
+        nbc.focused.city = nbc.cities.find(x => x.id === document.getElementById(cityboxId).value).id;        
+    }
+    if (this.id == cityboxMobId) {
+        nbc.focused.city = nbc.cities.find(x => x.id === document.getElementById(cityboxMobId).value).id;
+    }
 
     // Reset the category selection back to "Select Category" when new city is selected.
     nbc.focused.category = "NA";
