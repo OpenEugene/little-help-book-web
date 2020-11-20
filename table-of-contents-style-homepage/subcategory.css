@@ -147,6 +147,7 @@ option {
 .provider-website {
   padding-top: .5rem;
   padding-bottom: 1rem;
+  word-break: break-all;
 }
 
 .provider-website>a:hover {
