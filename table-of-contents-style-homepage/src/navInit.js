@@ -158,11 +158,11 @@ function toggleLanguage() {
 // Create the appropriate event handlers for the select elements.
 function citySelectEvent() {
     // find the city by id, and set the focused city to it.
-    if (this.id == cityboxId) {
-        nbc.focused.city = nbc.cities.find(x => x.id === document.getElementById(cityboxId).value).id;        
-    }
     if (this.id == cityboxMobId) {
-        nbc.focused.city = nbc.cities.find(x => x.id === document.getElementById(cityboxMobId).value).id;
+        nbc.focused.city = nbc.cities.find(x => x.id === document.getElementById(cityboxMobId).value).id;        
+    }
+    else {
+        nbc.focused.city = nbc.cities.find(x => x.id === document.getElementById(cityboxId).value).id;
     }
 
     // Reset the category selection back to "Select Category" when new city is selected.
