@@ -4,10 +4,15 @@ function replaceEvents() {
     let citybox = document.getElementById(cityboxId);
     citybox.removeEventListener("change", citySelectEvent);
     citybox.addEventListener("change", redirect);
+    let cityboxMob = document.getElementById(cityboxMobId);
+    cityboxMob.removeEventListener("change", citySelectEvent);
+    cityboxMob.addEventListener("change", redirect);
 }
 
 function redirect() {
-    let cityValue = document.getElementById(cityboxId).value;
+    let cityValue = (this.id == cityboxMobId) ?
+        document.getElementById(cityboxMobId).value :
+            document.getElementById(cityboxId).value;
     let proto = window.location.protocol;
     let host = "";
     let filepath = "";
