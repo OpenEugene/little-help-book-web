@@ -2,6 +2,13 @@ const cityboxId = "citySelect";
 const catboxId = "catSelect";
 const subcatboxId = "subcatSelect";
 const cityboxMobId = "citySelect-mobile";
+
+const spanishStr = "Español";
+const englishStr = "English";
+const spanishCode = "es";
+const englishCode = "en";
+const localStorageVar = "lhbLang";
+
 var cityTable;
 var categoryTable;
 var subcatTable;
@@ -11,7 +18,10 @@ var nbc;
 var availData = {cat: false, subcat: false};
 "use strict"
 function initData(hasCat, hasSubcat, hasMap) {
-  // await has to be inside async function, anonymous in this case
+    if (!localStorage.getItem(localStorageVar)) {
+        localStorage.setItem(localStorageVar, englishCode);
+    }
+    // await has to be inside async function, anonymous in this case
     (async () => {
         /*
         Pull data from Airtable using the dal.js functions.
@@ -98,6 +108,7 @@ function initData(hasCat, hasSubcat, hasMap) {
         	document.getElementById(subcatboxId).value = subcatValue;
         	subcatSelectEvent();
         }
+        setLanguage();
     })()
 }
 
@@ -123,35 +134,37 @@ theButton.addEventListener("click", toggleLanguage);
 
 function toggleLanguage() {
     // console.log("toggleLanguage");
-    const spanishStr = "Español";
-    const englishStr = "English";
-    const spanishCode = "es";
-    const englishCode = "en";
-    let buttonStr = theButton.innerHTML;
-
-    let newLanguageCode = englishCode;
-    let newLanguageStr = spanishStr;
-    if (buttonStr == "Español") {
+    let languageCode = localStorage.getItem(localStorageVar);
+    newLanguageCode = englishCode;
+    if (languageCode == englishCode) {
         newLanguageCode = spanishCode;
-        newLanguageStr = englishStr;
     }
-    theButton.innerHTML = newLanguageStr;
+    localStorage.setItem(localStorageVar, newLanguageCode);
+    setLanguage();
+}
+
+function setLanguage() {
+    let languageCode = localStorage.getItem(localStorageVar);
+    let buttonStr = englishStr
+    if (languageCode == 'en') {
+        buttonStr = spanishStr
+    }
+    theButton.innerHTML = buttonStr;
 
     placeTable.forEach(function(record) {
-        record["hours"] = record["hours"+"_"+newLanguageCode];
-        // record["name"] = record["name"+"_"+newLanguageCode];
-        record["description"] = record["description"+"_"+newLanguageCode];
+        record["hours"] = record["hours"+"_"+languageCode];
+        // record["name"] = record["name"+"_"+languageCode];
+        record["description"] = record["description"+"_"+languageCode];
     });
     categoryTable.forEach(function(record) {
-        record["name"] = record["name"+"_"+newLanguageCode];
+        record["name"] = record["name"+"_"+languageCode];
     });
     subcatTable.forEach(function(record) {
-        record["name"] = record["name"+"_"+newLanguageCode];
+        record["name"] = record["name"+"_"+languageCode];
     });
     catSubcatTable.forEach(function(record) {
-        record["name"] = record["name"+"_"+newLanguageCode];
+        record["name"] = record["name"+"_"+languageCode];
     });
-
     updateDom();
 }
 
