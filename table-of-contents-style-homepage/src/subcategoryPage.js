@@ -50,10 +50,10 @@ mapOption.addEventListener("click", changeTextToMap);
 listOption.addEventListener("click", changeTextToList)
 
 function changeTextToMap() {
-    listButton.innerHTML = "map";
+    listButton.innerHTML = "Map";
 }
 function changeTextToList() {
-    listButton.innerHTML = "list";
+    listButton.innerHTML = "List";
 }
 
 // upon pressing print create a PDF and open the printer dialog box
