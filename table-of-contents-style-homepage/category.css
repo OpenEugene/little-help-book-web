@@ -240,7 +240,7 @@ input:checked + .slider:before {
   color: black;
   background-color: rgb(226, 226, 226);
   font-weight: bold;
-  padding: .5rem 0 .6rem;
+  padding: .5rem 0;
   font-size: 1.5rem;
   transition: 0.3s color ease-in-out;
   margin-right: 1rem;
