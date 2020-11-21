@@ -102,6 +102,7 @@ function initData(hasCat, hasSubcat, hasMap) {
         // Show the city-category-subcategory from the query in the navigation
         document.getElementById(cityboxId).value = cityValue;
         nbc.focused.city = cityValue;
+        localStorage.setItem(localStorageNavVar.city, cityValue);
         nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
         nbc.availableCategories = nbc.filterCategoryOptions();
         if (hasCat) {
@@ -121,6 +122,7 @@ function initData(hasCat, hasSubcat, hasMap) {
             }
         }
         nbc.focused.category = categoryValue;
+        localStorage.setItem(localStorageNavVar.cat, categoryValue);
         nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
         nbc.availableSubcats = nbc.filterSubcatOptions();
         if (availData.subcat) {
@@ -140,6 +142,7 @@ function initData(hasCat, hasSubcat, hasMap) {
             }
         }
         nbc.focused.subcat = subcatValue;
+        localStorage.setItem(localStorageNavVar.subcat, subcatValue);
         nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
         document.getElementById(cityboxId).value = cityValue;
         if (hasCat) {

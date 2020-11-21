@@ -71,7 +71,7 @@ class NavBreadcrumb {
 	// what's stored in this.focused.city
 	filterOnCity(dataset) {
 		let fc = this.focused.city;
-		return (fc != "NA" && !this.isNullOrZero(fc)) ?
+		return (fc != "NA" && !this.isNullOrZero(fc)) ? 
 			dataset.filter(x => { return (x.city != null) ? x.city.includes(fc) : true; })
 				.sort((a, b) => {
 					if (a.city != null && b.city == null) {
