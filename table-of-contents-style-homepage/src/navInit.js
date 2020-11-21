@@ -7,7 +7,8 @@ const spanishStr = "Español";
 const englishStr = "English";
 const spanishCode = "es";
 const englishCode = "en";
-const localStorageVar = "lhbLang";
+const localStorageLangVar = "lhbLang";
+const localStorageNavVar = {city: "city", cat: "cat", subcat: "subcat"}
 
 var cityTable;
 var categoryTable;
@@ -18,8 +19,8 @@ var nbc;
 var availData = {cat: false, subcat: false};
 "use strict"
 function initData(hasCat, hasSubcat, hasMap) {
-    if (!localStorage.getItem(localStorageVar)) {
-        localStorage.setItem(localStorageVar, englishCode);
+    if (!localStorage.getItem(localStorageLangVar)) {
+        localStorage.setItem(localStorageLangVar, englishCode);
     }
     // await has to be inside async function, anonymous in this case
     (async () => {
@@ -81,33 +82,73 @@ function initData(hasCat, hasSubcat, hasMap) {
         catSubcatTable = await dalGetCatSubcatTable();
 
         initLanguage();
-        console.log(placeTable);
 
         /*
         Look at the URL search parameters. If they exist, pull them in and use
         them to inform the initial data on the page.
         */
         let urlParams = new URLSearchParams(window.location.search);
-        let cityValue = (urlParams.has('city') ? urlParams.get('city') : 'NA');
-        let categoryValue;
-        let subcatValue;
 
+        let cityValue = 'NA';
+        if (urlParams.has('city')) {
+            cityValue = urlParams.get('city');
+        }
+        else {
+            let tempCity = localStorage.getItem(localStorageNavVar.city);
+            if (tempCity) {
+                cityValue = tempCity;
+            }
+        }
         // Show the city-category-subcategory from the query in the navigation
         document.getElementById(cityboxId).value = cityValue;
-        citySelectEvent();
-        
-
+        nbc.focused.city = cityValue;
+        nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
+        nbc.availableCategories = nbc.filterCategoryOptions();
         if (hasCat) {
-            categoryValue = (urlParams.has('category') ? urlParams.get('category') : 'NA')
-            document.getElementById(catboxId).value = categoryValue;
-            categorySelectEvent();
+            nbc.placeOptionElements(catboxId, nbc.generateOptionElements(nbc.availableCategories));   
         }
 
-        if (hasSubcat) {
-            subcatValue = (urlParams.has('subcategory') ? urlParams.get('subcategory') : 'NA');
-        	document.getElementById(subcatboxId).value = subcatValue;
-        	subcatSelectEvent();
+        let categoryValue = 'NA';
+        if (hasCat) {
+            if (urlParams.has('category')) {
+                categoryValue = urlParams.get('category');
+            }
+            else {
+                let temp = localStorage.getItem(localStorageNavVar.cat);
+                if (temp) {
+                    categoryValue = temp;
+                }
+            }
         }
+        nbc.focused.category = categoryValue;
+        nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
+        nbc.availableSubcats = nbc.filterSubcatOptions();
+        if (availData.subcat) {
+            nbc.placeOptionElements(subcatboxId, nbc.generateOptionElements(nbc.availableSubcats));
+        }
+
+        let subcatValue = 'NA';
+        if (hasSubcat) {
+            if (urlParams.has('subcategory')) {
+                subcatValue = urlParams.get('subcategory');
+            }
+            else {
+                let temp = localStorage.getItem(localStorageNavVar.subcat);
+                if (temp) {
+                    subcatValue = temp;
+                }
+            }
+        }
+        nbc.focused.subcat = subcatValue;
+        nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
+        document.getElementById(cityboxId).value = cityValue;
+        if (hasCat) {
+            document.getElementById(catboxId).value = categoryValue;
+        }
+        if (hasSubcat) {
+            document.getElementById(subcatboxId).value = subcatValue;
+        }
+        updateDom();
         setLanguage();
     })()
 }
@@ -134,17 +175,17 @@ theButton.addEventListener("click", toggleLanguage);
 
 function toggleLanguage() {
     // console.log("toggleLanguage");
-    let languageCode = localStorage.getItem(localStorageVar);
+    let languageCode = localStorage.getItem(localStorageLangVar);
     newLanguageCode = englishCode;
     if (languageCode == englishCode) {
         newLanguageCode = spanishCode;
     }
-    localStorage.setItem(localStorageVar, newLanguageCode);
+    localStorage.setItem(localStorageLangVar, newLanguageCode);
     setLanguage();
 }
 
 function setLanguage() {
-    let languageCode = localStorage.getItem(localStorageVar);
+    let languageCode = localStorage.getItem(localStorageLangVar);
     let buttonStr = englishStr
     if (languageCode == 'en') {
         buttonStr = spanishStr
@@ -182,6 +223,10 @@ function citySelectEvent() {
     nbc.focused.category = "NA";
     // Reset the subcat selection back to all when city is changed.
     nbc.focused.subcat = "NA";
+
+    localStorage.setItem(localStorageNavVar.city, nbc.focused.city);
+    localStorage.setItem(localStorageNavVar.cat, nbc.focused.category);
+    localStorage.setItem(localStorageNavVar.subcat, nbc.focused.subcat);
     /*
     This function chain checks for a selected city, category and subcategory.
     It then will filter the list of places on the selected items.
@@ -204,6 +249,8 @@ function categorySelectEvent() {
     nbc.focused.category = nbc.categories.find(x => x.id === document.getElementById(catboxId).value).id;
     // Reset the subcat selection back to all when category is changed.
     nbc.focused.subcat = "NA";
+    localStorage.setItem(localStorageNavVar.cat, nbc.focused.category);
+    localStorage.setItem(localStorageNavVar.subcat, nbc.focused.subcat);
     /*
     This function chain checks for a selected city, category and subcategory.
     It then will filter the list of places on the selected items.
@@ -227,6 +274,7 @@ function subcatSelectEvent() {
         //Update the category listbox
         document.getElementById(catboxId).value = catId;
         nbc.focused.category = catId;
+        localStorage.setItem(localStorageNavVar.subcat, nbc.focused.subcat);
     }
 
     /*
