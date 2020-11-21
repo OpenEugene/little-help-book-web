@@ -13,6 +13,7 @@
         });
         searchWrapper.classList.remove('hidden');
         // NOTE: We should probably focus the search input field here
+        searchInput.focus();
       } else {
         searchToggles.forEach(t => {
           t.classList.remove('searchIsActive');
