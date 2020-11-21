@@ -111,12 +111,6 @@ option {
 
 /* end desktop styles, begin responsive transition to tablet */
 
-@media screen and (max-width: 1640px) {
-  .spanish, .about {
-    display: none;
-  }
-}
-
 @media screen and (max-width: 1240px) {
 
   .little-help-book {
@@ -137,10 +131,6 @@ option {
 
   .breadcrumb-box {
     display: none;
-  }
-
-  .spanish, .about {
-    display: inline;
   }
 
   body {

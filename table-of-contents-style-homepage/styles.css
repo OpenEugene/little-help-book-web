@@ -28,21 +28,22 @@ header {
   font-size: 1rem;
   font-weight: bold;
   margin: 0 0 2.25rem;
-  padding: 0.5rem 1.5rem;
+  padding: 0.45rem 1.5rem;
 }
 
 .desktop-logo {
-  height: 4rem;
-  width: 4rem;
+  height: 3.25rem;
+  width: 3.25rem;
   margin-right: 1em;
-  margin-top: .4rem;
-  margin-bottom: .2rem;
+  margin-top: .5rem;
+  margin-bottom: .3rem;
 }
 
 .little-help-book {
-  font-size: 2rem;
+  font-size: 1.5rem;
   white-space: nowrap;
   margin: 0;
+  margin-top: .1rem;
 }
 
 .h123-reset {
@@ -68,6 +69,7 @@ header {
   color: rgb(226, 226, 226);
   white-space: nowrap;
   font-size: 1rem;
+  margin-top: .1rem;
 }
 
 .find-my-city:hover {
@@ -117,6 +119,7 @@ header {
   /* description is a class to style the text "Human Services Resource Directory"  */
 .description {
   white-space: nowrap;
+  margin-top: .1rem;
 }
 
 @media screen and (max-width: 1340px) {
@@ -130,6 +133,7 @@ header {
   align-items: center;
   display: flex;
   justify-content: space-between;
+  margin-top: .1rem;
 }
 
 .header-nav-item {
@@ -160,6 +164,7 @@ header .search input {
   background-color: #e2e2e2;
   border-radius: 8px;
   border: none;
+  box-sizing: border-box;
 }
 
 .spanish:hover {

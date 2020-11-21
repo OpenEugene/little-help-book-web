@@ -54,7 +54,7 @@ option {
 }
 
 .category-page-name {
-  font-size: 2rem;
+  font-size: 1.9rem;
   font-weight: bold;
   white-space: nowrap;
 }
@@ -94,10 +94,6 @@ option {
   border-radius: 8px;
   border-style: solid;
   margin: 0.3rem 0 0 0;
-}
-
-.spanish-button {
-  display: none;
 }
 
 .print {
@@ -287,18 +283,6 @@ input:checked + .slider:before {
 }
 
 /* end desktop styles, begin responsive transition to tablet */
-
-@media screen and (max-width: 1640px) {
-  .spanish, .about {
-    display: none;
-  }
-
-  .spanish-button {
-    display: inline;
-    width: 5rem;
-    margin: 0.3rem 0.4rem 0 0;
-  }
-}
 
 @media screen and (max-width: 1240px) {
 
