@@ -101,6 +101,10 @@ option {
   background-color: #f1f1f1;
 }
 
+.print:active {
+  transform: translateY(.1rem);
+}
+
 .print {
   margin-left: auto;
 }

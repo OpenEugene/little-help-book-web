@@ -64,6 +64,10 @@ option {
   background-color: #f1f1f1;
 }
 
+.print:active {
+  transform: translateY(.1rem);
+}
+
 .list-map-toggle  {
   margin: .3rem .3rem 0 0;
 }
