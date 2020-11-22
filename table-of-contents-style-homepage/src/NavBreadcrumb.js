@@ -45,7 +45,7 @@ class NavBreadcrumb {
 			}
 			return [x(), y()];
 		}
-		return null;
+		return [44.0521,-123.0868];
 	}
 
 	// Generates multiple option elements
