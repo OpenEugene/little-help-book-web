@@ -153,6 +153,7 @@ header {
   border: none;
   white-space: nowrap;
   transition: 0.3s color ease-in-out;
+  cursor: pointer;
 }
 
 header .search input {
