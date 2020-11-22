@@ -60,6 +60,10 @@ option {
   cursor: pointer;
 }
 
+.button-style:hover {
+  background-color: #f1f1f1;
+}
+
 .list-map-toggle  {
   margin: .3rem .3rem 0 0;
 }

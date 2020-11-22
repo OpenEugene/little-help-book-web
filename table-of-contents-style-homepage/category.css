@@ -97,6 +97,10 @@ option {
   cursor: pointer;
 }
 
+.button-style:hover {
+  background-color: #f1f1f1;
+}
+
 .print {
   margin-left: auto;
 }
