@@ -117,6 +117,22 @@ class NavBreadcrumb {
 					.filter((value, index, self) => self.indexOf(value) === index).includes(x.id)) : this.categories;
 	}
 
+	// Example of filtering using a search. Needs to have a value to test against in searchPhrase
+	filterSearch(dataset) {
+		let searchPhrase;
+		let filterFunc = (p) => {
+			if (p.name.includes(searchPhrase)) {
+				return true;
+			}
+			if (p.description.includes(searchPhrase)) {
+				return true;
+			}
+			return false;
+		}
+		return (!this.isNullOrZero(searchPhrase)) ?
+			this.places.filter(x => filterFunc(x)) : dataset;
+	}
+
 	// Assigns proper function to the City select box.
 	assignCitySelectEvent(elementId, newEvent) {
 		document.getElementById(elementId).addEventListener("change", newEvent);
