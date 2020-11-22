@@ -94,6 +94,7 @@ option {
   border-radius: 8px;
   border-style: solid;
   margin: 0.3rem 0 0 0;
+  cursor: pointer;
 }
 
 .print {
