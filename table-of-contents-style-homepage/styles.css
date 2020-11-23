@@ -168,6 +168,10 @@ header .search input {
   box-sizing: border-box;
 }
 
+.spanish {
+  width: 4.9rem;
+}
+
 .spanish:hover {
   color: white;
 }
