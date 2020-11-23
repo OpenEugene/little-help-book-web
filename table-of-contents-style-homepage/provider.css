@@ -52,6 +52,7 @@ option {
 .provider-description {
   line-height: 1.5rem;
   padding-bottom: .6rem;
+  width: 50%;
 }
 
 .provider-info {
@@ -146,6 +147,10 @@ option {
   }
 
   .provider-name {
+    width: 100%;
+  }
+
+  .provider-description {
     width: 100%;
   }
 
