@@ -32,7 +32,6 @@ function replaceEvents() {
     let subcatbox = document.getElementById(subcatboxId);
     subcatbox.removeEventListener("change", subcatSelectEvent);
     subcatbox.addEventListener("change", redirect);
-    console.log("inside of replaceEvents");
 }
 
 function redirect() {

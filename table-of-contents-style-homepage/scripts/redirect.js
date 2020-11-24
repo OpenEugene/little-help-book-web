@@ -18,14 +18,15 @@ function redirect() {
     let filepath = "";
     let params = "?city=" + cityValue;
     let isFile = proto == "file:";
+    let currPage = window.location.href.split("/").pop();
 
     if (isFile) {
-        host = window.location.pathname.replace("/about.html", "");
+        host = window.location.pathname.replace(currPage, "");
     } else {
         filepath = "/table-of-contents-style-homepage";
         host = window.location.hostname;
     }
-    filepath += "/index.html"
+    filepath += "index.html"
     if (isFile) {
         window.location.replace(proto + "//" + host + filepath + params);
     } else {
