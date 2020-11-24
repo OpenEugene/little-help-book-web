@@ -18,12 +18,12 @@ var catSubcatTable;
 var nbc;
 var availData = {cat: false, subcat: false};
 "use strict"
-function initData(hasCat, hasSubcat, hasMap) {
+async function initData(hasCat, hasSubcat, hasMap) {
     if (!localStorage.getItem(localStorageLangVar)) {
         localStorage.setItem(localStorageLangVar, englishCode);
     }
     // await has to be inside async function, anonymous in this case
-    (async () => {
+    await (async () => {
         /*
         Pull data from Airtable using the dal.js functions.
         Also, populate additional elements at the top of each list to
@@ -153,7 +153,8 @@ function initData(hasCat, hasSubcat, hasMap) {
         }
         updateDom();
         setLanguage();
-    })()
+        console.log("inside of async Event");
+    })();
 }
 
 function initLanguage() {

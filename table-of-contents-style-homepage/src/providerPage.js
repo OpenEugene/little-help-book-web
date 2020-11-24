@@ -3,7 +3,13 @@ let cityId;
 let catId;
 let subcatId;
 "use strict"
-$(document).ready(() => {initData(true, true, true); loadProviderInfo(); replaceEvents();});
+$(document).ready(init);
+
+async function init() {
+    loadProviderInfo();
+    await initData(true, true, true);
+    replaceEvents();
+}
 
 function loadProviderInfo() {
     let urlParams = new URLSearchParams(window.location.search);
@@ -11,7 +17,7 @@ function loadProviderInfo() {
     cityId = (urlParams.has('city') ? urlParams.get('city') : 'NA');
     catId = (urlParams.has('category') ? urlParams.get('category') : 'NA');
     subcatId = (urlParams.has('subcategory') ? urlParams.get('subcategory') : 'NA');
-    updateDom();
+    console.log("inside of loadProviderInfo");
 }
 
 function replaceEvents() {
@@ -26,12 +32,16 @@ function replaceEvents() {
     let subcatbox = document.getElementById(subcatboxId);
     subcatbox.removeEventListener("change", subcatSelectEvent);
     subcatbox.addEventListener("change", redirect);
+    console.log("inside of replaceEvents");
 }
 
 function redirect() {
     let cityValue = document.getElementById(cityboxId).value;
-    let catValue = document.getElementById(catboxId).value;
-    let subcatValue = document.getElementById(subcatboxId).value;
+    let catValue = (this.id != cityboxId) ? document.getElementById(catboxId).value : "NA";
+    let subcatValue = (this.id == subcatboxId) ? document.getElementById(subcatboxId).value : "NA";
+    localStorage.setItem("city", cityValue);
+    localStorage.setItem("cat", catValue);
+    localStorage.setItem("subcat", subcatValue);
     let proto = window.location.protocol;
     let host = "";
     let filepath = "";
@@ -58,7 +68,7 @@ function redirect() {
 
 function updateDom() {
     // Pasted from Airtable API for retrieving one provider record
-    let providerData = placeTable.find(x => x.id === placeId);
+    let providerData = nbc.places.find(x => x.id === placeId);
 
     // Handlebars boilerplate
     // Grab the template script
