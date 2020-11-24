@@ -418,6 +418,10 @@ main {
     margin-right: 2rem;
   }
 
+  .spanish {
+    width: 100%;
+  }
+
   main {
     columns: auto;
   }
