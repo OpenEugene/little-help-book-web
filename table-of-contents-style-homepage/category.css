@@ -302,6 +302,10 @@ input:checked + .slider:before {
 
 @media screen and (max-width: 1056px) {
 
+  html {
+    height: inherit;
+  }
+  
   .little-help-book {
     display: inline;
   }
