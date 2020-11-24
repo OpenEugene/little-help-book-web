@@ -52,6 +52,7 @@ option {
 .provider-description {
   line-height: 1.5rem;
   padding-bottom: .6rem;
+  width: 50%;
 }
 
 .provider-info {
@@ -81,14 +82,15 @@ option {
   border-radius: 8px;
   border-style: solid;
   margin: 0.3rem 0 0 0;
+  cursor: pointer;
 }
 
-.right-button {
-
+.button-style:hover {
+  background-color: #f1f1f1;
 }
 
-.print-page {
-
+.button-style:active {
+  transform: translateY(.1rem);
 }
 
 .update-button, .print-page {
@@ -145,6 +147,10 @@ option {
   }
 
   .provider-name {
+    width: 100%;
+  }
+
+  .provider-description {
     width: 100%;
   }
 

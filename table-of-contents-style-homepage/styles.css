@@ -153,6 +153,7 @@ header {
   border: none;
   white-space: nowrap;
   transition: 0.3s color ease-in-out;
+  cursor: pointer;
 }
 
 header .search input {
@@ -165,6 +166,10 @@ header .search input {
   border-radius: 8px;
   border: none;
   box-sizing: border-box;
+}
+
+.spanish {
+  width: 4.9rem;
 }
 
 .spanish:hover {
