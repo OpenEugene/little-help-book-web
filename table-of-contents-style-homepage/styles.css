@@ -205,6 +205,8 @@ main {
 
 .category-name {
   padding: 0 0 .75rem 0;
+  display: inline-block;
+  width: 100%;
 }
 
 .category-name>a {
