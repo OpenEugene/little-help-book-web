@@ -28,6 +28,12 @@ header {
   margin-bottom: 0;
 }
 
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .breadcrumb {
   width: 16.8rem;
 }
@@ -305,7 +311,7 @@ input:checked + .slider:before {
   html {
     height: inherit;
   }
-  
+
   .little-help-book {
     display: inline;
   }
@@ -339,6 +345,7 @@ input:checked + .slider:before {
 
   .inner-container {
     flex-direction: column;
+    flex-grow: 1;
   }
 
   .dropdown, .print {
