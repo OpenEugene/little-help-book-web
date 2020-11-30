@@ -674,6 +674,7 @@ main {
 .search-form {
   margin-left: auto;
   margin-right: auto;
+  margin-top: 1.35rem;
   max-width: 100%;
   padding: 0 3.5rem 1rem 3.5rem;
   text-align: left;
@@ -685,6 +686,7 @@ main {
   text-align: center;
   width: 100%;
   z-index: 10;
+  top: 5.25rem;
 }
 
 .search-wrapper:active {
@@ -744,6 +746,10 @@ main {
 
 @media screen and (max-width: 1056px) {
 
+  .search-wrapper {
+    top: 8.8rem;
+  }
+
   .search-toggle {
     height: 24px !important;
     width: 24px !important;
@@ -769,6 +775,10 @@ main {
 }
 
 @media screen and (max-width: 640px) {
+
+  .search-wrapper {
+    top: 9.9rem;
+  }
 
   .search-form {
     padding: 0 1.9rem 1rem 1.9rem;

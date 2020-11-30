@@ -32,10 +32,6 @@ option {
   font-size: 1rem;
 }
 
-.search-form {
-  margin-top: 2.25rem;
-}
-
 .inner-container {
   display: flex;
   flex-grow: 1;
@@ -314,10 +310,6 @@ input:checked + .slider:before {
 
   .spanish, .about {
     display: inline;
-  }
-
-  .search-form {
-    margin-top: 0;
   }
 
   .left-column {

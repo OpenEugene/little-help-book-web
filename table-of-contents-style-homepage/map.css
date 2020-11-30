@@ -41,10 +41,6 @@ header {
   background-color: #3e8e41;
 }
 
-.search-form {
-  margin-top: 2.25rem;
-}
-
 #map {
   width: 82%;
   height: 100%;
@@ -89,10 +85,6 @@ header {
 
   .spanish, .about {
     display: inline;
-  }
-
-  .search-form {
-    margin-top: 0rem;
   }
 
   .fullscreen-map {
