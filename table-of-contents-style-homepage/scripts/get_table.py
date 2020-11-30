@@ -4,6 +4,7 @@ HEADERS = {'Authorization' : 'Bearer key1agtUnabRLb2LS'}
 BASE_URL = 'https://api.airtable.com/v0/appj3UWymNh6FgtGR/'
 VIEW = 'view=Grid%20view'
 
+# Values related to the place table
 PLACE_TABLE_NAME = 'Help%20Services'
 PLACE_TABLE_VAR = 'placesTableCached'
 PLACE_TABLE_MAP = {
@@ -27,6 +28,7 @@ PLACE_TABLE_MAP = {
     'languageHelp' : 'Language Help (y)'
 }
 
+# Values related to the Category table
 CATEGORY_TABLE_NAME = 'Categories'
 CATEGORY_TABLE_VAR = 'categoryTableCached'
 CATEGORY_TABLE_MAP = {
@@ -35,6 +37,7 @@ CATEGORY_TABLE_MAP = {
       'subcategories' : 'Subcategories',
 }
 
+# Values related to the Subcategory table
 SUBCATEGORY_TABLE_NAME = 'Subcategories'
 SUBCATEGORY_TABLE_VAR = 'subcategoryTableCached'
 SUBCATEGORY_TABLE_MAP = {
@@ -43,17 +46,20 @@ SUBCATEGORY_TABLE_MAP = {
       'name_es' : 'Name-ES',
 }
 
+# Values related to the CatSubcat table
 CATSUBCAT_TABLE_NAME = 'CatSubcats'
 CATSUBCAT_TABLE_VAR = 'catSubcatTableCached'
 # Cat Subcat handled specially, so doesn't use table map.
 CATSUBCAT_TABLE_MAP = {}
 
+# Values related to the Cities table
 CITY_TABLE_NAME = 'Cities'
 CITY_TABLE_VAR = 'cityTableCached'
 CITY_TABLE_MAP = {
       'name' : 'Name',
 }
 
+# Make a record in our desired output format
 def make_record(record_in, key_pairs):
     record_out = {}
     record_out["id"] = record_in["id"]
@@ -65,6 +71,8 @@ def make_record(record_in, key_pairs):
             record_out[new_key] = record_in['fields'][old_key]
     return record_out
 
+# Make a record in our desired output format -- special handling for 
+# special CatSubcat features
 def make_record_catsubcat(record_in):
     catSubcatId = record_in["id"]
     catSubcatName = record_in['fields']['Name']
@@ -89,6 +97,8 @@ def make_record_catsubcat(record_in):
     }
     return record_out
 
+# Use map to convert a table to the form we want. Note the special code for the 
+# CatSubcat table because it is structured a little different from the others.
 def table_map(table_name, table_raw, key_pairs):
     if table_name == CATSUBCAT_TABLE_NAME:
         table = map(lambda record: make_record_catsubcat(record), table_raw)
@@ -97,6 +107,7 @@ def table_map(table_name, table_raw, key_pairs):
     table = list(table)
     return table
 
+# Air table only allows pages of up to 100 records at a time. This gets a page
 def get_page(url):
     r = requests.get(url, headers=HEADERS)
     data = r.json()
@@ -107,18 +118,20 @@ def get_page(url):
     return records, offset
 
 def do_table(table_name, mapping, var_name, f):
-    # get the table data from air table
+    # Get the table data from air table
     table_url = BASE_URL+table_name
     page, offset = get_page(table_url+'?'+VIEW)
     table_raw = page
+    # Air table only allows 100 records at a time, so loop to get them all
     while offset:
         page, offset = get_page(table_url+'?offset='+offset+'&'+VIEW)
         table_raw.extend(page)
-    # map it into the form we need
+    # Map it into the form we need
     table = table_map(table_name, table_raw, mapping)
-    # write it into the javascript file
+    # Write it into the javascript file
     print('const', var_name, '=', table, ';', file=f)
 
+# Process each table
 f = open('cachedInlineTables.js', 'w')
 do_table(PLACE_TABLE_NAME, PLACE_TABLE_MAP, PLACE_TABLE_VAR, f)
 do_table(CATEGORY_TABLE_NAME, CATEGORY_TABLE_MAP, CATEGORY_TABLE_VAR, f)
