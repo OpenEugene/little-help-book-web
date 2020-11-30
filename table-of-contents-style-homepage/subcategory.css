@@ -5,20 +5,27 @@ a {
 
 main {
   columns: auto;
+  flex-grow: 1;
 }
 
 header {
   margin-bottom: 0;
 }
 
-.breadcrumb {
-  width: 16.8rem;
-}
-
 option {
   background-color: white;
   color: black;
   font-size: 1rem;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.breadcrumb {
+  width: 16.8rem;
 }
 
 .search-form {
