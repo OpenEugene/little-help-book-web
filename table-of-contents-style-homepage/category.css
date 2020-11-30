@@ -3,12 +3,6 @@ html {
   box-sizing: border-box;
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-
 body {
   position: relative;
   padding-bottom: 7rem;
@@ -416,6 +410,10 @@ input:checked + .slider:before {
 
   body {
     padding-bottom: 0rem;
+  }
+
+  header {
+    padding: 2rem 0.6rem;
   }
 
   .left-column, .right-column {
