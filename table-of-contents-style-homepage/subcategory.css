@@ -280,7 +280,7 @@ option {
 @media screen and (max-width: 640px) {
 
   header {
-    padding: 0.5rem 0.6rem;
+    padding: 2rem 0.6rem;
   }
 
   .bottom-of-menu {
