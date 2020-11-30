@@ -747,7 +747,11 @@ main {
 @media screen and (max-width: 1056px) {
 
   .search-wrapper {
-    top: 8.8rem;
+    top: 8.5rem;
+  }
+
+  .search-form {
+    margin-top: 0.5rem;
   }
 
   .search-toggle {
