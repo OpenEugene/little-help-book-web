@@ -1,7 +1,7 @@
 *,
 *:before,
 *:after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 header, main, body {
@@ -545,7 +545,7 @@ main {
   .desktop-logo {
     height: 42px;
     width: 42px;
-    margin: 0.55rem 0 .4rem 0.65rem;
+    margin: 0.55rem 0 .4rem 0.35rem;
   }
 
   header {
