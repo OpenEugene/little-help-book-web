@@ -3,6 +3,7 @@
   const searchWrapper = document.getElementById('searchWrapper');
   const searchInput   = document.getElementById('searchInput');
   let searchToggles   = document.querySelectorAll(".search-toggle");
+  let searchButton = document.getElementsByClassName("search-button")[0];
 
   searchToggles.forEach(toggle => {
     toggle.addEventListener('click', event => {
@@ -24,4 +25,30 @@
     });
   });
 
-})();
+  searchButton.addEventListener('click', () => {
+    console.log(filterSearch(nbc.places));
+  });
+})()
+
+// Example of filtering using a search. Needs to have a value to test against in searchPhrase
+function filterSearch(dataset) {
+  let searchPhrase = document.getElementById("searchInput").value;
+  let charArray = ['.', ',', '-'];
+  charArray.forEach(c => searchPhrase.replace(c, ' '));
+  let searchWords = searchPhrase.split(' ');
+  for (let i = 0; i < searchWords.length; i++) {
+    searchWords[i] = searchWords[i].trim();
+  }
+  console.log(searchWords);
+  // 'p' represents a place being passed into this function.
+  let filterFunc = (p) => {
+    for (let i = 0; i < searchWords.length; i++) {
+      if (!p.name.includes(searchWords[i]) && !p.description.includes(searchWords[i])) {
+        return false;
+      }
+    }
+    return true;
+  }
+  return (searchPhrase != "") ?
+    nbc.places.filter(p => filterFunc(p)) : dataset;
+}
