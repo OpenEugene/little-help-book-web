@@ -2,18 +2,13 @@
 $(document).ready(initData(true, true, true));
 
 function updateDom() {
-    let urlParams = new URLSearchParams(window.location.search);
-    let searchParams = (urlParams.has("search")) ? urlParams.get("search") : 'NA';
-    if (searchParams != 'NA') {
-        nbc.availablePlaces = filterSearch(searchParams.replaceAll("%20", " "), nbc.places);
-    }
     // Change the subcategory focused in the body
     document.getElementsByClassName("category-page-name")[0].innerHTML = nbc.subcats.find(x => x.id === nbc.focused.subcat).name;
 
     // If a map is passed into the navigation class, update the markers
     if (nbc.mymap != null) {
         setMarkers(nbc.availablePlaces);
-        if (nbc.focused.city == "NA" || searchParams != 'NA') {
+        if (nbc.focused.city == "NA") {
             setView(nbc.viewCoordinates, 10);
         } else {
             setView(nbc.viewCoordinates);
