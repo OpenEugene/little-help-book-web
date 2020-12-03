@@ -2,6 +2,11 @@
 $(document).ready(initData(true, true, true));
 
 function updateDom() {
+    let urlParams = new URLSearchParams(window.location.search);
+    let searchParams = (urlParams.has("search")) ? urlParams.get("search") : 'NA';
+    if (searchParams != 'NA') {
+        nbc.availablePlaces = filterSearch(searchParams.replaceAll("%20", " "), nbc.places);
+    }
     // Change the subcategory focused in the body
     document.getElementsByClassName("category-page-name")[0].innerHTML = nbc.subcats.find(x => x.id === nbc.focused.subcat).name;
 

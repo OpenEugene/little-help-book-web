@@ -26,13 +26,46 @@
   });
 
   searchButton.addEventListener('click', () => {
-    console.log(filterSearch(nbc.places));
+    let searchPhrase = document.getElementById("searchInput").value;
+    if (onSubcatPage()) {
+      nbc.availablePlaces = filterSearch(searchPhrase, nbc.places);
+      updateDom();
+    } else {
+      redirectToSubCat(searchPhrase);
+    }
   });
 })()
 
+function onSubcatPage() {
+  return (window.location.href.includes("/subcategory.html")) ? true : false;
+}
+
+function redirectToSubCat(searchPhrase) {
+  let proto = window.location.protocol;
+  let host = "";
+  let filepath = "";
+  let params = "?search=" + searchPhrase;
+  let isFile = proto == "file:";
+  let currPage = window.location.href.split("/").pop().split("?")[0];
+
+  if (isFile) {
+    console.log(currPage);
+    host = window.location.pathname.replace(currPage, "");
+    console.log(host);
+  } else {
+    filepath = "/table-of-contents-style-homepage";
+    host = window.location.hostname;
+  }
+  filepath += "/subcategory.html";
+  if (isFile) {
+    window.location.replace(proto + "//" + host + filepath + params);
+  } else {
+    window.location.replace(filepath + params);
+  }
+}
+
 // Example of filtering using a search. Needs to have a value to test against in searchPhrase
-function filterSearch(dataset) {
-  let searchPhrase = document.getElementById("searchInput").value;
+function filterSearch(searchPhrase, dataset) {
   let charArray = ['.', ',', '-'];
   charArray.forEach(c => searchPhrase.replace(c, ' '));
   let searchWords = searchPhrase.split(' ');
