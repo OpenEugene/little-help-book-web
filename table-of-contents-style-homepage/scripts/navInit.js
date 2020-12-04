@@ -109,7 +109,7 @@ async function initData(hasCat, hasSubcat, hasMap) {
             document.getElementById(cityboxId).value = cityValue;
             nbc.focused.city = cityValue;
             localStorage.setItem(localStorageNavVar.city, cityValue);
-            nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
+            nbc.availablePlaces = nbc.filterOnCity(nbc.places);
             nbc.availableCategories = nbc.filterCategoryOptions();
             if (hasCat) {
                 nbc.placeOptionElements(catboxId, nbc.generateOptionElements(nbc.availableCategories));   
@@ -129,7 +129,7 @@ async function initData(hasCat, hasSubcat, hasMap) {
             }
             nbc.focused.category = categoryValue;
             localStorage.setItem(localStorageNavVar.cat, categoryValue);
-            nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
+            nbc.availablePlaces = nbc.filterOnCategory(nbc.availablePlaces);
             nbc.availableSubcats = nbc.filterSubcatOptions();
             if (availData.subcat) {
                 nbc.placeOptionElements(subcatboxId, nbc.generateOptionElements(nbc.availableSubcats));
@@ -149,7 +149,7 @@ async function initData(hasCat, hasSubcat, hasMap) {
             }
             nbc.focused.subcat = subcatValue;
             localStorage.setItem(localStorageNavVar.subcat, subcatValue);
-            nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
+            nbc.availablePlaces = nbc.filterOnSubcat(nbc.availablePlaces);
             document.getElementById(cityboxId).value = cityValue;
             if (hasCat) {
                 document.getElementById(catboxId).value = categoryValue;
