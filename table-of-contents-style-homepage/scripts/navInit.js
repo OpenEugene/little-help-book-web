@@ -10,12 +10,8 @@ const englishCode = "en";
 const localStorageLangVar = "lhbLang";
 const localStorageNavVar = {city: "city", cat: "cat", subcat: "subcat"}
 
-var cityTable;
-var categoryTable;
-var subcatTable;
-var placeTable;
-var catSubcatTable;
 var nbc;
+var catSubcatTable;
 var availData = {cat: false, subcat: false};
 "use strict"
 async function initData(hasCat, hasSubcat, hasMap) {
@@ -31,10 +27,10 @@ async function initData(hasCat, hasSubcat, hasMap) {
         */
         availData.cat = hasCat;
         availData.subcat = hasSubcat;
-        cityTable = await dalGetCityTable();
-        categoryTable = await dalGetCategoryTable();
-        subcatTable = await dalGetSubcategoryTable();
-        placeTable = await dalGetPlaceTable();
+        let cityTable = await dalGetCityTable();
+        let categoryTable = await dalGetCategoryTable();
+        let subcatTable = await dalGetSubcategoryTable();
+        let placeTable = await dalGetPlaceTable();
 
         cityTable.splice(0, 0, {id: "NA", name: "Lane County, Oregon"});
 
@@ -164,15 +160,15 @@ async function initData(hasCat, hasSubcat, hasMap) {
 }
 
 function initLanguage() {
-    placeTable.forEach(function(record) {
+    nbc.places.forEach(function(record) {
         record["hours_en"] = record["hours"];
         record["name_en"] = record["name"];
         record["description_en"] = record["description"];
     });
-    categoryTable.forEach(function(record) {
+    nbc.categories.forEach(function(record) {
         record["name_en"] = record["name"];
     });
-    subcatTable.forEach(function(record) {
+    nbc.subcats.forEach(function(record) {
         record["name_en"] = record["name"];
     });
     catSubcatTable.forEach(function(record) {
@@ -202,15 +198,15 @@ function setLanguage() {
     }
     theButton.innerHTML = buttonStr;
 
-    placeTable.forEach(function(record) {
+    nbc.places.forEach(function(record) {
         record["hours"] = record["hours"+"_"+languageCode];
         // record["name"] = record["name"+"_"+languageCode];
         record["description"] = record["description"+"_"+languageCode];
     });
-    categoryTable.forEach(function(record) {
+    nbc.categories.forEach(function(record) {
         record["name"] = record["name"+"_"+languageCode];
     });
-    subcatTable.forEach(function(record) {
+    nbc.subcats.forEach(function(record) {
         record["name"] = record["name"+"_"+languageCode];
     });
     catSubcatTable.forEach(function(record) {

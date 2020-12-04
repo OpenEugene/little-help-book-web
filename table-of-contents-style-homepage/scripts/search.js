@@ -49,9 +49,7 @@ function redirectToSubCat(searchPhrase) {
   let currPage = window.location.href.split("/").pop().split("?")[0];
 
   if (isFile) {
-    console.log(currPage);
     host = window.location.pathname.replace(currPage, "");
-    console.log(host);
   } else {
     filepath = "/table-of-contents-style-homepage";
     host = window.location.hostname;
@@ -72,7 +70,6 @@ function filterSearch(searchPhrase, dataset) {
   for (let i = 0; i < searchWords.length; i++) {
     searchWords[i] = searchWords[i].trim();
   }
-  console.log(searchWords);
   // 'p' represents a place being passed into this function.
   let filterFunc = (p) => {
     for (let i = 0; i < searchWords.length; i++) {
