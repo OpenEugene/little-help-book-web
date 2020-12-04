@@ -3,7 +3,9 @@ $(document).ready(initData(true, true, true));
 
 function updateDom() {
     // Change the subcategory focused in the body
-    document.getElementsByClassName("category-page-name")[0].innerHTML = nbc.subcats.find(x => x.id === nbc.focused.subcat).name;
+    document.getElementsByClassName("category-page-name")[0].innerHTML = 
+        (nbc.focused.subcat != "Search") ? 
+            nbc.subcats.find(x => x.id === nbc.focused.subcat).name : "Search Results";
 
     // If a map is passed into the navigation class, update the markers
     if (nbc.mymap != null) {

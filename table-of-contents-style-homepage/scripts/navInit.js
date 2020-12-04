@@ -39,7 +39,6 @@ async function initData(hasCat, hasSubcat, hasMap) {
         }
         if (hasSubcat) {
             subcatTable.splice(0, 0, {id: "NA", name: "All Services"});
-            subcatTable.splice(subcatTable.length, 0, {id: "Search", name: "Search Results"})
         }
 
         // remove the Wildfire Support element from categories
