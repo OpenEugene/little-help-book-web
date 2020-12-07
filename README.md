@@ -11,6 +11,8 @@ If any Issue interests you and our description alone doesn't contain all you'd n
 Find us in the Creative Corner https://discord.gg/7X7vVcX
 at the Progress Bar & Grill http://progressbarandgrill.com
 
+For asynchronous communication, we're in the #proj-little-help-book channel at eugslack.com
+
 #### Technologies Used
 
 HTML, CSS, JavaScript, Python (with requests package) <br>
