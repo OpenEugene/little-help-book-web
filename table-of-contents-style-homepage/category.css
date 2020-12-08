@@ -263,6 +263,10 @@ input:checked + .slider:before {
   background-color: rgb(226, 226, 226);
 }
 
+.provider a {
+  display: block;
+}
+
 .provider li a:hover {
   color: #086CDD;
   background-color: rgb(226, 226, 226);
