@@ -142,6 +142,26 @@ async function dalGetCityTable() {
   return cityTable;
 }
 
+async function dalGetAlertTable() {
+  if (useCache) {
+    // console.log('CACHE');
+    return alertTableCached;
+  }
+  // console.log('NO CACHE')
+
+  const alertTableRaw = await dalGetTable('Alerts', base);
+  let alertTable = alertTableRaw.map(function(record) {
+    return {
+      'id' : record.id,
+      'title' : record.get('Title'),
+      'start_date' : record.get('StartDate'),
+      'end_date' : record.get('EndDate'),
+      'note' : record.get('Notes'),
+    };
+  });
+  return alertTable;
+}
+
 function dalGetTable(tablename) {
   return new Promise(function (resolve) {
     let recordsBuffer = [];
