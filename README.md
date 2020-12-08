@@ -9,7 +9,7 @@ The volunteers of Open Eugene are glad you're here, we're all volunteers. This i
 If any Issue interests you and our description alone doesn't contain all you'd need to get started, please contact us. Either comment on the Issue or join our co-working event that happens at noon every Tuesday and Thursday. We're using Discord:
 
 Find us in the Creative Corner https://discord.gg/7X7vVcX
-at the Progress Bar & Grill http://progressbarandgrill.com
+at the Progress Bar & Grill http://progressbarandgrill.com Discord can be accessed in the browser or by downloading the app. The app is needed if you want to screen share. To find the Progress Bar & Grill, after you pop through that link here, look to the left side bar and you'll see the circle logo with a neon sign saying Bar, click that. Then you open a screen with another left sidebar and that has a roll of all the channels, double-click on the Creative Corner. See you soon! 
 
 For asynchronous communication, we're in the #proj-little-help-book channel at [eugslack.com](https://eugenetech.slack.com/).
 
