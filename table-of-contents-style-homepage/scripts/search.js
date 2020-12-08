@@ -29,7 +29,7 @@
     let searchPhrase = document.getElementById("searchInput").value;
     if (onSubcatPage()) {
       nbc.availablePlaces = filterSearch(searchPhrase, nbc.places);
-      nbc.focused.subcat = "Search"
+      nbc.focused.subcat = "Search";
       updateDom();
     } else {
       redirectToSubCat(searchPhrase);

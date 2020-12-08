@@ -43,7 +43,11 @@ class NavBreadcrumb {
 				let ly = ap.map(p => p.longitude).filter(x => x != null && x != 0);
 				return (Math.min(...ly) + Math.max(...ly)) / 2;
 			}
-			return [x(), y()];
+			let xResult = x();
+			let yResult = y();
+			if (!isNaN(xResult) && !isNaN(yResult)) {
+				return [xResult, yResult];
+			}
 		}
 		return [44.0521,-123.0868];
 	}
