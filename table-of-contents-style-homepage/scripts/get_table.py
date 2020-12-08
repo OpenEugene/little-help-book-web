@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+import csv
+from openpyxl import Workbook
+from openpyxl.utils import get_column_letter
 import requests
 HEADERS = {'Authorization' : 'Bearer key1agtUnabRLb2LS'}
 BASE_URL = 'https://api.airtable.com/v0/appj3UWymNh6FgtGR/'
@@ -25,7 +28,7 @@ PLACE_TABLE_MAP = {
     'description' : 'Description',
     'description_es' : 'Description-ES',
     'wheelchair' : 'Wheelchair access (y)',
-    'languageHelp' : 'Language Help (y)'
+    'languageHelp' : 'Language Help (y)',
 }
 
 # Values related to the Category table
@@ -117,7 +120,7 @@ def get_page(url):
         offset = data['offset']
     return records, offset
 
-def do_table(table_name, mapping, var_name, f):
+def get_table(table_name, mapping):
     # Get the table data from air table
     table_url = BASE_URL+table_name
     page, offset = get_page(table_url+'?'+VIEW)
@@ -128,13 +131,82 @@ def do_table(table_name, mapping, var_name, f):
         table_raw.extend(page)
     # Map it into the form we need
     table = table_map(table_name, table_raw, mapping)
+    return table
+
+def do_table(table_name, mapping, var_name, f):
+    table = get_table(table_name, mapping)
     # Write it into the javascript file
     print('const', var_name, '=', table, ';', file=f)
 
+def do_mailmerge(place_table, category_table, catsubcat_table, language_str):
+    mailmerge_table = []
+    for record in place_table:
+        catsubcats = record['catSubcatId']
+        for cat_subcat_id in catsubcats:
+            # Wrangle the cats and subcats from the catSubcat table
+            catsubcat_record = list(filter(lambda catsubcat_rec: catsubcat_rec['catSubcatId'] == cat_subcat_id, catsubcat_table))
+            # Assuming the above returns exactly one record
+            category_id = catsubcat_record[0]['categoryId']
+            category_record = list(filter(lambda cat_rec: cat_rec['id'] == category_id, category_table))
+            # Assuming the above returns exactly one record
+            category_str = category_record[0]['name'+language_str]
+            subcategory_str = catsubcat_record[0]['name'+language_str]
+
+            mailmerge_table.append({
+                'Category' : category_str,
+                'Subcategory' : subcategory_str,
+                'Service Name' : record['name'],
+                'Phone Number' : record['phone'],
+                'Physical Address' : record['address'],
+                'Hours of operation' : record['hours'],
+                'Description' : record['description'+language_str],
+                'Wheelchair access (y)' : record['wheelchair'],
+                'Language Help (y)' : record['languageHelp'],
+                'Web address' : record['url'],
+                'Email Address' : record['email'],
+            })
+
+    mailmerge_table = sorted(mailmerge_table, key = lambda i: (i['Category'], i['Subcategory'], i['Service Name']))
+
+    # Save as csv file
+    csv_columns = list(mailmerge_table[0].keys())
+    filename = 'final_book'+language_str
+    csv_file = filename+'.csv'
+    xls_file = filename+'.xls'
+    try:
+        with open(csv_file, 'w') as csvfile:
+            writer = csv.DictWriter(csvfile, fieldnames=csv_columns)
+            writer.writeheader()
+            for data in mailmerge_table:
+                writer.writerow(data)
+    except IOError:
+        print("I/O error")
+        exit
+
+    # Convert the csv file to an Excel file
+    f = open(csv_file, 'r')
+    reader = csv.reader(f)
+    wb = Workbook()
+    ws = wb.worksheets[0]
+    ws.title = "Sheet1"
+
+    for row_index, row in enumerate(reader):
+        for column_index, cell in enumerate(row):
+            column_letter = get_column_letter((column_index + 1))
+            ws[column_letter+str(row_index+1)] = cell
+
+    wb.save(filename = xls_file)
+
 # Process each table
 f = open('cachedInlineTables.js', 'w')
-do_table(PLACE_TABLE_NAME, PLACE_TABLE_MAP, PLACE_TABLE_VAR, f)
-do_table(CATEGORY_TABLE_NAME, CATEGORY_TABLE_MAP, CATEGORY_TABLE_VAR, f)
-do_table(SUBCATEGORY_TABLE_NAME, SUBCATEGORY_TABLE_MAP, SUBCATEGORY_TABLE_VAR, f)
-do_table(CATSUBCAT_TABLE_NAME, CATSUBCAT_TABLE_MAP, CATSUBCAT_TABLE_VAR, f)
-do_table(CITY_TABLE_NAME, CITY_TABLE_MAP, CITY_TABLE_VAR, f)
+#do_table(PLACE_TABLE_NAME, PLACE_TABLE_MAP, PLACE_TABLE_VAR, f)
+#do_table(CATEGORY_TABLE_NAME, CATEGORY_TABLE_MAP, CATEGORY_TABLE_VAR, f)
+#do_table(SUBCATEGORY_TABLE_NAME, SUBCATEGORY_TABLE_MAP, SUBCATEGORY_TABLE_VAR, f)
+#do_table(CATSUBCAT_TABLE_NAME, CATSUBCAT_TABLE_MAP, CATSUBCAT_TABLE_VAR, f)
+#do_table(CITY_TABLE_NAME, CITY_TABLE_MAP, CITY_TABLE_VAR, f)
+
+place_table = get_table(PLACE_TABLE_NAME, PLACE_TABLE_MAP)
+category_table = get_table(CATEGORY_TABLE_NAME, CATEGORY_TABLE_MAP)
+catsubcat_table = get_table(CATSUBCAT_TABLE_NAME, CATSUBCAT_TABLE_MAP)
+do_mailmerge(place_table, category_table, catsubcat_table, '')
+do_mailmerge(place_table, category_table, catsubcat_table, '_es')
