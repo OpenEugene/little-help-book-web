@@ -53,6 +53,7 @@ option {
   line-height: 1.5rem;
   padding-bottom: .6rem;
   width: 50%;
+  white-space: pre-line;
 }
 
 .provider-info {
