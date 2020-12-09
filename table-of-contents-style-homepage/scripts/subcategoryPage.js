@@ -3,7 +3,7 @@ $(document).ready(initData(true, true, true));
 
 function updateDom() {
     // Change the subcategory focused in the body
-    document.getElementsByClassName("category-page-name")[0].innerHTML = 
+    document.getElementsByClassName("category-page-name")[0].innerHTML =
         (nbc.focused.subcat != "Search") ?
             nbc.subcats.find(x => x.id === nbc.focused.subcat).name : "Search Results";
 
@@ -29,7 +29,7 @@ function updateDom() {
     if (nbc.focused.subcat == "Search" && nbc.availablePlaces.length == 0) {
         $('#provider-tiles').empty()
             .append(`
-                <p class="">
+                <p class="no-match-response">
                     The keyword search looks for matches and didn't find one for those words.
                     If there are other words to describe what you're looking for, please enter them and search again.
                 </p>`

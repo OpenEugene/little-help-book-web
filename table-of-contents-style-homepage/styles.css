@@ -744,6 +744,12 @@ main {
   font-size: 30px !important;
 }
 
+.no-match-response {
+  line-height: 1.5;
+  padding-right: 3rem;
+  font-size: 1.4rem;
+}
+
 @media screen and (max-width: 1056px) {
 
   .search-wrapper {
@@ -786,6 +792,10 @@ main {
 
   .search-form {
     padding: 0 1.9rem 1rem 1.9rem;
+  }
+
+  .no-match-response {
+    font-size: 1rem;
   }
 }
 
