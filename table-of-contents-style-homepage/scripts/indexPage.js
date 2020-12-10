@@ -40,7 +40,6 @@ function updateDom() {
     // Add the saved bits to the end
     $('#table-of-contents').append(savedHtml);
 
-    console.log(nbc.alertTable)
     // Handle the alerts templating
     // Grab the template script
     theTemplateScript = $("#alert-template").html();

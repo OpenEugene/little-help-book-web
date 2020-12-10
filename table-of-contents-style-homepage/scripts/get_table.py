@@ -58,8 +58,9 @@ ALERT_TABLE_NAME = 'Alerts'
 ALERT_TABLE_VAR = 'alertTableCached'
 ALERT_TABLE_MAP = {
     'title' : 'Title',
-    'start_date' : 'StartDate',
-    'end_date' : 'EndDate',
+    'displayDate' : 'Display Date',
+    'startDate' : 'StartDate',
+    'endDate' : 'EndDate',
     'note' : 'Notes',
 }
 
