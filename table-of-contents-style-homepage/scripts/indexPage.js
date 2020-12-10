@@ -27,6 +27,7 @@ function updateDom() {
         setMarkers(nbc.availablePlaces);
     }
 
+    // Handle the table-of-contents templating
     // Grab the template script
     let theTemplateScript = $("#table-of-contents-template").html();
     // Compile the template
@@ -38,6 +39,17 @@ function updateDom() {
 
     // Add the saved bits to the end
     $('#table-of-contents').append(savedHtml);
+
+    console.log(nbc.alertTable)
+    // Handle the alerts templating
+    // Grab the template script
+    theTemplateScript = $("#alert-template").html();
+    // Compile the template
+    theTemplate = Handlebars.compile(theTemplateScript);
+    // Pass our data to the template
+    compiledHtml = theTemplate({alerts : nbc.alertTable});
+    // Add the compiled html to the page
+    $('#alert-container').empty().append(compiledHtml);
 }
 
 // The popup description appears when someone clicks the blue crisis text 

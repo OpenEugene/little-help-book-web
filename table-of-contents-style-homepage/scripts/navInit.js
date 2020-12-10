@@ -31,6 +31,7 @@ async function initData(hasCat, hasSubcat, hasMap) {
         let categoryTable = await dalGetCategoryTable();
         let subcatTable = await dalGetSubcategoryTable();
         let placeTable = await dalGetPlaceTable();
+        let alertTable = await dalGetAlertTable();
 
         cityTable.splice(0, 0, {id: "NA", name: "Lane County, Oregon"});
 
@@ -153,6 +154,7 @@ async function initData(hasCat, hasSubcat, hasMap) {
                 document.getElementById(subcatboxId).value = subcatValue;
             }
         }
+        nbc.alertTable = alertTable;
         updateDom();
         setLanguage();
     })();
