@@ -1,165 +1,192 @@
 "use strict"
 
 const Airtable = require('airtable');
-const useCache = true
+const accessMethods = {
+  STATIC: 'static',
+  AIRTABLE_JS: 'airtableJs',
+  SWAGGER: 'swagger',
+};
+// const accessMethod = accessMethods.STATIC;
+const accessMethod = accessMethods.AIRTABLE_JS;
+// const accessMethod = accessMethods.SWAGGER;
+
 // Read-only key
 const apiKey = "keyMmAL4mVBSORkGc";
 // Production table
 const base = new Airtable({apiKey: apiKey}).base('appj3UWymNh6FgtGR');
 
 async function dalGetPlaceTable() {
-  if (useCache) {
-    // console.log('CACHE');
-    return placesTableCached;
-  }
-  console.log('NO CACHE')
+  switch(accessMethod) {
+    case accessMethods.STATIC:
+      console.log('STATIC');
+      return placesTableCached;
+    case accessMethods.AIRTABLE_JS:
+      console.log('AIRTABLE_JS')
 
-  const placeTableRaw = await dalGetTable('Help Services', base);
-  placeTableRaw.sort((a, b) => { compareNames(a,b); });
-  let placeTable = placeTableRaw.map(function(record) {
-    return {
-      'id' : record.id,
-      'name' : record.get('Name'),
-      'name_es' : record.get('Name-ES'),
-      'catSubcatId' : record.get('CatSubcat'),
-      'city' : record.get('City'),
-      'category' : record.get('Category'),
-      'subcategory' : record.get('Subcategory'),
-      'phone' : record.get('Phone Number'),
-      'address' : record.get('Physical Address'),
-      'latitude' : record.get('Latitude'),
-      'longitude' : record.get('Longitude'),
-      'url' : record.get('Web address'),
-      'email' : record.get('Email Address'),
-      'hours' : record.get('Hours of operation'),
-      'hours_es' : record.get('Hours of operation-es'),
-      'description' : record.get('Description'),
-      'description_es' : record.get('Description-ES'),
-      'wheelchair' : record.get('Wheelchair access (y)'),
-      'languageHelp' : record.get('Language Help (y)')
-    };
-  });
-  return placeTable;
+      const placeTableRaw = await dalGetTable('Help Services', base);
+      placeTableRaw.sort((a, b) => { compareNames(a,b); });
+      let placeTable = placeTableRaw.map(function(record) {
+        return {
+          'id' : record.id,
+          'name' : record.get('Name'),
+          'name_es' : record.get('Name-ES'),
+          'catSubcatId' : record.get('CatSubcat'),
+          'city' : record.get('City'),
+          'category' : record.get('Category'),
+          'subcategory' : record.get('Subcategory'),
+          'phone' : record.get('Phone Number'),
+          'address' : record.get('Physical Address'),
+          'latitude' : record.get('Latitude'),
+          'longitude' : record.get('Longitude'),
+          'url' : record.get('Web address'),
+          'email' : record.get('Email Address'),
+          'hours' : record.get('Hours of operation'),
+          'hours_es' : record.get('Hours of operation-es'),
+          'description' : record.get('Description'),
+          'description_es' : record.get('Description-ES'),
+          'wheelchair' : record.get('Wheelchair access (y)'),
+          'languageHelp' : record.get('Language Help (y)')
+        };
+      });
+      return placeTable;
+    case accessMethods.SWAGGER:
+      console.log('SWAGGER')
+  }
 }
 
 async function dalGetCategoryTable() {
-  if (useCache) {
-    // console.log('CACHE');
-    return categoryTableCached;
+  switch(accessMethod) {
+    case accessMethods.STATIC:
+      console.log('STATIC');
+      return categoryTableCached;
+    case accessMethods.AIRTABLE_JS:
+      console.log('AIRTABLE_JS')
+      const categoryTableRaw = await dalGetTable('Categories', base);
+      categoryTableRaw.sort((a, b) => { compareNames(a,b); });
+      let categoryTable = categoryTableRaw.map(function(record) {
+        let subcategories = record.get('Subcategories');
+        if (!subcategories) {
+          subcategories = [];
+        }
+        return {
+          'id' : record.id,
+          'name' : record.get('Name'),
+          'name_es' : record.get('Name-ES'),
+          'subcategories' : subcategories,
+        };
+      });
+      return categoryTable;
+    case accessMethods.SWAGGER:
+      console.log('SWAGGER')
   }
-  // console.log('NO CACHE')
-
-  const categoryTableRaw = await dalGetTable('Categories', base);
-  categoryTableRaw.sort((a, b) => { compareNames(a,b); });
-  let categoryTable = categoryTableRaw.map(function(record) {
-    let subcategories = record.get('Subcategories');
-    if (!subcategories) {
-      subcategories = [];
-    }
-    return {
-      'id' : record.id,
-      'name' : record.get('Name'),
-      'name_es' : record.get('Name-ES'),
-      'subcategories' : subcategories,
-    };
-  });
-  return categoryTable;
 }
 
 async function dalGetSubcategoryTable() {
-  if (useCache) {
-    // console.log('CACHE');
-    return subcategoryTableCached;
+  switch(accessMethod) {
+    case accessMethods.STATIC:
+      console.log('STATIC');
+      return subcategoryTableCached;
+    case accessMethods.AIRTABLE_JS:
+      console.log('AIRTABLE_JS')
+      const subcategoryTableRaw = await dalGetTable('Subcategories', base);
+      subcategoryTableRaw.sort((a, b) => { compareNames(a,b); });
+      let subcategoryTable = subcategoryTableRaw.map(function(record) {
+        return {
+          'id' : record.id,
+          'categoryId' : record.get('Category'),
+          'name' : record.get('Name'),
+          'name_es' : record.get('Name-ES'),
+        };
+      });
+      return subcategoryTable;
+    case accessMethods.SWAGGER:
+      console.log('SWAGGER')
   }
-  // console.log('NO CACHE')
-
-  const subcategoryTableRaw = await dalGetTable('Subcategories', base);
-  subcategoryTableRaw.sort((a, b) => { compareNames(a,b); });
-  let subcategoryTable = subcategoryTableRaw.map(function(record) {
-    return {
-      'id' : record.id,
-      'categoryId' : record.get('Category'),
-      'name' : record.get('Name'),
-      'name_es' : record.get('Name-ES'),
-    };
-  });
-  return subcategoryTable;
 }
 
 async function dalGetCatSubcatTable() {
-  if (useCache) {
-    // console.log('CACHE');
-    return catSubcatTableCached;
+  switch(accessMethod) {
+    case accessMethods.STATIC:
+      console.log('STATIC');
+      return catSubcatTableCached;
+    case accessMethods.AIRTABLE_JS:
+      console.log('AIRTABLE_JS')
+      const catSubcatTableRaw = await dalGetTable('CatSubcats', base);
+      let catSubcatTable = catSubcatTableRaw.map(function(record) {
+        let catSubcatName = record.get('Name');
+        let catSubcatId = record.id;
+
+        let categoryId = record.get('Category');
+        categoryId = categoryId[0];
+
+        let subcategoryId = record.get('Subcategory');
+        let subcategoryName;
+        let subcategoryNameSpanish;
+        if (subcategoryId) {
+          subcategoryId = subcategoryId[0];
+          subcategoryName = record.get('SubcategoryString')[0];
+          subcategoryNameSpanish = record.get('Subcategory-ES')[0];
+        } else {
+          subcategoryName = '';
+          subcategoryNameSpanish = '';
+        }
+        return {
+          'catSubcatId': catSubcatId,
+          'catSubcatName': catSubcatName,
+          'categoryId' : categoryId,
+          'subcategoryId' : subcategoryId,
+          'name' : subcategoryName,
+          'name_es' : subcategoryNameSpanish,
+          'places' : []
+        };
+      });
+      return catSubcatTable;
+    case accessMethods.SWAGGER:
+      console.log('SWAGGER')
   }
-  // console.log('NO CACHE')
-
-  const catSubcatTableRaw = await dalGetTable('CatSubcats', base);
-  let catSubcatTable = catSubcatTableRaw.map(function(record) {
-    let catSubcatName = record.get('Name');
-    let catSubcatId = record.id;
-
-    let categoryId = record.get('Category');
-    categoryId = categoryId[0];
-
-    let subcategoryId = record.get('Subcategory');
-    let subcategoryName;
-    let subcategoryNameSpanish;
-    if (subcategoryId) {
-      subcategoryId = subcategoryId[0];
-      subcategoryName = record.get('SubcategoryString')[0];
-      subcategoryNameSpanish = record.get('Subcategory-ES')[0];
-    } else {
-      subcategoryName = '';
-      subcategoryNameSpanish = '';
-    }
-    return {
-      'catSubcatId': catSubcatId,
-      'catSubcatName': catSubcatName,
-      'categoryId' : categoryId,
-      'subcategoryId' : subcategoryId,
-      'name' : subcategoryName,
-      'name_es' : subcategoryNameSpanish,
-      'places' : []
-    };
-  });
-  return catSubcatTable;
 }
 
 async function dalGetCityTable() {
-  if (useCache) {
-    // console.log('CACHE');
-    return cityTableCached;
+  switch(accessMethod) {
+    case accessMethods.STATIC:
+      console.log('STATIC');
+      return cityTableCached;
+    case accessMethods.AIRTABLE_JS:
+      console.log('AIRTABLE_JS')
+      const cityTableRaw = await dalGetTable('Cities', base);
+      let cityTable = cityTableRaw.map(function(record) {
+        return {
+          'id' : record.id,
+          'name' : record.get('Name'),
+        };
+      });
+      return cityTable;
+    case accessMethods.SWAGGER:
+      console.log('SWAGGER')
   }
-  // console.log('NO CACHE')
-
-  const cityTableRaw = await dalGetTable('Cities', base);
-  let cityTable = cityTableRaw.map(function(record) {
-    return {
-      'id' : record.id,
-      'name' : record.get('Name'),
-    };
-  });
-  return cityTable;
 }
 
 async function dalGetAlertTable() {
-  if (useCache) {
-    // console.log('CACHE');
-    return alertTableCached;
+  switch(accessMethod) {
+    case accessMethods.STATIC:
+      console.log('STATIC');
+      return alertTableCached;
+    case accessMethods.AIRTABLE_JS:
+      console.log('AIRTABLE_JS')
+      const alertTableRaw = await dalGetTable('Alerts', base);
+      let alertTable = alertTableRaw.map(function(record) {
+        return {
+          'id' : record.id,
+          'title' : record.get('Title'),
+          'start_date' : record.get('StartDate'),
+          'end_date' : record.get('EndDate'),
+          'note' : record.get('Notes'),
+        };
+      });
+      return alertTable;
+    case accessMethods.SWAGGER:
+      console.log('SWAGGER')
   }
-  // console.log('NO CACHE')
-
-  const alertTableRaw = await dalGetTable('Alerts', base);
-  let alertTable = alertTableRaw.map(function(record) {
-    return {
-      'id' : record.id,
-      'title' : record.get('Title'),
-      'start_date' : record.get('StartDate'),
-      'end_date' : record.get('EndDate'),
-      'note' : record.get('Notes'),
-    };
-  });
-  return alertTable;
 }
 
 function dalGetTable(tablename) {
