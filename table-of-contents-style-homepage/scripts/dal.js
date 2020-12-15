@@ -6,8 +6,8 @@ const accessMethods = {
   AIRTABLE_JS: 'airtableJs',
   SWAGGER: 'swagger',
 };
-// const accessMethod = accessMethods.STATIC;
-const accessMethod = accessMethods.AIRTABLE_JS;
+const accessMethod = accessMethods.STATIC;
+// const accessMethod = accessMethods.AIRTABLE_JS;
 // const accessMethod = accessMethods.SWAGGER;
 
 // Read-only key
@@ -16,13 +16,14 @@ const apiKey = "keyMmAL4mVBSORkGc";
 const base = new Airtable({apiKey: apiKey}).base('appj3UWymNh6FgtGR');
 
 async function dalGetPlaceTable() {
+  const foo = await dalGetTableSwagger('Place');
+  console.log("foo", foo);
   switch(accessMethod) {
     case accessMethods.STATIC:
       console.log('STATIC');
       return placesTableCached;
     case accessMethods.AIRTABLE_JS:
       console.log('AIRTABLE_JS')
-
       const placeTableRaw = await dalGetTable('Help Services', base);
       placeTableRaw.sort((a, b) => { compareNames(a,b); });
       let placeTable = placeTableRaw.map(function(record) {
@@ -209,6 +210,27 @@ function dalGetTable(tablename) {
 			if (err) { console.error(err); return; }
 			resolve(recordsBuffer);
 		})
+  })
+}
+
+// curl "https://littlehelpbook.com/Category" -H  "accept: text/plain"
+function dalGetTableSwagger(tablename) {
+  return new Promise(function(resolve) {
+    let url = "https://littlehelpbook.com/" + tablename;
+    let data;
+    jQuery.ajax({
+      url: url,
+      headers: {
+        'accept': 'text/plain'
+      },
+      type: 'GET',
+      success: function (response) {
+        resolve(response);
+      },
+      error: function() {
+        console.log('Error loading db.');
+      }
+    });
   })
 }
 
