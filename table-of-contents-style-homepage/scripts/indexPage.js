@@ -47,6 +47,8 @@ function updateDom() {
     theTemplate = Handlebars.compile(theTemplateScript);
     // Pass our data to the template
     compiledHtml = theTemplate({alerts : nbc.alertTable});
+    // hack to decode HTML entities to render <a href=""> as intended
+    compiledHtml = decodeHTMLEntities(compiledHtml);
     // Add the compiled html to the page
     $('#alert-container').empty().append(compiledHtml);
 }
@@ -61,3 +63,11 @@ function crisisPopup() {
     var popup = document.getElementById("myPopup");
     popup.classList.toggle("show");
   }
+
+// HACK: places the alert table text into a textarea element to decode the HTML entities
+// credit: https://tertiumnon.medium.com/js-how-to-decode-html-entities-8ea807a140e5
+function decodeHTMLEntities(text) {
+    var textArea = document.createElement('textarea');
+    textArea.innerHTML = text;
+    return textArea.value;
+}
