@@ -49,7 +49,7 @@ function updateDom() {
             }
         }
     });
-    let categoryData =  {subcategories : availableCatSubcats};
+    let categoryData = { subcategories: availableCatSubcats };
     document.getElementsByClassName("category-page-name")[0].innerHTML = nbc.categories.find(x => x.id === nbc.focused.category).name;
     if (nbc.mymap != null) {
         setMarkers(nbc.availablePlaces);
@@ -64,18 +64,18 @@ function updateDom() {
     // Compile the template
     let theTemplate = Handlebars.compile(theTemplateScript);
     // Pass our data to the template
-    let compiledHtml = theTemplate({subcategories : categoryData.subcategories});
+    let compiledHtml = theTemplate({ subcategories: categoryData.subcategories });
     // Add the compiled html to the page
     $('#provider-list').empty().append(compiledHtml);
 }
 
 // list or map view options button
 
-$(function(){
-    $('[data-target]').on('click', function(){
-      var target = $(this).data('target');
-      $(target).siblings().hide().end().show();
-      mymap.invalidateSize();
+$(function () {
+    $('[data-target]').on('click', function () {
+        var target = $(this).data('target');
+        $(target).siblings().hide().end().show();
+        mymap.invalidateSize();
     });
 });
 
@@ -83,7 +83,7 @@ $(function(){
 
 let listButton = document.getElementById("toggle");
 let mapOption = document.getElementById("map-text");
-let listOption =document.getElementById("list-text");
+let listOption = document.getElementById("list-text");
 
 mapOption.addEventListener("click", changeTextToMap);
 listOption.addEventListener("click", changeTextToList);
@@ -101,6 +101,6 @@ let printButton = document.querySelector("#print");
 
 printButton.addEventListener("click", display);
 
-  function display() {
+function display() {
     window.print();
-  }
+}
