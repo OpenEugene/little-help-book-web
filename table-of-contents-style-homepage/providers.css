@@ -19,10 +19,6 @@
   display: none;
 }
 
-.search-form {
-  margin-top: 2.25rem;
-}
-
 .blue {
   color: #086CDD;
 }
@@ -74,16 +70,11 @@
   }
 
   header {
-    padding: 0.5rem 1.5rem;
     margin-bottom: 0.95rem;
   }
 
   .breadcrumb-box {
     display: none;
-  }
-
-  .search-form {
-    margin-top: 0;
   }
 }
 
@@ -150,7 +141,7 @@
 @media screen and (max-width: 640px) {
 
   header {
-    padding: 0.5rem 0.6rem;
+    padding: 2rem 0.6rem;
   }
 
   .a-z-desktop {

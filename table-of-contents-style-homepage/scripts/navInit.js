@@ -10,12 +10,8 @@ const englishCode = "en";
 const localStorageLangVar = "lhbLang";
 const localStorageNavVar = {city: "city", cat: "cat", subcat: "subcat"}
 
-var cityTable;
-var categoryTable;
-var subcatTable;
-var placeTable;
-var catSubcatTable;
 var nbc;
+var catSubcatTable;
 var availData = {cat: false, subcat: false};
 "use strict"
 async function initData(hasCat, hasSubcat, hasMap) {
@@ -31,10 +27,10 @@ async function initData(hasCat, hasSubcat, hasMap) {
         */
         availData.cat = hasCat;
         availData.subcat = hasSubcat;
-        cityTable = await dalGetCityTable();
-        categoryTable = await dalGetCategoryTable();
-        subcatTable = await dalGetSubcategoryTable();
-        placeTable = await dalGetPlaceTable();
+        let cityTable = await dalGetCityTable();
+        let categoryTable = await dalGetCategoryTable();
+        let subcatTable = await dalGetSubcategoryTable();
+        let placeTable = await dalGetPlaceTable();
 
         cityTable.splice(0, 0, {id: "NA", name: "Lane County, Oregon"});
 
@@ -88,68 +84,74 @@ async function initData(hasCat, hasSubcat, hasMap) {
         them to inform the initial data on the page.
         */
         let urlParams = new URLSearchParams(window.location.search);
-
-        let cityValue = 'NA';
-        if (urlParams.has('city')) {
-            cityValue = urlParams.get('city');
-        }
-        else {
-            let tempCity = localStorage.getItem(localStorageNavVar.city);
-            if (tempCity) {
-                cityValue = tempCity;
-            }
-        }
-        // Show the city-category-subcategory from the query in the navigation
-        document.getElementById(cityboxId).value = cityValue;
-        nbc.focused.city = cityValue;
-        localStorage.setItem(localStorageNavVar.city, cityValue);
-        nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
-        nbc.availableCategories = nbc.filterCategoryOptions();
-        if (hasCat) {
-            nbc.placeOptionElements(catboxId, nbc.generateOptionElements(nbc.availableCategories));   
-        }
-
-        let categoryValue = 'NA';
-        if (hasCat) {
-            if (urlParams.has('category')) {
-                categoryValue = urlParams.get('category');
+        let hasSearch = urlParams.has("search");
+        if (hasSearch) {
+            let searchParams = urlParams.get("search");
+            nbc.availablePlaces = filterSearch(searchParams.replaceAll("%20", " "), nbc.places);
+            nbc.focused.subcat = "Search";
+        } else {
+            let cityValue = 'NA';
+            if (urlParams.has('city')) {
+                cityValue = urlParams.get('city');
             }
             else {
-                let temp = localStorage.getItem(localStorageNavVar.cat);
-                if (temp) {
-                    categoryValue = temp;
+                let tempCity = localStorage.getItem(localStorageNavVar.city);
+                if (tempCity) {
+                    cityValue = tempCity;
                 }
             }
-        }
-        nbc.focused.category = categoryValue;
-        localStorage.setItem(localStorageNavVar.cat, categoryValue);
-        nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
-        nbc.availableSubcats = nbc.filterSubcatOptions();
-        if (availData.subcat) {
-            nbc.placeOptionElements(subcatboxId, nbc.generateOptionElements(nbc.availableSubcats));
-        }
+            // Show the city-category-subcategory from the query in the navigation
+            document.getElementById(cityboxId).value = cityValue;
+            nbc.focused.city = cityValue;
+            localStorage.setItem(localStorageNavVar.city, cityValue);
+            nbc.availablePlaces = nbc.filterOnCity(nbc.places);
+            nbc.availableCategories = nbc.filterCategoryOptions();
+            if (hasCat) {
+                nbc.placeOptionElements(catboxId, nbc.generateOptionElements(nbc.availableCategories));   
+            }
 
-        let subcatValue = 'NA';
-        if (hasSubcat) {
-            if (urlParams.has('subcategory')) {
-                subcatValue = urlParams.get('subcategory');
-            }
-            else {
-                let temp = localStorage.getItem(localStorageNavVar.subcat);
-                if (temp) {
-                    subcatValue = temp;
+            let categoryValue = 'NA';
+            if (hasCat) {
+                if (urlParams.has('category')) {
+                    categoryValue = urlParams.get('category');
+                }
+                else {
+                    let temp = localStorage.getItem(localStorageNavVar.cat);
+                    if (temp) {
+                        categoryValue = temp;
+                    }
                 }
             }
-        }
-        nbc.focused.subcat = subcatValue;
-        localStorage.setItem(localStorageNavVar.subcat, subcatValue);
-        nbc.availablePlaces = nbc.filterOnSubcat(nbc.filterOnCategory(nbc.filterOnCity(nbc.places)));
-        document.getElementById(cityboxId).value = cityValue;
-        if (hasCat) {
-            document.getElementById(catboxId).value = categoryValue;
-        }
-        if (hasSubcat) {
-            document.getElementById(subcatboxId).value = subcatValue;
+            nbc.focused.category = categoryValue;
+            localStorage.setItem(localStorageNavVar.cat, categoryValue);
+            nbc.availablePlaces = nbc.filterOnCategory(nbc.availablePlaces);
+            nbc.availableSubcats = nbc.filterSubcatOptions();
+            if (availData.subcat) {
+                nbc.placeOptionElements(subcatboxId, nbc.generateOptionElements(nbc.availableSubcats));
+            }
+
+            let subcatValue = 'NA';
+            if (hasSubcat) {
+                if (urlParams.has('subcategory')) {
+                    subcatValue = urlParams.get('subcategory');
+                }
+                else {
+                    let temp = localStorage.getItem(localStorageNavVar.subcat);
+                    if (temp) {
+                        subcatValue = temp;
+                    }
+                }
+            }
+            nbc.focused.subcat = subcatValue;
+            localStorage.setItem(localStorageNavVar.subcat, subcatValue);
+            nbc.availablePlaces = nbc.filterOnSubcat(nbc.availablePlaces);
+            document.getElementById(cityboxId).value = cityValue;
+            if (hasCat) {
+                document.getElementById(catboxId).value = categoryValue;
+            }
+            if (hasSubcat) {
+                document.getElementById(subcatboxId).value = subcatValue;
+            }
         }
         updateDom();
         setLanguage();
@@ -157,15 +159,15 @@ async function initData(hasCat, hasSubcat, hasMap) {
 }
 
 function initLanguage() {
-    placeTable.forEach(function(record) {
+    nbc.places.forEach(function(record) {
         record["hours_en"] = record["hours"];
         record["name_en"] = record["name"];
         record["description_en"] = record["description"];
     });
-    categoryTable.forEach(function(record) {
+    nbc.categories.forEach(function(record) {
         record["name_en"] = record["name"];
     });
-    subcatTable.forEach(function(record) {
+    nbc.subcats.forEach(function(record) {
         record["name_en"] = record["name"];
     });
     catSubcatTable.forEach(function(record) {
@@ -195,15 +197,15 @@ function setLanguage() {
     }
     theButton.innerHTML = buttonStr;
 
-    placeTable.forEach(function(record) {
+    nbc.places.forEach(function(record) {
         record["hours"] = record["hours"+"_"+languageCode];
         // record["name"] = record["name"+"_"+languageCode];
         record["description"] = record["description"+"_"+languageCode];
     });
-    categoryTable.forEach(function(record) {
+    nbc.categories.forEach(function(record) {
         record["name"] = record["name"+"_"+languageCode];
     });
-    subcatTable.forEach(function(record) {
+    nbc.subcats.forEach(function(record) {
         record["name"] = record["name"+"_"+languageCode];
     });
     catSubcatTable.forEach(function(record) {

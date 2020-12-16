@@ -8,8 +8,9 @@ The volunteers of Open Eugene are glad you're here, we're all volunteers. This i
 
 If any Issue interests you and our description alone doesn't contain all you'd need to get started, please contact us. Either comment on the Issue or join our co-working event that happens at noon every Tuesday and Thursday. We're using Discord:
 
-Find us in the Creative Corner https://discord.gg/7X7vVcX
-at the Progress Bar & Grill http://progressbarandgrill.com
+Find us in the Creative Corner at the Progress Bar & Grill http://progressbarandgrill.com, Discord can be accessed in the browser or by downloading the app. The app is needed if you want to screen share. To find the Progress Bar & Grill, after you pop through that link here and click on the Discord invite link: look to the left sidebar and you'll see the circle logo with a neon sign saying Bar, click that. A screen opens with another left sidebar and that has a roll of all the channels: double-click on the Creative Corner. See you soon! 
+
+For asynchronous communication, we're in the #proj-little-help-book channel at [eugslack.com](https://eugenetech.slack.com/).
 
 #### Technologies Used
 
@@ -95,12 +96,13 @@ To switch between options, edit the `useCache` variable at the top of `src/dal.j
 
 To be able to update the static asset, first make sure you can run python:
 - Make sure you have python installed.
-- Add the requests package (run `pip install requests`).
+- You'll also need pip. To check if you have pip and for how to install: https://pip.pypa.io/en/stable/installing/ 
+- Add the requests package (`pip install requests`) 
 
 Then each time you want to update the data, run the `src/getTable.py` python script: 
 - Open a terminal. 
-- Change directory (`cd`) to the `src` folder. 
-- Run the command `./getTable.py`. 
+- Change directory (`cd`) to the `scripts` folder. 
+- Run the command `./get_table.py`. 
 
 **Technical details:** The compiled data is stored in a javascript file called `cachedInlineTables.js`. This contains one json variable for each table (Help Services, Cities, and so on). The `getTable.py` script uses http requests to pull the tables from Airtable, and then creates the `cachedInlineTables.js` file. 
 
@@ -113,3 +115,5 @@ Then each time you want to update the data, run the `src/getTable.py` python scr
 **Note on Longitude/Latitude pulled from Airtable**
 
 For locations outside of Lane County and the crisis lines without a physical address, longitude and latitude both default to [0, 0], and no markers are displayed on the map.
+
+Upon entering a new provider's street address, if you don't have access to ESRI software for geocoding, you can find the latitude and longitude by using a free service online, a process called "forward geocoding." Place the street address in the required parameters "Search query" field, and the map responds with a pin. You can source the latitude and longitude by clicking on the pin and copying them from the card that pops up: https://locationiq.com/sandbox/geocoding/forward

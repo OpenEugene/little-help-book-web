@@ -43,7 +43,11 @@ class NavBreadcrumb {
 				let ly = ap.map(p => p.longitude).filter(x => x != null && x != 0);
 				return (Math.min(...ly) + Math.max(...ly)) / 2;
 			}
-			return [x(), y()];
+			let xResult = x();
+			let yResult = y();
+			if (!isNaN(xResult) && !isNaN(yResult)) {
+				return [xResult, yResult];
+			}
 		}
 		return [44.0521,-123.0868];
 	}
@@ -115,22 +119,6 @@ class NavBreadcrumb {
 			this.categories.filter(x => x.id === "NA" || this.availablePlaces.map(x => x.category).filter(x => x != null)
 				.reduce((accumulator, currentValue) => accumulator.concat(currentValue))
 					.filter((value, index, self) => self.indexOf(value) === index).includes(x.id)) : this.categories;
-	}
-
-	// Example of filtering using a search. Needs to have a value to test against in searchPhrase
-	filterSearch(dataset) {
-		let searchPhrase;
-		let filterFunc = (p) => {
-			if (p.name.includes(searchPhrase)) {
-				return true;
-			}
-			if (p.description.includes(searchPhrase)) {
-				return true;
-			}
-			return false;
-		}
-		return (!this.isNullOrZero(searchPhrase)) ?
-			this.places.filter(x => filterFunc(x)) : dataset;
 	}
 
 	// Assigns proper function to the City select box.

@@ -54,6 +54,15 @@ CITY_TABLE_MAP = {
       'name' : 'Name',
 }
 
+ALERT_TABLE_NAME = 'Alerts'
+ALERT_TABLE_VAR = 'alertTableCached'
+ALERT_TABLE_MAP = {
+    'title' : 'Title',
+    'start_date' : 'StartDate',
+    'end_date' : 'EndDate',
+    'note' : 'Notes',
+}
+
 def make_record(record_in, key_pairs):
     record_out = {}
     record_out["id"] = record_in["id"]
@@ -125,3 +134,4 @@ do_table(CATEGORY_TABLE_NAME, CATEGORY_TABLE_MAP, CATEGORY_TABLE_VAR, f)
 do_table(SUBCATEGORY_TABLE_NAME, SUBCATEGORY_TABLE_MAP, SUBCATEGORY_TABLE_VAR, f)
 do_table(CATSUBCAT_TABLE_NAME, CATSUBCAT_TABLE_MAP, CATSUBCAT_TABLE_VAR, f)
 do_table(CITY_TABLE_NAME, CITY_TABLE_MAP, CITY_TABLE_VAR, f)
+do_table(ALERT_TABLE_NAME, ALERT_TABLE_MAP, ALERT_TABLE_VAR, f)

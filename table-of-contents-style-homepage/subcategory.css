@@ -5,14 +5,11 @@ a {
 
 main {
   columns: auto;
+  flex-grow: 1;
 }
 
 header {
   margin-bottom: 0;
-}
-
-.breadcrumb {
-  width: 16.8rem;
 }
 
 option {
@@ -21,8 +18,14 @@ option {
   font-size: 1rem;
 }
 
-.search-form {
-  margin-top: 2.25rem;
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.breadcrumb {
+  width: 16.8rem;
 }
 
 .bottom-of-menu {
@@ -207,7 +210,6 @@ option {
   }
 
   header {
-    padding: 0.5rem 1.5rem;
     margin-bottom: 0.95rem;
   }
 
@@ -217,10 +219,6 @@ option {
 
   .spanish, .about {
     display: inline;
-  }
-
-  .search-form {
-    margin-top: 0;
   }
 
   body {
@@ -280,7 +278,7 @@ option {
 @media screen and (max-width: 640px) {
 
   header {
-    padding: 0.5rem 0.6rem;
+    padding: 2rem 0.6rem;
   }
 
   .bottom-of-menu {

@@ -53,6 +53,7 @@ option {
   line-height: 1.5rem;
   padding-bottom: .6rem;
   width: 50%;
+  white-space: pre-line;
 }
 
 .provider-info {
@@ -127,7 +128,6 @@ option {
   }
 
   header {
-    padding: 0.5rem 1.5rem;
     margin-bottom: 0.95rem;
   }
 
@@ -175,7 +175,7 @@ option {
 @media screen and (max-width: 640px) {
 
   header {
-    padding: 0.5rem 0.6rem;
+    padding: 2rem 0.6rem;
   }
 
   .provider-page {

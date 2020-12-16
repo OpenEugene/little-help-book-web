@@ -4,7 +4,7 @@ main {
 
 .about-container {
 	display: flex;
-	margin: 2.25rem 3.5rem 0 3.5rem;
+	margin: 0.25rem 3.5rem 0 3.5rem;
 }
 
 .left-side {
@@ -67,7 +67,7 @@ textarea {
 
 .form, .submit-button {
 	border: none;
-	padding: 1rem 0;
+	padding: 1rem 0.5rem;
 	margin-top: 0.4rem;
   margin-bottom: 1.5rem;
   width: 100%;
@@ -100,7 +100,7 @@ textarea {
 /* end desktop styles, begin responsive transition to tablet */
 
 @media screen and (max-width: 1056px) {
-	
+
   body {
     display: flex;
     flex-direction: column-reverse;
@@ -108,6 +108,7 @@ textarea {
 
   .about-container {
     flex-direction: column;
+    margin: 1.25rem 3.5rem 0 3.5rem;
   }
 
   .left-side {
@@ -118,15 +119,15 @@ textarea {
     width: 100%;
   }
 }
-  
+
 /* begin mobile styles */
-  
+
 @media screen and (max-width: 640px) {
-  
+
   .about-container {
-    margin: 1.75rem 2rem 0 2rem;
+    margin: 1.25rem 2rem 0 2rem;
   }
-  
+
   .form-buttons {
     width: 50%;
     margin-left: auto;
@@ -140,7 +141,7 @@ textarea {
   .clear {
     margin-right: 0;
   }
-  
+
   footer {
     flex-direction: column;
     align-items: center;
