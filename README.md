@@ -96,12 +96,13 @@ To switch between options, edit the `useCache` variable at the top of `src/dal.j
 
 To be able to update the static asset, first make sure you can run python:
 - Make sure you have python installed.
-- Add the requests package (run `pip install requests`).
+- You'll also need pip. To check if you have pip and for how to install: https://pip.pypa.io/en/stable/installing/ 
+- Add the requests package (`pip install requests`) 
 
 Then each time you want to update the data, run the `src/getTable.py` python script: 
 - Open a terminal. 
-- Change directory (`cd`) to the `src` folder. 
-- Run the command `./getTable.py`. 
+- Change directory (`cd`) to the `scripts` folder. 
+- Run the command `./get-table.py`. 
 
 **Technical details:** The compiled data is stored in a javascript file called `cachedInlineTables.js`. This contains one json variable for each table (Help Services, Cities, and so on). The `getTable.py` script uses http requests to pull the tables from Airtable, and then creates the `cachedInlineTables.js` file. 
 
