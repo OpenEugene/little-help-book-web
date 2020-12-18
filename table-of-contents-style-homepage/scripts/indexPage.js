@@ -45,8 +45,10 @@ function updateDom() {
     theTemplateScript = $("#alert-template").html();
     // Compile the template
     theTemplate = Handlebars.compile(theTemplateScript);
+    // Convert Markdown in note to Html before building template
+    let convertedAlerts = convertMarkdown({alerts : nbc.alertTable});
     // Pass our data to the template
-    compiledHtml = theTemplate({alerts : nbc.alertTable});
+    compiledHtml = theTemplate(convertedAlerts);
     // Add the compiled html to the page
     $('#alert-container').empty().append(compiledHtml);
 }
@@ -61,4 +63,21 @@ function crisisPopup() {
     var popup = document.getElementById("myPopup");
     popup.classList.toggle("show");
   }
-  
+
+
+// Showdown Javascript Markdown to HTML converter
+// Receives the Alert Table reference and converts the Note from Markdown to Html 
+function convertMarkdown(alertTable) {
+    // Simplify by selecting alerts from the table
+    let alerts = alertTable.alerts;
+    // Create the Showdown Converter
+    var converter = new showdown.Converter();
+    // For each note in alerts
+    for (let i = 0; i < alerts.length; i++) {
+        // Convert Markdown to HTML
+        let html = converter.makeHtml(alerts[i].note);
+        // Replace the Markdown note with the HTML Note
+        alerts[i].note = html;
+    }
+    return alertTable;
+}
