@@ -3,7 +3,7 @@ This line will find a div element with an id of "mapid" to initialize in to and
 set the starting view coordinates to Eugene, Oregon. It also sets the map data
 to a variable called "mymap".
 */
-const mymap = L.map('mapid').setView([44.0521,-123.0868], 12);
+const mymap = L.map('mapid').setView([44.0521,-123.0868], 10);
 /*
 The markers array contains objects that contain the marker (m) and the html for
 the popup (text) that appears on the marker when clicked on.
@@ -95,7 +95,7 @@ function removeMarkers() {
 }
 
 // This function is used to set the centered view of the map.
-function setView(coordArray, zoom = 12) {
+function setView(coordArray, zoom = 10) {
 	mymap.setView(coordArray, zoom);
 }
 

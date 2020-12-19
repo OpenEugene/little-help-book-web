@@ -102,6 +102,7 @@ async function initData(hasCat, hasSubcat, hasMap) {
             }
             // Show the city-category-subcategory from the query in the navigation
             document.getElementById(cityboxId).value = cityValue;
+            document.getElementById(cityboxMobId).value = cityValue;
             nbc.focused.city = cityValue;
             localStorage.setItem(localStorageNavVar.city, cityValue);
             nbc.availablePlaces = nbc.filterOnCity(nbc.places);
