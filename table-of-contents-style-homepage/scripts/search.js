@@ -81,21 +81,15 @@ function filterSearch(searchPhrase, dataset) {
     searchWords[i] = searchWords[i].trim();
   }
   let placeNotIncludes = (p, w) => {
-    return (!p.name.includes(w) && !p.description.includes(w));
+    return (!p.name.toLowerCase().includes(w.toLowerCase()) && 
+            !p.description.toLowerCase().includes(w.toLowerCase()));
   }
   // 'p' represents a place being passed into this function.
   let filterFunc = (p) => {
     for (let i = 0; i < searchWords.length; i++) {
       let w = searchWords[i];
       if (placeNotIncludes(p, w)) {
-        if (w[0] == w[0].toUpperCase()) {
-          w = w.charAt(0).toLowerCase() + w.slice(1);
-        } else {
-          w = w.charAt(0).toUpperCase() + w.slice(1);
-        }
-        if (placeNotIncludes(p, w)) {
-          return false;
-        }
+        return false;
       }
     }
     return true;
