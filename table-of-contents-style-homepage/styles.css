@@ -745,6 +745,9 @@ main {
 }
 
 .no-match-response {
+  display: flex;
+  height: 45vh;
+  align-items: center;
   line-height: 1.5;
   padding-right: 3rem;
   font-size: 1.4rem;
