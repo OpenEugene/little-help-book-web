@@ -37,7 +37,6 @@
   });
 
   searchInput.addEventListener('keydown', function(event) {
-    console.log("in keydown function");
     if (event.keyCode === 13) {
       event.preventDefault();
       searchButton.click();
@@ -82,7 +81,8 @@ function filterSearch(searchPhrase, dataset) {
   }
   let placeNotIncludes = (p, w) => {
     return (!p.name.toLowerCase().includes(w.toLowerCase()) && 
-            !p.description.toLowerCase().includes(w.toLowerCase()));
+            !p.description.toLowerCase().includes(w.toLowerCase()) &&
+            !p.address.toLowerCase().includes(w.toLowerCase()));
   }
   // 'p' represents a place being passed into this function.
   let filterFunc = (p) => {
