@@ -80,8 +80,10 @@ async function initData(hasCat, hasSubcat, hasMap) {
         initLanguage();
 
         /*
-        Look at the URL search parameters. If they exist, pull them in and use
-        them to inform the initial data on the page.
+        Look for the URL parameter 'search'. If it exists, pull it in and use
+        it to inform the initial data on the page. Otherwise, look for 
+        parameters 'city', 'category', and 'subcategory'. If none of these
+        exist, the page should load as a default version.
         */
         let urlParams = new URLSearchParams(window.location.search);
         let hasSearch = urlParams.has("search");
