@@ -26,6 +26,7 @@ async function dalGetPlaceTable() {
   switch(accessMethod) {
     case accessMethods.STATIC:
       console.log('STATIC');
+      console.log(placesTableCached);
       return placesTableCached;
     case accessMethods.AIRTABLE_JS:
       console.log('AIRTABLE_JS')
@@ -53,21 +54,29 @@ async function dalGetPlaceTable() {
           'languageHelp' : record.get('Language Help (y)')
         };
       });
-      placeTable.sort((a, b) => { compareNames(a,b); });
+      // placeTable.sort((a, b) => { compareNames(a,b); });
+      placeTable.sort((a,b) => (a.name > b.name) ? 1:-1);
       return placeTable;
     case accessMethods.SWAGGER:
       console.log('SWAGGER places')
       placeTableRaw = await dalGetTableSwagger('Place');
       console.log("placeTableRaw:", placeTableRaw);
       placeTable = placeTableRaw.map(function(record) {
+        // Pull the ids from the objects as that's all we use, and to be like the
+        // data we get using the Airtable API. 
+        const category = record.categoryList.map(record => record.id);
+        const subcategory = record.subcategoryList.map(record => record.id);
+        const catSubcat = record.catSubcatList.map(record => record.id);
+        const city = record.cityList.map(record => record.id);
         return {
           'id' : record.id,
           'name' : record.name,
           'name_es' : record.nameSpanish,
-          // 'catSubcatId' : record.CatSubcat,!!
-          // 'city' : record.city,
-          'category' : record.categoryList,
-          'subcategory' : record.subcategoryList,
+          // 'catSubcatId' : record.CatSubcat,
+          'catSubcatId' : catSubcat,
+          'city' : city,
+          'category' : category,
+          'subcategory' : subcategory,
           'phone' : record.phone,
           'address' : record.address,
           'latitude' : record.latitude,
@@ -77,18 +86,21 @@ async function dalGetPlaceTable() {
           'hours' : record.hours,
           'hours_es' : record.hoursSpanish,
           'description' : record.description,
-          // 'description_es' : record.descriptionSpanish,
-          // 'wheelchair' : record.wheelchair,
-          // 'languageHelp' : record.languageHelp
+          'description_es' : record.descriptionSpanish,
+          'wheelchair' : record.wheelchair,
+          'languageHelp' : record.languageHelp
         };
       });
       // placeTable.sort((a, b) => { compareNames(a,b); });
       placeTable.sort((a,b) => (a.name > b.name) ? 1:-1);
       console.log("placeTable:", placeTable);
-      console.log("foo", placeTable[0].id, placeTable[0].name, placeTable[0].hours_es);
-      // return placeTable;
-      // console.log("foo", placesTableCached[0].city);
-      return placesTableCached;
+      // console.log("foo", placeTable[0].id, placeTable[0].name, placeTable[0].hours_es);
+      console.log("placeTable category", placeTable[0].category[0], placeTable[0].category[0].id);
+      console.log("placesTableCached category", placesTableCached[0].category[0]);
+      console.log("placesTable city", placeTable[0].city);
+      console.log("placesTableCached city", placesTableCached[0].city);
+      return placeTable;
+      // return placesTableCached;
   }
 }
 
@@ -103,7 +115,7 @@ async function dalGetCategoryTable() {
       console.log('AIRTABLE_JS')
       categoryTableRaw = await dalGetTable('Categories', base);
       console.log('before', categoryTableRaw)
-      categoryTableRaw.sort((a, b) => { compareNamesOrig(a,b); });
+      // categoryTableRaw.sort((a, b) => { compareNamesOrig(a,b); });
       console.log('after', categoryTableRaw)
       categoryTable = categoryTableRaw.map(function(record) {
         // empty arrays come in as null, so no need to convert to []
@@ -119,7 +131,8 @@ async function dalGetCategoryTable() {
         };
       });
       console.log('before', categoryTable)
-      categoryTable.sort((a, b) => { compareNames(a,b); });
+      // categoryTable.sort((a, b) => { compareNames(a,b); });
+      categoryTable.sort((a,b) => (a.name > b.name) ? 1:-1);
       console.log('after', categoryTable)
       return categoryTable;
     case accessMethods.SWAGGER:
@@ -169,7 +182,8 @@ async function dalGetSubcategoryTable() {
           'name_es' : record.get('Name-ES'),
         };
       });
-      subcategoryTable.sort((a, b) => { compareNames(a,b); });
+      // subcategoryTable.sort((a, b) => { compareNames(a,b); });
+      subcategoryTable.sort((a,b) => (a.name > b.name) ? 1:-1);
       return subcategoryTable;
     case accessMethods.SWAGGER:
       console.log('SWAGGER subcategory')
@@ -182,13 +196,13 @@ async function dalGetSubcategoryTable() {
           'name_es' : record.nameSpanish,
         };
       });
-      subcategoryTable.sort((a, b) => { compareNames(a,b); });
+      // subcategoryTable.sort((a, b) => { compareNames(a,b); });
+      subcategoryTable.sort((a,b) => (a.name > b.name) ? 1:-1);
       console.log("subcategoryTable:", subcategoryTable)
       return subcategoryTable;
   }
 }
 
-// !!
 async function dalGetCatSubcatTable() {
   let catSubcatTable;
   let catSubcatTableRaw;
@@ -200,8 +214,8 @@ async function dalGetCatSubcatTable() {
       console.log('AIRTABLE_JS')
       catSubcatTableRaw = await dalGetTable('CatSubcats', base);
       catSubcatTable = catSubcatTableRaw.map(function(record) {
-        let catSubcatName = record.get('Name');
         let catSubcatId = record.id;
+        let catSubcatName = record.get('Name');
 
         let categoryId = record.get('Category');
         categoryId = categoryId[0];
@@ -230,12 +244,46 @@ async function dalGetCatSubcatTable() {
       return catSubcatTable;
     case accessMethods.SWAGGER:
       console.log('SWAGGER catSubcat')
+      catSubcatTableRaw = await dalGetTableSwagger('CatSubcat');
+      catSubcatTable = catSubcatTableRaw.map(function(record) {
+        let catSubcatId = record.id;
+        let catSubcatName = record.name;
+        let categoryId = record.categoryId;
+        categoryId = categoryId[0];
+
+        let subcategoryId = record.subcategoryId;
+        let subcategoryName;
+        let subcategoryNameSpanish;
+        if (subcategoryId) {
+          subcategoryId = subcategoryId[0];
+          subcategoryName = record.subcategoryString[0];
+          subcategoryNameSpanish = record.subcategoryNameSpanish[0];
+        } else {
+          subcategoryName = '';
+          subcategoryNameSpanish = '';
+        }
+        return {
+          'catSubcatId': catSubcatId,
+          'catSubcatName': catSubcatName,
+          'categoryId' : categoryId,
+          'subcategoryId' : subcategoryId,
+          'name' : subcategoryName,
+          'name_es' : subcategoryNameSpanish,
+          'places' : []
+        };
+      });
+      console.log("catSubcatTableRaw:", catSubcatTableRaw)
       console.log("catSubcatTableCached:", catSubcatTableCached)
-      return catSubcatTableCached;
+      console.log("catSubcatTable:", catSubcatTable)
+
+      console.log("catSubcatTableRaw:", catSubcatTableRaw[0])
+      console.log("catSubcatTableCached:", catSubcatTableCached[0])
+      console.log("catSubcatTable:", catSubcatTable[0])
+      // return catSubcatTableCached;
+      return catSubcatTable;
   }
 }
 
-// !!
 async function dalGetCityTable() {
   let cityTable;
   let cityTableRaw;
@@ -254,10 +302,6 @@ async function dalGetCityTable() {
       });
       return cityTable;
     case accessMethods.SWAGGER:
-      console.log('SWAGGER')
-      // subcategoryTableRaw = await dalGetTableSwagger('Subcategory');
-      // subcategoryTable = subcategoryTableRaw.map(function(record) {
-
       console.log('SWAGGER cities')
       // cityTableRaw = await dalGetTableSwagger('Cities');
       cityTableRaw = await dalGetTableSwagger('City');
@@ -355,26 +399,26 @@ function dalGetTableSwagger(tablename) {
   })
 }
 
-function compareNames(a, b) {
-  let aName = a.name.toLowerCase();
-  let bName = b.name.toLowerCase();
-  let result = 0;
-  if(aName < bName) { result = -1; }
-  else if(aName > bName) { result = 1; }
-  if (compareDebug) {
-    console.log(aName, '-', bName, result)
-  }
-  return result;
-}
+// function compareNames(a, b) {
+//   let aName = a.name.toLowerCase();
+//   let bName = b.name.toLowerCase();
+//   let result = 0;
+//   if(aName < bName) { result = -1; }
+//   else if(aName > bName) { result = 1; }
+//   if (compareDebug) {
+//     console.log(aName, '-', bName, result)
+//   }
+//   return result;
+// }
 
-function compareNamesOrig(a, b) {
-  let aName = a.get('Name').toLowerCase();
-  let bName = b.get('Name').toLowerCase();
-  let result = 0;
-  if(aName < bName) { result = -1; }
-  else if(aName > bName) { result = 1; }
-  if (compareDebug) {
-    console.log(aName, '-', bName, result)
-  }
-  return result;
-}
+// function compareNamesOrig(a, b) {
+//   let aName = a.get('Name').toLowerCase();
+//   let bName = b.get('Name').toLowerCase();
+//   let result = 0;
+//   if(aName < bName) { result = -1; }
+//   else if(aName > bName) { result = 1; }
+//   if (compareDebug) {
+//     console.log(aName, '-', bName, result)
+//   }
+//   return result;
+// }
