@@ -26,13 +26,20 @@
   });
 
   searchButton.addEventListener('click', () => {
-    let searchPhrase = document.getElementById("searchInput").value;
+    let searchPhrase = searchInput.value;
     if (onSubcatPage()) {
       nbc.availablePlaces = filterSearch(searchPhrase, nbc.places);
       nbc.focused.subcat = "Search";
       updateDom();
     } else {
       redirectToSubCat(searchPhrase);
+    }
+  });
+
+  searchInput.addEventListener('keydown', function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      searchButton.click();
     }
   });
 })()
@@ -68,13 +75,20 @@ function filterSearch(searchPhrase, dataset) {
   let charArray = ['.', ',', '-'];
   charArray.forEach(c => searchPhrase.replace(c, ' '));
   let searchWords = searchPhrase.split(' ');
+  let newWords = [];
   for (let i = 0; i < searchWords.length; i++) {
     searchWords[i] = searchWords[i].trim();
+  }
+  let placeNotIncludes = (p, w) => {
+    return (!p.name.toLowerCase().includes(w.toLowerCase()) && 
+            !p.description.toLowerCase().includes(w.toLowerCase()) &&
+            !p.address.toLowerCase().includes(w.toLowerCase()));
   }
   // 'p' represents a place being passed into this function.
   let filterFunc = (p) => {
     for (let i = 0; i < searchWords.length; i++) {
-      if (!p.name.includes(searchWords[i]) && !p.description.includes(searchWords[i])) {
+      let w = searchWords[i];
+      if (placeNotIncludes(p, w)) {
         return false;
       }
     }

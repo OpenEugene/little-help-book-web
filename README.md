@@ -31,19 +31,11 @@ We are beginning with a database of human services and a public website. When th
 
 ### Database 
 
-All the information about human and social service providers in Lane County that appears in the most recent print version of the Little Help Book is now in Airtable: https://airtable.com/tblfr7CYabx9CwzO3/viwt6rHXp8T7o8DeJ
+All the information about human and social service providers in Lane County that appears in the most recent print version of the Little Help Book is now in Airtable. In winter of 2020, volunteers working White Bird Clinic have called service providers to verify all the information about available services: https://airtable.com/tblfr7CYabx9CwzO3/viwt6rHXp8T7o8DeJ
 
 ### Website
 
-Our progressive web app is a public website that interacts with the database. The website has two unique users: social service providers and people in need. These Netlify pages are currently being connected to the database and they allow you to see the pages without downloading the repo and, in a desktop browser, the responsive transition to tablet and mobile screen sizes:
-
-Homepage: https://little-help-book.netlify.app/table-of-contents-style-homepage/index.html
-
-Category: https://little-help-book.netlify.app/table-of-contents-style-homepage/category.html
-
-Subcategory: https://little-help-book.netlify.app/table-of-contents-style-homepage/subcategory.html
-
-Provider: https://little-help-book.netlify.app/table-of-contents-style-homepage/provider.html
+Our progressive web app is a public website that interacts with the database. The website has two unique users: social service providers and people in need. You can see the work in progress hosted at Netlify, this connects to the database and allow you to see the pages without downloading the repo and, in a desktop browser, the responsive transition to tablet and mobile screen sizes: https://little-help-book.netlify.app/table-of-contents-style-homepage/index.html
 
 ### Interoperability 
 
@@ -92,14 +84,14 @@ Without the static asset, the data is accessed from Airtable everytime you go to
 
 With the static asset, you get the version of the data from the last time the compiled data was created. Pro: faster load. Con: out-of-date data. 
 
-To switch between options, edit the `useCache` variable at the top of `src/dal.js` (`true` uses cache, `false` doesn't). 
+To switch between options, edit the `useCache` variable at the top of `sripts/dal.js` (`true` uses cache, `false` doesn't). 
 
 To be able to update the static asset, first make sure you can run python:
 - Make sure you have python installed.
 - You'll also need pip. To check if you have pip and for how to install: https://pip.pypa.io/en/stable/installing/ 
 - Add the requests package (`pip install requests`) 
 
-Then each time you want to update the data, run the `src/getTable.py` python script: 
+Then each time you want to update the data, run the `sripts/getTable.py` python script: 
 - Open a terminal. 
 - Change directory (`cd`) to the `scripts` folder. 
 - Run the command `./get_table.py`. 

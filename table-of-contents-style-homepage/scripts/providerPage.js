@@ -32,6 +32,10 @@ function replaceEvents() {
     let subcatbox = document.getElementById(subcatboxId);
     subcatbox.removeEventListener("change", subcatSelectEvent);
     subcatbox.addEventListener("change", redirect);
+
+    let cityboxMob = document.getElementById(cityboxMobId);
+    cityboxMob.removeEventListener("change", citySelectEvent);
+    cityboxMob.addEventListener("change", redirect);
 }
 
 function redirect() {
