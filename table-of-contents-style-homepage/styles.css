@@ -302,13 +302,12 @@ main {
   padding: .85rem .85rem 1rem 1.15rem;
   position: absolute;
   z-index: 1;
-  bottom: -606%;
   right: 277%;
-  margin-left: -80px;
   font-family: sans-serif;
   font-weight: normal;
   font-size: 1rem;
   line-height: 2rem;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
 /* toggle this class - hide and show the popup */
@@ -745,6 +744,9 @@ main {
 }
 
 .no-match-response {
+  display: flex;
+  height: 45vh;
+  align-items: center;
   line-height: 1.5;
   padding-right: 3rem;
   font-size: 1.4rem;

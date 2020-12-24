@@ -1,7 +1,7 @@
 "use strict"
 
 const Airtable = require('airtable');
-const useCache = true
+const useCache = true;
 // Read-only key
 const apiKey = "keyMmAL4mVBSORkGc";
 // Production table
