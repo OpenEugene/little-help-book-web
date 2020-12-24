@@ -154,8 +154,9 @@ async function dalGetAlertTable() {
     return {
       'id' : record.id,
       'title' : record.get('Title'),
-      'start_date' : record.get('StartDate'),
-      'end_date' : record.get('EndDate'),
+      'displayDate' : record.get('Display Date'),
+      'startDate' : record.get('StartDate'),
+      'endDate' : record.get('EndDate'),
       'note' : record.get('Notes'),
     };
   });
