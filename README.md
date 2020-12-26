@@ -39,7 +39,7 @@ Our progressive web app is a public website that interacts with the database. Th
 
 ### Deployment
 
-With the help and guidance of MVP Studio (https://mvpstudio.org/), we have begun preparing to serve our public website to the people of Lane County.
+With the help and guidance of MVP Studio (https://mvpstudio.org/), we have begun preparing to serve our website to the people of Lane County.
 
 ### Qualitative Research
 
