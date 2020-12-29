@@ -71,7 +71,9 @@ function convertMarkdown(alertTable) {
     // Simplify by selecting alerts from the table
     let alerts = alertTable.alerts;
     // Create the Showdown Converter
-    var converter = new showdown.Converter();
+    var converter = new showdown.Converter({
+        openLinksInNewWindow: true,
+    });
     // For each note in alerts
     for (let i = 0; i < alerts.length; i++) {
         // Convert Markdown to HTML
@@ -79,5 +81,6 @@ function convertMarkdown(alertTable) {
         // Replace the Markdown note with the HTML Note
         alerts[i].note = html;
     }
+    console.log(alertTable);
     return alertTable;
 }
