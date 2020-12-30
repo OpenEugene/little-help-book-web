@@ -26,10 +26,11 @@ function redirect() {
         filepath = "/table-of-contents-style-homepage";
         host = window.location.hostname;
     }
-    filepath += "index.html"
     if (isFile) {
+        filepath += "index.html"
         window.location.replace(proto + "//" + host + filepath + params);
     } else {
+        filepath += "/index.html"
         window.location.replace(filepath + params);
     }
 }
