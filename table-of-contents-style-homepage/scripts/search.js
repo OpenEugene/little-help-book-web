@@ -66,7 +66,7 @@ function redirectToSubCat(searchPhrase) {
   if (isFile) {
     window.location.replace(proto + "//" + host + filepath + params);
   } else {
-    window.location.replace(filepath + params);
+    window.location.replace("/" + filepath + params);
   }
 }
 
