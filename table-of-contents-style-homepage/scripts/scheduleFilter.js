@@ -5,7 +5,8 @@ let servicesObjects = {
   schedule_item3: { id: 16, byday: "2TU, 4TU", opens_at: "09:30", closes_at: "12:00", bymonthday: "", valid_from: "", valid_to: "" },
   schedule_item4: { id: 21, byday: "MO, TU, WE, TH, FR, SA, SU", opens_at: "00:00", closes_at: "23:59", bymonthday: "", valid_from: "", valid_to: "" },
   schedule_item5: { id: 24, byday: "", opens_at: "09:00", closes_at: "14:00", bymonthday: "11", valid_from: "", valid_to: "" },
-  schedule_item6: { id: 157, byday: "-1MO", opens_at: "10:00", closes_at: "12:00", bymonthday: "", valid_from: "", valid_to: "" },
+  schedule_item6: { id: 157, byday: "-1SA", opens_at: "10:00", closes_at: "12:00", bymonthday: "", valid_from: "", valid_to: "" },
+  schedule_item6: { id: 1003, byday: "-1TU", opens_at: "10:00", closes_at: "12:00", bymonthday: "", valid_from: "", valid_to: "" },
   schedule_item7: { id: 158, byday: "MO, TU, WE, TH, FR", opens_at: "08:00", closes_at: "16:30", bymonthday: "", valid_from: "10/1/2020", valid_to: "5/31/2021" },
   schedule_item8: { id: 1000, byday: "MO, TU, WE, TH, FR", opens_at: "08:00", closes_at: "17:00", bymonthday: "", valid_from: "9/15/2020", valid_to: "5/31/2021" },
   schedule_item9: { id: 1001, byday: "MO, TU, WE, TH, FR", opens_at: "08:00", closes_at: "17:00", bymonthday: "", valid_from: "9/1/2020", valid_to: "5/15/2021" },
@@ -53,7 +54,7 @@ function isValidDay(schedule_item, monthDay, weekday, year, month) {
     if (!schedule_item["byday"].includes(WEEKDAYS_OBJ[weekday])) return false;
   } else if (schedule_item["byday"].search(/[0-9]/) !== -1) { // if 'byday' field days aren't every week (e.g. field contains numbers )
     // if 'byday field' doesn't contain a negative number
-    if (schedule_item["byday"].search(/[-]/) === -1) {
+    if (!schedule_item["byday"].includes("-")) {
       let bydayArray = schedule_item["byday"].split(", ");
       let validatedWeekAndDay = bydayArray.filter(element => {
         return (Number(element.substring(0, 1)) === Math.ceil(monthDay / 7) && (element.substring(1) === WEEKDAYS_OBJ[weekday]));
@@ -62,9 +63,7 @@ function isValidDay(schedule_item, monthDay, weekday, year, month) {
     } else { // if 'byday' field includes a negative number
       let bydayNegativeNum = Number.parseInt(schedule_item["byday"], 10); // e.g. -1
       let negativeWeekday = schedule_item["byday"].replace(/[0-9-]/g, ''); // e.g. "SA"
-      console.log("line 65")
-      let negativeWeekdayNum = Object.keys(WEEKDAYS_OBJ).find(key => object[key] === negativeWeekday)
-      console.log("line 67")
+      let negativeWeekdayNum = Object.keys(WEEKDAYS_OBJ).find(key => WEEKDAYS_OBJ[key] === negativeWeekday)
       let rawDateLastDayOfMonth = new Date(year, month, 0); // e.g. 2020-12-31T08:00:00.000Z ---- i.e. Dec 31
       let lastDayWeekday = rawDateLastDayOfMonth.getDay() + 1; // number (1 - 7) that can be cross-referenced with WEEKDAYS_OBJ
       let lastDayMonthDay = rawDateLastDayOfMonth.getDate(); // number representing day date of that month  (.e.g 29)
@@ -72,11 +71,16 @@ function isValidDay(schedule_item, monthDay, weekday, year, month) {
       console.log(lastDayWeekday);
       console.log(lastDayMonthDay);
 
-      if (lastDayWeekday > weekday) {  // 4 > 3
+      if (lastDayWeekday > weekday) {  // e.g. 4 > 3
         let weekdayDifference = lastDayWeekday - negativeWeekdayNum; // 4 - 3 = 1
         let result = lastDayMonthDay - weekdayDifference; // 30 - 1
         console.log(`Is ${result} === ${monthDay}??`) // 29 
         return (result === monthDay);
+      } else if (lastDayWeekday < weekday) { //  (e.g. 4 < 7)  ( wednesday < Saturday )
+        let weekdayDifference = (lastDayWeekday + 7) - negativeWeekdayNum;
+        // let result = lastDayMonthDay - weekdayDifference; // 30 - 1
+        // console.log(`Is ${result} === ${monthDay}??`) // 29 
+        // return (result === monthDay);
       }
     }
   } else if (Number(schedule_item["bymonthday"]) !== monthDay) return false; // if 'bymonthday' value doesn't match current monthDay
@@ -124,7 +128,7 @@ function test(servicesObjects, dateTimeString, WEEKDAYS_OBJ) {
       console.log(`${entry[0]} returns true ==>>> ${Object.values(entry[1])}`);
     } else console.log(`${entry[0]} returns false ==>>> ${Object.values(entry[1])}`);
   });
-  return `${WEEKDAYS_OBJ[(currentDate.getDay() + 1)]}, ${dateTimeString}`;
+  console.log(`current dateTime you inputted: ${WEEKDAYS_OBJ[(currentDate.getDay() + 1)]}, ${dateTimeString}`);
 }
 
 // run test
