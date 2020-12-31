@@ -62,11 +62,12 @@ function redirectToSubCat(searchPhrase) {
     filepath = "/table-of-contents-style-homepage";
     host = window.location.hostname;
   }
-  filepath += "subcategory.html";
   if (isFile) {
+    filepath += "subcategory.html";
     window.location.replace(proto + "//" + host + filepath + params);
   } else {
-    window.location.replace(filepath + params);
+    filepath += "/subcategory.html";
+    window.location.replace(proto + "//" + host + filepath + params);
   }
 }
 
