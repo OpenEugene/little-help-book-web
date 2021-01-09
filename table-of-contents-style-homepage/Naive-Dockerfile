@@ -1,0 +1,4 @@
+FROM nginx
+
+COPY nginx.config /etc/nginx/conf.d/default.conf
+ADD table-of-contents-style-homepage /usr/share/nginx/html
