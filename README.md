@@ -89,7 +89,7 @@ To switch between options, edit the `useCache` variable at the top of `sripts/da
 To be able to update the static asset, first make sure you can run python:
 - Make sure you have python installed.
 - You'll also need pip. To check if you have pip and for how to install: https://pip.pypa.io/en/stable/installing/ 
-- Add the requests package (`pip install requests`) 
+- Using pip, add the "requests" module: (`pip install requests`) 
 
 Then each time you want to update the data, run the `sripts/getTable.py` python script: 
 - Open a terminal. 
