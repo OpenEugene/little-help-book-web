@@ -14,7 +14,7 @@ For asynchronous communication, we're in the #proj-little-help-book channel at [
 
 #### Technologies Used
 
-HTML, CSS, JavaScript, Python (with requests package) <br>
+HTML, CSS, JavaScript, Python (and the "requests" module) <br>
 Airtable - an easy-to-use relational database <br>
 Human Services Data Specification - a format for writing and publishing data as CSVs and a JSON datapackage
 
@@ -86,17 +86,17 @@ With the static asset, you get the version of the data from the last time the co
 
 To switch between options, edit the `useCache` variable at the top of `sripts/dal.js` (`true` uses cache, `false` doesn't). 
 
-To be able to update the static asset, first make sure you can run python:
-- Make sure you have python installed.
+To be able to update the static asset, first make sure you can run Python:
+- Make sure you have Python installed.
 - You'll also need pip. To check if you have pip and for how to install: https://pip.pypa.io/en/stable/installing/ 
 - Using pip, add the "requests" module: (`pip install requests`) 
 
-Then each time you want to update the data, run the `sripts/getTable.py` python script: 
+Then each time you want to update the data, run the `sripts/getTable.py` Python script: 
 - Open a terminal. 
 - Change directory (`cd`) to the `scripts` folder. 
 - Run the command `./get_table.py`. 
 
-**Technical details:** The compiled data is stored in a javascript file called `cachedInlineTables.js`. This contains one json variable for each table (Help Services, Cities, and so on). The `getTable.py` script uses http requests to pull the tables from Airtable, and then creates the `cachedInlineTables.js` file. 
+**Technical details:** The compiled data is stored in a javascript file called `cachedInlineTables.js`. This contains one JSON variable for each table (Help Services, Cities, and so on). The `getTable.py` script uses http requests to pull the tables from Airtable, and then creates the `cachedInlineTables.js` file. 
 
 **The static data and the repo:** 
 - Let's keep `useCache` set to `true`. In other words, if you change it to `false` while doing work (probably because you want to get immediate feedback about changes to Airtable) then set it back to `true` before merging your branch into develop. 
