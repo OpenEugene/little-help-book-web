@@ -31,6 +31,7 @@ PLACE_TABLE_MAP = {
     'description_es' : 'Description-ES',
     'wheelchair' : 'Wheelchair access (y)',
     'languageHelp' : 'Language Help (y)',
+    'schedule' : 'schedule',
 }
 
 # Values related to the Category table
