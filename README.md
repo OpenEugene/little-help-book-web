@@ -35,7 +35,7 @@ All the information about human and social service providers in Lane County that
 
 ### Website
 
-Our progressive web app is a public website that interacts with the database. The website has two unique users: social service providers and people in need. You can see the work in progress hosted at Netlify, this connects to the database and allow you to see the pages without downloading the repo and, in a desktop browser, the responsive transition to tablet and mobile screen sizes: https://little-help-book.netlify.app/table-of-contents-style-homepage/index.html
+The website has two unique users: social service providers and people in need. You can see the work in progress hosted at Netlify, this connects to the database and allow you to see the pages without downloading the repo and, in a desktop browser, the responsive transition to tablet and mobile screen sizes: https://little-help-book.netlify.app/table-of-contents-style-homepage/index.html
 
 ### Deployment
 
