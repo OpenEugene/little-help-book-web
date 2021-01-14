@@ -36,10 +36,18 @@ async function dalGetPlaceTable() {
       'description' : record.get('Description'),
       'description_es' : record.get('Description-ES'),
       'wheelchair' : record.get('Wheelchair access (y)'),
-      'languageHelp' : record.get('Language Help (y)')
+      'languageHelp' : record.get('Language Help (y)'),
+      'schedule' : record.get('schedule')
     };
   });
   return placeTable;
+}
+
+async function dalGetScheduleTable() {
+  if (useCache) {
+    // console.log('CACHE');
+    return scheduleTableCached;
+  }
 }
 
 async function dalGetCategoryTable() {
