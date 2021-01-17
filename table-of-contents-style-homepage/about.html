@@ -47,7 +47,7 @@
 				<button class="header-nav-item spanish menu-button">Español</button>
 				<button class="header-nav-item about menu-button">About</button>
 				<div class="header-nav-item search">
-					<input type="image" src="images/search-24px.svg" class="search-toggle" type="search">
+					<input type="image" src="images/search-24px.svg" class="search-toggle" type="search" alt="Search" aria-label="Search">
 				</div>
 			</nav>
 		</header>
@@ -69,7 +69,7 @@
                     <div class="menu-item"><a href="map.html">MAP</a></div>
                     <div>
                         <div class="mobile-header-nav-item mobile-search">
-                            <input type="image" src="images/search-24px.svg" class="search-toggle" type="search">
+                            <input type="image" src="images/search-24px.svg" class="search-toggle" type="search" alt="Search" aria-label="Search">
                         </div>
                     </div>
                 </div>
@@ -82,13 +82,11 @@
         <div class="search-wrapper hidden" id="searchWrapper">
             <form class="search-form">
                 <div class="search-flexbox" role="search">
-                    <div class="search-text-and-button-container">
-                        <label class="search-label" for="search">Type keywords and press Search
-                            <p id="error" role="alert"></p>
-                        </label>
-                        <input class="search-button" type="button" value="Search">
-                     </div>
-                    <input id="searchInput" class="search-input" type="text">
+                	<div class="search-text-and-button-container">
+                        <label class="search-label" for="search">Type keywords and press Search</label>
+						<input id="search" class="search-button" type="button" value="Search" aria-label="Search">
+					</div>
+					 <input id="searchInput" class="search-input" type="text" aria-label="Search Input">
                 </div>
             </form>
         </div>
