@@ -10,7 +10,7 @@ If any Issue interests you and our description alone doesn't contain all you'd n
 
 Find us in the Creative Corner at the Progress Bar & Grill http://progressbarandgrill.com, Discord can be accessed in the browser or by downloading the app. The app is needed if you want to screen share. To find the Progress Bar & Grill, after you pop through that link here and click on the Discord invite link: look to the left sidebar and you'll see the circle logo with a neon sign saying Bar, click that. A screen opens with another left sidebar and that has a roll of all the channels: double-click on the Creative Corner. See you soon! 
 
-For asynchronous communication, we're in the #proj-little-help-book channel at [eugslack.com](https://eugenetech.slack.com/).
+For asynchronous communication, we're in the #proj-little-help-book channel at [eugslack.com](https://eugenetech.slack.com/channels/proj-little-help-book).
 
 #### Technologies Used
 
@@ -35,7 +35,7 @@ All the information about human and social service providers in Lane County that
 
 ### Website
 
-Our progressive web app is a public website that interacts with the database. The website has two unique users: social service providers and people in need. You can see the work in progress hosted at Netlify, this connects to the database and allow you to see the pages without downloading the repo and, in a desktop browser, the responsive transition to tablet and mobile screen sizes: https://little-help-book.netlify.app/table-of-contents-style-homepage/index.html
+The website has two unique users: social service providers and people in need. You can see the work in progress hosted at Netlify, this connects to the database and allow you to see the pages without downloading the repo and, in a desktop browser, the responsive transition to tablet and mobile screen sizes: https://little-help-book.netlify.app/table-of-contents-style-homepage/index.html
 
 ### Deployment
 
